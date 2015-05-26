@@ -1,11 +1,10 @@
 <?php
 echo "Teste Git HUb";
-<<<<<<< HEAD
+
 function escreve2()
 {
-	echo "dois";
+	echo "loucura";
 }
-=======
 
 function escreve3()
 {
@@ -14,5 +13,5 @@ function escreve3()
     echo $string; 
 }
 
->>>>>>> origin/master
+
 ?>
