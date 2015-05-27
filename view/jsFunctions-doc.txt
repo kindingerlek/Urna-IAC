@@ -1,9 +1,12 @@
+> Tela Login;
    
     * Entendesse verificar por: 
         > Verificar se o campo está em branco.
         > Verificar se é numérico ou não, conforme o contexto.
     
-    Função que escreva a máscara do campo #login-iptLogin em CPf no formato ___.___.___-__ e caso, o primeiro caracter seja "#"
+    Função que escreva a máscara através da classe .mask-cpf no formato ___.___.___-__ no campo que estiver ativo.
+    
+    Função verifica se está sendo inserido um cpf no campo #login-inpLogin e caso o primeiro caracter seja "#"
 a máscara deve ser desabilitada, pois está sendo inserido um admin_ID.
 
     Função que verifique o campo #login-iptLogin e o campo #login-iptPassword.
@@ -15,6 +18,16 @@ a máscara deve ser desabilitada, pois está sendo inserido um admin_ID.
 pertence (no caso, SC). A sequência '06' são os dígitos verificadores. O 1º dígito do DV corresponde ao DV-mód.11 do nº seqüen-
 cial (435687) e o 2º dígito do DV ao DV-mód.11 dos dígitos da UF+o 1º dígito do DV (090).
 (vide: http://bit.ly/1F8Vr7G).
+
+  Função para verificar o campo #register-zone;
+  
+  Função para verificar o campo #register-session;
+  
+  Função para fazer a máscara do campo #register-cpf, e assim que perder o foco ela deve validar o campo;
+  
+  Função para comparar se a #register-password possui, letras (Maiúsculas e Minúsculas), numeros e símbolos;
+  
+  Função para confirmar se o campo #register-cfmPassword está igual ao campo #register-password; 
 
     
 
