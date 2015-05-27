@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <title></title>
     
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/bootstrap.js"></script>
+    <script src="lib/js/masks.js"></script>
+    <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
+    
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet">    
@@ -131,7 +136,7 @@
           
           <!-- Corpo -->
           <div class="modal-body">
-            <form class="form-inline"
+            <form class="">
               <!-- Input Nome -->
               <div class="col-md-12 form-group">
                 <label>Nome:</label>
@@ -261,7 +266,7 @@
       </div>
     </footer>   
     
-    <script src="lib/js/jquery.min.js"></script>
-    <script src="lib/js/bootstrap.js"></script>
+
   </body>
+  
 </html>
