@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     
-    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
     <script src="lib/js/masks.js"></script>
     <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
@@ -16,10 +16,6 @@
   <body>
     <!--
         Dicionário de IDs, Names e Classes
-        
-        >Class
-            - mask-CPF              : Desenha a máscara de CPF;
-            
         
         >IDs e/ou Names
             - login-iptLogin        : Campo da seção 'Login' que receberá um CPF ou um AdminID.

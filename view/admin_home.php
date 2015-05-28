@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <title>Home</title>
     
+    <script src="lib/js/jquery-1.11.0.js"></script>
+    <script src="lib/js/bootstrap.js"></script>
+    
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet"> 
-      
-    <script src="lib/js/jquery-1.11.0.js"></script>
-    <script src="lib/js/bootstrap.js"></script>
-         
     </head>
   <body>
     
