@@ -7,7 +7,7 @@
 *
 * Autor: Alisson
 *
-* Data de Criação:
+* Data de Criação:28/05/2015
 * Última modificação:
 * Modificado por:
 * 
@@ -24,10 +24,31 @@
 * Valor de retorno: 
 *
 */
-function validateUser(){
+function validateUser($id, $senha){
 
+// Verifica CPF com função evalCPF();
+$isValid = evalCPF($id);
+if($isValid)
+{
+	//Se invalido mostra error do tipo 1 e sai da função
+	error(1);
+	return false;
+}
+
+//Verifica se o login existe e se a senha é correta
+$isValid = verifyId($id,$senha);
+if($isValid == 0)
+{
+	//Se invalido mostra error do tipo 2 e sai da função
+	error(2);
+	return false;
+}
+
+//Se login válido  adiciona da SESSION o tipo de Usuário logado 
+openSession($isValid);
 
 };
+
 
 
 /*
@@ -58,7 +79,7 @@ function evalCPF();
 * Título:
 *
 * Autor:Alisson
-* Data de Criação:
+* Data de Criação:28/05/2015
 *
 * Modificado por:
 * Data de Modificação:
@@ -74,11 +95,45 @@ function evalCPF();
 * Funções invocadas: @@@@@FUTURA FUNÇÃO DE IBD@@@@@, verifyPw()  
 *
 */
-function verifyId();
+function verifyId(var $id, var $senha)
+{
+//Verifica se é eleitor ou admin, ou seja verifica se existe o '#' no id
+$isAdmin = strrchr($id,'#');
 
+// Se é admin retira o # para procurar do bd
+if($isAdmin === true)  
+{
+	$id = substr($isAdmin, 1); 
+}
 
+//Busca no banco de dados o id informado
+$connection = openDb();
+$query = "SELECT *FROM USUARIOS WHERE CPF ='$id'";
+$result = mysqli_query($connection, $query);
 
+//Se der falha na busca encerra
+if (!$result)
+    {
+    	erro(4);
+    	return 0;
+    }
+//Se não houver nehum registro encerra
+if(!mysql_num_rows($result))
+	{
+		erro(3);
+		return 0;
+	}
+$resuktRow = mysql_fetch_array($result);
 
+//Compara senha com senha do BD
+if($resultRow["senha"] == $senha)   //////////////    Criptografar
+{
+	if($isAdmin)
+		return 2;
+	else
+		return 1;
+}
+}
 /*
 * Título:
 *
@@ -92,7 +147,7 @@ function verifyId();
 *
 * Entrada: $_POST["senha"] 
 *
-* Saída: Valor númerico 0 se ID inválido, 1 Id válido de eleitor e 2 Id válido de administrador
+* Saída: Valor númerico 0 se ID inválido, 1 se válido
 *
 * Valor de retorno: 0, 1 ou 2 
 *
@@ -106,23 +161,29 @@ function verifyPW();
 * Título:
 *
 * Autor:Alisson
-* Data de Criação:
+* Data de Criação:28/05/2015
 *
 * Modificado por:
 * Data de Modificação:
 * 
-* Descrição: Recebe Id, verifica se é eleitor ou admin, se o registro existe no BD e se a senha está correta 
+* Descrição:		Recebe o tipo de usuário que logou, 1 - eleitor, 2 - admin
+					Abre SESSION
+					Salva o tipo de usuario logado na SESSION
 *
-* Entrada: $_POST["id"], $_POST["senha"] 
+* Entrada: $typeUser
 *
-* Saída: Valor númerico 0 se ID inválido, 1 Id válido de eleitor e 2 Id válido de administrador
+* Saída: SESSION iniciada como o tipo de usuario logado 1 se eleitor,  2 se admin 
 *
-* Valor de retorno: 0, 1 ou 2 
+* Valor de retorno:  
 *
-* Funções invocadas: @@@@@FUTURA FUNÇÃO DE IBD@@@@@, verifyPw()  
+* Funções invocadas: Nenhuma  
 *
 */
-function openSession();
+function openSession($typeUser){
+
+	session_start();
+	$_SESSION["loggedUser"] = $typeUser;
+}
 
 
 
@@ -148,4 +209,6 @@ function openSession();
 *
 */
 function error();
+
+
 ?>
