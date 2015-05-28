@@ -1,5 +1,8 @@
 <?php
-/**/
+
+//Dependencias
+require_once('openDB.php');
+
 
 
 /*
@@ -38,11 +41,7 @@ if($isValid)
 //Verifica se o login existe e se a senha é correta
 $isValid = verifyId($id,$senha);
 if($isValid == 0)
-{
-	//Se invalido mostra error do tipo 2 e sai da função
-	error(2);
 	return false;
-}
 
 //Se login válido  adiciona da SESSION o tipo de Usuário logado 
 openSession($isValid);
@@ -52,10 +51,10 @@ openSession($isValid);
 
 
 /*
-* Título:
+* Título: Validador de CPF
 *
-* Autor:Carlos
-* Data de Criação:
+* Autor: Carlos
+* Data de Criação: 27/05/2015
 *
 * Modificado por:
 * Data de Modificação:
@@ -71,7 +70,41 @@ openSession($isValid);
 * Funções invocadas: Nenhuma
 *
 */
-function evalCPF();
+function evalCPF($CPF){
+
+	//Retira os caracteres não numéricos
+	$CPF = preg_replace('/[^0-9]/', '', $CPF);
+
+	//Verifica se a string possui 11 caracteres
+	if (strlen($CPF) != 11){
+		return 0;
+	//Verifica se alguma sequencia invalida foi digitada	
+	} else if (	$CPF == '00000000000' || 
+				$CPF == '11111111111' || 
+				$CPF == '22222222222' || 
+				$CPF == '33333333333' || 
+				$CPF == '44444444444' || 
+				$CPF == '55555555555' || 
+				$CPF == '66666666666' || 
+				$CPF == '77777777777' || 
+				$CPF == '88888888888' || 
+				$CPF == '99999999999') {
+        return 0;
+     //Verifica se o CPF é válido
+     } else {
+		for ($total = 9; $total < 11; $total++) {   
+	        $soma = 0;
+	        for ($digito = 0; $digito < $total; $digito++) {
+	            $soma += $CPF[$digito] * (($total + 1) - $digito);
+	        }
+	        $soma = ((10 * $soma) % 11) % 10;
+	        if ($CPF[$digito] != $soma) {
+	            return 0;
+	        }
+	    }
+	    return 1;
+    }
+};
 
 
 
@@ -81,8 +114,8 @@ function evalCPF();
 * Autor:Alisson
 * Data de Criação:28/05/2015
 *
-* Modificado por:
-* Data de Modificação:
+* Modificado por: Alisson
+* Data de Modificação:28/05/2015
 * 
 * Descrição: Recebe Id, verifica se é eleitor ou admin, se o registro existe no BD e se a senha está correta 
 *
@@ -92,76 +125,111 @@ function evalCPF();
 *
 * Valor de retorno: 0, 1 ou 2 
 *
-* Funções invocadas: @@@@@FUTURA FUNÇÃO DE IBD@@@@@, verifyPw()  
+* Funções invocadas: verifyPw(), error(), openBd();  
 *
 */
-function verifyId(var $id, var $senha)
+
+function verifyId($id,$senha)
 {
-//Verifica se é eleitor ou admin, ou seja verifica se existe o '#' no id
-$isAdmin = strrchr($id,'#');
+	//Verifica se é eleitor ou admin, ou seja verifica se existe o '#' no id
 
-// Se é admin retira o # para procurar do bd
-if($isAdmin === true)  
-{
-	$id = substr($isAdmin, 1); 
-}
+	$isAdmin = $id[0] == "#" ? true : false;
+	
+	$pw = md5($pw);
 
-//Busca no banco de dados o id informado
-$connection = openDb();
-$query = "SELECT *FROM USUARIOS WHERE CPF ='$id'";
-$result = mysqli_query($connection, $query);
+	//Busca no banco de dados o id informado
+	$connection = openBd();
 
-//Se der falha na busca encerra
-if (!$result)
-    {
-    	erro(4);
-    	return 0;
-    }
-//Se não houver nehum registro encerra
-if(!mysql_num_rows($result))
+	$query = $isAdmin ? "SELECT *FROM USUARIOS WHERE idAdmin ='$id'" : "SELECT *FROM USUARIOS WHERE CPF ='$id'";
+	
+	$result = mysqli_query($connection, $query);
+
+	//Se der falha na busca encerra
+	if (!$result)
+	    {
+	    	error(4);
+	    	return 0;
+	    }
+	//Se não houver nehum registro encerra
+	if(!mysqli_num_rows($result))
+		{
+			error(3);
+			return 0;
+		}
+		
+	$userReg = mysqli_fetch_array($result);
+
+	mysqli_close($connection);
+	
+	//Compara senha com senha do BD
+	if($userReg["senha"] == $senha)   
 	{
-		erro(3);
-		return 0;
-	}
-$resuktRow = mysql_fetch_array($result);
+		openSession($userReg);
 
-//Compara senha com senha do BD
-if($resultRow["senha"] == $senha)   //////////////    Criptografar
-{
-	if($isAdmin)
-		return 2;
-	else
-		return 1;
+		if($isAdmin)
+			return 2;
+		else
+			return 1;
+	}
+
+	return 0;
 }
-}
+
+
 /*
-* Título:
+* Título: Verificador de Senha
 *
 * Autor:Carlos
-* Data de Criação:
+* Data de Criação: 28/05/2015
 *
 * Modificado por:
 * Data de Modificação:
 * 
-* Descrição: REcebe senha e verifica se é compativel à cadastrada no BD
+* Descrição: Recebe senha e verifica se é compativel à cadastrada no BD
 *
-* Entrada: $_POST["senha"] 
+* Entrada: Id e Senha 
 *
 * Saída: Valor númerico 0 se ID inválido, 1 se válido
+* Saída: Valor númerico 0 se senha é incompatível e 1 se compatível
 *
-* Valor de retorno: 0, 1 ou 2 
+* Valor de retorno: 0 ou 1
 *
 * Funções invocadas: @@@@@FUTURA FUNÇÃO DE IBD@@@@@  
 *
 */
-function verifyPW();
+function verifyPW($id, $pw){
 
+	//Criptografando a senha
+	$pw = md5($pw);
+
+	//Criando conexão com o DB
+	$conn = openDB();
+
+	$sql="SELECT * FROM usuarios WHERE nome='$id'";
+
+	$result = mysqli_query($conn, $sql);
+
+	$row = mysqli_fetch_assoc($result);
+
+	mysqli_close($conn);
+		
+	//Verificando se o password é compatível
+	if ($row["password"]==$pw){
+		return 1;
+	} else {
+		return 0;
+	}
+	
+};
 
 /*
 * Título:
 *
+
 * Autor:Alisson
 * Data de Criação:28/05/2015
+* Autor: Alisson
+* Data de Criação:
 *
 * Modificado por:
 * Data de Modificação:
@@ -191,13 +259,13 @@ function openSession($typeUser){
 /*
 * Título:
 *
-* Autor:Carlos
-* Data de Criação:
+* Autor: Carlos
+* Data de Criação: 28/05/2015
 *
 * Modificado por:
 * Data de Modificação:
 * 
-* Descrição: REcebe senha e verifica se é compativel à cadastrada no BD
+* Descrição: Recebe senha e verifica se é compativel à cadastrada no BD
 *
 * Entrada: $_POST["senha"] 
 *
@@ -208,7 +276,23 @@ function openSession($typeUser){
 * Funções invocadas: @@@@@FUTURA FUNÇÃO DE IBD@@@@@  
 *
 */
+
 function error();
+function error($codigo){
 
+	//Criando conexão com o DB
+	$conn = openDB();
 
+	$sql="SELECT * FROM erros WHERE cod='$codigo'";
+
+	$result = mysqli_query($conn, $sql);
+
+	$row = mysqli_fetch_assoc($result);
+
+	mysqli_close($conn);
+		
+	//Retornando erro
+	return $row["descricao"];
+	
+};
 ?>
