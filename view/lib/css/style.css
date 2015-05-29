@@ -88,6 +88,11 @@ body {
   font-size: 50px;
 }
 
+.page-nav
+{
+  height: 20px;
+}
+
 .page-content {
   margin: 0;
   padding: 25px;
