@@ -1,9 +1,10 @@
 <?php
 
 //Chamando dependencias
-require_once('evalCPF.php');
-require_once('verifyId.php');
-require_once('openSession.php');
+require_once('eval_cpf.php');
+require_once('verify_id.php');
+require_once('open_session.php');
+
 
 /*
 * Título:
@@ -30,23 +31,22 @@ require_once('openSession.php');
 */
 function validateUser($id, $senha){
 
+if(strlen($id)==0)
+	return -1;
+
+if(strlen($senha)==0)
+	return -4;
+
 // Verifica CPF com função evalCPF() se for usuario;
 $isValid = $id[0]=='#'? true : evalCPF($id);
 
-if(!$isValid)
-{
-	//Se invalido retorna erro do tipo -1, CPF inválido e sai da função
+//Se invalido retorna erro do tipo -1, CPF inválido e sai da função
+if(!$isValid)	
 	return -1;
-}
 
 //Verifica se o login existe e se a senha é correta
-$isValid = verifyId($id,$senha);
-if($isValid < 0)
-	return $isValid;
+return verifyId($id,$senha);
 
-//Se login válido  adiciona da SESSION o tipo de Usuário logado 
-//openSession($isValid);
-
-return $isValid; // 1 se for usuario e 2 se for admin
 };
+
 ?>

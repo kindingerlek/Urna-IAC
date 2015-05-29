@@ -1,8 +1,7 @@
 <?php
 
-
-require_once('openDb.php');
-require_once('openSession.php');
+require_once('open_db.php');
+require_once('open_session.php');
 
 /*
 * Título:

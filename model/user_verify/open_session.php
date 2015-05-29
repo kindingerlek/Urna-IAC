@@ -23,10 +23,10 @@
 * Funções invocadas: Nenhuma  
 *
 */
-function openSession($typeUser, $isAdmin){
+function openSession($user, $isAdmin){
 
 	session_start();
-	$_SESSION["loggedUser"] = $typeUser;
+	$_SESSION["loggedUser"] = $user;
 	$_SESSION["loggedUSer"]["isAdmin"] = $isAdmin;
 }
 ?>
