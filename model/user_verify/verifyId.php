@@ -1,8 +1,7 @@
 <?php
 
-require_once('verifyPw.php');
+
 require_once('openDb.php');
-require_once('error.php');
 require_once('openSession.php');
 
 /*
@@ -12,7 +11,7 @@ require_once('openSession.php');
 * Data de Criação:28/05/2015
 *
 * Modificado por: Alisson
-* Data de Modificação:28/05/2015
+* Data de Modificação:29/05/2015
 * 
 * Descrição: Recebe Id, verifica se é eleitor ou admin, se o registro existe no BD e se a senha está correta 
 *
@@ -26,7 +25,7 @@ require_once('openSession.php');
 *
 */
 
-function verifyId($id,$senha)
+function verifyId($id,$pw)
 {
 	//Verifica se é eleitor ou admin, ou seja verifica se existe o '#' no id
 
@@ -35,7 +34,7 @@ function verifyId($id,$senha)
 	$pw = md5($pw);
 
 	//Busca no banco de dados o id informado
-	$connection = openBd();
+	$connection = openDB();
 
 	$query = $isAdmin ? "SELECT *FROM USUARIOS WHERE idAdmin ='$id'" : "SELECT *FROM USUARIOS WHERE CPF ='$id'";
 	
@@ -44,14 +43,12 @@ function verifyId($id,$senha)
 	//Se der falha na busca encerra
 	if (!$result)
 	    {
-	    	error(4);
-	    	return 0;
+	    	return -3;
 	    }
 	//Se não houver nehum registro encerra
 	if(!mysqli_num_rows($result))
 		{
-			error(3);
-			return 0;
+			return -2;
 		}
 		
 	$userReg = mysqli_fetch_array($result);
@@ -59,9 +56,9 @@ function verifyId($id,$senha)
 	mysqli_close($connection);
 	
 	//Compara senha com senha do BD
-	if($userReg["senha"] == $senha)   
+	if($userReg["senha"] == $pw)   
 	{
-		openSession($userReg);
+		openSession($userReg, $isAdmin);
 
 		if($isAdmin)
 			return 2;
@@ -69,6 +66,6 @@ function verifyId($id,$senha)
 			return 1;
 	}
 
-	return 0;
+	return -4;
 }
 ?>
