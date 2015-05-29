@@ -262,7 +262,7 @@
       
       <!-- Rodapé da página -->
       <footer class="footer">
-        <div class="container middle">
+        <div class="container">
           <p class="text-muted">
             Desenvolvido por:</br>
             Alisson Krul,<wbr> Bruno Henrique,<wbr> Carlos Augusto Grispan e <wbr>Lucas Ernesto Kindinger.</br>
