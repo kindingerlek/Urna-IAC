@@ -30,18 +30,11 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->  
-      <div class="page-header">
-          <img src="../resources/images/votebem-logo.png" id="header-logo"/>
-          <h1>Vote Bem</h1>
-          <small>Um simulador de votação brasileira</small>
-      </div>
+      <?php include "page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content">
-        <div class="col-lg-12">
-          <h1 class="text-center">Gerenciar Eleitores</h1>
-          <br>
-        </div>
+        
       
         <form class="" id="form-search">
           <div class="row">
@@ -97,15 +90,7 @@
     </div>
     
     <!-- Rodapé da página -->
-    <footer class="footer">
-      <div class="container middle">
-        <p class="text-muted">
-          Desenvolvido por:</br>
-          Alisson Krul, Bruno Henrique, Carlos Augusto Grispan e Lucas Ernesto Kindinger.</br>
-          Tecnologia em Análise e Desenvolvimento de Sistemas - Universidade Federal do Paraná.
-        </p>
-      </div>
-    </footer>   
+    <?php include "page_footer.php" ?>  
     
     <!-- Fim do corpo da Página -->
     </div>

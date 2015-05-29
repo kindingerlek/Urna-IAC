@@ -25,7 +25,7 @@ function error($codigo){
 	//Criando conexão com o DB
 	$conn = openDB();
 
-	$sql="SELECT * FROM erros WHERE cod='$codigo'";
+	$sql="SELECT * FROM erros WHERE cod = '$codigo'";
 
 	$result = mysqli_query($conn, $sql);
 
@@ -35,7 +35,7 @@ function error($codigo){
 		
 	//Retornando erro
 	return $row["descricao"];
+	echo $row["descricao"];
 	
 };
-?>
 ?>
