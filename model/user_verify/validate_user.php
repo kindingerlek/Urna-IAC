@@ -3,7 +3,7 @@
 //Chamando dependencias
 require_once('eval_cpf.php');
 require_once('verify_id.php');
-require_once('open_session.php');
+require_once('../open_session/open_session.php');
 
 
 /*

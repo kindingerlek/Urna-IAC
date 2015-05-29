@@ -15,7 +15,7 @@
 */
 
 // Dependências
-require_once('../model/user_verify/validateUser.php');
+require_once('../model/user_verify/validate_user.php');
 require_once('../model/error/error.php');
 
 $id = $_POST["login-user"];

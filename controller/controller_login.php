@@ -25,14 +25,15 @@ $return = validateUser($id,$pw);
 
 switch($return){
 	case 1:
-		echo "header('Location: view_urna.php');";
+		echo "header('Location: ../view/view_urna.php');";
 		break;
 	case 2:
-		echo "header('Location: view_admin.php');";
+		echo "header('Location: ../view/view_admin.php');";
 		break;
 	default:
 		$description = error($return);
-		echo "$('#resultado').html('$description');";
+		echo "$('#login-errorop').append(
+			 <span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>'$desciption');";
 }
 
 ?>
