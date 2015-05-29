@@ -96,8 +96,12 @@
     </div>
   </body>
   <script type="text/javascript">
-      $(document).ready(function(){
-        $('.combobox').combobox();
-      });
+    var pageTitle = $(document).find("title").text();
+      
+    $("#page-title").text(pageTitle);
+    
+    $(document).ready(function(){
+      $('.combobox').combobox();
+    });
   </script>
 </html>    

@@ -35,11 +35,7 @@
             
       <!-- Conteúdo da página -->
       <div class="page-content">
-        <div class="col-lg-12">
-          <h1 class="text-center">Gerenciar Partidos</h1>
-          <br>
-        </div>
-        
+    
         <form class="" id="form-search">
           <div class="row">
             <div class="form-group col-lg-3">
@@ -96,8 +92,14 @@
     </div>     
   </body>
   <script type="text/javascript">
+    var pageTitle = $(document).find("title").text();
+      
+      $("#page-title").text(pageTitle);
       $(document).ready(function(){
         $('.combobox').combobox();
+        
       });
+      
+      
     </script>
 </html>    
