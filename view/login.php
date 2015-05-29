@@ -18,8 +18,8 @@
         Dicionário de IDs, Names e Classes
         
         >IDs e/ou Names
-            - login-iptLogin        : Campo da seção 'Login' que receberá um CPF ou um AdminID.
-            - login-iptPassword     : Campo da seção 'Login' que receberá a senha do usuário;
+            - login-user            : Campo da seção 'Login' que receberá um CPF ou um AdminID.
+            - login-password        : Campo da seção 'Login' que receberá a senha do usuário;
             - popup-pwRecover       : Identificação da seção 'Recuperar Senha'
             - popup-newUser         : Identificação da seção 'Novo Usuário'
             
@@ -45,13 +45,9 @@
     <!-- Página -->      
     <div class="page">
       
-      <!-- Cabeçalho da página -->  
-      <div class="page-header">
-          <img src="../resources/images/votebem-logo.png" id="header-logo"/>
-          <h1>Vote Bem</h1>
-          <small>Um simulador de votação brasileira</small>
-      </div>
-            
+      <!-- Cabeçalho da página -->
+      <?php include "page_header_big.php" ?>
+      
       <!-- Conteúdo da página -->
       <div class="page-content">
         <form id="form-login"  action="#">
@@ -59,13 +55,13 @@
           <!-- Input LOGIN -->
           <div class="form-group">
             <label>CPF:</label>
-            <input type="text" class="form-control" id="login-iptLogin" name="login-iptLogin" placeholder="Digite aqui seu CPF">
+            <input type="text" class="form-control" id="login-user" name="login-user" placeholder="Digite aqui seu CPF">
           </div>
           
           <!-- Input Senha -->
           <div class="form-group">
             <label for="exampleInputPassword3">Senha:</label>
-            <input type="password" class="form-control" id="login-iptPassword" name="login-iptPassword" placeholder="Digite aqui sua senha">
+            <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Digite aqui sua senha">
           </div>
           
           <!-- Links -->
@@ -258,22 +254,12 @@
           </div>
         </div>
       </div>
-      
-      
-      <!-- Rodapé da página -->
-      <footer class="footer">
-        <div class="container">
-          <p class="text-muted">
-            Desenvolvido por:</br>
-            Alisson Krul,<wbr> Bruno Henrique,<wbr> Carlos Augusto Grispan e <wbr>Lucas Ernesto Kindinger.</br>
-            Tecnologia em <wbr>Análise e Desenvolvimento <wbr>de Sistemas<wbr> - <wbr>Universidade Federal do Paraná.
-          </p>
-        </div>
-      </footer>   
+             
+    <!-- Rodapé da página -->
+    <?php include "page_footer.php" ?>
     
     <!-- Fim da página -->
     </div>
-
   </body>
   
   <script type="text/javascript">
