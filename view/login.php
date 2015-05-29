@@ -6,7 +6,8 @@
     
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
-    <script src="lib/js/masks.js"></script>
+    <script src="lib/js/model_login.js"></script>  
+    <script src="lib/js/controller_login.js"></script>
     <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
     
     <!-- Bootstrap core CSS -->
@@ -57,7 +58,7 @@
         <form id="form-login"  action="#">
           
           <!-- Input LOGIN -->
-          <div class="form-group">
+          <div class="form-group" id="errorLogin">
             <label>CPF:</label>
             <input type="text" class="form-control" id="login-iptLogin" name="login-iptLogin" placeholder="Digite aqui seu CPF">
           </div>
