@@ -65,6 +65,12 @@
             <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Digite aqui sua senha">
           </div>
           
+          <!-- Div de Erro -->
+          <div id="login-error" class="alert alert-danger" role="alert" style="display: none">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Enter a valid email address
+          </div>
+          
           <!-- Links -->
           <p class="text-right">
             <a href="#" data-toggle="modal" data-target="#popup-pwRecover">Esqueci minha senha.</a></br>
