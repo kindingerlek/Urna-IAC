@@ -51,7 +51,7 @@
       
       <!-- Conteúdo da página -->
       <div class="page-content">
-        <form id="form-login"  action="#">
+        <form id="form-login"  action="../controller/controller_login.php">
           
           <!-- Input LOGIN -->
           <div class="form-group" id="errorLogin">
@@ -72,7 +72,7 @@
           </p>
           
           <!-- Submit -->
-          <button type="submit" class="btn btn-primary btn-block">
+          <button type="submit" id="login-submit" class="btn btn-primary btn-block">
             <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  LOGIN
           </button>
         </form>

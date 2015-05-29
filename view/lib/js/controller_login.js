@@ -6,7 +6,26 @@ $(function(){
 });
 
 
-/
+$(function(){
+      
+      $("#form-login").submit(function(){
+      			
+            $.ajax({
+                  dataType: 'script',
+                  data: $("#form").serialize(),
+                  //data: { 'login-user': $("#login-user").val(), 'login-password': $("#login-password").val() },
+                  type: 'POST',
+                  url: '../../../controller/controller_login.php',
+                  success: function(result)
+                        {
+                              alert('oi1');
+                        }
+      
+            });
+            return false;
+      });
+});              
+                  
 jQuery(function($){
        $("#register-cpf").mask("999.999.999-99");
       });
