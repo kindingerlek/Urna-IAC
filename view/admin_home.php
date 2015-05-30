@@ -21,10 +21,9 @@
             
       <!-- Conteúdo da página -->
       <div class="page-content">
-        <h1>Administrador</h1>
-        <a class="btn btn-default btn-lg btn-block" href="#" role="button" > Gerenciar Eleitores</a>
-        <a class="btn btn-default btn-lg btn-block" href="#" role="button" > Gerenciar Partidos</a>
-        <a class="btn btn-default btn-lg btn-block" href="#" role="button" > Gerenciar Eleições</a>  
+        <a class="btn btn-default btn-lg btn-block" href="admin_manager_voter.php" role="button" > Gerenciar Eleitores</a>
+        <a class="btn btn-default btn-lg btn-block" href="admin_manager_party.php" role="button" > Gerenciar Partidos</a>
+        <a class="btn btn-default btn-lg btn-block" href="admin_manager_election.php" role="button" > Gerenciar Eleições</a>  
       </div>
     
       <!-- Rodapé da página -->
@@ -32,5 +31,11 @@
       
     <!-- Fim do corpo da página -->
     </div>
+    
+    <script>
+      var pageTitle = $(document).find("title").text();
+      
+      $("#page-title").text(pageTitle);
+    </script>
   </body>
 </html>    

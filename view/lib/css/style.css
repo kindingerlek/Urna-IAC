@@ -36,7 +36,7 @@ body {
   box-shadow: 0px 0px 20px #888888;
 }
 
-.page-header{
+.page-header-big {
   margin: 0;
   padding: 0;
   
@@ -46,7 +46,7 @@ body {
   background: #F0F0F2;
 }
 
-.page-header h1
+.page-header-big h1
 {
   margin: 0;
   padding: 0;
@@ -86,11 +86,6 @@ body {
   display:table-cell; 
   
   font-size: 50px;
-}
-
-.page-nav
-{
-  height: 20px;
 }
 
 .page-content {

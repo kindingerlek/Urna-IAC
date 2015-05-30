@@ -69,7 +69,7 @@ function chooseMask(){
             });
             
             //Cria máscara para Admin
-            $("#login-user").keydown(function(e){
+            $("#login-user").one("keyup",function(e){
                   if(e.which == 51) {
                         $("#login-user").mask("~NNNNNN", {placeholder: ""});
                   }

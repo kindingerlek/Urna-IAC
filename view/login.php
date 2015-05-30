@@ -83,6 +83,7 @@
           
       </div>
       
+
       
       <!-- Recuperação da Senha -->
       <div class="modal fade" id="popup-pwRecover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -256,7 +257,9 @@
           </div>
         </div>
       </div>
-             
+      <?php include "recover_password.php" ?>         
+      <?php include "register_new_user.php" ?>
+
     <!-- Rodapé da página -->
     <?php include "page_footer.php" ?>
     
