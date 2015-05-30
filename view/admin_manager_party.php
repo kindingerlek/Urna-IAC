@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
     <meta charset="utf-8">
-    <title>Gerenciar Eleitores</title>
+    <title>Gerenciar Partidos</title>
     
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
@@ -26,6 +26,7 @@
             - table-body            : Corpo da tabela para insersão dinâmica
           
     
+    
     <!-- Página -->      
     <div class="page">
       
@@ -34,15 +35,13 @@
             
       <!-- Conteúdo da página -->
       <div class="page-content">
-        
-      
+    
         <form class="" id="form-search">
           <div class="row">
             <div class="form-group col-lg-3">
               <select class="input-large form-control" id="search-combobox">
-                <option value="">Nome</option>
-                <option value="">Título</option>
-                <option value="">CPF</option>
+                <option value="">Sigla</option>
+                <option value="">Número</option>
               </select>  
             </div>
                   
@@ -53,22 +52,19 @@
                       
             <div class="col-lg-3">
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Partidos
               </button>
             </div>
           </div>
         </form>
-      
+        
         <table class="table table-striped table-hover" id="table">
           <thead>
             <tr>
               <td class="col-md-1">#</td>
-              <td class="col-md-4">Nome:</td>
-              <td class="col-md-2">Título:</td>
-              <td class="col-md-2">CPF:</td>
-              <td class="col-md-1">Zona:</td>
-              <td class="col-md-1">Sessão:</td>
-              <td class="col-md-1">Ações:</td>
+              <td class="col-md-7">Nome:</td>
+              <td class="col-md-2">Sigla:</td>
+              <td class="col-md-2">Número</td>
             </tr>
           </thead>
           
@@ -76,7 +72,7 @@
             
           </tbody>
         </table>
-      
+        
         <div style="display:none">
           <button type="button" class="btn btn-default" aria-label="Editar">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -86,22 +82,24 @@
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
         </div>
+        
+      </div>
       
-    </div>
-    
-    <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>  
-    
-    <!-- Fim do corpo da Página -->
-    </div>
+      <!-- Rodapé da página -->
+      <?php include "page_footer.php" ?>
+      
+    <!-- Fim do corpo da página -->
+    </div>     
   </body>
   <script type="text/javascript">
     var pageTitle = $(document).find("title").text();
       
-    $("#page-title").text(pageTitle);
-    
-    $(document).ready(function(){
-      $('.combobox').combobox();
-    });
-  </script>
+      $("#page-title").text(pageTitle);
+      $(document).ready(function(){
+        $('.combobox').combobox();
+        
+      });
+      
+      
+    </script>
 </html>    
