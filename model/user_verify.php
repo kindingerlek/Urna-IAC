@@ -222,10 +222,10 @@ function verifyPW($id, $pw){
 	
 };
 
+
 /*
 * Título:
 *
-
 * Autor:Alisson
 * Data de Criação:28/05/2015
 * Autor: Alisson
@@ -234,9 +234,9 @@ function verifyPW($id, $pw){
 * Modificado por:
 * Data de Modificação:
 * 
-* Descrição:		Recebe o tipo de usuário que logou, 1 - eleitor, 2 - admin
-					Abre SESSION
-					Salva o tipo de usuario logado na SESSION
+* Descrição:	Recebe o tipo de usuário que logou, 1 - eleitor, 2 - admin
+*				Abre SESSION
+*				Salva o tipo de usuario logado na SESSION
 *
 * Entrada: $typeUser
 *
