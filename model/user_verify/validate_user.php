@@ -2,8 +2,9 @@
 
 //Chamando dependencias
 require_once('eval_cpf.php');
+require_once('c://wamp/www/Urna-IAC/model/open_session/open_session.php');
 require_once('verify_id.php');
-require_once('../open_session/open_session.php');
+
 
 
 /*
@@ -38,7 +39,16 @@ if(strlen($senha)==0)
 	return -4;
 
 // Verifica CPF com função evalCPF() se for usuario;
-$isValid = $id[0]=='#'? true : evalCPF($id);
+if($id[0]=='#')
+{
+	$isValid = true;
+}
+else{
+
+	$id = preg_replace('/[^0-9]/', '', $id);
+	$isValid = evalCPF($id);
+}
+
 
 //Se invalido retorna erro do tipo -1, CPF inválido e sai da função
 if(!$isValid)	

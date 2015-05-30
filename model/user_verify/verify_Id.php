@@ -1,7 +1,7 @@
 <?php
 
-require_once('../open_db/open_db.php');
-require_once('../open_session/open_session.php');
+require_once("c:wamp/www/Urna-IAC/model/open_db/open_db.php");
+require_once('c:wamp/www/Urna-IAC/model/open_session/open_session.php');
 
 /*
 * Título:
@@ -31,7 +31,6 @@ function verifyId($id,$pw)
 	$isAdmin = $id[0] == "#" ? true : false;
 	
 	$pw = md5($pw);
-
 	//Busca no banco de dados o id informado
 	$connection = openDB();
 

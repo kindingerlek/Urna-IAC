@@ -6,19 +6,22 @@ $(function(){
 });
 
 
-$(function(){
+$(function()
+{
       
-      $("#form-login").submit(function(){
+      $("#form-login").submit(function()
+      {
       			
-            $.ajax({
+            $.ajax(
+            {
                   dataType: 'script',
-                  data: $("#form").serialize(),
+                  data: $("#form-login").serialize(),
                   //data: { 'login-user': $("#login-user").val(), 'login-password': $("#login-password").val() },
                   type: 'POST',
-                  url: '../../../controller/controller_login.php',
+                  url: '../controller/controller_login.php',
                   success: function(result)
                         {
-                              alert('oi1');
+                             // alert('oi1');
                         }
       
             });

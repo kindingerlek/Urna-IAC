@@ -51,7 +51,7 @@
       
       <!-- Conteúdo da página -->
       <div class="page-content">
-        <form id="form-login"  action="../controller/controller_login.php">
+        <form id="form-login" method="POST" action="#">
           
           <!-- Input LOGIN -->
           <div class="form-group" id="errorLogin">
@@ -67,8 +67,6 @@
           
           <!-- Div de Erro -->
           <div id="login-error" class="alert alert-danger" role="alert" style="display: none">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            Enter a valid email address
           </div>
           
           <!-- Links -->
@@ -117,7 +115,6 @@
                       <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar código para o E-MAIL
                     </button>
                   </div>
-                  &nbsp
               </form>
             </div>
             
@@ -249,8 +246,6 @@
                 </div>
                 
               </form>
-              
-              &nbsp
             </div>
                       
             <!-- Rodapé -->
