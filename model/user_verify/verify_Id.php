@@ -31,6 +31,7 @@ function verifyId($id,$pw)
 	$isAdmin = $id[0] == "#" ? true : false;
 	
 	$pw = md5($pw);
+	
 	//Busca no banco de dados o id informado
 	$connection = openDB();
 
