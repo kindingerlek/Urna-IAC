@@ -37,9 +37,11 @@
       <div class="page-content">
     
         <form class="" id="form-search">
+          
           <div class="row">
             <div class="form-group col-lg-3">
               <select class="input-large form-control" id="search-combobox">
+                <option value="">Nome</option>
                 <option value="">Sigla</option>
                 <option value="">Número</option>
               </select>  
@@ -51,6 +53,10 @@
             </div>
                       
             <div class="col-lg-3">
+              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newPartity">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo partido
+              </button>
+              
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Partidos
               </button>
@@ -72,6 +78,8 @@
             
           </tbody>
         </table>
+        
+        <?php include "register_party.php"?>
         
         <div style="display:none">
           <button type="button" class="btn btn-default" aria-label="Editar">
@@ -99,6 +107,17 @@
         $('.combobox').combobox();
         
       });
+      
+      $("#register-logoInput").change(
+        function()
+        {
+          var tmppath = URL.createObjectURL(event.target.files[0]);          
+          if(tmppath)
+            $("#register-logoImage").fadeIn("500").attr('src',tmppath);
+          else          
+            $("#register-logoImage").fadeIn("500").attr('src',"../resources/images/noimage.png")
+        }        
+      );
       
       
     </script>
