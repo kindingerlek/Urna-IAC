@@ -8,12 +8,17 @@ $(function(){
 $(function()
 {      
       $("#form-login").submit(function(){
-            
+           
+           //Se campos vazios, para o .submit 
            if (verifyFields() == 0){
-                 return;  
+                 return false;  
            }
-            evalCPF($("#login-user").val());
-            alert("oi");           
+           
+           //Se CPF invalido, para o .submit
+            if (!evalCPF($("#login-user").val())) {
+                  return false;
+            }
+            
       			
             $.ajax(
             {
