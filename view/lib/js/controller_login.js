@@ -1,7 +1,6 @@
 /* global $ */
 /* global jQuery */
 $(function(){
-      verifyFields(); //Função que verifica o campo
       chooseMask();  //Função que define a máscara do campo
 });
 
@@ -9,6 +8,10 @@ $(function(){
 $(function(){
       
       $("#form-login").submit(function(){
+            
+            verifyFields();
+            evalCPF($("#login-user").val());
+            alert("oi");
       			
             $.ajax({
                   dataType: 'script',

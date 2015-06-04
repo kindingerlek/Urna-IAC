@@ -1,7 +1,7 @@
 /**
 * Título: verifyFields
 * 
-* Autor: Bruno Henrique Pereira Braga
+* Autor: Bruno
 *
 * Data de Criação: 29/05/2015 
 * Última modificação:
@@ -10,34 +10,28 @@
 * Descrição: (Verifica se os campos estão nulos)
 *
 **/
-function verifyFields(){
-      
-      $("#login-user").blur(function(){
+function verifyFields(){      
             
             var user = $("#login-user").val();
-            
-            if(user == "" || user == "___.___.___-__"){
-                  alert("Não deixe campos nulos.");
-            }
-                        
-      });
-      
-      $("#login-password").blur(function(){
-            
             var password = $("#login-password").val();
             
-            if(password == ""){
-                  alert("Não deixe campos nulos.");
-            }
-            
-      });
-      
+            if(user == "" || user == "___.___.___-__"){
+                  $("#login-error").html("<span class=\"glyphicon glyphicon-exclamation-sign\""+"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>");
+                  $("#login-error").append("Não deixe o campo em branco.");
+                  $("#login-error").show();
+                  return;
+            } else if(password == ""){
+                  $("#login-error").html("<span class=\"glyphicon glyphicon-exclamation-sign\""+"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>");
+                  $("#login-error").append("Não deixe o campo em branco.");
+                  $("#login-error").show();
+                  return;
+          }    
 };
 
 /**
 * Título: chooseMask
 * 
-* Autor: Bruno Henrique Pereira Braga
+* Autor: Bruno
 *
 * Data de Criação: 29/05/2015 
 * Última modificação:
@@ -52,29 +46,29 @@ function chooseMask(){
             
             //Define um padrão para máscara      
             $.mask.definitions['~']='[#0-9]';
-            $.mask.definitions['N']='[Az0-9]';
+            $.mask.definitions['N']='[AZaz0-9]';
             
             //Cria uma máscara para escolher o modo de entrada
             var user = $("#login-user").val();
-            
+
             if(user == ""){
                   $("#login-user").mask("~", {placeholder: ""});
-            };
+            }
+            
+            $("login-user").keyup(function(){
+                   if(user == ""){
+                        $("#login-user").mask("~", {placeholder: ""});
+                   }      
+            })
             
             //Cria máscara para CPF
-            $("#login-user").one("keydown",function(e){
-                  if(e.which != 51) {
+            $("#login-user").one("keypress",function(e){
+                  if(e.which != 35) {
                         $("#login-user").mask("999.999.999-99");
-                  }
-            });
-            
-            //Cria máscara para Admin
-            $("#login-user").one("keyup",function(e){
-                  if(e.which == 51) {
-                        $("#login-user").mask("~NNNNNN", {placeholder: ""});
-                  }
-            });
-              
+                  } else { //Cria máscara para Admin
+                        $("#login-user").mask("#NNNNNN", {placeholder: ""});
+                  }                 
+            });            
       });
 };
 
@@ -107,6 +101,7 @@ function evalCPF(CPF){
 	//Verifica se a string possui 11 caracteres
 	if (CPF.length != 11){
 		return false;
+            alert("laga");
 	//Verifica se alguma sequencia invalida foi digitada	
 	} else if (	CPF == '00000000000' || 
 				CPF == '11111111111' || 
@@ -119,6 +114,7 @@ function evalCPF(CPF){
 				CPF == '88888888888' || 
 				CPF == '99999999999') {
         return false;
+        alert("galse");
      //Verifica se o CPF é válido
      } else {
 		for (total = 9; total < 11; total++) {   
@@ -129,9 +125,11 @@ function evalCPF(CPF){
 	        add = ((10 * add) % 11) % 10;
 	        if (CPF[digit] != add) {
 	            return false;
+                  alert("false");
 	        }
 	    }
-	    return true;
+//	    return true;
     }
 };
+
 
