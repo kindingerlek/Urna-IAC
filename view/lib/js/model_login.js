@@ -10,23 +10,18 @@
 * Descrição: (Verifica se os campos estão nulos)
 *
 **/
-
-
-//Esta tag é um ícone de exclamação -> "!"
-var exclamationIcon = "<span class=\"glyphicon glyphicon-exclamation-sign\"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>"; 
-
 function verifyFields(){      
             
             var user = $("#login-user").val();
             var password = $("#login-password").val();
             
             if(user == "" || user == "___.___.___-__"){
-                  $("#login-error").html(exclamationIcon);
+                  $("#login-error").html("<span class=\"glyphicon glyphicon-exclamation-sign\""+"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>");
                   $("#login-error").append("Não deixe o campo em branco.");
                   $("#login-error").show();
                   return 0;
             } else if(password == ""){
-                  $("#login-error").html(exclamationIcon);  
+                  $("#login-error").html("<span class=\"glyphicon glyphicon-exclamation-sign\""+"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>");
                   $("#login-error").append("Não deixe o campo em branco.");
                   $("#login-error").show();
                   return 0;
@@ -55,42 +50,80 @@ function chooseMask(){
             $.mask.definitions['N']='[AZaz0-9]';
                         
             var user = $("#login-user").val();
-
-            $("#login-user").bind('keyup',function(){
             
-                  user = $("#login-user").val();
-                  
-                  if(user == "" || user == "___.___.___-__"){
-                        
-                        $("#login-user").mask("~", {placeholder: ""});
-                        
-                        $("#login-user").one("keypress",function(e){
-                              
-                              //Cria máscara para CPF
-                              if(e.which != 35) {
-                                    $("#login-user").mask("999.999.999-99");
-                                    $("#login-user").val() = user;
-                                    
-                              } else if(e.which == 35) { //Cria máscara para Admin
-                                    $("#login-user").mask("~NNNNNN", {placeholder: ""});
-                                    $("#login-user").val() = user;
-                              }                 
-                        });
-                  }
-            });
             
-            //Cria máscara para CPF
-            $("#login-user").one("keypress",function(e){
-                  if(e.which != 35) {
-                        $("#login-user").mask("999.999.999-99");
-                  } else { //Cria máscara para Admin
-                        $("#login-user").mask("~NNNNNN", {placeholder: ""});
-                        $("#login-user") = user;
-                  }                 
-            });    
+            
+      }
+            
+//            $("#login-user").bind('keypress',function(){
+//                       
+//                  user = $("#login-user").val();
+//                  
+//                  if(user == "" || user == "___.___.___-__"){
+//                        
+//                        $("#login-user").mask("~", {placeholder: ""});
+//                        
+//                        $("#login-user").one("keypress",function(e){
+//                              
+//                              if(e.which != 35) {
+//                                    $("#login-user").mask("999.999.999-99");
+//                                    
+//                              } else if(e.which == 35) { //Cria máscara para Admin
+//                                    $("#login-user").mask("~NNNNNN", {placeholder: ""});
+//                                    $("#login-user").val() = user;
+//                              }                 
+//                        });
+//                  }
+//            });
+//            
+//            $("#login-user").one("keypress",function(e){
+//                  if(e.which != 35) {
+//                        $("#login-user").mask("999.999.999-99");
+//                  } else { //Cria máscara para Admin
+//                        $("#login-user").mask("~NNNNNN", {placeholder: ""});
+//                        $("#login-user") = user;
+//                  }                 
+//            });
+//            
+//            if(user[0]== "#")
+//            {
+//                  $("#login-user").mask("#NNNNNN", {placeholder: ""});
+//                  $("#login-user") = user;
+//            }
+//            else
+//            {
+//                  $("#login-user").mask("999.999.999-99");
+//                  $("#login-user") = user;
+//            }
+                        
       });      
 }            
-         
+            
+            
+            
+//            //Cria uma máscara para escolher o modo de entrada
+//            var user = $("#login-user").val();
+//
+//            if(user == ""){
+//                  $("#login-user").mask("~", {placeholder: ""});
+//            }
+//            
+//            $("login-user").keyup(function(){
+//                   if(user == ""){
+//                        $("#login-user").mask("~", {placeholder: ""});
+//                   }      
+//            })
+//            
+//            //Cria máscara para CPF
+//            $("#login-user").one("keypress",function(e){
+//                  if(e.which != 35) {
+//                        $("#login-user").mask("999.999.999-99");
+//                  } else { //Cria máscara para Admin
+//                        $("#login-user").mask("#NNNNNN", {placeholder: ""});
+//                  }                 
+//            });            
+//      });
+//};
 
 
 /*
@@ -100,7 +133,7 @@ function chooseMask(){
 * Data de Criação: 27/05/2015
 *
 * Modificado por: Bruno
-* Data de Modificação: 04/06/2015
+* Data de Modificação: 29/05/2015
 * 
 * Descrição: Verifica se um CPF é válido
 *
@@ -114,17 +147,14 @@ function chooseMask(){
 *
 */
 function evalCPF(CPF){
-      
+
 	//Retira os caracteres não numéricos
-      CPF = CPF.replace(/[.-]/g,'');
-      
+	CPF = CPF.replace('/[^0-9]/', '');
+
 	//Verifica se a string possui 11 caracteres
 	if (CPF.length != 11){
-            $("#login-error").html(exclamationIcon);
-            $("#login-error").append("CPF invalido");
-            $("#login-error").show();
 		return false;
-            
+            alert("laga");
 	//Verifica se alguma sequencia invalida foi digitada	
 	} else if (	CPF == '00000000000' || 
 				CPF == '11111111111' || 
@@ -136,27 +166,22 @@ function evalCPF(CPF){
 				CPF == '77777777777' || 
 				CPF == '88888888888' || 
 				CPF == '99999999999') {
-            $("#login-error").html(exclamationIcon);
-            $("#login-error").append("CPF invalido");
-            $("#login-error").show();
-            return false;
-        
+        return false;
+        alert("galse");
      //Verifica se o CPF é válido
      } else {
 		for (total = 9; total < 11; total++) {   
-	        add = 0;
+	        $add = 0;
 	        for (digit = 0; digit < total; digit++) {
-	            add += CPF[digit] * ((total + 1) - digit);
+	            add += CPF[$digit] * ((total + 1) - digit);
 	        }
 	        add = ((10 * add) % 11) % 10;
 	        if (CPF[digit] != add) {
-                  $("#login-error").html(exclamationIcon);
-                  $("#login-error").append("CPF invalido");
-                  $("#login-error").show();
-                  return false;
+	            return false;
+                  alert("false");
 	        }
 	    }
-	    return true;
+//	    return true;
     }
 };
 
