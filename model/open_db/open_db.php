@@ -22,7 +22,7 @@
 */
 function openDB(){
 
-	return mysqli_connect('localhost', 'root', 'root', 'IAC');
+	return mysqli_connect('localhost', 'root', 'root', 'votebem');
 
 }
 
