@@ -6,18 +6,14 @@ $(function(){
 
 
 $(function()
-{
-      
-<<<<<<< HEAD
+{      
       $("#form-login").submit(function(){
             
-            verifyFields();
+           if (verifyFields() == 0){
+                 return;  
+           }
             evalCPF($("#login-user").val());
-            alert("oi");
-=======
-      $("#form-login").submit(function()
-      {
->>>>>>> origin/development
+            alert("oi");           
       			
             $.ajax(
             {

@@ -19,12 +19,12 @@ function verifyFields(){
                   $("#login-error").html("<span class=\"glyphicon glyphicon-exclamation-sign\""+"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>");
                   $("#login-error").append("Não deixe o campo em branco.");
                   $("#login-error").show();
-                  return;
+                  return 0;
             } else if(password == ""){
                   $("#login-error").html("<span class=\"glyphicon glyphicon-exclamation-sign\""+"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>");
                   $("#login-error").append("Não deixe o campo em branco.");
                   $("#login-error").show();
-                  return;
+                  return 0;
           }    
 };
 
@@ -39,38 +39,91 @@ function verifyFields(){
 * 
 * Descrição: (Escolhe a máscara que será selecionada)
 *
-**/
+**/                
+                  
 function chooseMask(){
-      
+            
       jQuery(function($){
             
             //Define um padrão para máscara      
             $.mask.definitions['~']='[#0-9]';
             $.mask.definitions['N']='[AZaz0-9]';
-            
-            //Cria uma máscara para escolher o modo de entrada
+                        
             var user = $("#login-user").val();
-
-            if(user == ""){
-                  $("#login-user").mask("~", {placeholder: ""});
-            }
             
-            $("login-user").keyup(function(){
-                   if(user == ""){
-                        $("#login-user").mask("~", {placeholder: ""});
-                   }      
-            })
             
-            //Cria máscara para CPF
-            $("#login-user").one("keypress",function(e){
-                  if(e.which != 35) {
-                        $("#login-user").mask("999.999.999-99");
-                  } else { //Cria máscara para Admin
-                        $("#login-user").mask("#NNNNNN", {placeholder: ""});
-                  }                 
-            });            
-      });
-};
+            
+      }
+            
+//            $("#login-user").bind('keypress',function(){
+//                       
+//                  user = $("#login-user").val();
+//                  
+//                  if(user == "" || user == "___.___.___-__"){
+//                        
+//                        $("#login-user").mask("~", {placeholder: ""});
+//                        
+//                        $("#login-user").one("keypress",function(e){
+//                              
+//                              if(e.which != 35) {
+//                                    $("#login-user").mask("999.999.999-99");
+//                                    
+//                              } else if(e.which == 35) { //Cria máscara para Admin
+//                                    $("#login-user").mask("~NNNNNN", {placeholder: ""});
+//                                    $("#login-user").val() = user;
+//                              }                 
+//                        });
+//                  }
+//            });
+//            
+//            $("#login-user").one("keypress",function(e){
+//                  if(e.which != 35) {
+//                        $("#login-user").mask("999.999.999-99");
+//                  } else { //Cria máscara para Admin
+//                        $("#login-user").mask("~NNNNNN", {placeholder: ""});
+//                        $("#login-user") = user;
+//                  }                 
+//            });
+//            
+//            if(user[0]== "#")
+//            {
+//                  $("#login-user").mask("#NNNNNN", {placeholder: ""});
+//                  $("#login-user") = user;
+//            }
+//            else
+//            {
+//                  $("#login-user").mask("999.999.999-99");
+//                  $("#login-user") = user;
+//            }
+                        
+      });      
+}            
+            
+            
+            
+//            //Cria uma máscara para escolher o modo de entrada
+//            var user = $("#login-user").val();
+//
+//            if(user == ""){
+//                  $("#login-user").mask("~", {placeholder: ""});
+//            }
+//            
+//            $("login-user").keyup(function(){
+//                   if(user == ""){
+//                        $("#login-user").mask("~", {placeholder: ""});
+//                   }      
+//            })
+//            
+//            //Cria máscara para CPF
+//            $("#login-user").one("keypress",function(e){
+//                  if(e.which != 35) {
+//                        $("#login-user").mask("999.999.999-99");
+//                  } else { //Cria máscara para Admin
+//                        $("#login-user").mask("#NNNNNN", {placeholder: ""});
+//                  }                 
+//            });            
+//      });
+//};
 
 
 /*
