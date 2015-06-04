@@ -105,13 +105,13 @@
             <!-- Input Senha -->
             <div class="col-md-6 form-group">
               <label>Senha:</label>
-              <input type="text" id="register-password" name="register-password" class="form-control" maxlenght="2">
+              <input type="text" id="register-password" name="register-password" class="form-control">
             </div>
             
             <!-- Input Confirmação da senha -->
             <div class="col-md-6 form-group">
               <label>Confirmar Senha:</label>
-              <input type="text" id="register-cfmPassword" name="register-cfmPassword" class="form-control" maxlenght="2">
+              <input type="text" id="register-cfmPassword" name="register-cfmPassword" class="form-control">
             </div>
           </div>
           

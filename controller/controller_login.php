@@ -15,25 +15,31 @@
 */
 
 // Dependências
-require_once('../model/user_verify/validateUser.php');
+require_once('../model/user_verify/validate_user.php');
 require_once('../model/error/error.php');
 
-$id = $_POST["login-user"];
-$pw = md5($_POST["login-password"]);
+
+
+$id = $_POST["login-user"] ;
+$pw = $_POST["login-password"];
 
 $return = validateUser($id,$pw);
 
 switch($return){
 	case 1:
-		echo "header('Location: ../view/view_urna.php');";
+		//header('Location: ../view/urna_view.php');
+		echo ("window.location.href = '../view/urna_view.php';");
 		break;
 	case 2:
-		echo "header('Location: ../view/view_admin.php');";
+		//header('Location: ../view/admin_home.php');
+		echo ("window.location.href = '../view/admin_home.php';");
 		break;
 	default:
 		$description = error($return);
-		echo "$('#login-errorop').append(
-			 <span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>'$desciption');";
+
+		echo "$('#login-error').html('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
+		echo "$('#login-error').show();";
+		echo "$('#login-error').append('".$description."');";
 }
 
 ?>
