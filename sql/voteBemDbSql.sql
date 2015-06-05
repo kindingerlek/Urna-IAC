@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `cep` (
 -- Extraindo dados da tabela `cep`
 --
 
-INSERT INTO if not exists `cep` (`cep`, `logradouro`, `bairro`, `cidade`) VALUES
+INSERT INTO `cep` (`cep`, `logradouro`, `bairro`, `cidade`) VALUES
 ('83701485', 'Tibagi', 'Costeira', 'Araucaria'),
 ('81870000', 'Isaac', 'Pinheirinho', 'Curitiba');
 -- --------------------------------------------------------
@@ -243,7 +243,7 @@ ALTER TABLE `ticket`
 -- Limitadores para a tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD CONSTRAINT `fkUsuariosEnderecos` FOREIGN KEY (`numero`, `cep`,'complmento') REFERENCES `enderecos` (`numero`, `cep`,'complmento');
+  ADD CONSTRAINT `fkUsuariosEnderecos` FOREIGN KEY (`numero`, `cep`,'complemento') REFERENCES `enderecos` (`numero`, `cep`,'complemento');
 
 --
 -- Limitadores para a tabela `vagas`
