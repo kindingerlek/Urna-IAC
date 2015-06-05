@@ -64,7 +64,7 @@
             
             <div>
               <!-- Input Endereço -->
-              <div class="col-md-10 form-group">
+              <div class="col-md-7 form-group">
                 <label>Endereço:</label>
                 <input type="text" id="register-adress" name="register-adress" class="form-control">
               </div>
@@ -72,6 +72,12 @@
               <!-- Input Número -->
               <div class="col-md-2 form-group">
                 <label>Número:</label>
+                <input type="text" id="register-adressNum" name="register-adressNum" class="form-control">
+              </div>
+              
+              <!-- Input Número -->
+              <div class="col-md-3 form-group">
+                <label>Complemento:</label>
                 <input type="text" id="register-adressNum" name="register-adressNum" class="form-control">
               </div>
             </div>

@@ -9,10 +9,12 @@
     <h2 id="page-title">Gerenciar</h2>
   </div>
   
-  <div style="float:left; width:10%; height:100%;" >  
-    <button type="button" class="btn btn-default btn-lg btn-block" aria-label="Left Align">
-      <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sair
-    </button>
+  <div style="float:left; width:10%; height:100%;" >
+    <form action="../model/logout.php">
+      <button type="submit" class="btn btn-default btn-lg btn-block" aria-label="Left Align">
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sair
+      </button>
+    </form>
   </div>
 </div>
 
