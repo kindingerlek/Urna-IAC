@@ -28,7 +28,7 @@ function logout()
 	    session_destroy(); // Destroi Session
 	}
 
-	header('../../index.php');
+	header("refresh:0;url=../../index.php");
 }
 
 logout();
