@@ -1,4 +1,6 @@
-<!-- Período -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- PopUp Período -->
 <div class="modal fade" id="popup-newElection-period" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-sm">
     <div class="modal-content">
@@ -32,7 +34,6 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-default">Voltar</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#popup-newElection-type">Avançar</button>
       </div>
     </div>
