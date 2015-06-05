@@ -18,13 +18,43 @@
         Dicionário de IDs, Names e Classes        
              
         >IDs e/ou Names
-            - form-search           : Formulário que terá a combobox, campo de pesquisa e o botão de submit;
-            - search-combo          : Combobox seletivo do tipo de pesquisa
-            - search-input          : Input de texto para a pesquisa;
-            - search-submit         : Botão de submit da pesquisa;
-            - register-election     : Botão que irá abrir o formulário de nova eleição;
-            - table                 : Tabela para inserir os dados;
-            - table-body            : Corpo da tabela para insersão dinâmica
+            - form-search               : Formulário que terá a combobox, campo de pesquisa e o botão de submit;
+            - search-combo              : Combobox seletivo do tipo de pesquisa
+            - search-input              : Input de texto para a pesquisa;
+            - search-submit             : Botão de submit da pesquisa;
+            - register-election         : Botão que irá abrir o formulário de nova eleição;
+            - table                     : Tabela para inserir os dados;
+            - table-body                : Corpo da tabela para insersão dinâmica
+            
+        >IDs/Names (Pop-Up Período da Eleição)
+            - popup-newElection-period  : Referente à pop-up em si;
+            - register-period           : Input da data que a eleição deverá começar;
+            - register-startTime        : Input da hora de início da eleição;
+            - register-endTime          : Input da hora de Término da eleição;
+            
+        >IDs/Names (Pop-Up Tipo de Eleição)
+            - popup-newElection-type    : Referente à pop-up em si;
+            - register-type             : Combobox para selecionar o tipo de eleição entre municipal e estadual
+                > municipal             : Valor da opção "Municipal";
+                > federal               : Valor da opção "Estudual e Federal";
+            - type-nextButton           : Botão avançar da popup;
+            
+        >IDs/Names (Pop-Up Vagas Minicipais)
+            - popup-newElection-municipal : Referente à pop-up em si;
+            - register-mayor              : Input para quantidade de vagas do Prefeito;
+            - register-vereador           : Input para quantidade de vagas de Vereadores;
+            
+        >IDs/Names (Pop-Up Vagas Estaduais e Federais)
+            - popup-newElection-federal   : Referente à pop-up em si;
+            - register-president          : Input para a quantidade de Presidentes
+            - register-governor           : Input para a quantidade de Goveradores
+            - register-FederalDeputy      : Input para a quantidade de Deputados Federais
+            - register-stateDeputy        : Input para a quantidade de Deputados Estaduias
+            - register-senator            : Input para a quantidade de Senador
+            
+        
+            
+            
           
     
     
@@ -85,11 +115,11 @@
         </table>
         
         <!-- Form com todas as pop-ups -->
-        <form action="">
-          <?php include "register_newElection_period.php"?>
-          <?php include "register_newElection_type.php"?>
-          <?php include "register_newElection_municipal.php"?>
-          <?php include "register_newElection_federal.php"?>
+        <form action="" class="form-inline">
+<?php include "register_newElection_period.php"?>
+<?php include "register_newElection_type.php"?>
+<?php include "register_newElection_municipal.php"?>
+<?php include "register_newElection_federal.php"?>
         </form>
         
         <div style="display:none">
@@ -122,15 +152,13 @@
         
       });
       
-      $("#register-newElection-type").change(
+      $("#register-type").change(
         function()
-        {
-          alert("oi");
-          
-          if($("#register-newElection-type").val() == "municipal")
-            $("#newElection-type-next").attr('data-target',"#popup-newElection-municipal");
+        {          
+          if($("#register-type").val() == "municipal")
+            $("#type-nextButton").attr('data-target',"#popup-newElection-municipal");
           else
-            $("#newElection-type-next").attr('data-target',"#popup-newElection-federal");
+            $("#type-nextButton").attr('data-target',"#popup-newElection-federal");
         }        
       );
       

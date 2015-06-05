@@ -1,14 +1,14 @@
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- PopUp Período -->
-<div class="modal fade" id="popup-newElection-period" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="popup-newElection-period" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog  modal-sm">
     <div class="modal-content">
       
       <!-- Titulo -->
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Período</h4>
+        <h4 class="modal-title">Período</h4>
       </div>
       
       <!-- Corpo -->
@@ -24,7 +24,7 @@
                   <input type="text" id="register-startTime" name="register-startTime" class="form-control">
               </div>
               <div class="col-md-12 form-group">
-                  <label>Fim:</label>
+                  <label>Término:</label>
                   <input type="text" id="register-endTime" name="register-EndTime" class="form-control" maxleght="2">
               </div>
             </div>
@@ -33,7 +33,7 @@
                 
       <!-- Rodapé -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Fechar</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#popup-newElection-type">Avançar</button>
       </div>
     </div>
