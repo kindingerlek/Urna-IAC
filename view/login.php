@@ -33,6 +33,7 @@
             - register-codeZip      : Receberá o CEP do Usuário;
             - register-adress       : Receberá o Endereço do Eleitor;
             - register-adressNum    : Receberá o número do endereço do Eleitor;
+            - register-complement   : Receberá o Complemento do Endereço;
             - register-neighborhood : Receberá o Bairro do Eleitor;
             - register-city         : Receberá a Cidade do Eleitor;
             - register-state        : Receberá o estado do Eleitor;
