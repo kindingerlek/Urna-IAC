@@ -53,31 +53,31 @@ function chooseMask(){
             //Define um padrão para máscara      
             $.mask.definitions['~']='[#0-9]';
             $.mask.definitions['N']='[A-Za-z0-9]';
-                        
-            var user = $("#login-user").val();
+            //$.mask.definitions['#']='[#\b]';
 
-            $("#login-user").bind('keyup',function(){
+            $("#login-user").on('keyup',function(){
             
-                  user = $("#login-user").val();
+                  var user = $("#login-user").val();
+                  var firstChar = user[0];
                   
-                  if(user == "" || user == "___.___.___-__"){
-                        
+                  if(firstChar == "" || firstChar == "_"){
+          
                         $("#login-user").mask("~", {placeholder: ""});
-                        
+                       
+                        //Cria máscara para CPF
                         $("#login-user").one("keypress",function(e){
-                              
-                              //Cria máscara para CPF
                               if(e.which != 35) {
                                     $("#login-user").mask("999.999.999-99");
-                                    $("#login-user").val() = user;
-                                    
-                              } else if(e.which == 35) { //Cria máscara para Admin
+                              } else { //Cria máscara para Admin
                                     $("#login-user").mask("~NNNNNNNN");
                                     $("#login-user").val() = user;
                               }                 
                         });
                   }
+                  
+
             });
+            
             
             //Cria máscara para CPF
             $("#login-user").one("keypress",function(e){
@@ -85,9 +85,11 @@ function chooseMask(){
                         $("#login-user").mask("999.999.999-99");
                   } else { //Cria máscara para Admin
                         $("#login-user").mask("~NNNNNNNN");
-                        $("#login-user") = user;
+                        $("#login-user").val() = user;
                   }                 
-            });    
+            });
+            
+            
       });      
 }            
    
