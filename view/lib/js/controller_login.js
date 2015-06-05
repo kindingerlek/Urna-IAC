@@ -7,6 +7,12 @@ $(function(){
       $("#register-codeZip").blur(function(){  //Função para preenchimento do endereço a partir do CEP
             getAdress();
       });
+      $("#register-votingCard").blur(function(){  //Função para validar título de eleitor
+            evalVotingCard($("#register-votingCard").val());
+      });
+      $("#register-cpf").blur(function(){
+            evalCPF($("#register-cpf").val());
+      });
 });
 
 
@@ -20,7 +26,10 @@ $(function()
            }
            
            //Se CPF invalido, para o .submit
-            if (!evalCPF($("#login-user").val())) {
+            if ($("#login-user").val()[0] != "#") {
+                  if (!evalCPF($("#login-user").val())) {
+                        return false;
+                  }
                   return false;
             }
             

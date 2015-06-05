@@ -52,7 +52,7 @@ function chooseMask(){
             
             //Define um padrão para máscara      
             $.mask.definitions['~']='[#0-9]';
-            $.mask.definitions['N']='[AZaz0-9]';
+            $.mask.definitions['N']='[A-Za-z0-9]';
                         
             var user = $("#login-user").val();
 
@@ -72,7 +72,7 @@ function chooseMask(){
                                     $("#login-user").val() = user;
                                     
                               } else if(e.which == 35) { //Cria máscara para Admin
-                                    $("#login-user").mask("~NNNNNN", {placeholder: ""});
+                                    $("#login-user").mask("~NNNNNNNN");
                                     $("#login-user").val() = user;
                               }                 
                         });
@@ -84,7 +84,7 @@ function chooseMask(){
                   if(e.which != 35) {
                         $("#login-user").mask("999.999.999-99");
                   } else { //Cria máscara para Admin
-                        $("#login-user").mask("~NNNNNN", {placeholder: ""});
+                        $("#login-user").mask("~NNNNNNNN");
                         $("#login-user") = user;
                   }                 
             });    
@@ -121,8 +121,11 @@ function evalCPF(CPF){
 	//Verifica se a string possui 11 caracteres
 	if (CPF.length != 11){
             $("#login-error").html(exclamationIcon);
-            $("#login-error").append("CPF invalido");
+            $("#login-error").append(" CPF inválido");
             $("#login-error").show();
+            $("#register-error").html(exclamationIcon);
+            $("#register-error").append(" CPF inválido");
+            $("#register-error").show();
 		return false;
             
 	//Verifica se alguma sequencia invalida foi digitada	
@@ -137,8 +140,11 @@ function evalCPF(CPF){
 				CPF == '88888888888' || 
 				CPF == '99999999999') {
             $("#login-error").html(exclamationIcon);
-            $("#login-error").append("CPF invalido");
+            $("#login-error").append(" CPF invalido");
             $("#login-error").show();
+            $("#register-error").html(exclamationIcon);
+            $("#register-error").append(" CPF inválido");
+            $("#register-error").show();
             return false;
         
      //Verifica se o CPF é válido
@@ -151,11 +157,16 @@ function evalCPF(CPF){
 	        add = ((10 * add) % 11) % 10;
 	        if (CPF[digit] != add) {
                   $("#login-error").html(exclamationIcon);
-                  $("#login-error").append("CPF invalido");
+                  $("#login-error").append(" CPF invalido");
                   $("#login-error").show();
+                  $("#register-error").html(exclamationIcon);
+                  $("#register-error").append(" CPF inválido");
+                  $("#register-error").show();
                   return false;
 	        }
 	    }
+          $("#register-error").hide();
+          $("#login-error").hide();
 	    return true;
     }
 };
@@ -267,5 +278,106 @@ function getAdress() {
                         $("#register-error").show();
                   } 
             });
+      }
+};
+
+
+/*
+* Título: Validador de Títuo de Eleitor
+*
+* Autor: Carlos
+* Data de Criação: 04/06/2015
+*
+* Modificado por: Bruno
+* Data de Modificação: 05/06/2015
+* 
+* Descrição: Verifica se uma entrada corresponde a um título de eleitor válido
+*
+* Entrada: Um texto. ex: 739428739 
+*
+* Saída: Valor númerico, 1 caso campo válido, 0 caso campo inválido
+*
+* Valor de retorno: 1 ou 0
+*
+* Funções invocadas: Nenhuma
+*
+*/
+
+
+function evalVotingCard(votingCard) {
+      
+      votingCard=votingCard.replace(/[^0-9]/g,'');
+      
+      //Preenchendo a string com 0s à esquerda para completar 12 digitos 
+      votingCard = ("000000000000"+votingCard).slice(-12,-1)+("0"+votingCard).slice(-1);
+      
+      //Identificando os dígitos referentes à unidade federativa
+      state = votingCard.slice(8, 10);
+      state = parseInt(state, 10);
+      
+      if (votingCard.length != 12 || state < 1 || state > 28) {
+            $("#register-error").html(exclamationIcon);
+            $("#register-error").append(" Título invalido");
+            $("#register-error").show();
+            alert("1");
+            return false;
+      
+      } else {
+      
+            //Algorítmo para verificação de título eleitoral
+            add = 0;
+            
+            for (i = 0; i < 8; i++) {
+                  add += votingCard[i] * (9 - i);
+            }
+            
+            add %= 11;
+            
+            if (add < 2) {
+                  if (state < 3) {
+                        add = 1 - add;
+                  } else {
+                        add = 0;
+                  }
+            } else {
+                  add = 11 - add;
+            }
+            
+            if (votingCard[10] != add) {
+                  $("#register-error").html(exclamationIcon);
+                  $("#register-error").append(" Título invalido");
+                  $("#register-error").show();
+                  alert("2");
+                  return false;
+            }
+            
+            add *= 2;
+            
+            for (i = 8; i < 10; i++) {
+                  add += votingCard[i] * (12 - i);
+            }
+            
+            add %= 11;
+            
+            if (add < 2) {
+                  if (state < 3) {
+                        add = 1 - add;
+                  } else {
+                        add = 0;
+                  }
+            } else {
+                  add = 11 - add;
+            }
+            
+            if (votingCard[11] != add) {
+                  $("#register-error").html(exclamationIcon);
+                  $("#register-error").append(" Título invalido");
+                  $("#register-error").show();
+                  alert("3");
+                  return false;
+            }
+            alert("4");
+            $("#register-error").hide();
+            return true;
       }
 };
