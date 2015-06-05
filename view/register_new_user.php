@@ -132,7 +132,7 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Confirmar</button>
+        <button type="submit" class="btn btn-primary">Confirmar</button>
       </div>
     </div>
   </div>

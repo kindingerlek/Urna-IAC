@@ -83,9 +83,11 @@
         </form>
           
       </div>
-
+      
       <?php include "recover_password.php" ?>         
-      <?php include "register_new_user.php" ?>
+      <form id="form-register" method="POST" action="#">
+        <?php include "register_new_user.php" ?>
+      </form>
 
     <!-- Rodapé da página -->
     <?php include "page_footer.php" ?>

@@ -32,13 +32,17 @@ $(function()
                          //alert('oi2');
                         return false;
                   }
+<<<<<<< HEAD
+                 // return false;
+=======
                  
                   //return false;
+>>>>>>> development
             }
             
       			 alert('oi1');
             $.ajax(
-            {
+            {     
                   dataType: 'script',
                   data: $("#form-login").serialize(),
                   //data: { 'login-user': $("#login-user").val(), 'login-password': $("#login-password").val() },
@@ -55,10 +59,24 @@ $(function()
       });
 });              
                   
-
-$(function()
-{
-      
-});
+//
+//$(function()
+//{
+//       $("#form-register").submit(function(){
+//
+//            $.ajax(
+//            {
+//                  dataType: 'script',
+//                  data: $("#form-register").serialize(),
+//                  type: 'POST',
+//                  url:'../controller/controller_register_new_user.php',
+//                  success: function(result)
+//                  {
+//                        alert("oi");
+//                  }
+//            });
+//            return false;
+//      });
+//});
 
 
