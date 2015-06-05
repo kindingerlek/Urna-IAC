@@ -56,6 +56,10 @@
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
               </button>
+              
+              <button type="button" id="register-candidate" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-candidate">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo Candidato
+              </button>
             </div>
           </div>
         </form>
@@ -86,8 +90,9 @@
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
         </div>
-      
-    </div>
+     </div>
+    
+    <?php include "register_candidate.php" ?>
     
     <!-- Rodapé da página -->
     <?php include "page_footer.php" ?>  
