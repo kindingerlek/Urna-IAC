@@ -22,6 +22,7 @@
             - search-combo          : Combobox seletivo do tipo de pesquisa
             - search-input          : Input de texto para a pesquisa;
             - search-submit         : Botão de submit da pesquisa;
+            - register-party        : Botão que irá abrir o formulário de novo partido;
             - table                 : Tabela para inserir os dados;
             - table-body            : Corpo da tabela para insersão dinâmica
           
@@ -53,12 +54,12 @@
             </div>
                       
             <div class="col-lg-3">
-              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newPartity">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo partido
-              </button>
-              
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Partidos
+              </button>
+              
+              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newPartity">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo partido
               </button>
             </div>
           </div>
