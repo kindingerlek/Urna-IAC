@@ -22,9 +22,6 @@
 */
 function evalCPF($CPF){
 
-	//Retira os caracteres não numéricos
-	$CPF = preg_replace('/[^0-9]/', '', $CPF);
-
 	//Verifica se a string possui 11 caracteres
 	if (strlen($CPF) != 11){
 		return 0;
