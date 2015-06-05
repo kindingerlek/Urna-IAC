@@ -42,9 +42,10 @@
           <div class="row">
             <div class="form-group col-lg-3">
               <select class="input-large form-control" id="search-combobox">
-                <option value="">Nome</option>
-                <option value="">Sigla</option>
-                <option value="">Número</option>
+                <option value="">Código</option>
+                <option value="">Tipo</option>
+                <option value="">Status</option>
+                <option value="">Data</option>
               </select>  
             </div>
                   
@@ -55,11 +56,11 @@
                       
             <div class="col-lg-3">
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Partidos
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Eleição
               </button>
               
-              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newPartity">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo partido
+              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newElection-period">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nova Eleição
               </button>
             </div>
           </div>
@@ -69,11 +70,11 @@
           <thead>
             <tr>
               <td class="col-md-1">#</td>
-              <td class="col-md-1">Tipo:</td>
+              <td class="col-md-3">Tipo:</td>
               <td class="col-md-2">Status:</td>
               <td class="col-md-2">Data:</td>
-              <td class="col-md-2">Início:</td>
-              <td class="col-md-2">Fim:</td>
+              <td class="col-md-1">Início:</td>
+              <td class="col-md-1">Fim:</td>
               <td class="col-md-2">Ações:</td>
             </tr>
           </thead>
@@ -82,6 +83,10 @@
             
           </tbody>
         </table>
+        
+        <!-- Form com todas as pop-ups -->
+        <?php include "register_newElection_period.php"?>
+        <?php include "register_newElection_type.php"?>
         
         <div style="display:none">
           <button type="button" class="btn btn-default" aria-label="Editar">
@@ -92,8 +97,7 @@
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
           
-          <button type="button" class="btn btn-default" aria-label="Excluir">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          <button type="button" class="btn btn-default" aria-label="Candidatos"> Candidatos
           </button>
         </div>
         
