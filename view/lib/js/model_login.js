@@ -90,7 +90,7 @@ function chooseMask(){
             });    
       });      
 }            
-         
+   
 
 
 /*
@@ -319,7 +319,6 @@ function evalVotingCard(votingCard) {
             $("#register-error").html(exclamationIcon);
             $("#register-error").append(" Título invalido");
             $("#register-error").show();
-            alert("1");
             return false;
       
       } else {
@@ -347,7 +346,6 @@ function evalVotingCard(votingCard) {
                   $("#register-error").html(exclamationIcon);
                   $("#register-error").append(" Título invalido");
                   $("#register-error").show();
-                  alert("2");
                   return false;
             }
             
@@ -373,10 +371,9 @@ function evalVotingCard(votingCard) {
                   $("#register-error").html(exclamationIcon);
                   $("#register-error").append(" Título invalido");
                   $("#register-error").show();
-                  alert("3");
                   return false;
             }
-            alert("4");
+            
             $("#register-error").hide();
             return true;
       }
