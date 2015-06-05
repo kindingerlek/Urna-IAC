@@ -15,31 +15,32 @@
 */
 
 // Dependências
-require_once('../model/login_verify/validate_user.php');
+require_once('../model/validate_new_user/validate_new_user.php');
 require_once('../model/error/error.php');
+require_once('../model/validate_new_user/register_new_user.php');
 
 
 
-$id = $_POST["login-user"] ;
-$pw = $_POST["login-password"];
+$newUser = $_POST;
 
-$return = validateUser($id,$pw);
+$return = validateNewUser($newUser);
 
-switch($return){
+switch($return === 1){
 	case 1:
 		//header('Location: ../view/urna_view.php');
-		echo ("window.location.href = '../view/urna_view.php';");
-		break;
-	case 2:
-		//header('Location: ../view/admin_home.php');
-		echo ("window.location.href = '../view/admin_home.php';");
+		registerNewUser($newUser);
+		echo ("window.location.href = '../view/login.php';");
 		break;
 	default:
-		$description = error($return);
+		for ($i=0; $i=count($return); $i++) {
+
+			$description = error($return[$i]);
 
 		echo "$('#login-error').html('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
 		echo "$('#login-error').show();";
-		echo "$('#login-error').append('".$description."');";
+		echo "$('#login-error').append('".$description."<br />');";
+			
+		}
 }
 
 ?>
