@@ -160,4 +160,112 @@ function evalCPF(CPF){
     }
 };
 
+/*
+* Título: Checar nome
+*
+* Autor: Bruno
+* Data de Criação: 04/06/2015
+*
+* Descrição: Restringe o nome a letras
+*
+* Funções invocadas: Nenhuma
+*
+*/
 
+function checkName(){
+      
+      $("#register-name").blur(function(){
+            
+            user = $("#register-name").val();
+           
+            
+            if(!(user.match(/^[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕ ,.'-]+$/i))){
+                  
+                  $("#register-error").html(exclamationIcon);
+                  $("#register-error").append("Nome só pode conter letras");
+                  $("#register-error").show();
+            }
+      });
+      
+}
+
+
+/*
+* Título: Criar máscaras
+*
+* Autor: Bruno
+* Data de Criação: 04/06/2015
+*
+* Descrição: Cria todas as máscaras que não precisam de validação
+*
+* Funções invocadas: Nenhuma
+*
+*/
+
+function createMasks(){
+      jQuery(function($){
+       $("#register-cpf").mask("999.999.999-99");
+      });
+      
+jQuery(function($){
+       $("#register-zone").mask("9999", {placeholder: ""});
+      });
+      
+jQuery(function($){
+       $("#register-session").mask("9999", {placeholder: ""});
+      });
+      
+jQuery(function($){
+       $("#recover-cpf").mask("999.999.999-99");
+      });
+      
+jQuery(function($){
+       $("#register-codeZip").mask("99999-999");
+      });
+   
+jQuery(function($){
+       $("#register-birthday").mask("99/99/9999");
+      });     
+};
+
+
+
+/*
+* Título: Preenchimento de endereço automático
+*
+* Autor: http://www.oficinadanet.com.br/
+*
+* Modificado por: Bruno
+* Data de Modificação: 05/06/2015
+* 
+* Descrição: Preenche os campos referente ao endereço a partir do CEP informado
+*
+* Entrada: Um CEP
+*
+* Saída: Campos preenchidos, ou um erro.
+*
+* Funções invocadas: Nenhuma
+*
+*/
+function getAdress() {
+      
+      var webService = "http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep=";
+      var codeZip = $("#register-codeZip").val();
+      
+      if($.trim(codeZip) != ""){
+            $.getScript(webService + codeZip, function(){
+                  if (resultadoCEP["resultado"]) {
+                        $("#register-adress").val(unescape(resultadoCEP["tipo_logradouro"]) + " " + unescape(resultadoCEP["logradouro"]));
+                        $("#register-neighborhood").val(unescape(resultadoCEP["bairro"]));
+                        $("#register-city").val(unescape(resultadoCEP["cidade"]));
+                        $("#register-state").val(unescape(resultadoCEP["uf"]));
+                        $("#register-error").hide();
+                  }
+                  if (resultadoCEP["resultado"] == 0) {
+                        $("#register-error").html(exclamationIcon);
+                        $("#register-error").append("CEP invalido");
+                        $("#register-error").show();
+                  } 
+            });
+      }
+};
