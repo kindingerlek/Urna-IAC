@@ -2,6 +2,7 @@
 /* global jQuery */
 $(function(){
       chooseMask();  //Função que define a máscara do campo
+      checkName();  //Função que checa se o nome só tem letras
 });
 
 
