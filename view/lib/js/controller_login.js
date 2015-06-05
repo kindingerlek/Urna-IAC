@@ -29,18 +29,13 @@ $(function()
            //Se CPF invalido, para o .submit
             if ($("#login-user").val()[0] != "#") {
                   if (!evalCPF($("#login-user").val())) {
-                         //alert('oi2');
+                         
                         return false;
                   }
-<<<<<<< HEAD
-                 // return false;
-=======
-                 
-                  //return false;
->>>>>>> development
+                  
             }
             
-      			 alert('oi1');
+      			
             $.ajax(
             {     
                   dataType: 'script',
@@ -50,11 +45,11 @@ $(function()
                   url: '../controller/controller_login.php',
                   success: function(result)
                         {
-                              alert('oi2');
+                              
                         }
       
             });
-            alert('oi3');
+            
             return false;
       });
 });              
@@ -72,7 +67,7 @@ $(function()
 //                  url:'../controller/controller_register_new_user.php',
 //                  success: function(result)
 //                  {
-//                        alert("oi");
+//                
 //                  }
 //            });
 //            return false;
