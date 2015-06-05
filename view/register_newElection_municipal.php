@@ -1,14 +1,14 @@
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- PopUp Vagas Municipais -->
-<div class="modal fade" id="popup-newElection-municipal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="popup-newElection-municipal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog  modal-sm">
     <div class="modal-content">
       
       <!-- Titulo -->
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Eleição Municipal - Vagas</h4>
+        <h4 class="modal-title">Eleição Municipal - Vagas</h4>
       </div>
       
       <!-- Corpo -->
