@@ -22,18 +22,21 @@ $(function()
            
            //Se campos vazios, para o .submit 
            if (verifyFields() == 0){
+                 
                  return false;  
            }
            
            //Se CPF invalido, para o .submit
             if ($("#login-user").val()[0] != "#") {
                   if (!evalCPF($("#login-user").val())) {
+                         //alert('oi2');
                         return false;
                   }
-                  return false;
+                 
+                  //return false;
             }
             
-      			
+      			 alert('oi1');
             $.ajax(
             {
                   dataType: 'script',
@@ -43,10 +46,11 @@ $(function()
                   url: '../controller/controller_login.php',
                   success: function(result)
                         {
-                             // alert('oi1');
+                              alert('oi2');
                         }
       
             });
+            alert('oi3');
             return false;
       });
 });              

@@ -1,8 +1,7 @@
 <?php
 
 //Chamando dependencias
-require_once('eval_cpf.php');
-require_once('c://wamp/www/Urna-IAC/model/open_session/open_session.php');
+require_once('c:/wamp/www/Urna-IAC/model/eval/eval_cpf.php');
 require_once('verify_id.php');
 
 
