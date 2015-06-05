@@ -85,8 +85,12 @@
         </table>
         
         <!-- Form com todas as pop-ups -->
-        <?php include "register_newElection_period.php"?>
-        <?php include "register_newElection_type.php"?>
+        <form action="">
+          <?php include "register_newElection_period.php"?>
+          <?php include "register_newElection_type.php"?>
+          <?php include "register_newElection_municipal.php"?>
+          <?php include "register_newElection_federal.php"?>
+        </form>
         
         <div style="display:none">
           <button type="button" class="btn btn-default" aria-label="Editar">
@@ -118,16 +122,18 @@
         
       });
       
-      $("#register-logoInput").change(
+      $("#register-newElection-type").change(
         function()
         {
-          var tmppath = URL.createObjectURL(event.target.files[0]);          
-          if(tmppath)
-            $("#register-logoImage").fadeIn("500").attr('src',tmppath);
-          else          
-            $("#register-logoImage").fadeIn("500").attr('src',"../resources/images/noimage.png")
+          alert("oi");
+          
+          if($("#register-newElection-type").val() == "municipal")
+            $("#newElection-type-next").attr('data-target',"#popup-newElection-municipal");
+          else
+            $("#newElection-type-next").attr('data-target',"#popup-newElection-federal");
         }        
       );
+      
       
       
     </script>
