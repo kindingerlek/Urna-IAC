@@ -84,6 +84,4 @@ function evalVotingCard($votingCard)
     }
 }
 
-echo evalVotingCard("1070 9776 0604");
-
 ?>

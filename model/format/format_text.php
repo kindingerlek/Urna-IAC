@@ -23,13 +23,11 @@ function formatText($text){
 	//Retira os espaços no começo e final da string
 	$text = trim($text);
 
-	//Retira os caracteres [ / . - ] da string 
+	//Upper Case  
 	$text = strtoupper($text);
 
 	return $text;
 
 };
-
-echo formatText("   Carlos Augusto   ");
 
 ?>

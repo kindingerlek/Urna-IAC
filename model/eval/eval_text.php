@@ -22,7 +22,7 @@
 */
 function evalText($text){
 
-	$searchInvalidChar = preg_match('/[^ A-Za-z]/', $text);
+	$searchInvalidChar = preg_match('/[^ A-Za-z/']/', $text);
 
 	if($searchInvalidChar){
 		//string inválida
