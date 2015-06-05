@@ -42,6 +42,4 @@ function evalAge($date){
     
 }
 
-echo evalAge("10/10/2007");
-
 ?>
