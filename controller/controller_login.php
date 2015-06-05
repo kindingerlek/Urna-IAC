@@ -15,8 +15,9 @@
 */
 
 // Dependências
-require_once('../model/login_verify/validate_user.php');
-require_once('../model/error/error.php');
+
+require_once('c://wamp/www/Urna-IAC/model/login_verify/validate_user.php');
+require_once('c://wamp/www/Urna-IAC/model/error/error.php');
 
 
 
