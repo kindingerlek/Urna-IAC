@@ -28,7 +28,9 @@ function logout()
 	    session_destroy(); // Destroi Session
 	}
 
-	header('../../view/view_login.php');
+	header('../../index.php');
 }
+
+logout();
 
 ?>
