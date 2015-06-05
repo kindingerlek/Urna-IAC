@@ -22,12 +22,9 @@
 *   
 */
 
-require_once('../eval/eval_cpf.php');
-require_once('../format/format_number.php');
-require_once('../format/format_text.php');
 require_once('cpf_verify.php');              //cpfVerify();
 require_once('voting_card_verify.php');	     //votingCard();
-require_once('number_verify');
+require_once('number_verify.php');
 
 /*
  register-name         : Receberá o nome digitado;
@@ -47,7 +44,7 @@ require_once('number_verify');
 
 */
 
-function validateNewUser($newUser[])
+function validateNewUser($validateNewUser)
 {
 	//----------------------------------Cpf-------------------------------
 	$cpf = $newUser['register-cpf']; //Atribui a $cpf o campo do cpf

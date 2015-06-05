@@ -1,7 +1,8 @@
 <?php
+$root = 'c:/wamp/www/Urna-IAC/';
+require_once($root."model/eval/eval_number.php");
+require_once($root."model/format/format_number.php");
 
-require_once("../eval/evalNumber.php");
-require_once("../format/formatNumber.php");
 /*
 * Título: votingCardVerify
 *

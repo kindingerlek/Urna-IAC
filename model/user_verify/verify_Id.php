@@ -1,7 +1,10 @@
 <?php
 
-require_once("c:wamp/www/Urna-IAC/model/open_db/open_db.php");
-require_once('c:wamp/www/Urna-IAC/model/open_session/open_session.php');
+$root = 'c:/wamp/www/Urna-IAC/';
+
+require_once($root."model/open_db/open_db.php");
+require_once($root."model/open_session/open_session.php");
+
 
 /*
 * Título:
