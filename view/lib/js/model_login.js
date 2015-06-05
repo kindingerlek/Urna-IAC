@@ -10,7 +10,7 @@
 * Descrição: (Verifica se os campos estão nulos)
 *
 **/
-
+ 
 
 //Esta tag é um ícone de exclamação -> "!"
 var exclamationIcon = "<span class=\"glyphicon glyphicon-exclamation-sign\"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>"; 
@@ -22,12 +22,12 @@ function verifyFields(){
             
             if(user == "" || user == "___.___.___-__"){
                   $("#login-error").html(exclamationIcon);
-                  $("#login-error").append("Não deixe o campo em branco.");
+                  $("#login-error").append(" Não deixe o campo em branco.");
                   $("#login-error").show();
                   return 0;
             } else if(password == ""){
                   $("#login-error").html(exclamationIcon);  
-                  $("#login-error").append("Não deixe o campo em branco.");
+                  $("#login-error").append(" Não deixe o campo em branco.");
                   $("#login-error").show();
                   return 0;
           }    
@@ -182,7 +182,7 @@ function checkName(){
             if(!(user.match(/^[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕ ,.'-]+$/i))){
                   
                   $("#register-error").html(exclamationIcon);
-                  $("#register-error").append("Nome só pode conter letras");
+                  $("#register-error").append(" Nome só pode conter letras");
                   $("#register-error").show();
             }
       });
@@ -263,7 +263,7 @@ function getAdress() {
                   }
                   if (resultadoCEP["resultado"] == 0) {
                         $("#register-error").html(exclamationIcon);
-                        $("#register-error").append("CEP invalido");
+                        $("#register-error").append(" CEP invalido");
                         $("#register-error").show();
                   } 
             });
