@@ -103,12 +103,12 @@ $(function()
                  $("#register-error").show();
                  return false;  
            }
-           
+
            //Se nome preenchido incorretamente, para o .submit
             if (checkField($("#register-name")) == 0){
                   return false;
             }
-            
+
             //Se endereço preenchido incorretamente, para o .submit
             if (checkField($("#register-address")) == 0){
                   return false;
@@ -118,14 +118,14 @@ $(function()
             if (checkFieldNum($("#register-addressNum")) == 0){
                   return false;
             }
-            
+
             //Se cidade preenchido incorretamente, para o .submit
             if (checkField($("#register-city")) == 0){
                   return false;
             }
             
            //Se bairro preenchido incorretamente, para o .submit
-            if (checkField($("#register-neightborhood")) == 0){
+            if (checkField($("#register-neighborhood")) == 0){
                   return false;
             }
             
@@ -152,6 +152,7 @@ $(function()
                   url:'../controller/controller_register_new_user.php',
                   success: function(result)
                   {
+                        alert("2");
                   }
             });
           return false;
