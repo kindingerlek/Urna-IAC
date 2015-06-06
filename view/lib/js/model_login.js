@@ -250,17 +250,22 @@ function checkFieldNum(field){
 *
 */
 function changeFieldState(field, state){
-      var array = ['has-error','has-success', 'has-warning'];
-
+      var array = ['has-error','has-success','has-warning'];
+      var icons = ['glyphicon-remove','glyphicon-ok','glyphicon-warning-sign'];
       field = field.parent();
-
+      
+      field.addClass('has-feedback');
+      
       for(var i=0; i<array.length; i++){
             if(i != state) {
+                  field.children("span").removeClass(icons[i]);
                   field.removeClass(array[i]);
             } else {
+                  field.children("span").addClass(icons[i]);
                   field.addClass(array[i]);
             }
       }
+      
 };
 
 /*
