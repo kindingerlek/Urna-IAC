@@ -24,7 +24,7 @@ require_once($root."model/format/format_number.php");
 * 
 *   
 */
-function cpfVerify($cpf)
+function validateCPF($cpf)
 {	
 	$cpf = formatNumber($cpf); //Retira máscara do CPF    
 	

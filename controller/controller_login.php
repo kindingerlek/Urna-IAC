@@ -36,8 +36,10 @@ switch($return){
 		echo ("window.location.href = '../view/admin_home.php';");
 		break;
 	default:
-		$description = error($return);
-
+		$conn = openDB();
+		$description = error($return,$conn);
+		mysqli_close($conn);
+		
 		echo "$('#login-error').html('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
 		echo "$('#login-error').show();";
 		echo "$('#login-error').append('".$description."');";

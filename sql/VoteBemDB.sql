@@ -234,3 +234,19 @@ ALTER TABLE `votos`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-1, ' CPF inválido');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-2, ' Usuário não existe');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-3, ' Falha na busca');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-4, ' Senha incorreta');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-5, ' Título Incorreto');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-6, ' Nome inválido.');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-7, ' Senhas não conferem');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-8, ' Data invalida');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-9, ' Usuários com menos de 16 não podem votar');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-10, ' Seção invalida');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-11, ' CEP inválido');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-12, ' Campo de número de Endereço inválido.');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (-13, ' Usuario já cadastrado');
+INSERT INTO `erros`(`cod`, `descricao`) VALUES (14, ' Campo(s) em branco');
+INSERT INTO `usuarios` (`cpf`, `senha`, `idadmin`) VALUES ('00000000000','70cf37aa912e83332516f67da0fbba3a','#admin123');

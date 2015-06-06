@@ -23,7 +23,7 @@ require_once($root."model/format/format_number.php");
 * 
 *   
 */
-function numberVerify($number)
+function validateNumber($number)
 {
 
 $number = formatNumber($number); //retira mascaras

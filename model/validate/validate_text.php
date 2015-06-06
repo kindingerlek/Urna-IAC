@@ -23,7 +23,7 @@ require_once($root."model/eval/eval_text.php");
 *   
 */
 
-function textVerify($text)
+function validateText($text)
 {
 $text = formatText($text); //retira mascaras
 

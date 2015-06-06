@@ -24,7 +24,7 @@ require_once($root."model/eval/eval_voting_card.php");
 * 
 *   
 */
-function votingCardVerify($votingCard){
+function validateVotingCard($votingCard){
 	
 	$votingCardIsValid = evalVotingCard($votingCard); //Verifica se o número é val.
 	if(!$votingCardIsValid)
