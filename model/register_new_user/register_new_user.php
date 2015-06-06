@@ -48,10 +48,10 @@ function registerNewUser($newUser)
 {
 
 $cpf = $newUser["register-cpf"];// Atribuindo CPF a variavel
-$cpf = formatNumber($cpf); //Retirando Máscara
+$cpf = formatNumber($cpf);      //Retirando Máscara
 
 $connection = openDB(); // abre conexão com o BD
-$sql = "SELECT *FROM USUARIOS WHERE CPF = '$cpf' "; // Monta a query
+$sql = "SELECT * FROM USUARIOS WHERE CPF = '$cpf' "; // Monta a query
 $result = mysqli_query($connection, $sql);          //Executa a query
 
 //Se der falha na busca encerra
@@ -65,20 +65,20 @@ if (!$result)
 if(mysqli_num_rows($result)>=1)
 	{
 		mysqli_close($connection); //Fechar connection
-		return -16; // Erro de Usuario já cadastrado 
+		return -13; // Erro de Usuario já cadastrado 
 	}
 
 
 //Formata os capos para registrar no BD
 $name =	formatText($newUser["register-name"]);
 $votingCard = formatNumber($newUser["register-votingCard"]);   //Formata nome e salva em $name
-$zone =	formatNumber($newUser["register-zone"]);                             //Formata zona e salva em $zone
+$zone =	formatNumber($newUser["register-zone"]);               //Formata zona e salva em $zone
 $session = formatNumber($newUser["register-session"]);         //Formata sessão e salva em $session		
-$birtday = formatNumber($newUser["register-birtday"]);         //Formata aniv e salva em $birthday     
+$birthday = $newUser["register-birthday"];                     //Formata aniv e salva em $birthday     
 $codeZip = formatNumber($newUser["register-codeZip"]);         //Formata CEP e salva em $codeZip 
 $complement = formatNumber($newUser["register-complement"]);   //Forma complmento e salva em $complement   
 $adress = formatText($newUser["register-adress"]);             //Formata End. e salva em $adress         
-$adressNum = $newUser["register-adresNum"];                    //Formata Num End. e salva em $adressNum          
+$adressNum = $newUser["register-adressNum"];                    //Formata Num End. e salva em $adressNum          
 $neighborhood = formatText($newUser["register-neighborhood"]); //Formata bairro e salva em $neighborhood       
 $city = formatText($newUser["register-city"]);                 //Formata nome e salva em $city          
 $state = formatText($newUser["register-state"]);               //Formata estados e salva em $state       
@@ -88,7 +88,8 @@ $email = $newUser["register-email"];                           //Formata email e
 
 
 //---------------------------------------Cep-------------------------------------------------------------------------
-$sql = "SELECT *FROM CEP WHERE CEP = '$codeZip' "; // Monta a query para pesquisar CEP
+$sql = "SELECT * FROM CEP WHERE CEP = '$codeZip' "; // Monta a query para pesquisar CEP
+
 $result = mysqli_query($connection,$sql);
 
 //Se der falha na busca encerra
@@ -101,17 +102,20 @@ if (!$result)
 //Se não houver nenhum registro Cadastra novo CEP
 if(mysqli_num_rows($result)==0)
 	{
-	$sql = "INSERT INTO 'cep'('cep', 'logradouro', 'bairro', 'cidade', 'estado') 
-			       VALUES ('$cep','$adress','$neighborhood','$city','$state');";
-    mysqli_query($sql); // Cadastra o Cep
+
+	$sql = "INSERT INTO `cep`(`cep`, `logradouro`, `bairro`, `cidade`, `estado`) VALUES ('$codeZip','$adress','$neighborhood','$city', '$state');";
+
+    mysqli_query($connection, $sql); // Cadastra o Cep
+
 	}
 
 //------------------------------------------------------------------------------------------------------------------
 
 //---------------------------------Endereço-------------------------------------------------------------------------
 //Pesquisa Endereço
-$sql = "SELECT *FROM endereco WHERE CEP = '$cep' AND COMPLEMENTO = '$complement' AND logradouro = '$adress'; "; // Monta a query
-$result = mysqli_query($connection,$sql);
+$sql = "SELECT * FROM `enderecos` WHERE `cep` = '$codeZip' AND `numero` = '$adressNum' AND `complemento` = '$complement';"; // Monta a query
+
+$result = mysqli_query($connection, $sql);
 
 //Se der falha na busca encerra
 if (!$result)
@@ -123,15 +127,20 @@ if (!$result)
 //Se não houver nehum registro Cadastra novo Endereço
 if(mysqli_num_rows($result)==0)
 	{
-	$sql = "INSERT INTO 'enderecos'('numero', 'complemento', 'cep') VALUES ('$adressNum','$complement','$cep');";
-    mysqli_query($sql); // Cadastra o Endereco
+
+	$sql = "INSERT INTO `enderecos`(`numero`, `complemento`, `cep`) VALUES ('$adressNum','$complement','$codeZip');";
+
+
+    mysqli_query($connection,$sql); // Cadastra o Endereco
+
 	}
 //------------------------------------------------------------------------------------------------------------------
 
 //---------------------------------Usuario-------------------------------------------------------------------------
 
-$sql="INSERT INTO 'usuarios'('cpf','email', 'numero', 'cep', 'nome', 'tituloEleitor', 'zona', 'secao', 'senha', 'dtNasc') 
-VALUES ('$cpf','$email','$adresNum','$cep','$complement','$name','$votingCard','$zone','$session','$password','$birthday')";
+$sql="INSERT INTO `usuarios` (`cpf`, `numero`, `email`, `cep`, `complemento`, `nome`, `tituloEleitor`,`zona`, `secao`, `senha`, `dtNasc`) 
+VALUES ('$cpf','$adressNum','$email', '$codeZip','$complement','$name','$votingCard','$zone','$session','$password','$birthday')";
+
 $result = mysqli_query($connection, $sql);   //Executa a query Cadastra o Usuario
 
 //Se der falha na busca encerra

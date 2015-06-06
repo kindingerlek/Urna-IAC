@@ -11,7 +11,7 @@
       
       <!-- Corpo -->
       <div class="modal-body">
-        <form class="">
+        
           <div class="row">
             <!-- Input Nome -->
             <div class="col-md-12 form-group">
@@ -123,7 +123,7 @@
             </div>
           </div>
           
-        </form>
+        
         
         <div id="register-error" class="alert alert-danger" role="alert" style="display: none">
          </div>
@@ -137,3 +137,4 @@
     </div>
   </div>
 </div>
+

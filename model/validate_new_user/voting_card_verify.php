@@ -1,7 +1,8 @@
 <?php
-
-require_once("../eval/evalNumber.php");
-require_once("../format/formatNumber.php");
+$root = 'c:/wamp/www/Urna-IAC/';
+require_once($root."model/eval/eval_number.php");
+require_once($root."model/format/format_number.php");
+require_once($root."model/eval/eval_voting_card.php");
 /*
 * Título: votingCardVerify
 *
@@ -24,14 +25,9 @@ require_once("../format/formatNumber.php");
 *   
 */
 function votingCardVerify($votingCard){
-
-	$votingCard = formatNumber($votingCard); //Retira máscara do título
-	$numberIsValid = evalNumber($votingCard); //Verifica se o número é val.
-	if($numberIsValid == 0)
-		return 0;  //Retorna Erro "Título inválido"
 	
 	$votingCardIsValid = evalVotingCard($votingCard); //Verifica se o número é val.
-	if($votingCardisValid == 0)
+	if(!$votingCardIsValid)
 		return 0;  //Retorna Erro "Título inválido"
 	return 1;       //Retorna que o "Título é valido"
 
