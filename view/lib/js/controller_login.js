@@ -50,6 +50,10 @@ $(function(){
       $("#register-cfmPassword").blur(function(){ //Função que verifica a igualdade dos dois campos de senha
            changeFieldState($(this), passwordCheck($(this)));
       });
+      
+       $("#recover-cpf").blur(function(){  //Função para validar o CPF na tela de recuperação de senha
+            changeFieldState($(this), evalCPF($(this).val()));
+       });
 });
 
 
