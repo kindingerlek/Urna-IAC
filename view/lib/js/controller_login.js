@@ -100,6 +100,7 @@ $(function()
 {
        $("#form-register").submit(function(){
             
+           
             //Se campos vazios, para o .submit 
            if (verifyFieldsRegister() == 2){
                  $("#register-error").html(exclamationIcon);
@@ -147,18 +148,21 @@ $(function()
             if (passwordCheck() == 0){
                   return false;
             }
+            
 
+            alert('1');
             $.ajax(
             {
                   dataType: 'script',
                   data: $("#form-register").serialize(),
                   type: 'POST',
-                  url:'../controller/controller_register_new_user.php',
+                  url:'../controller/controller_register_user/controller_register_user.php',
                   success: function(result)
                   {
                         alert("2");
                   }
             });
+              alert('3');
           return false;
       });
 });

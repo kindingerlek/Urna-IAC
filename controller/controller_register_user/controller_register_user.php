@@ -42,32 +42,34 @@ require_once($root.'model/insert/insert_user.php');
 require_once($root.'model/insert/insert_zip_code.php');
 
 
- 			$newUser['register-name'] = "Carlos" ;     
- 			$newUser['register-votingCard'] = "092255330604"; 
- 			$newUser['register-zone'] = "1234";       
- 			$newUser['register-session'] = "1234";    
- 			$newUser['register-cpf'] = "05829791960";    
- 			$newUser['register-birthday'] = "12/12/1996";   
-            $newUser['register-zipCode'] = "83701485";    
-            $newUser['register-address'] = "qualquer coisa";     
-            $newUser['register-addressNum'] = "1005";  
-            $newUser['register-neighborhood'] = "Costeira";
-            $newUser['register-city'] = "Curitiba";      
-            $newUser['register-state'] = "PR";
-            $newUser['register-email'] = "Aslals@sajksjak.com";
-            $newUser['register-complement'] = "Casa";     
-            $newUser['register-password'] = "08071996";   
-            $newUser['register-cfmPassword'] = "08071996"; 
+ 			
+ 			// $newUser['register-name'] = "Carlos" ;     
+ 			// $newUser['register-votingCard'] = "092255330604"; 
+ 			// $newUser['register-zone'] = "1234";       
+ 			// $newUser['register-session'] = "1234";    
+ 			// $newUser['register-cpf'] = "05829791960";    
+ 			// $newUser['register-birthday'] = "12/12/1996";   
+    //         $newUser['register-zipCode'] = "83701485";    
+    //         $newUser['register-address'] = "qualquer coisa";     
+    //         $newUser['register-addressNum'] = "1005";  
+    //         $newUser['register-neighborhood'] = "Costeira";
+    //         $newUser['register-city'] = "Curitiba";      
+    //         $newUser['register-state'] = "PR";
+    //         $newUser['register-email'] = "Aslals@sajksjak.com";
+    //         $newUser['register-complement'] = "Casa";     
+    //         $newUser['register-password'] = "08071996";   
+    //         $newUser['register-cfmPassword'] = "08071996"; 
 
 
 
 //Recebe dados via post
-//$newUser = $_POST;
+$newUser = $_POST;
 
 foreach ($newUser as $field => $data) {
 	if(!evalField($data))
 		{
 			$error[] = -14;
+			break;
 			
 		}
 }
@@ -80,8 +82,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 	$error = validateNewUser($newUser);
 	
-	
-	if($error !== 1) // Se não houver erros verifica se existe no BD
+	if($error === 1) // Se não houver erros verifica se existe no BD
 		{
 			
 			// Atribui a arrayhash os campos dos dados recebidos de $newUser separando em seus rescptivos tipos
@@ -111,11 +112,11 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			// --------------------------------------------------------------
 
 
+			$error=null;
 			
-
 			if(!verifyUser($user, $conn))     				 	// Entra se user existe no BD, 1 se sim e 0 se não
 			{
-
+				
 				if (!verifyAddress($address, $conn)) {     	 	// Entra se endereço existe no BD, 1 se sim e 0 se não
 					
 					if (!verifyZipCode($zipCode, $conn)) { 		// Entra se zipCode existe no BD, 1 se sim e 0 se não 
@@ -129,32 +130,33 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				insertUser($user, $conn); 					    // Insere User no BD
 
 			    echo("alert('Cadastro realizado com Sucesso!');");
-				echo ("window.location.href = '../index.php';");
+				echo("window.location.href = '../index.php';");
 
 			}else{
-				$error[] = -13;                //Retorna erro de usuario já cadastrado
+			
+				$error[0] = -13;                //Retorna erro de usuario já cadastrado
 			}
 			
-
+			
 		}
 }
 
 
-if(isset($error))
+if($error[0]<0)
 {
-	echo "$('#register-error').html('');";  
-	$icon = "<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>";
+	echo "$('#register-error').html('');";
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
-
-		echo "$('#register-error').append('".$icon.$description."'<br/>);";
+		
+		echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
+		echo "$('#register-error').show();";  
+		echo "$('#register-error').append('".$description."<br/>');";
 		
 		}
 }
 
+//print_r($error);
+
 mysqli_close($conn);
-
-
-
 ?>
