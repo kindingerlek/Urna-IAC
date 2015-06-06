@@ -74,7 +74,7 @@
           
           <tbody id="table-body">
             <?php
-              include "../open_db/open_db.php";
+              include "../model/open_db/open_db.php";
               
               $conn = openDB();
             
@@ -82,7 +82,7 @@
                   die("Connection failed: " . mysqli_connect_error());
               }
               
-              $sql = "SELECT nome, tituloEleitor, cpf, zona, secao FROM usuarios";
+              $sql = "SELECT nome, tituloEleitor, cpf, zona, secao FROM usuarios ORDER BY nome";
               $result = mysqli_query($conn, $sql);
               $i = 0;  
               
