@@ -67,13 +67,42 @@
               <td class="col-md-2">Título:</td>
               <td class="col-md-2">CPF:</td>
               <td class="col-md-1">Zona:</td>
-              <td class="col-md-1">Sessão:</td>
+              <td class="col-md-1">Seção:</td>
               <td class="col-md-1">Ações:</td>
             </tr>
           </thead>
           
           <tbody id="table-body">
+            <?php
+              include "../open_db/open_db.php";
+              
+              $conn = openDB();
             
+              if (!$conn) {
+                  die("Connection failed: " . mysqli_connect_error());
+              }
+              
+              $sql = "SELECT nome, tituloEleitor, cpf, zona, secao FROM usuarios";
+              $result = mysqli_query($conn, $sql);
+              $i = 0;  
+              
+              while($row = mysqli_fetch_assoc($result))
+              {
+                $i++;
+                
+                $linha = 
+                  "<tr><td>" . $i .
+                  "</td><td>" . $row["nome"] . 
+                  "</td><td>" . $row["tituloEleitor"] .                   
+                  "</td><td>" . $row["cpf"] .                   
+                  "</td><td>" . $row["zona"] .                   
+                  "</td><td>" . $row["secao"] .                    
+                  "</td><td>" . "Ações" .
+                  "</td></tr>";
+                
+                echo $linha;
+              }
+            ?>
           </tbody>
         </table>
       
