@@ -1,4 +1,5 @@
 <?php
+
 $root = 'c:/wamp/www/Urna-IAC/';
 require_once($root."model/open_db/open_db.php");
 require_once($root."model/format/format_number.php");

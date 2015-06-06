@@ -3,16 +3,24 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 04-Jun-2015 às 20:16
+-- Generation Time: 06-Jun-2015 às 16:41
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "-03:00";
+
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
 --
+-- Database: `votebem`
 --
+CREATE DATABASE IF NOT EXISTS `votebem`DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `votebem`;
 
 -- --------------------------------------------------------
 
@@ -76,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `enderecos` (
   `complemento` varchar(200) NOT NULL DEFAULT '',
   `cep` varchar(8) NOT NULL DEFAULT '0',
   PRIMARY KEY (`numero`,`cep`),
-  Unique KEY (`numero`,`cep`, `complemento`),
+  UNIQUE KEY `numero` (`numero`,`cep`,`complemento`),
   KEY `fkEnderecosCep` (`cep`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -114,9 +122,9 @@ CREATE TABLE IF NOT EXISTS `partidos` (
 --
 
 CREATE TABLE IF NOT EXISTS `ticket` (
-  `cpf` varchar(11) DEFAULT NULL,
-  `dataHora` date DEFAULT NULL,
-  PRIMARY KEY (`cpf`, `dataHora`),
+  `cpf` varchar(11) NOT NULL DEFAULT '',
+  `dataHora` date NOT NULL DEFAULT '0000-00-00',
+  PRIMARY KEY (`cpf`,`dataHora`),
   KEY `fkTicketUsuarios` (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
