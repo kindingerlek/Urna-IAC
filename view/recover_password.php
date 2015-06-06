@@ -10,7 +10,7 @@
       
       <!-- Corpo -->
       <div class="modal-body">
-        <form>
+        <div class="row">
             <!-- Input CPF -->
             <div class="col-md-12 form-group">
               <label>CPF:</label>
@@ -29,14 +29,14 @@
                 <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar código para o E-MAIL
               </button>
             </div>
-            &nbsp
-        </form>
+            
+          </div>
       </div>
       
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Confirmar código</button>
+        <button type="submit" class="btn btn-primary">Confirmar código</button>
           
       </div>
     </div>

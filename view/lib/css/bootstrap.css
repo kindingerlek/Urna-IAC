@@ -2986,6 +2986,10 @@ select[multiple].form-group-lg .form-control {
     padding-top: 6px;
   }
 }
+
+form .has-feedback .form-control-feedback {
+  right: 15px;
+}
 .btn {
   display: inline-block;
   padding: 6px 12px;
