@@ -1,4 +1,6 @@
 <?php
+$root = 'c:/wamp/www/Urna-IAC/';
+require_once($root."model/eval/eval_text.php");
 /*
 * Título: textVerify()
 *
@@ -21,7 +23,7 @@
 *   
 */
 
-function verifyText($text)
+function textVerify($text)
 {
 $text = formatText($text); //retira mascaras
 

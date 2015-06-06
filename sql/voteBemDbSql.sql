@@ -12,7 +12,6 @@
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `iac`
 --
 
 -- --------------------------------------------------------
@@ -22,18 +21,18 @@
 --
 
 CREATE TABLE IF NOT EXISTS `candidatos` (
-  `idCandidato` decimal(5,0) NOT NULL DEFAULT '0',
+  `idCandidato` varchar(5) NOT NULL DEFAULT '0',
   `idEleicao` int(11) NOT NULL DEFAULT '0',
   `idTipo` int(11) DEFAULT NULL,
-  `idPartido` decimal(2,0) DEFAULT NULL,
+  `idPartido` varchar(2) DEFAULT NULL,
   `votos` int(11) DEFAULT NULL,
   `nomeFantasia` varchar(200) DEFAULT NULL,
-  `foto` varchar(100) DEFAULT NULL,
+  `foto` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idCandidato`,`idEleicao`),
   KEY `fkCandidatosTipos` (`idTipo`),
   KEY `fkCandidatosPartidos` (`idPartido`),
   KEY `fkCandidatosEleicoes` (`idEleicao`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -43,19 +42,13 @@ CREATE TABLE IF NOT EXISTS `candidatos` (
 
 CREATE TABLE IF NOT EXISTS `cep` (
   `cep` varchar(8) NOT NULL DEFAULT '0',
-  `logradouro` varchar(100) DEFAULT NULL,
+  `logradouro` varchar(200) DEFAULT NULL,
   `bairro` varchar(200) DEFAULT NULL,
   `cidade` varchar(200) DEFAULT NULL,
+  `estado` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`cep`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `cep`
---
-
-INSERT INTO `cep` (`cep`, `logradouro`, `bairro`, `cidade`) VALUES
-('83701485', 'Tibagi', 'Costeira', 'Araucaria'),
-('81870000', 'Isaac', 'Pinheirinho', 'Curitiba');
 -- --------------------------------------------------------
 
 --
@@ -67,10 +60,10 @@ CREATE TABLE IF NOT EXISTS `eleicoes` (
   `horaInicio` date DEFAULT NULL,
   `data` date DEFAULT NULL,
   `horaFim` date DEFAULT NULL,
-  `tipo` decimal(1,0) DEFAULT NULL,
-  `status` decimal(1,0) DEFAULT NULL,
+  `tipo` varchar(1) DEFAULT NULL,
+  `status` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idEleicao`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -79,21 +72,13 @@ CREATE TABLE IF NOT EXISTS `eleicoes` (
 --
 
 CREATE TABLE IF NOT EXISTS `enderecos` (
-  `numero` int(11) NOT NULL DEFAULT '0',
+  `numero` varchar(11) NOT NULL DEFAULT '0',
   `complemento` varchar(200) NOT NULL DEFAULT '',
   `cep` varchar(8) NOT NULL DEFAULT '0',
   PRIMARY KEY (`numero`,`cep`),
+  Unique KEY (`numero`,`cep`, `complemento`),
   KEY `fkEnderecosCep` (`cep`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `enderecos`
---
-
-INSERT INTO `enderecos` (`numero`, `complemento`, `cep`) VALUES
-(993, 'casa', '83701485'),
-(332, 'casa', '81870000'),
-(123, 'ap', '83701485');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -105,17 +90,7 @@ CREATE TABLE IF NOT EXISTS `erros` (
   `cod` int(11) NOT NULL DEFAULT '0',
   `descricao` tinytext,
   PRIMARY KEY (`cod`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `erros`
---
-
-INSERT INTO `erros` (`cod`, `descricao`) VALUES
-(-4, 'Senha incorreta'),
-(-3, 'Falha na busca'),
-(-2, 'Usuário não existe'),
-(-1, 'CPF inválido');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -124,13 +99,13 @@ INSERT INTO `erros` (`cod`, `descricao`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `partidos` (
-  `idPartido` decimal(2,0) NOT NULL DEFAULT '0',
+  `idPartido` varchar(2) NOT NULL DEFAULT '0',
   `nome` varchar(200) DEFAULT NULL,
   `sigla` varchar(10) DEFAULT NULL,
   `votos` int(11) DEFAULT NULL,
   `logo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idPartido`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -141,8 +116,9 @@ CREATE TABLE IF NOT EXISTS `partidos` (
 CREATE TABLE IF NOT EXISTS `ticket` (
   `cpf` varchar(11) DEFAULT NULL,
   `dataHora` date DEFAULT NULL,
+  PRIMARY KEY (`cpf`, `dataHora`),
   KEY `fkTicketUsuarios` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -154,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `tipos` (
   `idTipo` int(11) NOT NULL DEFAULT '0',
   `cargo` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`idTipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -164,28 +140,20 @@ CREATE TABLE IF NOT EXISTS `tipos` (
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `cpf` varchar(11) NOT NULL DEFAULT '',
-  `numero` int(11) DEFAULT NULL,
+  `numero` varchar(11) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
   `cep` varchar(8) DEFAULT NULL,
+  `complemento` varchar(200) NOT NULL DEFAULT '',
   `nome` varchar(200) DEFAULT NULL,
-  `tituloEleitor` decimal(20,0) DEFAULT NULL,
+  `tituloEleitor` varchar(20) DEFAULT NULL,
   `idAdmin` varchar(10) DEFAULT NULL,
-  `zona` decimal(3,0) DEFAULT NULL,
-  `secao` decimal(4,0) DEFAULT NULL,
+  `zona` varchar(4) DEFAULT NULL,
+  `secao` varchar(4) DEFAULT NULL,
   `senha` varchar(50) DEFAULT NULL,
-  `dtNasc` date DEFAULT NULL,
+  `dtNasc` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`cpf`),
   KEY `fkUsuariosEnderecos` (`numero`,`cep`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`cpf`, `numero`, `cep`, `nome`, `tituloEleitor`, `zona`, `secao`, `senha`, `dtNasc`) VALUES
-('09487904905', 993, '83701485', 'Alisson','123123123123123', '123', '1234','18fb622e79c298bcdc038b04860ac3b5', '1996-07-08'),
-('09964341946', 993, '83701485', 'Lucas', '112333355656666', '123', '1234', '57985ac735bc81dc466da93f48589888', '1995-03-14'),
-('05829791960', 332, '81870000', 'Carlos', '123123123155543', '123', '1234','81dc9bdb52d04dc20036dbd8313ed055', '1976-12-10'),
-('07485894900', 332, '81870000', 'Bruno', '123123123155543', '123', '1234', '17db60932875aa8f23510f6a00f7f929', '1992-11-10');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -199,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `vagas` (
   `qtdeVagas` int(11) DEFAULT NULL,
   KEY `fkVagasTipos` (`idTipo`),
   KEY `fkVagasEleicoes` (`idEleicao`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -208,9 +176,9 @@ CREATE TABLE IF NOT EXISTS `vagas` (
 --
 
 CREATE TABLE IF NOT EXISTS `votos` (
-  `idCandidato` decimal(5,0) DEFAULT NULL,
+  `idCandidato` varchar(5) DEFAULT NULL,
   KEY `fkVotosCandidatos` (`idCandidato`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables

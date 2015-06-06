@@ -54,24 +54,23 @@ $(function()
       });
 });              
                   
-//
-//$(function()
-//{
-//       $("#form-register").submit(function(){
-//
-//            $.ajax(
-//            {
-//                  dataType: 'script',
-//                  data: $("#form-register").serialize(),
-//                  type: 'POST',
-//                  url:'../controller/controller_register_new_user.php',
-//                  success: function(result)
-//                  {
-//                
-//                  }
-//            });
-//            return false;
-//      });
-//});
+
+$(function()
+{
+       $("#form-register").submit(function(){
+      
+            $.ajax(
+            {
+                  dataType: 'script',
+                  data: $("#form-register").serialize(),
+                  type: 'POST',
+                  url:'../controller/controller_register_new_user.php',
+                  success: function(result)
+                  {
+                  }
+            });
+          return false;
+      });
+});
 
 

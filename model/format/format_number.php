@@ -24,7 +24,7 @@ function formatNumber($number){
 	$number = trim($number);
 
 	//Retira os caracteres [ / . - ] da string 
-	$number = preg_replace('/[\/\.-]/', '', $number);
+	$number = preg_replace('/[ \/\.-]/', '', $number);
 
 	return $number;
 
