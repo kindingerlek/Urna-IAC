@@ -1,7 +1,13 @@
 <?php
 
-
-$message = "Olá, ".$name." <br><br><br>Por favor, insira o código abaixo para reiniciar sua senha.<br><br><br>".$txtAssunto."<br><b>Mensagem:</b> ".$txtMensagem;
+/* Recuperar os Dados do Formulário de Envio*/
+$txtNome    = "Dos Foda";
+$txtAssunto    = "Teste";
+$txtEmail    = "kindingerlek02@gmail.com";
+$txtMensagem    = "Beijo na bunda";
+ 
+/* Montar o corpo do email*/
+$corpoMensagem         = "<b>Nome:</b> ".$txtNome." <br><b>Assunto:</b> ".$txtAssunto."<br><b>Mensagem:</b> ".$txtMensagem;
  
 /* Extender a classe do phpmailer para envio do email*/
 require_once("c://wamp/www/Urna-IAC/PHPMailer_5.2.4/class.phpmailer.php");
