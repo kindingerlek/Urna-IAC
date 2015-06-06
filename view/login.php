@@ -55,9 +55,10 @@
         <form id="form-login" method="POST" action="#">
           
           <!-- Input LOGIN -->
-          <div class="form-group" id="errorLogin">
+          <div class="form-group has-feedback" id="errorLogin">
             <label>CPF:</label>
             <input type="text" class="form-control" id="login-user" name="login-user" placeholder="Digite aqui seu CPF">
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
           </div>
           
           <!-- Input Senha -->

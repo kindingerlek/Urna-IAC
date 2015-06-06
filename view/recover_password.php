@@ -12,9 +12,10 @@
       <div class="modal-body">
         <div class="row">
             <!-- Input CPF -->
-            <div class="col-md-12 form-group">
+            <div class="col-md-12 form-group has-feedback">
               <label>CPF:</label>
               <input id="recover-cpf" name="recover-cpf" type="text" class="form-control" placeholder="Somente números">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
             </div>
             
             <!-- Input Código Enviado -->
