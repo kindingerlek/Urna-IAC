@@ -80,11 +80,12 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 				$msg = generateMessage($code,$row);
 
-				echo "$('#recover-success').show();";  
-				echo "$('#recover-success').html('Email enviado!!');";
+				
 
 				smtpmailer($email,"totheworldgroup@gmail.com","VoteBem","Redefinir senha Vote Bem",$msg);
 				
+				echo "$('#recover-success').show();";  
+				echo "$('#recover-success').html('Email enviado!!');";
 
 			}else{
 				$error[] = -2;                //Retorna erro de usuario já cadastrado

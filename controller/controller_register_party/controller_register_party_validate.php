@@ -60,21 +60,21 @@ function validateNewParty($newParty)
 {
 	
 	//--------------------------------idParty-------------------------------
-	$idParty = $newParty['register-idParty']; //Atribui a $cpf o campo do cpf
+	$idParty = $newParty['idParty']; //Atribui a $cpf o campo do cpf
 	
 	if(!validateNumber($idParty)) 
 		$erros[] = -17;               //Retorna Erro "Cpf inválido"
     //--------------------------------------------------------------------
 
 	//--------------------------------name------------------------------
-	$name = $newParty["register-name"];    //Atribui a $name
+	$name = $newParty["iname"];    //Atribui a $name
 	   									   //o name de $newParty
 	if(!validateNumber($name)) 
 		$erros[] = -18;                    //Retorna Erro "Nome"
 	//--------------------------------------------------------------------
 
 	//-------------------------------acronym-----------------------------
-	$acronym = $newParty["register-acronym"];//Atribui a $acronym
+	$acronym = $newParty["acronym"];//Atribui a $acronym
 							 			      //a acronym de $newParty
 	
 	if(!validateText($acronym))

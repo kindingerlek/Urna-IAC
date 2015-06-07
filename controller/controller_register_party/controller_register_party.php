@@ -61,12 +61,11 @@ require_once($root.'model/insert/insert_party.php');
 //Recebe dados via post
 $newParty = $_POST;
 
-$uploaddir = 'c:/wamp/www/Urna-IAC/resources/party_logo/';// definindo pasta de dowload de fotos
-$uploadFile = $uploaddir . basename("$idParty");
 
 
 
-foreach ($newparty as $field => $data) {
+
+foreach ($newParty as $field => $data) {
 	if(!evalField($data))
 		{
 			$error[] = -14;
@@ -81,7 +80,7 @@ $conn = openDB();
 if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
 
-	$error = validateNewparty($newparty);
+	$error = validatenewParty($newParty);
 	
 	if($error === 1) // Se não houver erros verifica se existe no BD
 		{
@@ -93,6 +92,8 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			$party['acronym'] = formatNumber($newParty["register-acronym"]);   		            //Formata titulo e salva em $votingCard
 			$party['logo'] =	$updateFile;                  //Formata zona e salva em $party['logo'];
 			
+			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/party_logo/';// definindo pasta de dowload de fotos
+			$uploadFile = $uploaddir . basename("$idParty");
 
 
 			

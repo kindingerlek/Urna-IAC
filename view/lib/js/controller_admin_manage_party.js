@@ -23,7 +23,7 @@ $(function(){
 	
 	$("#register-acronym").blur(function(){
 		
-		createMaskPartyNum($(this));
+		createMaskPartyName($(this));
 		
 	});
 	
@@ -62,10 +62,10 @@ $(function(){
                   dataType: 'script',
                   data: $("#form-register-party").serialize(),
                   type: 'POST',
-                  url:'../controller/controller_admin_manage_voter.php',
+                  url:'../controller/controller_register_party/controller_register_party.php',
                   success: function(result)
                   {
-					  
+					  alert("saiuuuuu");
                   }
 		});
 		

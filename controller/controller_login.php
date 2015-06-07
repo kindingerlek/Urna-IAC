@@ -29,7 +29,7 @@ $return = validateUser($id,$pw);
 switch($return){
 	case 1:
 		//header('Location: ../view/urna_view.php');
-		echo ("window.location.href = '../view/urna_view.php';");
+		echo ("window.location.href = '../view/voter_urn.php';");
 		break;
 	case 2:
 		//header('Location: ../view/admin_home.php');
