@@ -117,7 +117,7 @@ print_r($_FILES);
 if(is_array($error))
 {
 	 //echo "$('#register-error').html('');";
-
+	header('location:../../view/admin_manage_party.php');
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);

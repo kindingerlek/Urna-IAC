@@ -2,11 +2,11 @@ $(function(){
 
 	$("#search-input").blur(function(){
 		
-		if($("#search-combobox").val() == "nome"){
+		if($("#search-combobox").val() == "sigla" || $("#search-combobox").val() == "nome"){
 			createMaskPartyName($("#search-input"));
 		}
 		
-		if($("#search-combobox").val() == "sigla" || $("#search-combobox").val() == "idPartido"){
+		if($("#search-combobox").val() == "idPartido"){
 			createMaskPartyNum($("#search-input"));
 		}
 		
@@ -42,7 +42,7 @@ $(function(){
                   dataType: 'script',
                   data: $("#form-search").serialize(),
                   type: 'POST',
-                  url:'../controller/controller_admin_manage_voter.php',
+                  url:'../controller/controller_admin_manage_party.php',
                   success: function(result)
                   {
 					  
