@@ -2,7 +2,11 @@
 <html lang="pt-br">
     <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Login</title>
+    
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=enable_js.php">
+    </noscript>
     
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
@@ -85,7 +89,10 @@
           
       </div>
       
-      <?php include "recover_password.php" ?>         
+      <form id="form-recover" method="POST" action="#">
+        <?php include "recover_password.php" ?>
+      </form>
+            
       <form id="form-register" method="POST" action="#">
         <?php include "register_new_user.php" ?>
       </form>
