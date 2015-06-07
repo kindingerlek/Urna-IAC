@@ -35,8 +35,6 @@ function createMaskVoterCPF(valCombo, field){
 			$(field).val(cpf.replace(/[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕç ,.']/g,''));
 		}
 	}
-		
-	
 };
 
 
