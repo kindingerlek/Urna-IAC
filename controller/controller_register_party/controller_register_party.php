@@ -62,9 +62,6 @@ require_once($root.'model/insert/insert_party.php');
 $newParty = $_POST;
 
 
-
-
-
 foreach ($newParty as $field => $data) {
 	if(!evalField($data))
 		{
@@ -79,58 +76,55 @@ $conn = openDB();
 
 if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
+			$party['idParty'] = formatNumber($newParty["register-number"]); 				   		//Formata cpf e salva em $cpf
+			$party['name'] =	formatText($newParty["register-name"]);                 		//Formata nome e salva em $name
+			$party['acronym'] = formatNumber($newParty["register-acronym"]);   		            //Formata titulo e salva em $votingCard
+			$idParty = $party['idParty'];
 
-	$error = validatenewParty($newParty);
+			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/party_logo/';// definindo pasta de dowload de fotos
+			$uploadFile = $uploaddir . basename("$idParty".".jpg");
+
+			$party['logo'] =	$uploadFile; 
+			
+
+	$error = validatenewParty($party);
 	
 	if($error === 1) // Se não houver erros verifica se existe no BD
 		{
+			$error=null;
 			
-			// Atribui a arrayhash os campos dos dados recebidos de $newParty separando em seus rescptivos tipos
-
-			$party['idParty'] = formatNumber($newParty["register-idP"]); 				   		//Formata cpf e salva em $cpf
-			$party['name'] =	formatText($newParty["register-name"]);                 		//Formata nome e salva em $name
-			$party['acronym'] = formatNumber($newParty["register-acronym"]);   		            //Formata titulo e salva em $votingCard
-			$party['logo'] =	$updateFile;                  //Formata zona e salva em $party['logo'];
-			
-			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/party_logo/';// definindo pasta de dowload de fotos
-			$uploadFile = $uploaddir . basename("$idParty");
-
-
-			
-			
-
-			//$error=null;
-			
-			if(!verifyParty($Party, $conn))     				 	// Entra se Party existe no BD, 1 se sim e 0 se não
+			if(!verifyParty($party, $conn))     				 	// Entra se Party existe no BD, 1 se sim e 0 se não
 			{
-				move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);// upload do arquivo
+				// upload do arquivo
 			  
-				insertParty($party, $conn); 					    // Insere Party no BD
+				insertParty($party, $conn); 					    // Insere Party no B
 
-			    echo("alert('Cadastro de partido realizado com Sucesso!');");
-				echo("window.location.href = '#';");
+				header('location:../../view/admin_manage_party.php');
 
 			}else{
 			
 				$error[0] = -16;                //Retorna erro de usuario já cadastrado
+				header('location:../../view/admin_manage_party.php');
 			}
 			
 			
 		}
 }
 
+move_uploaded_file($_FILES['register-logoInput']['tmp_name'], $uploadFile);
+print_r($_FILES);
 
 if(is_array($error))
 {
-	echo "$('#register-error').html('');";
+	 //echo "$('#register-error').html('');";
 
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
-		
-		echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
-		echo "$('#register-error').show();";  
-		echo "$('#register-error').append('".$description."<br/>');";
+		echo $error[$i];
+		// echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
+		// echo "$('#register-error').show();";  
+		// echo "$('#register-error').append('".$description."<br/>');";
 		
 		}
 }

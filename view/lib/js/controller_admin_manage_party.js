@@ -54,9 +54,10 @@ $(function(){
 	});
 });
 
+
 $(function(){
 	
-	$("#form-register-party").submit(function(){
+	$("#form-register-partsy").submit(function(){
 		
 		$.ajax({
                   dataType: 'script',
