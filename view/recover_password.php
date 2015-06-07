@@ -32,16 +32,6 @@
                 <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar código para o E-MAIL
               </button>
             </div>
-                         
-            <div class="col-md-6 form-group">
-              <label>Nova Senha:</label>
-              <input id="recover-password" name="recover-password" type="text" class="form-control" placeholder="Somente números">
-            </div>
-            
-            <div class="col-md-6 form-group">
-              <label>Confirmar Nova Senha:</label>
-              <input id="recover-cfmPassword" name="recover-cfmPassword" type="text" class="form-control" placeholder="Somente números">
-            </div>
             
             <div class="col-md-12" id="#recover-error">
               
@@ -53,7 +43,7 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Confirmar código</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal"  data-toggle="modal" data-target="#popup-pwReset">Confirmar código</button>
           
       </div>
     </div>

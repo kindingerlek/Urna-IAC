@@ -92,6 +92,10 @@
       <form id="form-recover" method="POST" action="#">
         <?php include "recover_password.php" ?>
       </form>
+      
+      <form id="form-pwReset" method="POST" action="#">
+        <?php include "recover_newPassword.php" ?>
+      </form>
             
       <form id="form-register" method="POST" action="#">
         <?php include "register_new_user.php" ?>
