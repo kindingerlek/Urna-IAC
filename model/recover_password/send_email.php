@@ -1,13 +1,4 @@
 <?php
-
-/* Recuperar os Dados do Formulário de Envio*/
-$txtNome    = "Dos Foda";
-$txtAssunto    = "Teste";
-$txtEmail    = "kindingerlek02@gmail.com";
-$txtMensagem    = "Beijo na bunda";
- 
-/* Montar o corpo do email*/
-$corpoMensagem         = "<b>Nome:</b> ".$txtNome." <br><b>Assunto:</b> ".$txtAssunto."<br><b>Mensagem:</b> ".$txtMensagem;
  
 /* Extender a classe do phpmailer para envio do email*/
 require_once("c://wamp/www/Urna-IAC/PHPMailer_5.2.4/class.phpmailer.php");
@@ -15,6 +6,7 @@ require_once("c://wamp/www/Urna-IAC/PHPMailer_5.2.4/class.phpmailer.php");
 /* Definir Usuário e Senha do Gmail de onde partirá os emails*/
 define('GUSER', 'totheworldgroup@gmail.com'); 
 define('GPWD', 'albrcalu');
+
  
 function smtpmailer($para, $de, $nomeDestinatario, $assunto, $corpo) { 
     global $error;
@@ -33,6 +25,7 @@ function smtpmailer($para, $de, $nomeDestinatario, $assunto, $corpo) {
     $mail->Body = $corpo;
     $mail->AddAddress($para);
     $mail->IsHTML(true);
+    $mail->ContentType = "text/html;charset = utf-8";
  
     /* Função Responsável por Enviar o Email*/
     if(!$mail->Send()) {
@@ -43,10 +36,5 @@ function smtpmailer($para, $de, $nomeDestinatario, $assunto, $corpo) {
         return true;
     }
 }
- 
-/* Passagem dos parametros: email do Destinatário, email do remetende, nome do remetente, assunto, mensagem do email.*/
- if (smtpmailer($txtEmail, 'totheworldgroup@gmail.com', $txtNome, $txtAssunto, $corpoMensagem)) {
-     Header("location: sucesso.php"); // Redireciona para uma página de Sucesso.
-}
-if (!empty($error)) echo $error;
+
 ?>

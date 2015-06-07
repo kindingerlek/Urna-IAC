@@ -1,5 +1,6 @@
 <?php
 $root = 'c:/wamp/www/Urna-IAC/';
+require_once($root."model/eval/eval_cpf.php");
 require_once($root."model/eval/eval_number.php");
 require_once($root."model/format/format_number.php");
 

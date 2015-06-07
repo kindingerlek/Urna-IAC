@@ -1,5 +1,5 @@
 <?php  
-  function get_seed()
+  function generateCode()
   {
     $seed = "";
     
@@ -27,6 +27,5 @@
     
     return $seed;
   }
-  
-  echo get_seed();  
+   
 ?>
