@@ -112,7 +112,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			// --------------------------------------------------------------
 
 
-			$error=null;
+			//$error=null;
 			
 			if(!verifyUser($user, $conn))     				 	// Entra se user existe no BD, 1 se sim e 0 se não
 			{
@@ -142,9 +142,10 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 }
 
 
-if($error[0]<0)
+if(is_array($error))
 {
 	echo "$('#register-error').html('');";
+
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
@@ -155,8 +156,6 @@ if($error[0]<0)
 		
 		}
 }
-
-//print_r($error);
 
 mysqli_close($conn);
 ?>
