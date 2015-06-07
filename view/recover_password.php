@@ -27,13 +27,13 @@
               <input type="text" id="recover-cod" class="form-control" maxLengh="4">
             </div>
             
-            <div class="col-md-12">
+            <div class="col-md-12 form-group">
               <button id="submit-email" type="button" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar código para o E-MAIL
               </button>
             </div>
-            <div class="col-md-12 alert alert-success" id="#recover-success" style="">
-              asdasdasd
+            
+            <div class="col-md-12 alert alert-success" id="#recover-success" style="display:none">
             </div>
             
             <div class="col-md-12 alert alert-danger" id="#recover-error" style="display:none">
