@@ -32,6 +32,7 @@ body {
   
   
   background-color: #FFFFFF;
+  min-width: 1000px;
   width: 70%;
   box-shadow: 0px 0px 20px #888888;
 }
@@ -126,4 +127,60 @@ body {
   
   box-shadow: 0px 0px 20px #888888;
   background-color: #F0F0F2; 
+}
+
+.btn-xlg {
+    padding: 18px 28px;
+    font-size: 48px; /* change this to your desired size*/
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.btn-inverted {
+  color: #fff;
+  background-color: #303030;
+  border-color: #252525;
+}
+.btn-inverted:hover,
+.btn-inverted:focus,
+.btn-inverted.focus,
+.btn-inverted:active,
+.btn-inverted.active,
+.open > .dropdown-toggle.btn-inverted {
+  color: #fff;
+  background-color: #202020;
+  border-color: #151515;
+}
+.btn-inverted:active,
+.btn-inverted.active,
+.open > .dropdown-toggle.btn-inverted {
+  background-image: none;
+}
+.btn-inverted.disabled,
+.btn-inverted[disabled],
+fieldset[disabled] .btn-inverted,
+.btn-inverted.disabled:hover,
+.btn-inverted[disabled]:hover,
+fieldset[disabled] .btn-inverted:hover,
+.btn-inverted.disabled:focus,
+.btn-inverted[disabled]:focus,
+fieldset[disabled] .btn-inverted:focus,
+.btn-inverted.disabled.focus,
+.btn-inverted[disabled].focus,
+fieldset[disabled] .btn-inverted.focus,
+.btn-inverted.disabled:active,
+.btn-inverted[disabled]:active,
+fieldset[disabled] .btn-inverted:active,
+.btn-inverted.disabled.active,
+.btn-inverted[disabled].active,
+fieldset[disabled] .btn-inverted.active {
+  background-color: #202020;
+  border-color: #151515;
+}
+
+.brd
+{
+  border: solid #123315 1px;
 }

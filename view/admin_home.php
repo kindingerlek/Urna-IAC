@@ -21,9 +21,9 @@
             
       <!-- Conteúdo da página -->
       <div class="page-content">
-        <a class="btn btn-default btn-lg btn-block" href="admin_manager_voter.php" role="button" > Gerenciar Eleitores</a>
-        <a class="btn btn-default btn-lg btn-block" href="admin_manager_party.php" role="button" > Gerenciar Partidos</a>
-        <a class="btn btn-default btn-lg btn-block" href="admin_manager_election.php" role="button" > Gerenciar Eleições</a>  
+        <a class="btn btn-default btn-lg btn-block" href="admin_manage_voter.php" role="button" > Gerenciar Eleitores</a>
+        <a class="btn btn-default btn-lg btn-block" href="admin_manage_party.php" role="button" > Gerenciar Partidos</a>
+        <a class="btn btn-default btn-lg btn-block" href="admin_manage_election.php" role="button" > Gerenciar Eleições</a>  
       </div>
     
       <!-- Rodapé da página -->

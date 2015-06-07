@@ -19,11 +19,11 @@
             </div>
             
             <!-- Input Código Enviado -->
-            <div class="col-md-10 form-group">
+            <div class="col-md-8 form-group">
               <p class="text-right">Insira o código enviado para seu e-mail:</p>
             </div>
             
-            <div class="col-md-2 form-group">
+            <div class="col-md-4 form-group">
               <input type="text" id="recover-cod" class="form-control" maxLengh="4">
             </div>
             
