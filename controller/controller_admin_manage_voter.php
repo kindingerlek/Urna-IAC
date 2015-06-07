@@ -19,17 +19,18 @@ $root = 'c:/wamp/www/Urna-IAC/';
 require_once($root.'model/open_db/open_db.php');
 
 //select
-require_once($root.'model/select/select_user.php');
+require_once($root.'model/select/select.php');
 
 
 //Recebe dados via post
 $column = $_POST["search-combobox"];
 $param = "%".$_POST["search-input"]."%";
+$table = 'usuarios';
 
 
 $conn = openDB();
 
-$result = selectUser($column, $param, $conn);
+$result = select($table, $column, $param, $conn);
 
 $i=0;
 
@@ -52,3 +53,5 @@ while($row = mysqli_fetch_assoc($result)){
 mysqli_close($conn);
 
 ?>
+
+        

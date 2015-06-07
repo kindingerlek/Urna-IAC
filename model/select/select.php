@@ -21,13 +21,13 @@
 * 
 *   
 */
-function selectUser($column, $param, $conn)
+function select($table, $column, $param, $conn)
 {
 	if($param == ''){
-		$sql = "SELECT * FROM USUARIOS";  // Monta a query
+		$sql = "SELECT * FROM `$table`;";  // Monta a query
 	}
 	else{
-		$sql = "SELECT * FROM USUARIOS WHERE `$column` LIKE '$param'"; // Monta a query
+		$sql = "SELECT * FROM `$table` WHERE `$column` LIKE '$param';"; // Monta a query
 	}
 	
 	
