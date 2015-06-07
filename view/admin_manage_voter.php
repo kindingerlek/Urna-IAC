@@ -40,9 +40,9 @@
           <div class="row">
             <div class="form-group col-lg-3">
               <select class="input-large form-control" id="search-combobox">
-                <option value="">Nome</option>
-                <option value="">Título</option>
-                <option value="">CPF</option>
+                <option value="nome">Nome</option>
+                <option value="tituloEleitor">Título</option>
+                <option value="cpf">CPF</option>
               </select>  
             </div>
                   

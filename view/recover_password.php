@@ -32,8 +32,11 @@
                 <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar código para o E-MAIL
               </button>
             </div>
+            <div class="col-md-12 alert alert-success" id="#recover-success" style="">
+              asdasdasd
+            </div>
             
-            <div class="col-md-12" id="#recover-error">
+            <div class="col-md-12 alert alert-danger" id="#recover-error" style="display:none">
               
             </div>
             
