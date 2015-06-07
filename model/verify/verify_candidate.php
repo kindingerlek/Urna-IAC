@@ -24,9 +24,10 @@
 
 function verifyCandidate($candidate,$conn)
 {
-	$id = $user["number"];// Atribuindo CPF a variavel
+	$id = $candidate["idCandidate"];// Atribuindo CPF a variavel
+	$idElection = $candidate["idElection"];
 
-	$sql = "SELECT * FROM candidatos WHERE numero = '$number' "; // Monta a query
+	$sql = "SELECT * FROM candidatos WHERE idCandidato = '$id' and idEleicao= '$idElection'"; // Monta a query
 	$result = mysqli_query($conn, $sql);          //Executa a query
 
 	//Se houver registro encerra
