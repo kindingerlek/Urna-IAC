@@ -80,7 +80,12 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 				$msg = generateMessage($code,$row);
 
+				echo "$('#recover-success').show();";  
+				echo "$('#recover-success').html('Email enviado!!');";
+
 				smtpmailer($email,"totheworldgroup@gmail.com","VoteBem","Redefinir senha Vote Bem",$msg);
+				
+
 			}else{
 				$error[] = -2;                //Retorna erro de usuario já cadastrado
 			}
@@ -91,13 +96,13 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 if($error[0]<0)
 {
-	echo "$('#register-error').html('');"; 
+	echo "$('#recover-error').html('');"; 
 	$icon = "<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>";
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
 
-		echo "$('#register-error').append('".$icon.$description."'<br/>);";
+		echo "$('#recover-error').append('".$icon.$description."'<br/>);";
 		
 		}
 }

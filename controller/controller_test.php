@@ -1,4 +1,3 @@
 <?php
-echo("alert('Entrou no php');");
-
+echo("alert('entrou');");
 ?>

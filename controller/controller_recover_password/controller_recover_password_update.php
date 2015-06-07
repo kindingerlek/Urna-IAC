@@ -28,14 +28,16 @@ require_once($root.'model/update/update_password.php');
 
 
 //Recebe dados via post
+session_start();
 $conn = openDB();
+
 $cpf = $_SESSION['votebem']['cpf'];
 $password = $_POST['recover-password'];
 $passwordCfm = $_POST['recover-cfmPassword'];
 
 if($password == $passwordCfm)
 {
-	$password = md5($passsword);
+	$password = md5($password);
 	updatePassword($cpf,$password,$conn);
 
 	echo ("window.location.href = '../index.php';");
@@ -44,12 +46,12 @@ if($password == $passwordCfm)
 {
 	$error = -7;
 	$description = error($error,$conn);	// Mostra erro
-	echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
-	echo "$('#register-error').show();";  
-	echo "$('#register-error').append('".$description."<br/>');";
+	echo "$('#recover-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
+	echo "$('#recover-error').show();";  
+	echo "$('#recover-error').append('".$description."<br/>');";
 }
 
 
-
+mysqli_close($conn);
 
 ?>
