@@ -20,29 +20,31 @@
               <!-- Input Cargo -->
               <label>Cargo:</label>
               <select class="input-large form-control" id="search-combobox">
-                <option value="">Prefeito</option>                  
-                <option value="">Vereador</option>
-                <option value="">Deputado Estadual</option>
-                <option value="">Deputado Federal</option>
-                <option value="">Presidente</option>
+                <option value="mayor">Prefeito</option>                  
+                <option value="vereador">Vereador</option>
+                <option value="stateDeputy">Deputado Estadual</option>
+                <option value="federalDeputy">Deputado Federal</option>
+                <option value="president">Presidente</option>
+                <option value="senator">Senador</option>
+                <option value="governor">Governador</option>
               </select>
               
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Nome:</label>
-                <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Nome do candidado">
+                <input type="text" id="register-name-candidate" name="register-name" class="form-control" placeholder="Nome do candidado">
               </div>
               
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Partido:</label>
-                <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Partido do candidato">
+                <input type="text" id="register-name-party" name="register-name" class="form-control" placeholder="Partido do candidato">
               </div>
               
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Numero:</label>
-                <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Digite aqui seu Nome">
+                <input type="text" id="register-name-num" name="register-name" class="form-control" placeholder="Digite aqui seu Nome">
               </div>
               
            </div>
@@ -62,7 +64,7 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Confirmar</button>
+        <button type="submit" class="btn btn-primary">Confirmar</button>
       </div>
     </div>
   </div>
