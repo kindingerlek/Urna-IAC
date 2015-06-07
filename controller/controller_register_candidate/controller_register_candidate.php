@@ -32,7 +32,8 @@ require_once($root.'model/format/format_number.php');
 require_once($root.'model/format/format_text.php');
 
 //Verify
-require_once($root.'model/verify/verify_Candidate.php');
+require_once($root.'model/verify/verify_candidate.php');
+require_once($root.'model/verify/verify_election.php');
 
 //Insert
 require_once($root.'model/insert/insert_Candidate.php');
@@ -59,14 +60,27 @@ require_once($root.'model/insert/insert_Candidate.php');
 
 
 //Recebe dados via post
-$newCandidate = $_POST;
+//$newCandidate = $_POST;
+$idElection = $_GET["idElection"];
+
+$dateElection = $_GET["dataElection"];
+
+$election["date"] = $dateElection;
+
+$newCandidate["register-number"]="12145";
+$newCandidate["register-name"]="Alisson"; 
+$newCandidate["register-party"]="50"; 
+$newCandidate["register-office"]="1"; 
+$newCandidate["register-number"]="12145"; 
 
 
 foreach ($newCandidate as $field => $data) {
 	if(!evalField($data))
 		{
-			header('location:../../view/admin_manage_candidate.php');
+			//header('location:../../view/admin_manage_candidate.php');
+			
 			$error[] = -14;
+			
 			break;
 			
 		}
@@ -77,40 +91,47 @@ $conn = openDB();
 
 if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
-			$Candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
-			$Candidate['name'] =	formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
-			$Candidate['acronym'] = formatNumber($newCandidate["register-acronym"]);   		            //Formata titulo e salva em $votingCard
-			$idCandidate = $Candidate['idCandidate'];
+			$candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
+			$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
+			$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
+			$candidate['idOffice'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
+			$candidate['idElection'] = $idElection; 
+
+			$idCandidate = $candidate['idCandidate'];
+			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/partido_logo/';// definindo pasta de dowload de fotos
+			$uploadFile = $uploaddir . basename($idElection."_".$idCandidate.".jpg");
+
+			$candidate['photo'] =	$uploadFile; 
 			
 
-
-
-			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/Candidate_logo/';// definindo pasta de dowload de fotos
-			$uploadFile = $uploaddir . basename("$idCandidate".".jpg");
-
-			$Candidate['logo'] =	$uploadFile; 
-			
-
-	$error = validatenewCandidate($Candidate);
+	$error = validatenewCandidate($candidate);
 	
 	if($error === 1) // Se não houver erros verifica se existe no BD
 		{
 			$error=null;
-			
-			if(!verifyCandidate($Candidate, $conn))     				 	// Entra se Candidate existe no BD, 1 se sim e 0 se não
-			{
-				// upload do arquivo
-			  
-				insertCandidate($Candidate, $conn); 					    // Insere Candidate no B
-				header('location:../../view/admin_manage_candidate.php');
 
-			}else{
-			
-				$error[0] = -16;                //Retorna erro de usuario já cadastrado
-				header('location:../../view/admin_manage_candidate.php');
-			}
-			
-			
+			print_r(verifyElection($election, $conn));
+			if(verifyElection($election, $conn))
+				{ 
+					if(!verifyCandidate($candidate, $conn))     				 	// Entra se Candidate existe no BD, 1 se sim e 0 se não
+					{
+						// upload do arquivo
+					
+						insertCandidate($candidate, $conn); 					    // Insere Candidate no B
+						//header(	'location:../../view/admin_manage_candidate.php');
+
+					}else{
+					
+						$error[0] = -16;                //Retorna erro de usuario já cadastrado
+						//header('location:../../view/admin_manage_candidate.php');
+					}
+				
+				}else
+				{
+						$error[0] = -26;                //Retorna erro de usuario já cadastrado
+						//header('location:../../view/admin_manage_candidate.php'); 
+				}
+
 		}
 }
 
@@ -120,7 +141,7 @@ print_r($_FILES);
 if(is_array($error))
 {
 	 //echo "$('#register-error').html('');";
-	header('location:../../view/admin_manage_Candidate.php');
+	//header('location:../../view/admin_manage_Candidate.php');
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
@@ -131,6 +152,7 @@ if(is_array($error))
 		
 		}
 }
+print_r($error);
 
 mysqli_close($conn);
 ?>

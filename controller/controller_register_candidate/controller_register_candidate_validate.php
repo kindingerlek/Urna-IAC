@@ -1,6 +1,6 @@
 <?php
 /*
-* Título: New Party
+* Título: New Candidate
 *
 * Autor: Alisson
 * Data de Criação: 04/06/2015
@@ -11,7 +11,7 @@
 * Descrição: Valida os campos recebidos, retorna um Arayhash com tds os erros encontrados se encontrar 
 * algum ou 1 se o usuario foi cadastrado
 *
-* Entrada: Arrayhash newParty
+* Entrada: Arrayhash newCandidate
 *
 * Saída: Valor númerico 0 se ID inválido, 1 Id válido de eleitor e 2 Id válido de administrador
 *
@@ -56,30 +56,40 @@ require_once($root.'model/validate/validate_password.php');
 
 */
 
-function validateNewParty($newParty)
+function validateNewCandidate($newCandidate)
 {
 	
-	//--------------------------------idParty-------------------------------
-	$idParty = $newParty['idParty']; //Atribui a $cpf o campo do cpf
 	
-	if(!validateNumber($idParty)) 
-		$erros[] = -17;               //Retorna Erro "Cpf inválido"
+
+	//--------------------------------idCandidate-------------------------------
+	$idCandidate = $newCandidate['idCandidate']; //Atribui a $cpf o campo do cpf
+	
+	if(!validateNumber($idCandidate)) 
+		$erros[] = -24;               //Retorna Erro "Id de candidato inválido"
     //--------------------------------------------------------------------
 
 	//--------------------------------name------------------------------
-	$name = $newParty["name"];    //Atribui a $name
-	   									   //o name de $newParty
+	$name = $newCandidate["name"];    //Atribui a $name
+	   									   //o name de $newCandidate
 	if(!validateText($name)) 
-		$erros[] = -18;                    //Retorna Erro "Nome"
+		$erros[] = -25;                    //Nome de candidato inválido
 	//--------------------------------------------------------------------
 
-	//-------------------------------acronym-----------------------------
-	$acronym = $newParty["acronym"];//Atribui a $acronym
-							 			      //a acronym de $newParty
+	//-------------------------------party-----------------------------
+	$party = $newCandidate["idParty"];        //Atribui a $party
+							 			      //a party de $newCandidate
 	
-	if(!validateText($acronym))
-		$erros[] = -19;                 //Retorna erro "Sigla inválida"
-	//--------------------------------------------------------------------
+	if(!validateNumber($party))
+		$erros[] = -17;                 //Retornaerro "PArtido inválido"
+	//------------------------------------ --------------------------------
+
+	//-------------------------------acronym-----------------------------
+	$office = $newCandidate["idOffice"];//Atribui a $office
+							 			      //a office de $newCandidate
+	
+	if(!validateNumber($office))
+		$erros[] = -17;                 //Retornaerro "PArtido inválido"
+	//------------------------------------ --------------------------------
 	
 	$result = isset($erros) ? $erros : 1; // Retorna ou 1 ou um array de erros
 	
