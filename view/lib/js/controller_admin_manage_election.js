@@ -4,6 +4,7 @@ $(function(){
 		
 		if($("#search-combobox").val() == "idEleicao"){
 			createMaskElectionNum($(this));
+
 		}
 		
 		if($("#search-combobox").val() == "tipo" || ($("#search-combobox").val() == "status")){
@@ -23,7 +24,7 @@ $(function(){
 	});
 	
 	$("#search-combobox").change(function(){
-		
+
 		$("#search-input").val("");
 		
 	});
@@ -39,18 +40,21 @@ $(function(){
 		createMaskElectionTime($(this));
 		
 	});
+
 	
 });
 
 $(function(){
+
+	alert("oi");
 	
 	$("#search-submit").click(function(){
-		
+
 		$.ajax({
                   dataType: 'script',
                   data: $("#form-search").serialize(),
                   type: 'POST',
-                  url:'../controller/controller_admin_manage_voter.php',
+                  url:'../controller/controller_admin_manage_election.php',
                   success: function(result)
                   {
 					  
@@ -60,14 +64,14 @@ $(function(){
 		return false;	
 		
 	});
-	
-	$("#form_newElection").submit(function(){
-		
+
+	$("#form-newElection").submit(function(){
+
 		//Se hora preenchida incorretamente, para o .submit
 		if(evalTime($("#register-startTime")) == 0 || evalTime($("#register-endTime")) == 0){
 			return false;
 		}
-		
+
 		//Se hora preenchida incorretamente, para o .submit
 		if($("#register-startTime").val() == ""){
 			return false;
@@ -80,11 +84,11 @@ $(function(){
 
 		//Valida os campos do tipo de eleição escolhida
 		if($("#register-type").val() == "federal"){
-			if($("#register-FederalDeputy").val() == "" || $("#register-FederalDeputy").val() < 0){
+			if($("#register-federalDeputy").val() == "" || $("#register-federalDeputy").val() < 0){
 				return false;
 			} else if($("#register-stateDeputy").val() == "" || $("#register-stateDeputy").val() < 0){
 				return false;
-			} else if($("#register-senator").val() == "" || $("#register-FederalDeputy").val() < 0){
+			} else if($("#register-senator").val() == "" || $("#register-federalDeputy").val() < 0){
 				return false;
 			}
 		} else if($("#register-type").val() == "municipal"){
@@ -92,12 +96,12 @@ $(function(){
 				return false;
 			}
 		}
-		alert("oi");
+
 		$.ajax({
                   dataType: 'script',
                   data: $("#form-newElection").serialize(),
                   type: 'POST',
-                  url:'../controller/controller_admin_manage_voter.php',
+                  url:'../controller/controller_register_election/controller_register_election.php',
                   success: function(result)
                   {
 					 alert("1") ;
