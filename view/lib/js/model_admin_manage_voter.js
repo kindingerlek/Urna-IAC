@@ -39,19 +39,19 @@ function createMaskVoterCPF(valCombo, field){
 	
 };
 
-/*
-* Título: createMaskVoterName
-*
-* Autor: Bruno
-* Data de Criação: 06/06/2015
-*
-* Descrição: Valida o nome
-*
-* Entrada: Valor da combobox
-*
-* Funções invocadas: Nenhuma
-*
-*/
+
+// * Título: createMaskVoterName
+// *
+// * Autor: Bruno
+// * Data de Criação: 06/06/2015
+// *
+// * Descrição: Valida o nome
+// *
+// * Entrada: Valor da combobox
+// *
+// * Funções invocadas: Nenhuma
+// *
+
 function createMaskVoterName(valCombo, field){
 	var name = $(field).val();
 	
@@ -83,7 +83,5 @@ function createMaskVoterVotingCard(valCombo, field){
 		if(!(voltingCard.match(/^[0-9]+$/i))) {
 			$(field).val(voltingCard.replace(/[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕç ,.']/g,''));
 		}
-	}
-		
-	
-};
+	}	
+}

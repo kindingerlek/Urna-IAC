@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet">
-    <link href="/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
+    <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
     
     </head>
   <body>
@@ -43,7 +43,7 @@
         <form class="" id="form-search">
           <div class="row">
             <div class="form-group col-lg-3">
-              <select class="input-large form-control" id="search-combobox">
+              <select class="input-large form-control" id="search-combobox" name="search-combobox">
                 <option value="nome">Nome</option>
                 <option value="tituloEleitor">Título</option>
                 <option value="cpf">CPF</option>
@@ -52,7 +52,7 @@
                   
             
             <div class="col-lg-6">
-              <input type="text" id="search-input" class="form-control" placeholder="Procurar por...">
+              <input type="text" id="search-input" class="form-control" placeholder="Procurar por..." name="search-input">
             </div>
                       
             <div class="col-lg-3">
@@ -77,36 +77,7 @@
           </thead>
           
           <tbody id="table-body">
-            <?php
-              include "../model/open_db/open_db.php";
-              
-              $conn = openDB();
             
-              if (!$conn) {
-                  die("Connection failed: " . mysqli_connect_error());
-              }
-              
-              $sql = "SELECT nome, tituloEleitor, cpf, zona, secao FROM usuarios ORDER BY nome";
-              $result = mysqli_query($conn, $sql);
-              $i = 0;  
-              
-              while($row = mysqli_fetch_assoc($result))
-              {
-                $i++;
-                
-                $linha = 
-                  "<tr><td>" . $i .
-                  "</td><td>" . $row["nome"] . 
-                  "</td><td>" . $row["tituloEleitor"] .                   
-                  "</td><td>" . $row["cpf"] .                   
-                  "</td><td>" . $row["zona"] .                   
-                  "</td><td>" . $row["secao"] .                    
-                  "</td><td>" . "Ações" .
-                  "</td></tr>";
-                
-                echo $linha;
-              }
-            ?>
           </tbody>
         </table>
       
