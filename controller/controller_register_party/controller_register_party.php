@@ -16,7 +16,7 @@
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Sub Controllers
-require_once($root.'controller/controller_register_user/controller_register_user_validate.php');
+require_once($root.'controller/controller_register_party/controller_register_party_validate.php');
 
 //Erro
 require_once($root.'model/error/error.php');
@@ -32,40 +32,41 @@ require_once($root.'model/format/format_number.php');
 require_once($root.'model/format/format_text.php');
 
 //Verify
-require_once($root.'model/verify/verify_address.php');
-require_once($root.'model/verify/verify_user.php');
-require_once($root.'model/verify/verify_zip_code.php');
+require_once($root.'model/verify/verify_party.php');
 
 //Insert
-require_once($root.'model/insert/insert_address.php');
-require_once($root.'model/insert/insert_user.php');
-require_once($root.'model/insert/insert_zip_code.php');
+require_once($root.'model/insert/insert_party.php');
 
 
  			
- 			// $newUser['register-name'] = "Carlos" ;     
- 			// $newUser['register-votingCard'] = "092255330604"; 
- 			// $newUser['register-zone'] = "1234";       
- 			// $newUser['register-session'] = "1234";    
- 			// $newUser['register-cpf'] = "05829791960";    
- 			// $newUser['register-birthday'] = "12/12/1996";   
-    //         $newUser['register-zipCode'] = "83701485";    
-    //         $newUser['register-address'] = "qualquer coisa";     
-    //         $newUser['register-addressNum'] = "1005";  
-    //         $newUser['register-neighborhood'] = "Costeira";
-    //         $newUser['register-city'] = "Curitiba";      
-    //         $newUser['register-state'] = "PR";
-    //         $newUser['register-email'] = "Aslals@sajksjak.com";
-    //         $newUser['register-complement'] = "Casa";     
-    //         $newUser['register-password'] = "08071996";   
-    //         $newUser['register-cfmPassword'] = "08071996"; 
+ 			// $newParty['register-name'] = "Carlos" ;     
+ 			// $newParty['register-votingCard'] = "092255330604"; 
+ 			// $newParty['register-zone'] = "1234";       
+ 			// $newParty['register-session'] = "1234";    
+ 			// $newParty['register-cpf'] = "05829791960";    
+ 			// $newParty['register-birthday'] = "12/12/1996";   
+    //         $newParty['register-zipCode'] = "83701485";    
+    //         $newParty['register-address'] = "qualquer coisa";     
+    //         $newParty['register-addressNum'] = "1005";  
+    //         $newParty['register-neighborhood'] = "Costeira";
+    //         $newParty['register-city'] = "Curitiba";      
+    //         $newParty['register-state'] = "PR";
+    //         $newParty['register-email'] = "Aslals@sajksjak.com";
+    //         $newParty['register-complement'] = "Casa";     
+    //         $newParty['register-password'] = "08071996";   
+    //         $newParty['register-cfmPassword'] = "08071996"; 
 
 
 
 //Recebe dados via post
-$newUser = $_POST;
+$newParty = $_POST;
 
-foreach ($newUser as $field => $data) {
+$uploaddir = 'c:/wamp/www/Urna-IAC/resources/party_logo/';// definindo pasta de dowload de fotos
+$uploadFile = $uploaddir . basename("$idParty");
+
+
+
+foreach ($newparty as $field => $data) {
 	if(!evalField($data))
 		{
 			$error[] = -14;
@@ -80,61 +81,37 @@ $conn = openDB();
 if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
 
-	$error = validateNewUser($newUser);
+	$error = validateNewparty($newparty);
 	
 	if($error === 1) // Se não houver erros verifica se existe no BD
 		{
 			
-			// Atribui a arrayhash os campos dos dados recebidos de $newUser separando em seus rescptivos tipos
+			// Atribui a arrayhash os campos dos dados recebidos de $newParty separando em seus rescptivos tipos
 
-			$user['cpf'] = formatNumber($newUser["register-cpf"]); 				   		//Formata cpf e salva em $cpf
-			$user['name'] =	formatText($newUser["register-name"]);                 		//Formata nome e salva em $name
-			$user['votingCard'] = formatNumber($newUser["register-votingCard"]);   		//Formata titulo e salva em $votingCard
-			$user['zone'] =	formatNumber($newUser["register-zone"]);               		//Formata zona e salva em $zone
-			$user['session'] = formatNumber($newUser["register-session"]);         		//Formata sessão e salva em $session		
-			$user['birthday'] = $newUser["register-birthday"];							//Formata aniv e salva em $birthday 
-			$user['password'] = md5($newUser["register-password"]);               		//Formata senha e salva em $password        
-			$user['email'] = $newUser["register-email"];								//Formata email e salva em $email
-			$user['complement'] = formatNumber($newUser["register-complement"]);   		//Forma complmento e salva em $complement   
-			$user['zipCode'] = formatNumber($newUser["register-zipCode"]);         		//Formata CEP e salva em $zipCode
-			$user['addressNum'] = formatNumber($newUser["register-addressNum"]); 		//Formata End. e salva em $adress
-			                        
-			$zipCode['zipCode'] = formatNumber($newUser["register-zipCode"]);         	//Formata CEP e salva em $zipCode 
-			$zipCode['neighborhood'] = formatText($newUser["register-neighborhood"]); 	//Formata bairro e salva em $neighborhood
-			$zipCode['address'] = formatText($newUser["register-address"]);             //Formata End. e salva em $adress
-			$zipCode['city'] = formatText($newUser["register-city"]);                 	//Formata cidade e salva em $city          
-			$zipCode['state'] = formatText($newUser["register-state"]);					//Formata estado e salva em $state
+			$party['idParty'] = formatNumber($newParty["register-idP"]); 				   		//Formata cpf e salva em $cpf
+			$party['name'] =	formatText($newParty["register-name"]);                 		//Formata nome e salva em $name
+			$party['acronym'] = formatNumber($newParty["register-acronym"]);   		            //Formata titulo e salva em $votingCard
+			$party['logo'] =	$updateFile;                  //Formata zona e salva em $party['logo'];
+			
 
-			$address['complement'] = formatNumber($newUser["register-complement"]);   	//Forma complemento e salva em $complement   
-			$address['zipCode'] = formatNumber($newUser["register-zipCode"]);         	//Formata CEP e salva em $zipCode
-			$address['addressNum'] = formatNumber($newUser["register-addressNum"]);     //Formata Num End. e salva em $adressNum   
-			                              
-			// --------------------------------------------------------------
 
+			
+			
 
 			//$error=null;
 			
-			if(!verifyUser($user, $conn))     				 	// Entra se user existe no BD, 1 se sim e 0 se não
+			if(!verifyParty($Party, $conn))     				 	// Entra se Party existe no BD, 1 se sim e 0 se não
 			{
-				
-				if (!verifyAddress($address, $conn)) {     	 	// Entra se endereço existe no BD, 1 se sim e 0 se não
-					
-					if (!verifyZipCode($zipCode, $conn)) { 		// Entra se zipCode existe no BD, 1 se sim e 0 se não 
-						
-						insertZipCode($zipCode, $conn);     	// Insere zipCode no BD
-					}
+				move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);// upload do arquivo
+			  
+				insertParty($party, $conn); 					    // Insere Party no BD
 
-					insertAddress($address, $conn);         	// Insere endereço no BD
-				}
-
-				insertUser($user, $conn); 					    // Insere User no BD
-
-			    echo("alert('Cadastro realizado com Sucesso!');");
-				echo("window.location.href = '../index.php';");
+			    echo("alert('Cadastro de partido realizado com Sucesso!');");
+				echo("window.location.href = '#';");
 
 			}else{
 			
-				$error[0] = -13;                //Retorna erro de usuario já cadastrado
+				$error[0] = -16;                //Retorna erro de usuario já cadastrado
 			}
 			
 			

@@ -1,6 +1,6 @@
 <?php
 /*
-* Título: New User
+* Título: New Party
 *
 * Autor: Alisson
 * Data de Criação: 04/06/2015
@@ -11,7 +11,7 @@
 * Descrição: Valida os campos recebidos, retorna um Arayhash com tds os erros encontrados se encontrar 
 * algum ou 1 se o usuario foi cadastrado
 *
-* Entrada: Arrayhash newUser
+* Entrada: Arrayhash newParty
 *
 * Saída: Valor númerico 0 se ID inválido, 1 Id válido de eleitor e 2 Id válido de administrador
 *
@@ -56,68 +56,29 @@ require_once($root.'model/validate/validate_password.php');
 
 */
 
-function validateNewUser($newUser)
+function validateNewParty($newParty)
 {
-	//----------------------------------Cpf-------------------------------
-	$cpf = $newUser['register-cpf']; //Atribui a $cpf o campo do cpf
 	
-	if(!validateCPF($cpf)) 
-		$erros[] = -1;               //Retorna Erro "Cpf inválido"
+	//--------------------------------idParty-------------------------------
+	$idParty = $newParty['register-idParty']; //Atribui a $cpf o campo do cpf
+	
+	if(!validateNumber($idParty)) 
+		$erros[] = -17;               //Retorna Erro "Cpf inválido"
     //--------------------------------------------------------------------
 
-	//--------------------------------Titulo------------------------------
-	$votingCard = $newUser['register-votingCard']; //Atribui a $votingCard
-	   											   //o titulo de $newUser
-	if(!validateVotingCard($votingCard)) 
-		$erros[] = -5;                    //Retorna Erro "Título inválido"
+	//--------------------------------name------------------------------
+	$name = $newParty["register-name"];    //Atribui a $name
+	   									   //o name de $newParty
+	if(!validateNumber($name)) 
+		$erros[] = -18;                    //Retorna Erro "Nome"
 	//--------------------------------------------------------------------
 
-	//-------------------------------password-----------------------------
-	$password = $newUser['register-password'];//Atribui a $password
-							 			      //a senha de $newUser
-	$cfmPassword = $newUser['register-cfmPassword'];//Atribui a $cfmPassword
-	   											    //a cfmSenha de $newUser
-	if(!validatePassword($password,$cfmPassword))
-		$erros[] = -7;                 //Retorna erro "Senhas não conferem"
-	//--------------------------------------------------------------------
-
-	//---------------------------birthday---------------------------------  
-	$birthday = $newUser['register-birthday']; //Atribui a $birthday
-	   										   //o birthday de $newUser
-	if(!evalDate($birthday))
-		$erros[] = -8;      //Retorna Erro "Data inválido"
-	else{
-		if(!evalAge($birthday))
-			$erros[] = -9;  //Retorna Erro "Usuario com menos de 16 anos"
-		}
-	//--------------------------------------------------------------------
-
-	//----------------------------seção-----------------------------------
-	$session = $newUser['register-session']; //Atribui a $session
-	   										 //a sessão de $newUser
-	if(!validateNumber($session))
-		$erros[] = -10; //Retorna erro de sessão invalida
-	//--------------------------------------------------------------------
-
-	//---------------------------codeZip----------------------------------
-	$zipCode = $newUser['register-zipCode']; //Atribui a $codeZip
-	   										 //o CEP de $newUser
-	if(!validateNumber($zipCode))
-		$erros[] = -11; //Retorna erro de codeZip invalida
-	//--------------------------------------------------------------------
+	//-------------------------------acronym-----------------------------
+	$acronym = $newParty["register-acronym"];//Atribui a $acronym
+							 			      //a acronym de $newParty
 	
-	//--------------------------adressNum---------------------------------
-	$addressNum = $newUser['register-addressNum']; //Atribui a $adressNum
-	   										 //o Num. da Ksa de $newUser
-	if(!validateNumber($addressNum))
-		$erros[] = -12; //Retorna erro de Numero de invalida
-	//--------------------------------------------------------------------
-
-	//--------------------------name---------------------------------
-	$name = $newUser['register-name']; //Atribui a $name
-	   										//o nome de $newUser
-	if(!validateText($name))
-		$erros[] = -6; 				//Retorna erro de nome invalido
+	if(!validateText($acronym))
+		$erros[] = -19;                 //Retorna erro "Sigla inválida"
 	//--------------------------------------------------------------------
 	
 	$result = isset($erros) ? $erros : 1; // Retorna ou 1 ou um array de erros
