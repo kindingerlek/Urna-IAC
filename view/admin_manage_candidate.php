@@ -6,6 +6,10 @@
     
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
+    <script src="lib/js/model_login.js"></script>  
+    <script src="lib/js/controller_admin_manage_candidate.js"></script>
+    <script src="lib/js/model_admin_manage_candidate.js"></script>
+    <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
@@ -40,10 +44,10 @@
           <div class="row">
             <div class="form-group col-lg-3">
               <select class="input-large form-control" id="search-combobox">
-                <option value="">Nome</option>                  
-                <option value="">Número</option>
-                <option value="">Partido</option>
-                <option value="">Cargo</option>
+                <option value="nomeFantasia">Nome</option>                  
+                <option value="idCandidato">Número</option>
+                <option value="idPartido">Partido</option>
+                <option value="idTipo">Cargo</option>
               </select>  
             </div>
                   
@@ -91,8 +95,10 @@
           </button>
         </div>
      </div>
-    
-    <?php include "register_candidate.php" ?>
+     
+     <form action="#" id="form-register-candidate">
+       <?php include "register_candidate.php" ?>
+     </form>
     
     <!-- Rodapé da página -->
     <?php include "page_footer.php" ?>  
