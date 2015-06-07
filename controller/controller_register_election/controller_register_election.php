@@ -16,7 +16,7 @@
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Sub Controllers
-require_once($root.'controller/controller_register_user/controller_register_user_validate.php');
+require_once($root.'controller/controller_register_election/controller_register_election_validate.php');
 
 //Erro
 require_once($root.'model/error/error.php');
@@ -33,26 +33,26 @@ require_once($root.'model/format/format_text.php');
 
 //Verify
 require_once($root.'model/verify/verify_address.php');
-require_once($root.'model/verify/verify_user.php');
+require_once($root.'model/verify/verify_election.php');
 require_once($root.'model/verify/verify_zip_code.php');
 
 //Insert
 require_once($root.'model/insert/insert_address.php');
-require_once($root.'model/insert/insert_user.php');
+require_once($root.'model/insert/insert_election.php');
 require_once($root.'model/insert/insert_zip_code.php');
 
 
 //Recebe dados via post
 $newElection = $_POST;
 
-foreach ($newElection as $field => $data) {
-	if(!evalField($data))
-		{
-			$error[] = -14;
-			break;
+// foreach ($newElection as $field => $data) {
+// 	if(!evalField($data))
+// 		{
+// 			$error[] = -14;
+// 			break;
 			
-		}
-}
+// 		}
+// }
 
 
 $conn = openDB();
@@ -89,7 +89,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			if(!verifyElection($election, $conn))     				 	// Entra se user existe no BD, 1 se sim e 0 se não
 			{
 
-				insertElection($user, $conn); 					    // Insere User no BD
+				insertElection($election, $conn); 					    // Insere User no BD
 
 			    echo("alert('Cadastro realizado com Sucesso!');");
 				echo("window.location.href = '../index.php';");
@@ -103,7 +103,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 		}
 }
 
-
+print_r($error);
 if(is_array($error))
 {
 	echo "$('#register-error').html('');";

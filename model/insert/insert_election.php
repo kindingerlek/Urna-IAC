@@ -42,14 +42,19 @@ $senator=$election['senator'];
 	$sql="INSERT INTO `eleicoes`(`horaInicio`, `data`, `horaFim`, `tipo`) 
 	VALUES ('$startTime', '$date', '$endTime', '$type')";
 
+	mysqli_query($conn,$sql);
+
 
 	foreach ($election as $key => $value) {
-		$sql.="INSERT INTO `vagas`(`idTipo`, `idEleicao`, `qtdeVagas`) 
-		VALUES (`$key`,(SELECT `idEleicao` FROM eleicoes WHERE data = '$date'),`$value`)";
+		$idEleicao = "SELECT `idEleicao` FROM eleicoes WHERE data = '$date';"
+		$sql ="INSERT INTO `vagas`(`idTipo`, `idEleicao`, `qtdeVagas`) 
+		VALUES ('$key','$idEleicao','$value')";
+
+		mysqli_query($conn,$sql);
 
 	}
 
-	mysqli_query($conn,$sql);
+	
 
 }
 ?>

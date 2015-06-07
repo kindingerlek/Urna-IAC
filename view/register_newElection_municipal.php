@@ -17,7 +17,7 @@
             <div class="col-md-12">
               <div class="col-md-12 form-group">
                   <label>Prefeito:</label>
-                  <input type="text" id="register-mayor" name="register-mayor" class="form-control" value="1" disabled>
+                  <input type="text" id="register-mayor" name="register-mayor" class="form-control" value="1">
               </div>
               <div class="col-md-12 form-group">
                   <label>Vereadores:</label>
@@ -31,7 +31,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Fechar</button>
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" data-toggle="modal" data-target="#popup-newElection-type">Voltar</button>
-        <button type="submit" class="btn btn-primary" >Agendar Eleição</button>
+        <button type="submit" id="submit-newElection" class="btn btn-primary" >Agendar Eleição</button>
       </div>
     </div>
   </div>

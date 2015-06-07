@@ -25,7 +25,7 @@
               </div>
               <div class="col-md-12 form-group">
                   <label>Término:</label>
-                  <input type="text" id="register-endTime" name="register-EndTime" class="form-control" maxleght="2">
+                  <input type="text" id="register-endTime" name="register-endTime" class="form-control" maxleght="2">
               </div>
             </div>
           </div>

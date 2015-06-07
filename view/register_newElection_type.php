@@ -15,7 +15,7 @@
       <div class="modal-body">
           <div class="row">
             <div class="col-md-12">
-              <select class="input-large form-control" id="register-type">
+              <select class="input-large form-control" id="register-type" name="register-type">
                 <option value="municipal">Municipal</option>
                 <option value="federal">Estadual e Federal</option>
               </select> 

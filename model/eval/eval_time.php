@@ -34,4 +34,6 @@ function evalTime($time){
     return $isValid;     
 }
 
+echo evalTime("23:00");
+
 ?>

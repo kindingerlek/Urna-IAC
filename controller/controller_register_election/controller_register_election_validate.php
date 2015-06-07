@@ -97,7 +97,7 @@ function validateNewElection($newElection)
 	if(!evalTime($endTime)) 
 		$erros[] = -19;
 
-	if($endTime >= $startTime) 
+	if($endTime <= $startTime) 
 		$erros[] = -20;                    //Retorna Erro "Título inválido"
 	//--------------------------------------------------------------------
 
