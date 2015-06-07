@@ -6,6 +6,10 @@
     
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
+    <script src="lib/js/model_login.js"></script>  
+    <script src="lib/js/controller_admin_manage_election.js"></script>
+    <script src="lib/js/model_admin_manage_election.js"></script>
+    <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
@@ -72,10 +76,10 @@
           <div class="row">
             <div class="form-group col-lg-3">
               <select class="input-large form-control" id="search-combobox">
-                <option value="">Código</option>
-                <option value="">Tipo</option>
-                <option value="">Status</option>
-                <option value="">Data</option>
+                <option value="idEleicao">Código</option>
+                <option value="tipo">Tipo</option>
+                <option value="status">Status</option>
+                <option value="data">Data</option>
               </select>  
             </div>
                   
@@ -115,7 +119,7 @@
         </table>
         
         <!-- Form com todas as pop-ups -->
-        <form action="" class="form-inline">
+        <form action="#" id="form_newElection" class="form-inline">
 <?php include "register_newElection_period.php"?>
 <?php include "register_newElection_type.php"?>
 <?php include "register_newElection_municipal.php"?>

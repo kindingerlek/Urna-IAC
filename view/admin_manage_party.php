@@ -9,7 +9,6 @@
     <script src="lib/js/model_login.js"></script>  
     <script src="lib/js/controller_admin_manage_party.js"></script>
     <script src="lib/js/model_admin_manage_party.js"></script>
-    <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">

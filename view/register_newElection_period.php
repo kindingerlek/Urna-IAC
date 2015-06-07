@@ -34,7 +34,7 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#popup-newElection-type">Avançar</button>
+        <button type="button" id="register_newElection_period_submit" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#popup-newElection-type">Avançar</button>
       </div>
     </div>
   </div>
