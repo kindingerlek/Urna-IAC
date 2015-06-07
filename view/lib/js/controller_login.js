@@ -155,7 +155,8 @@ $(function()
             if (!evalCPF($("#register-cpf").val())) {
                   return false;
             }
-
+            
+            //Se senhas desiguais, para o .submit
             if (passwordCheck() == 0){
                   return false;
             }
@@ -193,9 +194,11 @@ $(function(){
                   url:'../controller/controller_recover_password/controller_recover_password_send.php',
                   success: function(result)
                   {
-                        alert("2");
+                        alert("1");
                   }
             });
+            
+            return false;
       });
       
       $("#recover-submit").click(function(){
@@ -216,11 +219,13 @@ $(function(){
                         alert("2");
                   }
             });
+
+            return false;
             
       });
       
       $("#pwReset-submit").click(function(){
-            
+
             //Se as senhas forem diferentes, para o .submit
             if($("#recover-cfmPassword") != $("#recover-password")) {
                   return false;
@@ -234,9 +239,11 @@ $(function(){
                   url:'../controller/controller_recover_password/controller_recover_password_send.php',
                   success: function(result)
                   {
-                        alert("2");
+                        alert("3");
                   }
             });
+            
+            return false;
             
       });
       
