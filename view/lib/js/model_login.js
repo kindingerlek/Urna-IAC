@@ -178,6 +178,7 @@ function evalCPF(CPF){
 	        }
 	        add = ((10 * add) % 11) % 10;
 	        if (CPF[digit] != add) {
+
                   return 0;
 	        }
 	    }
@@ -204,7 +205,7 @@ function checkField(field){
       if(name == ''){
 
             return 2;
-      } else if(!(name.match(/^[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕ ,.'-]+$/i))) {
+      } else if(!(name.match(/^[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕç ,.'-]+$/i))) {
             return 0;
       } else {
             return 1;
@@ -227,9 +228,9 @@ function checkFieldNum(field){
       
       var num = field.val();
       
-      if(num == ''){
+      if(num == '' ){
             return 2;
-      } else if(!(num.match(/^[0-9]+$/i))) {
+      } else if(!(num.match(/^[0-9]+$/i)) || num < 1) {
             return 0;
       } else {
             return 1;

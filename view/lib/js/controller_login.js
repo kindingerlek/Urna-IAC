@@ -35,6 +35,14 @@ $(function(){
             changeFieldState($(this), checkFieldNum($(this)));
       });
       
+      $("#register-zone").blur(function(){  //Função que verifica se a zona está preenchido corretamente
+            changeFieldState($(this), checkFieldNum($(this)));
+      });
+      
+      $("#register-session").blur(function(){  //Função que verifica se a seção está preenchido corretamente
+            changeFieldState($(this), checkFieldNum($(this)));
+      });
+      
       $("#register-state").blur(function(){  //Função que verifica se o estado está preenchido corretamente
             changeFieldState($(this), checkField($(this)));
       });
@@ -62,7 +70,7 @@ $(function()
       $("#form-login").submit(function(){
            
            //Se campos vazios, para o .submit 
-           if (verifyFieldsLogin() == 0){
+           if (verifyFieldsLogin() == 2){
                  
                  return false;  
            }
@@ -98,9 +106,8 @@ $(function()
 
 $(function()
 {
-       $("#form-register").submit(function(){
+      $("#form-register").submit(function(){
             
-           
             //Se campos vazios, para o .submit 
            if (verifyFieldsRegister() == 2){
                  $("#register-error").html(exclamationIcon);
@@ -134,6 +141,11 @@ $(function()
                   return false;
             }
             
+            //Se zona ou sessao forem igual à 0, para o .submit
+            if ($("#register-zone") < 1 || $("#register-session") < 1){
+                  return false;
+            }
+            
             //Se estado preenchido incorretamente, para o .submit
             if (checkField($("#register-state")) == 0){
                   return false;
@@ -141,16 +153,13 @@ $(function()
 
            //Se CPF invalido, para o .submit
             if (!evalCPF($("#register-cpf").val())) {
-                  
                   return false;
             }
 
             if (passwordCheck() == 0){
                   return false;
             }
-            
 
-            alert('1');
             $.ajax(
             {
                   dataType: 'script',
@@ -159,12 +168,79 @@ $(function()
                   url:'../controller/controller_register_user/controller_register_user.php',
                   success: function(result)
                   {
+
+                  }
+            });
+          return false;
+      });
+});
+
+
+$(function(){
+      
+      $("#submit-email").click(function(){
+            
+            //Se CPF invalido, para o .submit
+            if (!evalCPF($("#recover-cpf").val())) {
+                  return false;
+            }
+            
+            $.ajax(
+            {
+                  dataType: 'script',
+                  data: { 'recover-cpf': $("#recover-cpf").val()},
+                  type: 'POST',
+                  url:'../controller/controller_recover_password/controller_recover_password_send.php',
+                  success: function(result)
+                  {
                         alert("2");
                   }
             });
-              alert('3');
-          return false;
       });
+      
+      $("#recover-submit").click(function(){
+            
+            //Se código com tamanho inválido, para o .submit
+            if ($("#recover-cod").val().length != 6){
+                  return false;
+            }
+            
+            $.ajax(
+            {
+                  dataType: 'script',
+                  data: { 'recover-cod': $("#recover-cod").val()},
+                  type: 'POST',
+                  url:'../controller/controller_recover_password/controller_recover_password_send.php',
+                  success: function(result)
+                  {
+                        alert("2");
+                  }
+            });
+            
+      });
+      
+      $("#pwReset-submit").click(function(){
+            
+            //Se as senhas forem diferentes, para o .submit
+            if($("#recover-cfmPassword") != $("#recover-password")) {
+                  return false;
+            }
+            
+            $.ajax(
+            {
+                  dataType: 'script',
+                  data: { 'recover-password': $("#recover-password").val(), 'recover-cfmPassword': $("#recover-cfmPassword").val()},
+                  type: 'POST',
+                  url:'../controller/controller_recover_password/controller_recover_password_send.php',
+                  success: function(result)
+                  {
+                        alert("2");
+                  }
+            });
+            
+      });
+      
+      
 });
 
 

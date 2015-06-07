@@ -24,11 +24,11 @@
             </div>
             
             <div class="col-md-2 form-group">
-              <input type="text" id="" class="form-control" maxLengh="4">
+              <input type="text" id="recover-cod" class="form-control" maxLengh="4">
             </div>
             
             <div class="col-md-12">
-              <button type="button" class="btn btn-primary btn-block">
+              <button id="submit-email" type="button" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar código para o E-MAIL
               </button>
             </div>
@@ -43,7 +43,7 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary" data-dismiss="modal"  data-toggle="modal" data-target="#popup-pwReset">Confirmar código</button>
+        <button type="submit" id="recover-submit" class="btn btn-primary" data-dismiss="modal"  data-toggle="modal" data-target="#popup-pwReset">Confirmar código</button>
           
       </div>
     </div>
