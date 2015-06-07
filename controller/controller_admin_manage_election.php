@@ -26,7 +26,7 @@ require_once($root.'model/select/select.php');
 //Recebe dados via post
 $column = $_POST["search-combobox"];
 $param = "%".$_POST["search-input"]."%";
-$table = 'usuarios';
+$table = 'eleicoes';
 
 
 $conn = openDB();
@@ -39,20 +39,14 @@ echo ("$('#table-body').html('');");
 
 while($row = mysqli_fetch_assoc($result)){
 
-  if($row["cpf"] != "00000000000"){
-        
-        $i++;
-                                
-        $line = "<tr><td>".$i."</td><td>".$row['nome']."</td><td>".$row['tituloEleitor']."</td><td>".$row['cpf']."</td><td>".$row['zona']."</td><td>".$row['secao']."</td><td></td></tr>";
+                    
+        $line = "<tr><td>".$row['idEleicao']."</td><td>".$row['tipo']."</td><td>".$row['data']."</td><td>".$row['horaInicio']."</td><td>".$row['horaFim']."</td><td></td></tr>";
 
         //echo $line;
         echo ("$('#table-body').append('$line');");
        
     }
-}
 
 mysqli_close($conn);
 
 ?>
-
-        

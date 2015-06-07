@@ -1,9 +1,7 @@
-
-
 <?php
 
 /*
-* Título: verifyAddress)
+* Título: verifyUser()
 *
 * Autor: Alisson
 * Data de Criação: 06/06/2015
@@ -24,17 +22,12 @@
 *   
 */
 
-
-function verifyAddress($address,$conn)
+function verifyElection($election,$conn)
 {
-	$complement = $address["complement"];// Atribuindo CPF a variavel
-	$zipCode = $address["zipCode"];      // Atribuindo CPF a variavel
-	$addressNum = $address["addressNum"];// Atribuindo CPF a variavel
+	$date = $election["date"];// Atribuindo CPF a variavel
 
-	$sql = "SELECT * FROM `enderecos`
-	 WHERE `cep` = '$zipCode' AND `numero` = '$addressNum' AND `complemento` = '$complement'"; // Monta a query
-
-	$result = mysqli_query($conn, $sql);//Executa a query
+	$sql = "SELECT * FROM eleicoes WHERE data = '$date' "; // Monta a query
+	$result = mysqli_query($conn, $sql);          //Executa a query
 
 	//Se houver registro encerra
 	if(mysqli_num_rows($result)>=1)
@@ -45,3 +38,7 @@ function verifyAddress($address,$conn)
 
 	return 0;
 }
+
+
+
+?>
