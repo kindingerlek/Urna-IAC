@@ -30,6 +30,18 @@
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Nome:</label>
+                <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Nome do candidado">
+              </div>
+              
+              <!-- Input Nome -->
+              <div class="form-group">
+                <label>Partido:</label>
+                <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Partido do candidato">
+              </div>
+              
+              <!-- Input Nome -->
+              <div class="form-group">
+                <label>Numero:</label>
                 <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Digite aqui seu Nome">
               </div>
               
