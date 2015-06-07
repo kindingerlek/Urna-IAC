@@ -28,8 +28,12 @@ function indentifyCombo(combo){
 */
 function createMaskVoterCPF(valCombo, field){
 		
-	if (valCombo == 3) {
-   		$(field).mask("999.999.999-99");
+	if (valCombo == "cpf") {
+		var cpf = $(field).val();
+
+		if(!(cpf.match(/^[0-9]+$/i))) {
+			$(field).val(cpf.replace(/[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕç ,.']/g,''));
+		}
 	}
 		
 	
@@ -48,34 +52,38 @@ function createMaskVoterCPF(valCombo, field){
 * Funções invocadas: Nenhuma
 *
 */
-function createMaskVoterName(valCombo){
-	var name = $("#search-input").val();
+function createMaskVoterName(valCombo, field){
+	var name = $(field).val();
 	
-	if (valCombo == 1) {
+	if (valCombo == "nome") {
 		if(!(name.match(/^[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕç ,.'-]+$/i))) {
-			if(name == ""){
-				alert("Campo vazio");
-			} else {
-				alert("Caracteres inválidos");
-			}
+			$(field).val(name.replace(/[0-9]/g,''));
 		}
 	}
 }
 
 /*
-* Título: removeMask
+* Título: createMaskVoterVotingCard
 *
 * Autor: Bruno
 * Data de Criação: 06/06/2015
 *
-* Descrição: Remove máscara de um campo
+* Descrição: Cria máscara de CPF
 *
-* Entrada: Campo que será afetado
+* Entrada: Valor da combobox
 *
 * Funções invocadas: Nenhuma
 *
 */
-function removeMask(field){
-	$(field).unmask();
-	$(field).attr('placeholder',clear);
-}
+function createMaskVoterVotingCard(valCombo, field){
+		
+	if (valCombo == "tituloEleitor") {
+		var voltingCard = $(field).val();
+
+		if(!(voltingCard.match(/^[0-9]+$/i))) {
+			$(field).val(voltingCard.replace(/[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕç ,.']/g,''));
+		}
+	}
+		
+	
+};
