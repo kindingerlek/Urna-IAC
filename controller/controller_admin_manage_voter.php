@@ -41,7 +41,7 @@ while($row = mysqli_fetch_assoc($result)){
         
         $i++;
                                 
-        $line = "<tr><td>".$i."</td><td>".$row['nome']."</td><td>".$row['tituloEleitor']."</td><td>".$row['cpf']."</td><td>".$row['zona']."</td><td>".$row['secao']."</td><td><a href='#'>Link</a></td></tr>";
+        $line = "<tr><td>".$i."</td><td>".$row['nome']."</td><td>".$row['tituloEleitor']."</td><td>".$row['cpf']."</td><td>".$row['zona']."</td><td>".$row['secao']."</td><td></td></tr>";
 
         //echo $line;
         echo ("$('#table-body').append('$line');");
