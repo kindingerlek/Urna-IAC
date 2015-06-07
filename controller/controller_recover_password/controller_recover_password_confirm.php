@@ -22,7 +22,8 @@ require_once($root.'model/error/error.php');
 require_once($root.'model/eval/eval_field.php');
 
 $code = $_POST["recover-code"];
-$codeCfm = $_SESSION["recover"] 
+$codeCfm =$_SESSION["votebem"]["code"];
+
 
 //Recebe dados via post
 
