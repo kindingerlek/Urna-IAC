@@ -25,7 +25,7 @@
               </div>
               <div class="col-md-12 form-group">
                   <label>Deputados Federais:</label>
-                  <input type="text" id="register-FederalDeputy" name="register-FederalDeputy" class="form-control">
+                  <input type="text" id="register-federalDeputy" name="register-federalDeputy" class="form-control">
               </div>
               <div class="col-md-12 form-group">
                   <label>Deputados Estaduais:</label>

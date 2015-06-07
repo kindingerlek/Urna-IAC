@@ -22,13 +22,13 @@
 *   
 */
 
-function verifyParty($party,$conn)
+function verifyElection($election,$conn)
 {
-	$id = $party["idParty"];// Atribuindo CPF a variavel
+	$date = $election["date"];// Atribuindo CPF a variavel
 
-	$sql = "SELECT * FROM partidos WHERE idpartido = '$id' "; // Monta a query
+	$sql = "SELECT * FROM eleicoes WHERE data = '$date' "; // Monta a query
 	$result = mysqli_query($conn, $sql);          //Executa a query
-	
+
 	//Se houver registro encerra
 	if(mysqli_num_rows($result)>=1)
 		{

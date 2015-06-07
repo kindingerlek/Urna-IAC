@@ -44,7 +44,7 @@
           
           <div class="row">
             <div class="form-group col-lg-3">
-              <select class="input-large form-control" id="search-combobox">
+              <select class="input-large form-control" id="search-combobox" name="search-combobox">
                 <option value="nome">Nome</option>
                 <option value="sigla">Sigla</option>
                 <option value="idPartido">Número</option>
@@ -53,7 +53,7 @@
                   
             
             <div class="col-lg-6">
-              <input type="text" id="search-input" class="form-control" placeholder="Procurar por...">
+              <input type="text" id="search-input" name="search-input" class="form-control" placeholder="Procurar por...">
             </div>
                       
             <div class="col-lg-3">
@@ -83,8 +83,8 @@
           </tbody>
         </table>
         
-        <form action="#" id="form-register-party">
-          <?php include "register_party.php"?>
+        <form method = "POST" action ="../controller/controller_register_party/controller_register_party.php" enctype="multipart/form-data" id="form-register-party">
+          <?php include "register_party.php" ?>
         </form>
         
         <div style="display:none">

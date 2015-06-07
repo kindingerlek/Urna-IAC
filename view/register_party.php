@@ -11,7 +11,7 @@
       
       <!-- Corpo -->
       <div class="modal-body">
-        <form class="">
+        <form class="" >
           <div class="row">
             <div class="col-md-6">
               <div class="col-md-12 form-group">

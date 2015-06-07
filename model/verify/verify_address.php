@@ -1,3 +1,5 @@
+
+
 <?php
 
 /*
@@ -21,6 +23,7 @@
 * 
 *   
 */
+
 
 function verifyAddress($address,$conn)
 {

@@ -67,9 +67,9 @@ function validateNewParty($newParty)
     //--------------------------------------------------------------------
 
 	//--------------------------------name------------------------------
-	$name = $newParty["iname"];    //Atribui a $name
+	$name = $newParty["name"];    //Atribui a $name
 	   									   //o name de $newParty
-	if(!validateNumber($name)) 
+	if(!validateText($name)) 
 		$erros[] = -18;                    //Retorna Erro "Nome"
 	//--------------------------------------------------------------------
 
