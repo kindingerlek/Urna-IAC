@@ -46,7 +46,7 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="submit" id="recover-submit" class="btn btn-primary" data-dismiss="modal"  data-toggle="modal" data-target="#popup-pwReset">Confirmar código</button>
+        <button type="submit" id="recover-submit" class="btn btn-primary">Confirmar código</button>
           
       </div>
     </div>

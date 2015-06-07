@@ -194,7 +194,7 @@ $(function(){
                   url:'../controller/controller_recover_password/controller_recover_password_send.php',
                   success: function(result)
                   {
-                        alert("1");
+                      
                   }
             });
             
@@ -205,18 +205,20 @@ $(function(){
             
             //Se código com tamanho inválido, para o .submit
             if ($("#recover-cod").val().length != 6){
-                  return false;
+
+                    alert("false");
+                    return false;
             }
-            
+           
             $.ajax(
             {
                   dataType: 'script',
-                  data: { 'recover-cod': $("#recover-cod").val()},
+                  data: { 'recover-code': $("#recover-cod").val()},
                   type: 'POST',
-                  url:'../controller/controller_recover_password/controller_recover_password_send.php',
+                  url:'../controller/controller_recover_password/controller_recover_password_confirm.php',
                   success: function(result)
                   {
-                        alert("2");
+                       
                   }
             });
 
@@ -227,19 +229,19 @@ $(function(){
       $("#pwReset-submit").click(function(){
 
             //Se as senhas forem diferentes, para o .submit
-            if($("#recover-cfmPassword") != $("#recover-password")) {
+            if($("#recover-cfmPassword").val() != $("#recover-password").val()) {
                   return false;
             }
-            
+           
             $.ajax(
             {
                   dataType: 'script',
                   data: { 'recover-password': $("#recover-password").val(), 'recover-cfmPassword': $("#recover-cfmPassword").val()},
                   type: 'POST',
-                  url:'../controller/controller_recover_password/controller_recover_password_send.php',
+                  url:'../controller/controller_recover_password/controller_recover_password_update.php',
                   success: function(result)
                   {
-                        alert("3");
+                     
                   }
             });
             
