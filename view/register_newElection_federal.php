@@ -35,6 +35,10 @@
                   <label>Senador:</label>
                   <input type="text" id="register-senator" name="register-senator" class="form-control">
               </div>
+              
+              <div class="election-error col-md-12 alert alert-error" style="display:none">
+                  
+              </div>
             </div>
           </div>
       </div>

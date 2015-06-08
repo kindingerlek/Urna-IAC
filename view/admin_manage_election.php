@@ -119,7 +119,7 @@
         </table>
         
         <!-- Form com todas as pop-ups -->
-        <form action="#" id="form-newElection" name="form-newElection" class="form-inline">
+        <form action="#" id="form-newElection" name="form-newElection">
               <?php include "register_newElection_period.php"; 
                     include "register_newElection_type.php" ;
                     include "register_newElection_municipal.php" ;

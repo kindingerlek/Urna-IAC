@@ -74,71 +74,71 @@
           <div class="brd col-md-6">
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">1</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">2</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">3</button>
               </div>  
             </div>
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">4</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">5</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">6</button>
               </div>  
             </div>
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">7</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">8</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">9</button>
               </div>  
             </div>
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">0</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 
               </div>  
             </div>
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-default btn-lg btn-block">Branco</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-warning btn-lg btn-block">Corrige</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-md-4 urn-key">
                 <button type="button" class="btn btn-success btn-lg btn-block">Confirma</button>
               </div>  
             </div>
