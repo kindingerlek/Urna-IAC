@@ -1,5 +1,5 @@
 <!-- Novo Partido -->
-<div class="modal fade" id="popup-newPartity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="popup-newParty" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-lg">
     <div class="modal-content">
       

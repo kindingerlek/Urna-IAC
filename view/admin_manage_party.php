@@ -61,7 +61,7 @@
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Partidos
               </button>
               
-              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newPartity">
+              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newParty">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo partido
               </button>
             </div>
@@ -108,6 +108,16 @@
         function()
         {
           $("#popup-editParty").modal('show');
+          
+          var inputs = ['#edit-name', '#edit-acronym','#edit-number'];
+          
+          for(var i=0; i < inputs.length; i++)
+          {
+            var value = $("td:eq(" + (i+1) + ")", this).text();
+            $(inputs[i]).val(value);
+          }
+          
+          
         });
       
       $("#register-logoInput").change(
