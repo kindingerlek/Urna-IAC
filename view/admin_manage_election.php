@@ -74,7 +74,7 @@
         <form class="" id="form-search">
           
           <div class="row">
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xs-3">
               <select class="input-large form-control" id="search-combobox">
                 <option value="idEleicao">Código</option>
                 <option value="tipo">Tipo</option>
@@ -84,11 +84,11 @@
             </div>
                   
             
-            <div class="col-lg-6">
+            <div class="col-xs-6">
               <input type="text" id="search-input" class="form-control" placeholder="Procurar por...">
             </div>
                       
-            <div class="col-lg-3">
+            <div class="col-xs-3">
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Eleição
               </button>
@@ -103,13 +103,12 @@
         <table class="table table-striped table-hover" id="table">
           <thead>
             <tr>
-              <td class="col-md-1">#</td>
-              <td class="col-md-3">Tipo:</td>
-              <td class="col-md-2">Status:</td>
-              <td class="col-md-2">Data:</td>
-              <td class="col-md-1">Início:</td>
-              <td class="col-md-1">Fim:</td>
-              <td class="col-md-2">Ações:</td>
+              <td class="col-xs-1">Cod</td>
+              <td class="col-xs-3">Tipo:</td>
+              <td class="col-xs-2">Status:</td>
+              <td class="col-xs-2">Data:</td>
+              <td class="col-xs-1">Início:</td>
+              <td class="col-xs-1">Fim:</td>
             </tr>
           </thead>
           

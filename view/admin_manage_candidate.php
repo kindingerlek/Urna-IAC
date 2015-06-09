@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet">
-    <link href="/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
+    <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
     
     </head>
   <body>
@@ -42,7 +42,7 @@
       
         <form class="" id="form-search">
           <div class="row">
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xs-3">
               <select class="input-large form-control" id="search-combobox">
                 <option value="nomeFantasia">Nome</option>                  
                 <option value="idCandidato">Número</option>
@@ -52,11 +52,11 @@
             </div>
                   
             
-            <div class="col-lg-6">
+            <div class="col-xs-6">
               <input type="text" id="search-input" class="form-control" placeholder="Procurar por...">
             </div>
                       
-            <div class="col-lg-3">
+            <div class="col-xs-3">
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
               </button>
@@ -71,12 +71,11 @@
         <table class="table table-striped table-hover" id="table">
           <thead>
             <tr>
-              <td class="col-md-1">#</td>
-              <td class="col-md-4">Nome:</td>
-              <td class="col-md-2">Número:</td>
-              <td class="col-md-2">Partido:</td>
-              <td class="col-md-2">Cargo:</td>
-              <td class="col-md-1">Ações:</td>
+              <td class="col-xs-1">Cod</td>
+              <td class="col-xs-4">Nome:</td>
+              <td class="col-xs-2">Número:</td>
+              <td class="col-xs-2">Partido:</td>
+              <td class="col-xs-2">Cargo:</td>
             </tr>
           </thead>
           
@@ -84,16 +83,6 @@
             
           </tbody>
         </table>
-      
-        <div style="display:none">
-          <button type="button" class="btn btn-default" aria-label="Editar">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-          </button>
-          
-          <button type="button" class="btn btn-default" aria-label="Excluir">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
-        </div>
      </div>
      
      <form action="#" id="form-register-candidate">
@@ -111,8 +100,5 @@
       
     $("#page-title").text(pageTitle);
     
-    $(document).ready(function(){
-      $('.combobox').combobox();
-    });
   </script>
 </html>    

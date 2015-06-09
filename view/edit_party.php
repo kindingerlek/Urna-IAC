@@ -1,12 +1,12 @@
 <!-- Novo Partido -->
-<div class="modal fade" id="popup-newPartity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-lg">
+<div class="modal fade" id="popup-editParty" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       
       <!-- Titulo -->
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Novo Partido</h4>
+        <h4 class="modal-title" id="myModalLabel">Editar Partido</h4>
       </div>
       
       <!-- Corpo -->
@@ -43,13 +43,16 @@
             <div id="register-error" class="alert alert-danger" role="alert" style="display: none">
               
             </div>
-          </div>
+          </div>         
         </form>
       </div>
                 
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" id="removePartyButton" class="btn btn-danger">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Excluir
+        </button>
         <button type="submit" class="btn btn-primary">Confirmar</button>
       </div>
     </div>
