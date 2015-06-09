@@ -83,7 +83,7 @@
           </tbody>
         </table>
         
-        <form method = "POST" action ="../controller/controller_register_party/controller_register_party.php" enctype="multipart/form-data" id="form-register-party">
+        <form method = "POST" action ="#" enctype="multipart/form-data" id="form-register-party">
           <?php include "register_party.php" ?>
         </form>
         

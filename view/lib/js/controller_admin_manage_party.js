@@ -57,21 +57,19 @@ $(function(){
 
 $(function(){
 	
-	$("#form-register-partsy").submit(function(){
-		
-		$.ajax({
-                  dataType: 'script',
-                  data: $("#form-register-party").serialize(),
-                  type: 'POST',
-                  url:'../controller/controller_register_party/controller_register_party.php',
-                  success: function(result)
-                  {
-					  alert("saiuuuuu");
-                  }
-		});
-		
-		return false;
-		
+	$("#form-register-party").submit(function () {
+    alert("loucura");
+    var formData = new FormData(this);
+
+	    $.ajax({
+	        url: '../controller/controller_register_party/controller_register_party.php',
+	        type: 'POST',
+	        data: formData,
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	    });
+	   return false;
 	});
 	
 });

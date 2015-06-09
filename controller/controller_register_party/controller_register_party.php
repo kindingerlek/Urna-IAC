@@ -99,12 +99,14 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			  
 				insertParty($party, $conn); 					    // Insere Party no B
 
-				header('location:../../view/admin_manage_party.php');
-
+				//header('location:../../view/admin_manage_party.php');
+				echo("Cadastro realizado com sucesso");
+				echo("window.location.href = '#';");
 			}else{
 			
-				$error[0] = -16;                //Retorna erro de usuario já cadastrado
-				header('location:../../view/admin_manage_party.php');
+				$error[0] = -16;   
+				             //Retorna erro de usuario já cadastrado
+				//header('location:../../view/admin_manage_party.php');
 			}
 			
 			
@@ -112,19 +114,16 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 }
 
 move_uploaded_file($_FILES['register-logoInput']['tmp_name'], $uploadFile);
-print_r($_FILES);
-
 if(is_array($error))
 {
-	 //echo "$('#register-error').html('');";
-	header('location:../../view/admin_manage_party.php');
+	echo "$('#register-error').html('');";
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
-		echo $error[$i];
-		// echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
-		// echo "$('#register-error').show();";  
-		// echo "$('#register-error').append('".$description."<br/>');";
+		//echo $error[$i];
+		echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
+		echo "$('#register-error').show();";  
+		echo "$('#register-error').append('".$description."<br/>');";
 		
 		}
 }
