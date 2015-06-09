@@ -24,9 +24,6 @@ $(function(){
 		createMaskCandidateName($(this));
 	});
 	
-	$("#register-name-party").blur(function(){
-		createMaskCandidateName($(this));
-	});
 	
 	$("#register-name-num").blur(function(){
 		createMaskCandidateNum($(this));

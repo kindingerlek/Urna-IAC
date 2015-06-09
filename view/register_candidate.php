@@ -20,14 +20,14 @@
               <!-- Input Cargo -->
               <div class="form-group">
                 <label>Cargo:</label>
-                <select class="input-large form-control" id="search-combobox">
-                  <option value="mayor">Prefeito</option>                  
-                  <option value="vereador">Vereador</option>
-                  <option value="stateDeputy">Deputado Estadual</option>
-                  <option value="federalDeputy">Deputado Federal</option>
-                  <option value="president">Presidente</option>
-                  <option value="senator">Senador</option>
-                  <option value="governor">Governador</option>
+                <select class="input-large form-control" id="search-combobox" name="register-office">
+                  <option value=1>Prefeito</option>                  
+                  <option value=2>Vereador</option>
+                  <option value=3>Deputado Estadual</option>
+                  <option value=4>Deputado Federal</option>
+                  <option value=5>Presidente</option>
+                  <option value=6>Senador</option>
+                  <option value=7>Governador</option>
                 </select>
               </div>
               
@@ -40,7 +40,7 @@
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Partido:</label>
-                <select id="register-name-party" class="input-large form-control">
+                <select id="register-name-party" name="register-party" class="input-large form-control">
                   <option value="0"> Selecione um partido</option>
                   <?php
                     include "../model/open_db/open_db.php";
@@ -68,7 +68,7 @@
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Numero:</label>
-                <input type="text" id="register-name-num" name="register-name" class="form-control" placeholder="">
+                <input type="text" id="register-name-num" name="register-number" class="form-control" placeholder="">
               </div>
               
            </div>
