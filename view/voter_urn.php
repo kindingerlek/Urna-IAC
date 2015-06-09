@@ -62,11 +62,11 @@
             </div>
             
             <div class="row col-md-12">
-              VERDE para Confirmar
+              VERDE para CONFIRMAR este voto
             </div>
               
             <div class="row col-md-12">
-              Laranja para Corrigir
+              LARANJA para REINICIAR este voto
             </div>
             
           </div>
