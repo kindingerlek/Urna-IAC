@@ -85,7 +85,7 @@
         </table>
      </div>
      
-     <form action="#" id="form-register-candidate">
+     <form method = "POST" action ="#" enctype="multipart/form-data" id="form-register-candidate">
        <?php include "register_candidate.php" ?>
      </form>
     

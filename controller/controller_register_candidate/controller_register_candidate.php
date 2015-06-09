@@ -60,29 +60,27 @@ require_once($root.'model/insert/insert_Candidate.php');
 
 
 //Recebe dados via post
-//$newCandidate = $_POST;
-$idElection = $_GET["idElection"];
-
-$dateElection = $_GET["dataElection"];
+$newCandidate = $_POST;
+print_r($newCandidate);
+$idElection = 1;              //$_POST["idElection"];
+$dateElection = "08/08/1996"; //$_POST["dataElection"];
 
 $election["date"] = $dateElection;
 
-$newCandidate["register-number"]="12145";
-$newCandidate["register-name"]="Alisson"; 
-$newCandidate["register-party"]="50"; 
-$newCandidate["register-office"]="1"; 
-$newCandidate["register-number"]="12145"; 
+// $newCandidate["register-number"]="12145";
+// $newCandidate["register-name"]="Alisson"; 
+// $newCandidate["register-party"]="50"; 
+// $newCandidate["register-office"]="1"; 
+// $newCandidate["register-number"]="12145"; 
 
 
 foreach ($newCandidate as $field => $data) {
 	if(!evalField($data))
 		{
 			//header('location:../../view/admin_manage_candidate.php');
-			
 			$error[] = -14;
 			
 			break;
-			
 		}
 }
 
@@ -93,7 +91,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
 			$candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
 			$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
-			$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
+			$candidate['idParty'] = formatText($newCandidate["register-party"]); 
 			$candidate['idOffice'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
 			$candidate['idElection'] = $idElection; 
 
@@ -118,6 +116,8 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 						// upload do arquivo
 					
 						insertCandidate($candidate, $conn); 					    // Insere Candidate no B
+						echo("Cadastro realizado com sucesso");
+						echo("window.location.href = '#';");
 						//header(	'location:../../view/admin_manage_candidate.php');
 
 					}else{
@@ -147,7 +147,8 @@ if(is_array($error))
 		$description = error($error[$i],$conn);
 		//echo $error[$i];
 		echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
-		echo "$('#register-error').show();";  	echo "$('#register-error').append('".$description."<br/>');";
+		echo "$('#register-error').show();";  	
+		echo "$('#register-error').append('".$description."<br/>');";
 		
 		}
 }
