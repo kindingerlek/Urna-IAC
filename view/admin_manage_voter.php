@@ -42,7 +42,7 @@
       
         <form class="" id="form-search">
           <div class="row">
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xs-3">
               <select class="input-large form-control" id="search-combobox" name="search-combobox">
                 <option value="nome">Nome</option>
                 <option value="tituloEleitor">Título</option>
@@ -51,11 +51,11 @@
             </div>
                   
             
-            <div class="col-lg-6">
+            <div class="col-xs-6">
               <input type="text" id="search-input" class="form-control" placeholder="Procurar por..." name="search-input">
             </div>
                       
-            <div class="col-lg-3">
+            <div class="col-xs-3">
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
               </button>
@@ -66,13 +66,13 @@
         <table class="table table-striped table-hover" id="table">
           <thead>
             <tr>
-              <td class="col-md-1">#</td>
-              <td class="col-md-4">Nome:</td>
-              <td class="col-md-2">Título:</td>
-              <td class="col-md-2">CPF:</td>
-              <td class="col-md-1">Zona:</td>
-              <td class="col-md-1">Seção:</td>
-              <td class="col-md-1">Ações:</td>
+              <td class="col-xs-1">Cod</td>
+              <td class="col-xs-4">Nome:</td>
+              <td class="col-xs-2">Título:</td>
+              <td class="col-xs-2">CPF:</td>
+              <td class="col-xs-1">Zona:</td>
+              <td class="col-xs-1">Seção:</td>
+              <td class="col-xs-1">Ações:</td>
             </tr>
           </thead>
           

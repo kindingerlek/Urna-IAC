@@ -38,12 +38,12 @@
       <?php include "page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
-      <div class="page-content">
+      <div class="page-content brd">
     
         <form class="" id="form-search">
           
           <div class="row">
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xs-3">
               <select class="input-large form-control" id="search-combobox" name="search-combobox">
                 <option value="nome">Nome</option>
                 <option value="sigla">Sigla</option>
@@ -52,11 +52,11 @@
             </div>
                   
             
-            <div class="col-lg-6">
+            <div class="col-xs-6">
               <input type="text" id="search-input" name="search-input" class="form-control" placeholder="Procurar por...">
             </div>
                       
-            <div class="col-lg-3">
+            <div class="col-xs-3">
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Partidos
               </button>
@@ -71,10 +71,10 @@
         <table class="table table-striped table-hover" id="table">
           <thead>
             <tr>
-              <td class="col-md-1">#</td>
-              <td class="col-md-7">Nome:</td>
-              <td class="col-md-2">Sigla:</td>
-              <td class="col-md-2">Número</td>
+              <td class="col-xs-1">Cod</td>
+              <td class="col-xs-7">Nome:</td>
+              <td class="col-xs-2">Sigla:</td>
+              <td class="col-xs-2">Número</td>
             </tr>
           </thead>
           
