@@ -68,7 +68,9 @@
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Numero:</label>
-                <input type="text" id="register-name-num" name="register-number" class="form-control" placeholder="">
+
+                <input type="text" id="register-num" name="register-num" class="form-control" placeholder="">
+
               </div>
               
            </div>

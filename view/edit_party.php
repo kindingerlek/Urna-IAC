@@ -16,15 +16,15 @@
             <div class="col-xs-6">
               <div class="col-xs-12 form-group">
                   <label>Nome:</label>
-                  <input type="text" id="register-name" name="register-name" class="form-control">
+                  <input type="text" id="edit-name" name="edit-name" class="form-control">
               </div>
               <div class="col-xs-6 form-group">
                   <label>Sigla:</label>
-                  <input type="text" id="register-acronym" name="register-acronym" class="form-control">
+                  <input type="text" id="edit-acronym" name="edit-acronym" class="form-control">
               </div>
               <div class="col-xs-6 form-group">
                   <label>Número:</label>
-                  <input type="text" id="register-number" name="register-number" class="form-control" maxleght="2">
+                  <input type="text" id="edit-number" name="edit-number" class="form-control" maxleght="2">
               </div>
             </div>
             <div class="col-xs-6">
@@ -35,7 +35,7 @@
               </div>
               
                <div class="col-xs-12 form-group">
-                 <input type="file" id="register-logoInput" name="register-logoInput" accept=".png,.PNG,.jpg,.JPG,.jpeg,.JPEG">
+                 <input type="file" id="edit-logoInput" name="edit-logoInput" accept=".png,.PNG,.jpg,.JPG,.jpeg,.JPEG">
                </div>
                 
             </div>
@@ -53,7 +53,7 @@
         <button type="button" id="removePartyButton" class="btn btn-danger">
           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Excluir
         </button>
-        <button type="submit" class="btn btn-primary">Confirmar</button>
+        <button type="submit" class="btn btn-success">Confirmar Edição</button>
       </div>
     </div>
   </div>
