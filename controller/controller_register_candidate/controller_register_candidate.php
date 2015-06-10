@@ -60,29 +60,29 @@ require_once($root.'model/insert/insert_Candidate.php');
 
 
 //Recebe dados via post
-//$newCandidate = $_POST;
-$idElection = $_GET["idElection"];
+$newCandidate = $_POST;
 
-$dateElection = $_GET["dataElection"];
+
+$idElection = 1;
+              //$_POST["idElection"];
+$dateElection = "08/07/1996"; //$_POST["dataElection"];
 
 $election["date"] = $dateElection;
-
-$newCandidate["register-number"]="12145";
-$newCandidate["register-name"]="Alisson"; 
-$newCandidate["register-party"]="50"; 
-$newCandidate["register-office"]="1"; 
-$newCandidate["register-number"]="12145"; 
+$election["idElection"] = $dateElection;
+// $newCandidate["register-number"]="12145";
+// $newCandidate["register-name"]="Alisson"; 
+// $newCandidate["register-party"]="50"; 
+// $newCandidate["register-office"]="1"; 
+// $newCandidate["register-number"]="12145"; 
 
 
 foreach ($newCandidate as $field => $data) {
 	if(!evalField($data))
 		{
 			//header('location:../../view/admin_manage_candidate.php');
-			
 			$error[] = -14;
 			
 			break;
-			
 		}
 }
 
@@ -98,7 +98,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			$candidate['idElection'] = $idElection; 
 
 			$idCandidate = $candidate['idCandidate'];
-			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/partido_logo/';// definindo pasta de dowload de fotos
+			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/candidate_photo/';// definindo pasta de dowload de fotos
 			$uploadFile = $uploaddir . basename($idElection."_".$idCandidate.".jpg");
 
 			$candidate['photo'] =	$uploadFile; 
@@ -110,7 +110,6 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 		{
 			$error=null;
 
-			print_r(verifyElection($election, $conn));
 			if(verifyElection($election, $conn))
 				{ 
 					if(!verifyCandidate($candidate, $conn))     				 	// Entra se Candidate existe no BD, 1 se sim e 0 se não
@@ -118,11 +117,13 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 						// upload do arquivo
 					
 						insertCandidate($candidate, $conn); 					    // Insere Candidate no B
+						echo("Cadastro realizado com sucesso");
+						echo("window.location.href = '#';");
 						//header(	'location:../../view/admin_manage_candidate.php');
 
 					}else{
 					
-						$error[0] = -16;                //Retorna erro de usuario já cadastrado
+						$error[0] = -27;                //Retorna erro de usuario já cadastrado
 						//header('location:../../view/admin_manage_candidate.php');
 					}
 				
@@ -135,8 +136,8 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 		}
 }
 
-move_uploaded_file($_FILES['register-logoInput']['tmp_name'], $uploadFile);
-print_r($_FILES);
+move_uploaded_file($_FILES['register-photoInput']['tmp_name'], $uploadFile);
+
 
 if(is_array($error))
 {
@@ -147,11 +148,12 @@ if(is_array($error))
 		$description = error($error[$i],$conn);
 		//echo $error[$i];
 		echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
-		echo "$('#register-error').show();";  	echo "$('#register-error').append('".$description."<br/>');";
+		echo "$('#register-error').show();";  	
+		echo "$('#register-error').append('".$description."<br/>');";
 		
 		}
 }
-print_r($error);
+
 
 mysqli_close($conn);
 ?>

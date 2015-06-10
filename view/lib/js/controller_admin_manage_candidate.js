@@ -24,9 +24,6 @@ $(function(){
 		createMaskCandidateName($(this));
 	});
 	
-	$("#register-name-party").blur(function(){
-		createMaskCandidateName($(this));
-	});
 	
 	$("#register-name-num").blur(function(){
 		createMaskCandidateNum($(this));
@@ -75,19 +72,19 @@ $(function(){
 			return false;
 		}
 
-		$.ajax({
-                  dataType: 'script',
-                  data: $("#form-register-party").serialize(),
-                  type: 'POST',
-                  url:'../controller/controller_register_party/controller_register_party.php',
-                  success: function(result)
-                  {
-					  alert("saiuuuuu");
-                  }
-		});
 		
-		return false;
-		
+	    confirm("Que bom que está usando o Vote Bem, esta gostando?");
+	    var formData = new FormData(this);
+
+	    $.ajax({
+	        url: '../controller/controller_register_candidate/controller_register_candidate.php',
+	        type: 'POST',
+	        data: formData,
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	    });
+	   return false;
 	});
 	
 });

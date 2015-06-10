@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet">
-    <link href="/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
+    <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
     
     </head>
   <body>
@@ -38,12 +38,12 @@
       <?php include "page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
-      <div class="page-content">
+      <div class="page-content brd">
     
         <form class="" id="form-search">
           
           <div class="row">
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xs-3">
               <select class="input-large form-control" id="search-combobox" name="search-combobox">
                 <option value="nome">Nome</option>
                 <option value="sigla">Sigla</option>
@@ -52,16 +52,16 @@
             </div>
                   
             
-            <div class="col-lg-6">
+            <div class="col-xs-6">
               <input type="text" id="search-input" name="search-input" class="form-control" placeholder="Procurar por...">
             </div>
                       
-            <div class="col-lg-3">
+            <div class="col-xs-3">
               <button type="submit" id="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar Partidos
               </button>
               
-              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newPartity">
+              <button type="button" id="register-party" class="btn btn-primary btn-block" data-toggle="modal" data-target="#popup-newParty">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo partido
               </button>
             </div>
@@ -71,10 +71,10 @@
         <table class="table table-striped table-hover" id="table">
           <thead>
             <tr>
-              <td class="col-md-1">#</td>
-              <td class="col-md-7">Nome:</td>
-              <td class="col-md-2">Sigla:</td>
-              <td class="col-md-2">Número</td>
+              <td class="col-xs-1">Cod</td>
+              <td class="col-xs-7">Nome:</td>
+              <td class="col-xs-2">Sigla:</td>
+              <td class="col-xs-2">Número</td>
             </tr>
           </thead>
           
@@ -83,19 +83,13 @@
           </tbody>
         </table>
         
-        <form method = "POST" action ="../controller/controller_register_party/controller_register_party.php" enctype="multipart/form-data" id="form-register-party">
+        <form method = "POST" action ="#" enctype="multipart/form-data" id="form-register-party">
           <?php include "register_party.php" ?>
         </form>
         
-        <div style="display:none">
-          <button type="button" class="btn btn-default" aria-label="Editar">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-          </button>
-          
-          <button type="button" class="btn btn-default" aria-label="Excluir">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
-        </div>
+        <form method="POST" action="">
+          <?php include "edit_party.php" ?>
+        </form>
         
       </div>
       
@@ -109,10 +103,22 @@
     var pageTitle = $(document).find("title").text();
       
       $("#page-title").text(pageTitle);
-      $(document).ready(function(){
-        $('.combobox').combobox();
-        
-      });
+           
+      $("#table-body").on("click","tr",
+        function()
+        {
+          $("#popup-editParty").modal('show');
+          
+          var inputs = ['#edit-name', '#edit-acronym','#edit-number'];
+          
+          for(var i=0; i < inputs.length; i++)
+          {
+            var value = $("td:eq(" + (i+1) + ")", this).text();
+            $(inputs[i]).val(value);
+          }
+          
+          
+        });
       
       $("#register-logoInput").change(
         function()

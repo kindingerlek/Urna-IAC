@@ -17,7 +17,7 @@
             <div class="col-md-12">
               <div class="col-md-12 form-group">
                   <label>Data:</label>
-                  <input type="text" id="register-period" name="register-period" class="form-control">
+                  <input type="date" id="register-period" name="register-period" class="form-control">
               </div>
               <div class="col-md-12 form-group">
                   <label>Início:</label>

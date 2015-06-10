@@ -23,11 +23,15 @@
 function logout()
 {
 	// Se Session existe
+	session_start();
 	if(isset($_SESSION))  
 	{
+	
 	    session_destroy(); // Destroi Session
+	
 	}
 
+	
 	header("refresh:0;url=../../index.php");
 }
 

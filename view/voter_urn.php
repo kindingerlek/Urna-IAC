@@ -22,123 +22,124 @@
       <!-- Conteúdo da página -->
       <div class="brd page-content">
         
+        
         <div class="brd row">
-          <div class="brd col-md-6">
+          
+          <!-- Tela da Urna -->
+          <div class="brd col-xs-6" id="urn-screen">
             
             <div class="row">              
-              <div class="brd col-md-6">
+              <div class="brd col-xs-6">
                 
-                <div class="brd col-md-12">
-                  SEU VOTO VAI PARA:
+                <div class="brd col-xs-12">
+                  <h3> SEU VOTO VAI PARA:</h3>
                 </div>
                 
-                <div class="brd col-md-12">
-                  Cargo do maluco
+                <div class="brd col-xs-12">
+                  <h2> Cargo do maluco </h2> 
                 </div>
                 
-                <div class="brd col-md-12">
-                  Numero: 
+                <div class="brd col-xs-12">
+                  <h3> Numero: </h3>
                 </div>
                 
               </div>
               
-              <div class="brd col-md-6">
+              <div class="brd col-xs-6">
                 imagem
               </div>              
             </div>
             
             <div class="row">
-              <div class="brd col-md-12">
+              <div class="brd col-xs-12">
                 Nome do maluco:
               </div>
               
-              <div class="brd col-md-12">
-                Parido: POOP
+              <div class="brd col-xs-12">
+                Partido: POOP
+              </div>
+              
+              <div class="brd col-xs-12" id="urn-screen-footer">
+                Aperte : </br>
+                VERDE para Confirmar </br>
+                Laranja para Corrigir </br>
               </div>
             </div>
             
-            <div class="row col-md-12">
-              Aperte :
-            </div>
-            
-            <div class="row col-md-12">
-              VERDE para Confirmar
-            </div>
-              
-            <div class="row col-md-12">
-              Laranja para Corrigir
-            </div>
             
           </div>
-            
-          <div class="brd col-md-6">
+          
+          
+          
+          <!-- Botões da Urna -->
+          <div class="brd col-xs-6">
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">1</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">2</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">3</button>
               </div>  
             </div>
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">4</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">5</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">6</button>
               </div>  
             </div>
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">7</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">8</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">9</button>
               </div>  
             </div>
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-inverted btn-xlg btn-block">0</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 
               </div>  
             </div>
             
             <div class="brd row">
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-default btn-lg btn-block">Branco</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-warning btn-lg btn-block">Corrige</button>
               </div>  
               
-              <div class="brd col-md-4">
+              <div class="brd col-xs-4 urn-key">
                 <button type="button" class="btn btn-success btn-lg btn-block">Confirma</button>
               </div>  
             </div>
