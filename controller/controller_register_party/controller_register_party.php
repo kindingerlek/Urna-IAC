@@ -100,7 +100,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				insertParty($party, $conn); 					    // Insere Party no B
 
 				//header('location:../../view/admin_manage_party.php');
-				echo("Cadastro realizado com sucesso");
+				echo("alert('Cadastro realizado com sucesso');");
 				echo("window.location.href = '#';");
 			}else{
 			

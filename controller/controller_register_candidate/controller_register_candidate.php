@@ -110,7 +110,6 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 		{
 			$error=null;
 
-			print_r(verifyElection($election, $conn));
 			if(verifyElection($election, $conn))
 				{ 
 					if(!verifyCandidate($candidate, $conn))     				 	// Entra se Candidate existe no BD, 1 se sim e 0 se não
@@ -124,7 +123,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 					}else{
 					
-						$error[0] = -16;                //Retorna erro de usuario já cadastrado
+						$error[0] = -27;                //Retorna erro de usuario já cadastrado
 						//header('location:../../view/admin_manage_candidate.php');
 					}
 				
@@ -154,7 +153,7 @@ if(is_array($error))
 		
 		}
 }
-print_r($error);
+
 
 mysqli_close($conn);
 ?>
