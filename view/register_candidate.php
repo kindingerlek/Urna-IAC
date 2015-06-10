@@ -21,13 +21,13 @@
               <div class="form-group">
                 <label>Cargo:</label>
                 <select class="input-large form-control" id="search-combobox" name="register-office">
-                  <option value=1>Prefeito</option>                  
-                  <option value=2>Vereador</option>
-                  <option value=3>Deputado Estadual</option>
-                  <option value=4>Deputado Federal</option>
-                  <option value=5>Presidente</option>
-                  <option value=6>Senador</option>
-                  <option value=7>Governador</option>
+                  <option value="prefeito">Prefeito</option>                  
+                  <option value="vereador">Vereador</option>
+                  <option value="deputado estadual">Deputado Estadual</option>
+                  <option value="deputado federal">Deputado Federal</option>
+                  <option value="presidente">Presidente</option>
+                  <option value="senador">Senador</option>
+                  <option value="governador">Governador</option>
                 </select>
               </div>
               
