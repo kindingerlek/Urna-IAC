@@ -81,6 +81,7 @@ function validateNewElection($newElection)
 	$date = $newElection['register-period']; //Atribui a $birthday
 	   										   //o birthday de $newElection
 	if(!evalDate($date))
+
 		$erros[] = -8;      //Retorna Erro "Data inválido"
 	
 	//--------------------------------------------------------------------

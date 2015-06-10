@@ -45,15 +45,6 @@ require_once($root.'model/insert/insert_zip_code.php');
 //Recebe dados via post
 $newElection = $_POST;
 
-// foreach ($newElection as $field => $data) {
-// 	if(!evalField($data))
-// 		{
-// 			$error[] = -14;
-// 			break;
-			
-// 		}
-// }
-
 
 $conn = openDB();
 
@@ -92,7 +83,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				insertElection($election, $conn); 					    // Insere User no BD
 
 			    echo("alert('Cadastro realizado com Sucesso!');");
-				echo("window.location.href = '../index.php';");
+				echo("window.location.href = '../view/admin_manage_election.php';");
 
 			}else{
 			
@@ -106,15 +97,15 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 print_r($error);
 if(is_array($error))
 {
-	echo "$('#register-error').html('');";
+	echo "$('.election-error').html('');";
 
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
 		
-		echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
-		echo "$('#register-error').show();";  
-		echo "$('#register-error').append('".$description."<br/>');";
+		echo "$('.election-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
+		echo "$('.election-error').show();";  
+		echo "$('.election-error').append('".$description."<br/>');";
 		
 		}
 }

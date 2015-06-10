@@ -75,7 +75,7 @@
           
           <div class="row">
             <div class="form-group col-lg-3">
-              <select class="input-large form-control" id="search-combobox">
+              <select class="input-large form-control" id="search-combobox" name="search-combobox">
                 <option value="idEleicao">Código</option>
                 <option value="tipo">Tipo</option>
                 <option value="status">Status</option>
@@ -85,7 +85,7 @@
                   
             
             <div class="col-lg-6">
-              <input type="text" id="search-input" class="form-control" placeholder="Procurar por...">
+              <input type="text" id="search-input" class="form-control" placeholder="Procurar por..." name="search-input">
             </div>
                       
             <div class="col-lg-3">

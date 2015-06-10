@@ -133,7 +133,8 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				echo("window.location.href = '../index.php';");
 
 			}else{
-			
+				
+				$error = null;
 				$error[0] = -13;                //Retorna erro de usuario já cadastrado
 			}
 			
