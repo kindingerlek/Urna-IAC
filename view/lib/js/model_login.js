@@ -203,7 +203,6 @@ function checkField(field){
       var name = field.val();
 
       if(name == ''){
-
             return 2;
       } else if(!(name.match(/^[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕç ,.'-]+$/i))) {
             return 0;
@@ -237,6 +236,31 @@ function checkFieldNum(field){
       }
 };
 
+
+/*
+* Título: checkFieldPassword
+*
+* Autor: Bruno
+* Data de Criação: 10/06/2015
+*
+* Descrição: Checa se o campo do tipo password está preenchidos corretamente
+*
+* Funções invocadas: Nenhuma
+*
+*/
+
+function checkFieldPassword(field){
+      
+      var password = field.val();
+
+      if(password == ''){
+            return 2;
+      } else if(!(password.match(/^[a-zA-Z0-9]+$/i))) {
+            return 0;
+      } else {
+            return 1;
+      }
+};
 /*
 * Título: changeFieldState
 *
@@ -328,10 +352,7 @@ jQuery(function($){
 jQuery(function($){
        $("#register-zipCode").mask("99999-999");
       });
-   
-jQuery(function($){
-       $("#register-birthday").mask("99/99/9999");
-      });     
+      
 };
 
 
@@ -361,10 +382,10 @@ function getAddress() {
       if($.trim(zipCode) != ""){
             $.getScript(webService + zipCode, function(){
                   if (resultadoCEP["resultado"]) {
-                        $("#register-address").val(unescape(resultadoCEP["tipo_logradouro"]) + " " + unescape(resultadoCEP["logradouro"]));
-                        $("#register-neighborhood").val(unescape(resultadoCEP["bairro"]));
-                        $("#register-city").val(unescape(resultadoCEP["cidade"]));
-                        $("#register-state").val(unescape(resultadoCEP["uf"]));
+                        $("#register-address").val(unescape(resultadoCEP["tipo_logradouro"]) + " " + unescape(resultadoCEP["logradouro"])).blur();
+                        $("#register-neighborhood").val(unescape(resultadoCEP["bairro"])).blur();
+                        $("#register-city").val(unescape(resultadoCEP["cidade"])).blur();
+                        $("#register-state").val(unescape(resultadoCEP["uf"])).blur();
                         return 1;
                   }
                   if (resultadoCEP["resultado"] == 0) {

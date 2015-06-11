@@ -62,6 +62,14 @@ $(function(){
        $("#recover-cpf").blur(function(){  //Função para validar o CPF na tela de recuperação de senha
             changeFieldState($(this), evalCPF($(this).val()));
        });
+       
+       $("#login-password").blur(function(){  //Função para validar o password na tela de login
+             changeFieldState($(this), checkFieldPassword($(this)));
+       });
+       
+       $("#register-complement").blur(function(){  //Função que verifica se o complemento está preenchido corretamente
+           changeFieldState($(this), checkFieldPassword($(this)));
+       });
 });
 
 
@@ -138,6 +146,11 @@ $(function()
             
            //Se bairro preenchido incorretamente, para o .submit
             if (checkField($("#register-neighborhood")) == 0){
+                  return false;
+            }
+            
+            //Se complemento preenchido incorretamente, para o .submit
+            if (checkFieldPassword($("#register-complement")) == 0){
                   return false;
             }
             
