@@ -87,8 +87,8 @@
           <?php include "register_party.php" ?>
         </form>
         
-        <form method="POST" action="">
-          <?php include "edit_party.php" ?>
+        <form method="POST" action="../controller/controller-removeParty.php">
+          <?php include "status_party.php" ?>
         </form>
         
       </div>
@@ -107,37 +107,35 @@
         return http.status!=404;
     }
   
-  
     var pageTitle = $(document).find("title").text();
-      
-      $("#page-title").text(pageTitle);
+    $("#page-title").text(pageTitle);
            
-      $("#table-body").on("click","tr",
-        function()
+    $("#table-body").on("click","tr",
+      function()
+      {
+        $("#popup-status").modal('show');
+        
+        var inputs = ['#status-name', '#status-acronym','#status-number'];
+        var values = [];
+        var image = '#status-logoImage'
+        var imagePath = '../resources/party_logo/';
+                  
+        for(var i=0; i < inputs.length; i++)
         {
-          $("#popup-editParty").modal('show');
-          
-          var inputs = ['#edit-name', '#edit-acronym','#edit-number'];
-          var values = [];
-          var image = '#edit-logoImage'
-          var imagePath = '../resources/party_logo/';
-                    
-          for(var i=0; i < inputs.length; i++)
-          {
-            values.push( $("td:eq(" + (i+1) + ")", this).text() );
-            $(inputs[i]).val(values[i]);
-          }
-          
-          imagePath = imagePath + values[2] + ".jpg";
-          if($.UrlExists(imagePath)){
-            $(image).attr('src', imagePath);
-          }
-          else
-          {
-            $(image).attr('src', '../resources/images/noimage.png');
-          }
-          
-        });
+          values.push( $("td:eq(" + (i+1) + ")", this).text() );
+          $(inputs[i]).val(values[i]);
+        }
+        
+        imagePath = imagePath + values[2] + ".jpg";
+        if($.UrlExists(imagePath)){
+          $(image).attr('src', imagePath);
+        }
+        else
+        {
+          $(image).attr('src', '../resources/images/noimage.png');
+        }
+        
+      });
       
       $("#register-logoInput").change(
         function()

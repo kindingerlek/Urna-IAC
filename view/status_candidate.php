@@ -1,12 +1,12 @@
 <!-- Novo Usuário -->
-<div class="modal fade" id="popup-candidate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="popup-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-lg">
     <div class="modal-content">
       
       <!-- Titulo -->
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Novo Candidato</h4>
+        <h4 class="modal-title" >Informações do Candidato</h4>
       </div>
       
       <!-- Corpo -->
@@ -20,7 +20,7 @@
               <!-- Input Cargo -->
               <div class="form-group">
                 <label>Cargo:</label>
-                <select class="input-large form-control" id="search-combobox" name="register-office">
+                <select class="input-large form-control" id="status-office" name="status-office">
                   <option value="prefeito">Prefeito</option>                  
                   <option value="vereador">Vereador</option>
                   <option value="deputado estadual">Deputado Estadual</option>
@@ -34,13 +34,13 @@
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Nome:</label>
-                <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Nome do candidado">
+                <input type="text" id="status-name" name="status-name" class="form-control" placeholder="Nome do candidado">
               </div>
               
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Partido:</label>
-                <select id="register-party" name="register-party" class="input-large form-control">
+                <select id="status-party" name="status-party" class="input-large form-control">
                   <option value="0"> Selecione um partido</option>
                   
                   <?php
@@ -70,7 +70,7 @@
               <div class="form-group">
                 <label>Numero:</label>
 
-                <input type="number" id="register-number" name="register-number" class="form-control" placeholder="">
+                <input type="number" id="status-number" name="status-number" class="form-control" placeholder="">
 
               </div>
               
@@ -80,26 +80,25 @@
            <div class="col-md-6">
              
              <div class="col-md-12 form-group center-block">  
-                <img src="../resources/images/noimage.png" class="center-block" id="register-photoImage" height="100"/>
+                <img src="../resources/images/noimage.png" class="center-block" id="status-photoImage" height="100"/>
              </div>
               
              <div class="col-md-12 form-group">
-               <input type="file" id="register-photoInput" name="register-photoInput" accept=".png,.PNG,.jpg,.JPG,.jpeg,.JPEG">
+               <input type="file" id="status-photoInput" name="status-photoInput" accept=".png,.PNG,.jpg,.JPG,.jpeg,.JPEG">
              </div>
             
            </div>
            
          </div>
         </form>
-        
-        <div id="register-error" class="alert alert-danger" role="alert" style="display: none">
-         </div>
       </div>
                 
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Confirmar</button>
+        <button type="submit" id="status-removeButton" class="btn btn-danger">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Excluir
+        </button>
       </div>
     </div>
   </div>
