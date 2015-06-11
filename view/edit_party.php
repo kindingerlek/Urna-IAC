@@ -29,9 +29,7 @@
             </div>
             <div class="col-xs-6">
               <div class="col-xs-12 form-group center-block">
-                <img src="../resources/images/noimage.png" class="center-block" id="register-logoImage" height="100"/>
-                      <br>
-                <div id="disp_tmp_path"></div>
+                <img src="../resources/images/noimage.png" class="center-block" id="edit-logoImage" height="100"/>
               </div>
               
                <div class="col-xs-12 form-group">

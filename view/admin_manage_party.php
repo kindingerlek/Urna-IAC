@@ -100,6 +100,14 @@
     </div>     
   </body>
   <script type="text/javascript">
+    $.UrlExists = function(url) {
+    	var http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+        return http.status!=404;
+    }
+  
+  
     var pageTitle = $(document).find("title").text();
       
       $("#page-title").text(pageTitle);
@@ -110,20 +118,34 @@
           $("#popup-editParty").modal('show');
           
           var inputs = ['#edit-name', '#edit-acronym','#edit-number'];
-          
+          var values = [];
+          var image = '#edit-logoImage'
+          var imagePath = '../resources/party_logo/';
+                    
           for(var i=0; i < inputs.length; i++)
           {
-            var value = $("td:eq(" + (i+1) + ")", this).text();
-            $(inputs[i]).val(value);
+            values.push( $("td:eq(" + (i+1) + ")", this).text() );
+            $(inputs[i]).val(values[i]);
           }
           
+          imagePath = imagePath + values[2] + ".jpg";
+          if($.UrlExists(imagePath)){
+            $(image).attr('src', imagePath);
+          }
+          else
+          {
+            $(image).attr('src', '../resources/images/noimage.png');
+          }
           
         });
       
       $("#register-logoInput").change(
         function()
         {
-          var tmppath = URL.createObjectURL(event.target.files[0]);          
+          // cria um caminho temporário para a imagem que foi enviada
+          var tmppath = URL.createObjectURL(event.target.files[0]);
+          
+          // Se o caminho existir atribui a imagem do popup ao caminho, se não usa uma imagem padrão;
           if(tmppath)
             $("#register-logoImage").fadeIn("500").attr('src',tmppath);
           else          
