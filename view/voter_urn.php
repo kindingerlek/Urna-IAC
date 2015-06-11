@@ -6,6 +6,8 @@
     
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
+    <script src="lib/js/controller_voter_urn.js"></script>
+    <script src="lib/js/model_voter_urn.js"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
