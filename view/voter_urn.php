@@ -28,35 +28,24 @@
           <!-- Tela da Urna -->
           <div class="brd col-xs-6" id="urn-screen">
             
-            <div class="row">              
-              <div class="brd col-xs-6">
-                
-                <div class="brd col-xs-12">
-                  <h3> SEU VOTO VAI PARA:</h3>
-                </div>
-                
-                <div class="brd col-xs-12">
-                  <h2> Cargo do maluco </h2> 
-                </div>
-                
-                <div class="brd col-xs-12">
+            <div class="row" style="height: 250px;">              
+              <div class="brd col-xs-8">
+                  <h3> SEU VOTO VAI PARA:</h3> 
+                  <h2 id="urn-candidateOffice"> Cargo do maluco </h2> 
                   <h3> Numero: </h3>
-                </div>
-                
+                  <h2 id="urn-number"class="text-center"> 00000 </h2>
               </div>
-              
-              <div class="brd col-xs-6">
-                imagem
+              <div class=" brd col-xs-4 full-height" id="urn-candidatePhoto">
               </div>              
             </div>
             
             <div class="row">
               <div class="brd col-xs-12">
-                Nome do maluco:
+                Nome do maluco: <p id="urn-candidateName"> JOSÉ ARMANDO PINTO MELO</p>
               </div>
               
               <div class="brd col-xs-12">
-                Partido: POOP
+                Partido: <p id="urn-candidateParty">PARTIDO TRABALHISTA COMUNISTA SOCIAL LIBERTARIO</p>
               </div>
               
               <div class="brd col-xs-12" id="urn-screen-footer">
@@ -76,43 +65,43 @@
             
             <div class="brd row">
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">1</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-1" name="key-1">1</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">2</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-2" name="key-2">2</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">3</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-3" name="key-3">3</button>
               </div>  
             </div>
             
             <div class="brd row">
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">4</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-4" name="key-4">4</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">5</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-5" name="key-5">5</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">6</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-6" name="key-6">6</button>
               </div>  
             </div>
             
             <div class="brd row">
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">7</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-7" name="key-7">7</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">8</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-8" name="key-8">8</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">9</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-9" name="key-9">9</button>
               </div>  
             </div>
             
@@ -122,7 +111,7 @@
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-inverted btn-xlg btn-block">0</button>
+                <button type="button" class="btn btn-inverted btn-xlg btn-block" id="key-0" name="key-0">0</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
@@ -132,15 +121,15 @@
             
             <div class="brd row">
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-default btn-lg btn-block">Branco</button>
+                <button type="button" class="btn btn-default btn-lg btn-block" id="key-empty" name="key-empty">Branco</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-warning btn-lg btn-block">Corrige</button>
+                <button type="button" class="btn btn-warning btn-lg btn-block" id="key-correct"name="key-correct">Corrige</button>
               </div>  
               
               <div class="brd col-xs-4 urn-key">
-                <button type="button" class="btn btn-success btn-lg btn-block">Confirma</button>
+                <button type="button" class="btn btn-success btn-lg btn-block" id="key-confirm" name="key-confirm">Confirma</button>
               </div>  
             </div>
                         

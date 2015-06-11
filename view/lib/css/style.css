@@ -108,6 +108,20 @@ body {
     margin-left: auto;
     margin-right: auto;
  }
+ 
+ 
+ 
+/*.row
+{
+    overflow: hidden;
+}
+
+.row > .full-height
+{
+    margin-bottom: -999999px;
+    padding-bottom: 999999px;
+    border: 10px solid #F55C16 ;
+}*/
 
 #form-login {
   min-width: 200px;
@@ -126,18 +140,33 @@ body {
 
 #urn-screen
 {
-  position: relative;
-  height: 100%;
+  position:  relative;
+  background-color: #EEEEEE;
+  border-radius: 8px;
 }
 
 #urn-screen-footer
 {
   bottom: 0px;
+  border-top: 2px solid #d8d8d8;
+  margin: 8px;
+}
+
+#urn-candidatePhoto
+{
+  background-image: url('../../../resources/images/gandalf.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+  height: 100%;
 }
 
 .urn-key
 {
-  padding: 8px;
+  padding-top: 8px;
+  padding-left : 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
 }
 
 .btn-xlg {
@@ -199,5 +228,16 @@ fieldset[disabled] .btn-inverted.active {
 
 .brd
 {
-  border: solid #123315 1px;
+  /*border: solid #123315 1px;*/
+}
+
+.panel {
+   display: flex;
+   flex-direction:column;
+   align-content:stretch; 
+}
+
+.panel-body {
+   display: flex;
+   flex-grow:1;
 }

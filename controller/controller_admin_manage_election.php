@@ -39,8 +39,10 @@ echo ("$('#table-body').html('');");
 
 while($row = mysqli_fetch_assoc($result)){
 
+		$status="0";
+
                     
-        $line = "<tr><td>".$row['idEleicao']."</td><td>".$row['tipo']."</td><td>".$row['data']."</td><td>".$row['horaInicio']."</td><td>".$row['horaFim']."</td><td></td></tr>";
+        $line = "<tr><td>".$row['idEleicao']."</td><td>".$row['tipo']."</td><td>".$status."</td><td>".$row['data']."</td><td>".$row['horaInicio']."</td><td>".$row['horaFim']."</td><td></td></tr>";
 
         //echo $line;
         echo ("$('#table-body').append('$line');");

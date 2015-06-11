@@ -46,7 +46,6 @@ $(function(){
 
 $(function(){
 
-	alert("oi");
 	
 	$("#search-submit").click(function(){
 
@@ -104,7 +103,7 @@ $(function(){
                   url:'../controller/controller_register_election/controller_register_election.php',
                   success: function(result)
                   {
-					 alert("1") ;
+
                   }
 		});
 		

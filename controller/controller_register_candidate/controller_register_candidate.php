@@ -61,12 +61,14 @@ require_once($root.'model/insert/insert_Candidate.php');
 
 //Recebe dados via post
 $newCandidate = $_POST;
-print_r($newCandidate);
-$idElection = 1;              //$_POST["idElection"];
-$dateElection = "08/08/1996"; //$_POST["dataElection"];
+
+
+$idElection = 1;
+              //$_POST["idElection"];
+$dateElection = "08/07/1996"; //$_POST["dataElection"];
 
 $election["date"] = $dateElection;
-
+$election["idElection"] = $dateElection;
 // $newCandidate["register-number"]="12145";
 // $newCandidate["register-name"]="Alisson"; 
 // $newCandidate["register-party"]="50"; 
@@ -91,12 +93,12 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
 			$candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
 			$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
-			$candidate['idParty'] = formatText($newCandidate["register-party"]); 
+			$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
 			$candidate['idOffice'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
 			$candidate['idElection'] = $idElection; 
 
 			$idCandidate = $candidate['idCandidate'];
-			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/partido_logo/';// definindo pasta de dowload de fotos
+			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/candidate_photo/';// definindo pasta de dowload de fotos
 			$uploadFile = $uploaddir . basename($idElection."_".$idCandidate.".jpg");
 
 			$candidate['photo'] =	$uploadFile; 
@@ -108,7 +110,6 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 		{
 			$error=null;
 
-			print_r(verifyElection($election, $conn));
 			if(verifyElection($election, $conn))
 				{ 
 					if(!verifyCandidate($candidate, $conn))     				 	// Entra se Candidate existe no BD, 1 se sim e 0 se não
@@ -122,7 +123,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 					}else{
 					
-						$error[0] = -16;                //Retorna erro de usuario já cadastrado
+						$error[0] = -27;                //Retorna erro de usuario já cadastrado
 						//header('location:../../view/admin_manage_candidate.php');
 					}
 				
@@ -135,8 +136,8 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 		}
 }
 
-move_uploaded_file($_FILES['register-logoInput']['tmp_name'], $uploadFile);
-print_r($_FILES);
+move_uploaded_file($_FILES['register-photoInput']['tmp_name'], $uploadFile);
+
 
 if(is_array($error))
 {
@@ -152,7 +153,7 @@ if(is_array($error))
 		
 		}
 }
-print_r($error);
+
 
 mysqli_close($conn);
 ?>

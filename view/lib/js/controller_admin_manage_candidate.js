@@ -24,6 +24,7 @@ $(function(){
 		createMaskCandidateName($(this));
 	});
 	
+
 	$("#register-num").blur(function(){
 		createMaskCandidateNum($(this));
 	});
@@ -62,7 +63,7 @@ $(function(){
 		}
 		
 		//Se o numero do candidato sem preenchimento, para o .submit
-		if($("#register-name-num").val() == ""){
+		if($("#register-num").val() == ""){
 			return false;
 		}
 
@@ -72,13 +73,14 @@ $(function(){
 		}
 
 		
-	    alert("loucura");
+	    confirm("Que bom que está usando o Vote Bem, esta gostando?");
 	    var formData = new FormData(this);
 
 	    $.ajax({
 	        url: '../controller/controller_register_candidate/controller_register_candidate.php',
 	        type: 'POST',
 	        data: formData,
+	        dataType: 'script',
 	        cache: false,
 	        contentType: false,
 	        processData: false,

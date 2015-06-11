@@ -58,16 +58,20 @@ $(function(){
 $(function(){
 	
 	$("#form-register-party").submit(function () {
-    alert("loucura");
     var formData = new FormData(this);
 
 	    $.ajax({
 	        url: '../controller/controller_register_party/controller_register_party.php',
 	        type: 'POST',
 	        data: formData,
+	        dataType: 'script',
 	        cache: false,
 	        contentType: false,
 	        processData: false,
+	         success: function(result)
+                  {
+					alert("Ola esta gostando?");  
+                  }
 	    });
 	   return false;
 	});

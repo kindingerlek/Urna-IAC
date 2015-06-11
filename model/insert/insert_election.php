@@ -21,6 +21,9 @@
 * 
 *   
 */
+$root = 'c:/wamp/www/Urna-IAC/';
+
+require_once($root.'model/format/format_text.php');
 
 function insertElection($election,$conn)
 {
@@ -28,7 +31,7 @@ function insertElection($election,$conn)
 $date=$election['date']; 		
 $startTime=$election['startTime']; 
 $endTime=$election['endTime']; 		
-$type=$election['type']; 			
+$type=formatText($election['type']); 			
 $mayor=$election['mayor']; 			
 $governor=$election['governor']; 		
 $president=$election['president'];	
@@ -46,7 +49,7 @@ $senator=$election['senator'];
 
 
 	foreach ($election as $key => $value) {
-		$idEleicao = "SELECT `idEleicao` FROM eleicoes WHERE data = '$date';"
+		$idEleicao = "SELECT `idEleicao` FROM eleicoes WHERE data = '$date';";
 		$sql ="INSERT INTO `vagas`(`idTipo`, `idEleicao`, `qtdeVagas`) 
 		VALUES ('$key','$idEleicao','$value')";
 

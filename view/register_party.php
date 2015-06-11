@@ -40,7 +40,7 @@
                 
             </div>
             
-            <div id="register-error" class="alert alert-danger" role="alert" style="display: none">
+            <div id="register-error"  class="col-xs-12 alert alert-danger" role="alert" style="display: none">
               
             </div>
           </div>

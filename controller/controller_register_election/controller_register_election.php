@@ -30,6 +30,7 @@ require_once($root.'model/eval/eval_field.php');
 //Format
 require_once($root.'model/format/format_number.php');
 require_once($root.'model/format/format_text.php');
+require_once($root.'model/format/format_date.php');
 
 //Verify
 require_once($root.'model/verify/verify_address.php');
@@ -44,16 +45,7 @@ require_once($root.'model/insert/insert_zip_code.php');
 
 //Recebe dados via post
 $newElection = $_POST;
-
-// foreach ($newElection as $field => $data) {
-// 	if(!evalField($data))
-// 		{
-// 			$error[] = -14;
-// 			break;
-			
-// 		}
-// }
-
+$newElection['register-period'] = formatDate($newElection['register-period']);
 
 $conn = openDB();
 
@@ -84,7 +76,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			// --------------------------------------------------------------
 
 
-			//$error=null;
+			$error=null;
 			
 			if(!verifyElection($election, $conn))     				 	// Entra se user existe no BD, 1 se sim e 0 se não
 			{
@@ -92,29 +84,29 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				insertElection($election, $conn); 					    // Insere User no BD
 
 			    echo("alert('Cadastro realizado com Sucesso!');");
-				echo("window.location.href = '../index.php';");
+				echo(" location.reload();");
 
 			}else{
 			
-				$error[0] = -13;                //Retorna erro de usuario já cadastrado
+				$error[0] = -27;                //Retorna erro de usuario já cadastrado
 			}
 			
 			
 		}
 }
 
-print_r($error);
+
 if(is_array($error))
 {
-	echo "$('#register-error').html('');";
+	echo "$('.election-error').html('');";
 
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
 		
-		echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
-		echo "$('#register-error').show();";  
-		echo "$('#register-error').append('".$description."<br/>');";
+		echo "$('.election-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
+		echo "$('.election-error').show();";  
+		echo "$('.election-error').append('".$description."<br/>');";
 		
 		}
 }

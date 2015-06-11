@@ -20,7 +20,7 @@
 *
 */
 function evalDate($date){
-
+	
     $date = explode("/", $date);
 
     $day = is_numeric($date[0]) ? $date[0] : 99;
@@ -28,6 +28,8 @@ function evalDate($date){
     $year = is_numeric($date[2]) ? $date[2] : 99;
 
     $isValid = checkdate($month, $day, $year) ? 1 : 0;
+    $isValid = mktime( 0, 0, 0, $month, $day, $year ) < time() ? 0 : 1;
+    
 
     return $isValid;     
 
