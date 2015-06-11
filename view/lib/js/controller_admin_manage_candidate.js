@@ -80,6 +80,7 @@ $(function(){
 	        url: '../controller/controller_register_candidate/controller_register_candidate.php',
 	        type: 'POST',
 	        data: formData,
+	        dataType: 'script',
 	        cache: false,
 	        contentType: false,
 	        processData: false,

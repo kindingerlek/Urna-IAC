@@ -27,9 +27,11 @@ require_once($root.'model/open_db/open_db.php');
 //Eval
 require_once($root.'model/eval/eval_field.php');
 
+
 //Format
 require_once($root.'model/format/format_number.php');
 require_once($root.'model/format/format_text.php');
+require_once($root.'model/format/format_date.php');
 
 //Verify
 require_once($root.'model/verify/verify_address.php');
@@ -80,6 +82,7 @@ $conn = openDB();
 if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
 
+	$newUser["register-birthday"] = formatDate($newUser["register-birthday"]);
 	$error = validateNewUser($newUser);
 	
 	if($error === 1) // Se não houver erros verifica se existe no BD

@@ -101,7 +101,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 				//header('location:../../view/admin_manage_party.php');
 				echo("alert('Cadastro realizado com sucesso');");
-				echo("window.location.href = '#';");
+				echo(" location.reload();");
 			}else{
 			
 				$error[0] = -16;   
