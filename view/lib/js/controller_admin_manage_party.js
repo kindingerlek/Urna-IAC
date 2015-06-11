@@ -68,10 +68,6 @@ $(function(){
 	        cache: false,
 	        contentType: false,
 	        processData: false,
-	         success: function(result)
-                  {
-					alert("Ola esta gostando?");  
-                  }
 	    });
 	   return false;
 	});

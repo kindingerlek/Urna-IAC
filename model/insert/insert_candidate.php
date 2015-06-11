@@ -24,6 +24,7 @@
 
 function insertCandidate($candidate,$conn)
 {
+	print_r($candidate);
 	$idParty = $candidate['idParty'];	  
 	$name = $candidate['name'];
 	$idElection = $candidate['idElection'];
@@ -31,11 +32,10 @@ function insertCandidate($candidate,$conn)
 	$photo = $candidate['photo'];
 	$idCandidate = $candidate['idCandidate'];
 	
-
-	$sql="INSERT INTO `candidatos`(`idCandidato`, `idEleicao`, `idTipo`, `idPartido`, `nomeFantasia`, `foto`) 
+	$sql="INSERT INTO `candidatos`(`idCandidato`, `idEleicao`, `tipo`, `idPartido`, `nomeFantasia`, `foto`) 
 	VALUES('$idCandidate','$idElection','$idTipo','$idParty','$name','$photo')";
-	$result = mysqli_query($conn,$sql);
 
+	$result = mysqli_query($conn,$sql);
 
 }
 ?>

@@ -28,10 +28,4 @@ function updatePassword($cpf,$pw,$conn)
 }
 
 
-
-
-
-
-
-
 ?>

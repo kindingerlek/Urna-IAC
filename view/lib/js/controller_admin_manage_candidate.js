@@ -73,7 +73,6 @@ $(function(){
 		}
 
 		
-	    confirm("Que bom que está usando o Vote Bem, esta gostando?");
 	    var formData = new FormData(this);
 
 	    $.ajax({

@@ -64,11 +64,13 @@ $newCandidate = $_POST;
 
 
 $idElection = 1;
-              //$_POST["idElection"];
-$dateElection = "08/07/1996"; //$_POST["dataElection"];
+//$_POST["idElection"];
+$dateElection = "10/07/2015"; 
+//$_POST["dataElection"];
 
 $election["date"] = $dateElection;
-$election["idElection"] = $dateElection;
+$election["idElection"] = $idElection;
+
 // $newCandidate["register-number"]="12145";
 // $newCandidate["register-name"]="Alisson"; 
 // $newCandidate["register-party"]="50"; 
@@ -91,7 +93,7 @@ $conn = openDB();
 
 if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
-			$candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
+			$candidate['idCandidate'] = formatNumber($newCandidate["register-num"]); 				   		//Formata cpf e salva em $cpf
 			$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
 			$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
 			$candidate['idOffice'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
@@ -117,8 +119,8 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 						// upload do arquivo
 					
 						insertCandidate($candidate, $conn); 					    // Insere Candidate no B
-						echo("Cadastro realizado com sucesso");
-						echo("window.location.href = '#';");
+						echo("alert('Cadastro realizado com sucesso');");
+						//echo(" location.reload();");
 						//header(	'location:../../view/admin_manage_candidate.php');
 
 					}else{

@@ -80,14 +80,14 @@ function validateNewCandidate($newCandidate)
 							 			      //a party de $newCandidate
 	
 	if(!validateNumber($party))
-		$erros[] = -17;                 //Retornaerro "PArtido inválido"
+		$erros[] = -17;                 //Retorna erro "Partido inválido"
 	//------------------------------------ --------------------------------
 
 	//-------------------------------acronym-----------------------------
 	$office = $newCandidate["idOffice"];//Atribui a $office
 							 			      //a office de $newCandidate
 	
-	if(!validateNumber($office))
+	if(!validateText($office))
 		$erros[] = -17;                 //Retornaerro "PArtido inválido"
 	//------------------------------------ --------------------------------
 	
