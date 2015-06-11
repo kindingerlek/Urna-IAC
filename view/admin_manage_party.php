@@ -87,7 +87,7 @@
           <?php include "register_party.php" ?>
         </form>
         
-        <form method="POST" action="../controller/controller-removeParty.php">
+        <form method="POST" action="#" name="form-removeParty">
           <?php include "status_party.php" ?>
         </form>
         

@@ -82,10 +82,10 @@
           
           <tbody id="table-body">
             <td>Cod</td>
-              <td>Nome:</td>
-              <td>Número:</td>
-              <td>Partido:</td>
-              <td>Cargo:</td>
+              <td>José Pereira Neves</td>
+              <td>99098</td>
+              <td>13</td>
+              <td>presidente</td>
           </tbody>
         </table>
      
@@ -93,9 +93,10 @@
        <?php include "register_candidate.php" ?>
      </form>
      
-     <form action="../controller/controller_remove_candidate.php">
+     <form method="POST" action="#" name="form-removeCandidade">
       <?php include "status_candidate.php"?>
      </form>
+     
      </div>
      
     <!-- Rodapé da página -->
@@ -113,7 +114,7 @@
       {
         $("#popup-status").modal('show');
         
-        var inputs = ['#status-name', '#status-acronym','#status-number'];
+        var inputs = ['#status-name','#status-number','#status-party','#status-office'];
         var values = [];
         var image = '#status-logoImage'
         var imagePath = '../resources/party_logo/';

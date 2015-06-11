@@ -20,7 +20,7 @@
               <!-- Input Cargo -->
               <div class="form-group">
                 <label>Cargo:</label>
-                <select class="input-large form-control" id="status-office" name="status-office">
+                <select class="input-large form-control" id="status-office" name="status-office" disabled>
                   <option value="prefeito">Prefeito</option>                  
                   <option value="vereador">Vereador</option>
                   <option value="deputado estadual">Deputado Estadual</option>
@@ -34,13 +34,13 @@
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Nome:</label>
-                <input type="text" id="status-name" name="status-name" class="form-control" placeholder="Nome do candidado">
+                <input type="text" id="status-name" name="status-name" class="form-control" placeholder="Nome do candidado" readonly>
               </div>
               
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Partido:</label>
-                <select id="status-party" name="status-party" class="input-large form-control">
+                <select id="status-party" name="status-party" class="input-large form-control" disabled>
                   <option value="0"> Selecione um partido</option>
                   
                   <?php
@@ -70,7 +70,7 @@
               <div class="form-group">
                 <label>Numero:</label>
 
-                <input type="number" id="status-number" name="status-number" class="form-control" placeholder="">
+                <input type="number" id="status-number" name="status-number" class="form-control" placeholder="" readonly>
 
               </div>
               
@@ -81,10 +81,6 @@
              
              <div class="col-md-12 form-group center-block">  
                 <img src="../resources/images/noimage.png" class="center-block" id="status-photoImage" height="100"/>
-             </div>
-              
-             <div class="col-md-12 form-group">
-               <input type="file" id="status-photoInput" name="status-photoInput" accept=".png,.PNG,.jpg,.JPG,.jpeg,.JPEG">
              </div>
             
            </div>

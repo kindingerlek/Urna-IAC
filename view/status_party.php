@@ -16,15 +16,15 @@
             <div class="col-xs-8">
               <div class="col-xs-12 form-group">
                   <label>Nome:</label>
-                  <input type="text" id="status-name" name="status-name" class="form-control" disabled>
+                  <input type="text" id="status-name" name="status-name" class="form-control" readonly>
               </div>
               <div class="col-xs-6 form-group">
                   <label>Sigla:</label>
-                  <input type="text" id="status-acronym" name="status-acronym" class="form-control" disabled>
+                  <input type="text" id="status-acronym" name="status-acronym" class="form-control" readonly>
               </div>
               <div class="col-xs-6 form-group">
                   <label>Número:</label>
-                  <input type="text" id="status-number" name="status-number" class="form-control" maxleght="2" disabled>
+                  <input type="text" id="status-number" name="status-number" class="form-control" maxleght="2" readonly>
               </div>
             </div>
             <div class="col-xs-4">

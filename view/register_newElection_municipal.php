@@ -17,7 +17,7 @@
             <div class="col-md-12">
               <div class="col-md-12 form-group">
                   <label>Prefeito:</label>
-                  <input type="text" id="register-mayor" name="register-mayor" class="form-control" value="1">
+                  <input type="text" id="register-mayor" name="register-mayor" class="form-control" value="1" readonly>
               </div>
               <div class="col-md-12 form-group">
                   <label>Vereadores:</label>
