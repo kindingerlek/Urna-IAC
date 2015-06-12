@@ -72,7 +72,6 @@
               <td class="col-xs-2">CPF:</td>
               <td class="col-xs-1">Zona:</td>
               <td class="col-xs-1">Seção:</td>
-              <td class="col-xs-1">Ações:</td>
             </tr>
           </thead>
           
@@ -93,6 +92,10 @@
       
     </div>
     
+    <form method="POST" action="#" name="form-removeVoter">
+      <?php include "status_voter.php" ?>
+    </form>
+    
     <!-- Rodapé da página -->
     <?php include "page_footer.php" ?>  
     
@@ -104,8 +107,39 @@
       
     $("#page-title").text(pageTitle);
     
-    $(document).ready(function(){
-      $('.combobox').combobox();
-    });
+    
+    $("#table-body").on("click","tr",
+      function()
+      {
+        $("#popup-status").modal('show');
+        
+        var inputs = 
+        [
+          '#status-name',
+          '#status-cpf',
+          '#status-votingCard',
+          '#status-zone',
+          '#status-session',
+          ];
+        var values = [];
+        var image = '#status-logoImage'
+        var imagePath = '../resources/party_logo/';
+                  
+        for(var i=0; i < inputs.length; i++)
+        {
+          values.push( $("td:eq(" + (i+1) + ")", this).text() );
+          $(inputs[i]).val(values[i]);
+        }
+        
+        imagePath = imagePath + values[2] + ".jpg";
+        if($.UrlExists(imagePath)){
+          $(image).attr('src', imagePath);
+        }
+        else
+        {
+          $(image).attr('src', '../resources/images/noimage.png');
+        }
+        
+      });
   </script>
 </html>    

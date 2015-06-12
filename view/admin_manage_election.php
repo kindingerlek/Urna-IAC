@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet">
-    <link href="/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
+    <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
     
     </head>
   <body>
@@ -152,11 +152,7 @@
   <script type="text/javascript">
     var pageTitle = $(document).find("title").text();
       
-      $("#page-title").text(pageTitle);
-      $(document).ready(function(){
-        $('.combobox').combobox();
-        
-      });
+      $("#page-title").text(pageTitle);   
       
       $("#register-type").change(
         function()

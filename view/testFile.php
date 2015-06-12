@@ -28,5 +28,25 @@
       <input type="url">url</input></br>
       <input type="week">week</input></br>
     </form>
+    
+    <?php
+      include "../model/open_db/open_db.php";
+      include "../model/select/select.php";                    
+     
+      
+      $conn2 = openDB();
+      
+      $query2 = "SELECT * FROM partidos ORDER BY idPartido";
+      $result2 = mysqli_query($conn2,$query2);
+      
+      
+      while($ri2 = mysqli_fetch_assoc($result2))
+      {
+        echo "<option value=" .$ri2['idPartido'] . ">" . $ri2['idPartido'] . " - " .  $ri2['nome'] . "</option>";
+      }
+      
+      mysqli_close($conn2);
+    ?>
+    
   </body>
 </html>

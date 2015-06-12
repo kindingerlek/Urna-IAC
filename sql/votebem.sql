@@ -83,8 +83,7 @@ CREATE TABLE IF NOT EXISTS `enderecos` (
   `numero` varchar(11) NOT NULL DEFAULT '0',
   `complemento` varchar(200) NOT NULL DEFAULT '',
   `cep` varchar(8) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`numero`,`cep`),
-  UNIQUE KEY `endereco` (`numero`,`cep`,`complemento`),
+  PRIMARY KEY (`numero`,`cep`,`complemento`),
   KEY `fkEnderecosCep` (`cep`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -179,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `senha` varchar(50) DEFAULT NULL,
   `dtNasc` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`cpf`),
-  KEY `fkUsuariosEnderecos` (`numero`,`cep`)
+  KEY `fkUsuariosEnderecos` (`numero`,`cep`, `complemento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -254,7 +253,7 @@ ALTER TABLE `ticket`
 -- Limitadores para a tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD CONSTRAINT `fkUsuariosEnderecos` FOREIGN KEY (`numero`, `cep`) REFERENCES `enderecos` (`numero`, `cep`);
+  ADD CONSTRAINT `fkUsuariosEnderecos` FOREIGN KEY (`numero`, `cep`, `complemento`) REFERENCES `enderecos` (`numero`, `cep`,`complemento`);
 
 --
 -- Limitadores para a tabela `vagas`

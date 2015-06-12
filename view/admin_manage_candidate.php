@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
+  <head>
     <meta charset="utf-8">
     <title>Gerenciar Candidatos</title>
     
@@ -11,12 +11,13 @@
     <script src="lib/js/model_admin_manage_candidate.js"></script>
     <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
     
+    
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet">
     <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
-    
-    </head>
+  
+  </head>
   <body>
      <!--
         Dicionário de IDs, Names e Classes        
@@ -80,25 +81,60 @@
           </thead>
           
           <tbody id="table-body">
-            
+            <td>Cod</td>
+              <td>José Pereira Neves</td>
+              <td>99098</td>
+              <td>13</td>
+              <td>presidente</td>
           </tbody>
         </table>
-     </div>
      
      <form method ="POST" action ="#" enctype="multipart/form-data" id="form-register-candidate">
        <?php include "register_candidate.php" ?>
      </form>
-    
+     
+     <form method="POST" action="#" name="form-removeCandidade">
+      <?php include "status_candidate.php"?>
+     </form>
+     
+     </div>
+     
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>  
+    <?php include "page_footer.php" ?> 
     
     <!-- Fim do corpo da Página -->
     </div>
   </body>
   <script type="text/javascript">
-    var pageTitle = $(document).find("title").text();
+      var pageTitle = $(document).find("title").text();
+      $("#page-title").text(pageTitle);
       
-    $("#page-title").text(pageTitle);
+      $("#table-body").on("click","tr",
+      function()
+      {
+        $("#popup-status").modal('show');
+        
+        var inputs = ['#status-name','#status-number','#status-party','#status-office'];
+        var values = [];
+        var image = '#status-logoImage'
+        var imagePath = '../resources/party_logo/';
+                  
+        for(var i=0; i < inputs.length; i++)
+        {
+          values.push( $("td:eq(" + (i+1) + ")", this).text() );
+          $(inputs[i]).val(values[i]);
+        }
+        
+        imagePath = imagePath + values[2] + ".jpg";
+        if($.UrlExists(imagePath)){
+          $(image).attr('src', imagePath);
+        }
+        else
+        {
+          $(image).attr('src', '../resources/images/noimage.png');
+        }
+        
+      });
     
-  </script>
+   </script>
 </html>    
