@@ -58,7 +58,7 @@ $(function(){
                   dataType: 'script',
                   data: { 'party' : num },
                   type: 'POST',
-                  url:'../controller/controller_admin_manage_voter.php',
+                  url:'../controller/controller_urn/controller_urn_show_party.php',
                   success: function(result)
                   {
 					  

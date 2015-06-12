@@ -15,13 +15,14 @@
 
 $root = 'c:/wamp/www/Urna-IAC/';
 
-
 //Open Db
 require_once($root.'model/open_db/open_db.php');
 
 //select
 require_once($root.'model/select/select.php');
 
+//election status
+require_once($root.'model/election_status/election_status.php');
 
 //Recebe dados via post
 $column = $_POST["search-combobox"];
@@ -39,9 +40,9 @@ echo ("$('#table-body').html('');");
 
 while($row = mysqli_fetch_assoc($result)){
 
-		$status="0";
+		$status = electionStatus($row);
 
-                    
+          
         $line = "<tr><td>".$row['idEleicao']."</td><td>".$row['tipo']."</td><td>".$status."</td><td>".$row['data']."</td><td>".$row['horaInicio']."</td><td>".$row['horaFim']."</td><td></td></tr>";
 
         //echo $line;

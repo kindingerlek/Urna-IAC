@@ -28,7 +28,7 @@ function insertCandidate($candidate,$conn)
 	$idParty = $candidate['idParty'];	  
 	$name = $candidate['name'];
 	$idElection = $candidate['idElection'];
-	$idTipo = $candidate['idOffice'];
+	$idTipo = $candidate['office'];
 	$photo = $candidate['photo'];
 	$idCandidate = $candidate['idCandidate'];
 	

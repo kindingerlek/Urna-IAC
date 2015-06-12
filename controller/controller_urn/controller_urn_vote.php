@@ -11,6 +11,7 @@
 * Descrição: Redireciona se admin não logado na page de admin
 *
 */
+
 $root = 'c:/wamp/www/Urna-IAC/';
 
 

@@ -84,7 +84,7 @@ function validateNewCandidate($newCandidate)
 	//------------------------------------ --------------------------------
 
 	//-------------------------------acronym-----------------------------
-	$office = $newCandidate["idOffice"];//Atribui a $office
+	$office = $newCandidate["office"];//Atribui a $office
 							 			      //a office de $newCandidate
 	
 	if(!validateText($office))

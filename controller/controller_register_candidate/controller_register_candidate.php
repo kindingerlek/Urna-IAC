@@ -71,13 +71,6 @@ $dateElection = "10/07/2015";
 $election["date"] = $dateElection;
 $election["idElection"] = $idElection;
 
-// $newCandidate["register-number"]="12145";
-// $newCandidate["register-name"]="Alisson"; 
-// $newCandidate["register-party"]="50"; 
-// $newCandidate["register-office"]="1"; 
-// $newCandidate["register-number"]="12145"; 
-
-
 foreach ($newCandidate as $field => $data) {
 	if(!evalField($data))
 		{
@@ -96,12 +89,15 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			$candidate['idCandidate'] = formatNumber($newCandidate["register-num"]); 				   		//Formata cpf e salva em $cpf
 			$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
 			$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
-			$candidate['idOffice'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
+			$candidate['office'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
 			$candidate['idElection'] = $idElection; 
 
 			$idCandidate = $candidate['idCandidate'];
-			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/candidate_photo/';// definindo pasta de dowload de fotos
-			$uploadFile = $uploaddir . basename($idElection."_".$idCandidate.".jpg");
+			$office = $candidate['office'];
+			$uploaddir = '../resources/candidate_photo/';// definindo pasta de dowload de fotos
+			$nameFile = explode('.', $_FILES['register-photoInput']['name']);
+			$ext = end($nameFile);
+			$uploadFile = $uploaddir . basename($idElection."_".$office."_".$idCandidate.".".$ext);
 
 			$candidate['photo'] =	$uploadFile; 
 			
@@ -138,7 +134,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 		}
 }
 
-move_uploaded_file($_FILES['register-photoInput']['tmp_name'], $uploadFile);
+move_uploaded_file($_FILES['register-photoInput']['tmp_name'], "../".$uploadFile);
 
 
 if(is_array($error))

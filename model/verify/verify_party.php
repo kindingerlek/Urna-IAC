@@ -24,6 +24,7 @@
 
 function verifyParty($party,$conn)
 {
+	
 	$id = $party["idParty"];// Atribuindo CPF a variavel
 
 	$sql = "SELECT * FROM partidos WHERE idpartido = '$id' "; // Monta a query

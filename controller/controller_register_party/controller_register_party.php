@@ -81,8 +81,10 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			$party['acronym'] = formatNumber($newParty["register-acronym"]);   		            //Formata titulo e salva em $votingCard
 			$idParty = $party['idParty'];
 
-			$uploaddir = 'c:/wamp/www/Urna-IAC/resources/party_logo/';// definindo pasta de dowload de fotos
-			$uploadFile = $uploaddir . basename("$idParty".".jpg");
+			$uploaddir = '../resources/party_logo/';// definindo pasta de dowload de fotos
+			$nameFile = explode('.', $_FILES['register-logoInput']['name']);
+			$ext = end($nameFile);
+			$uploadFile = $uploaddir . basename("$idParty.".$ext);
 
 			$party['logo'] =	$uploadFile; 
 			
@@ -113,7 +115,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 		}
 }
 
-move_uploaded_file($_FILES['register-logoInput']['tmp_name'], $uploadFile);
+move_uploaded_file($_FILES['register-logoInput']['tmp_name'], "../".$uploadFile);
 if(is_array($error))
 {
 	echo "$('#register-error').html('');";
