@@ -88,7 +88,6 @@
 
             <div class="col-lg-6">
               <input type="text" id="search-input" class="form-control" placeholder="Procurar por..." name="search-input">
-
             </div>
                       
             <div class="col-xs-3">

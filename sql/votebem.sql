@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `candidatos` (
   `votos` int(11) DEFAULT NULL,
   `nomeFantasia` varchar(200) DEFAULT NULL,
   `foto` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`idCandidato`,`idEleicao`),
+  PRIMARY KEY (`idCandidato`,`idEleicao`, `tipo`),
   KEY `fkCandidatosTipos` (`tipo`),
   KEY `fkCandidatosPartidos` (`idPartido`),
   KEY `fkCandidatosEleicoes` (`idEleicao`)
