@@ -29,7 +29,29 @@ $return = validateUser($id,$pw);
 switch($return){
 	case 1:
 		//header('Location: ../view/urna_view.php');
-		echo ("window.location.href = '../view/voter_urn.php';");
+		$openElection = electionIsOpen();
+
+		
+		
+		if(!$openElection){
+			echo "alert('Não existe eleição no dia de hoje!');";
+		}else{
+			
+			session_start();
+
+			$row = mysqli_fetch_assoc($openElection);
+
+			$_SESSION["votebem"]['tipo'] = $row["tipo"];
+	
+			if($row["tipo"] == "MUNICIPAL"){
+				$_SESSION["votebem"][$row["tipo"]] = [true, true];
+			}else{
+				$_SESSION["votebem"][$row["tipo"]] = [true, true, true, true, true];
+			}
+
+			echo ("window.location.href = '../view/voter_urn.php';");
+		}
+
 		break;
 	case 2:
 		//header('Location: ../view/admin_home.php');
