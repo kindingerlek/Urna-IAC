@@ -51,9 +51,10 @@ $(function(){
 $(function(){
 	
 	$("#urn-number").on("DOMSubtreeModified",function(){
+		
 		if($.trim($("#urn-number").text()).length == 2){
-			alert("oi");
 			var num = $.trim($("#urn-number").text());
+		
 			$.ajax({
                   dataType: 'script',
                   data: { 'party' : num },
@@ -64,7 +65,9 @@ $(function(){
 					  
                   }
             });
+		
 		}	
+	
 	});
 
 });
