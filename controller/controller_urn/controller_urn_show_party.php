@@ -48,7 +48,8 @@ if(verifyParty($idParty,$conn))
 {
 	echo("$('#urn-candidateOffice').html('');
 		  $('#urn-number').html('');
-		  $('#urn-candidateParty').html('');"); // IMPRIMIR DADOS NOS PADRÕES
+		  $('#urn-candidateParty').html('');
+		   $('#urn-candidatePhoto').css('background-image','url(".$party["logo"].")');"); // IMPRIMIR DADOS NOS PADRÕES
 }
 
 ?>

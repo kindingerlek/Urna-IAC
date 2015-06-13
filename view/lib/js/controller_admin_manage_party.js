@@ -59,7 +59,7 @@ $(function(){
 	
 	$("#form-register-party").submit(function () {
     var formData = new FormData(this);
-
+    
 	    $.ajax({
 	        url: '../controller/controller_register_party/controller_register_party.php',
 	        type: 'POST',

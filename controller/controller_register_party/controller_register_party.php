@@ -37,30 +37,27 @@ require_once($root.'model/verify/verify_party.php');
 //Insert
 require_once($root.'model/insert/insert_party.php');
 
-
- 			
+			
  			// $newParty['register-name'] = "Carlos" ;     
  			// $newParty['register-votingCard'] = "092255330604"; 
  			// $newParty['register-zone'] = "1234";       
  			// $newParty['register-session'] = "1234";    
  			// $newParty['register-cpf'] = "05829791960";    
  			// $newParty['register-birthday'] = "12/12/1996";   
-    //         $newParty['register-zipCode'] = "83701485";    
-    //         $newParty['register-address'] = "qualquer coisa";     
-    //         $newParty['register-addressNum'] = "1005";  
-    //         $newParty['register-neighborhood'] = "Costeira";
-    //         $newParty['register-city'] = "Curitiba";      
-    //         $newParty['register-state'] = "PR";
-    //         $newParty['register-email'] = "Aslals@sajksjak.com";
-    //         $newParty['register-complement'] = "Casa";     
-    //         $newParty['register-password'] = "08071996";   
-    //         $newParty['register-cfmPassword'] = "08071996"; 
-
+   			// $newParty['register-zipCode'] = "83701485";    
+    		// $newParty['register-address'] = "qualquer coisa";     
+    		// $newParty['register-addressNum'] = "1005";  
+    		// $newParty['register-neighborhood'] = "Costeira";
+    		// $newParty['register-city'] = "Curitiba";      
+    		// $newParty['register-state'] = "PR";
+    		// $newParty['register-email'] = "Aslals@sajksjak.com";
+    		// $newParty['register-complement'] = "Casa";     
+   			// $newParty['register-password'] = "08071996";   
+   			// $newParty['register-cfmPassword'] = "08071996"; 
 
 
 //Recebe dados via post
 $newParty = $_POST;
-
 
 foreach ($newParty as $field => $data) {
 	if(!evalField($data))

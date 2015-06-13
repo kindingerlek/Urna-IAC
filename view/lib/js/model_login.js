@@ -47,7 +47,7 @@ function verifyFieldsRegister(){
             $("#register-zone").val(),
             $("#register-session").val(),
             $("#register-cpf").val(),
-            $("#register-birthday").val(),
+           // $("#register-birthday").val(),
             $("#register-zipCode").val(),
             $("#register-address").val(),
             $("#register-addressNum").val(),
