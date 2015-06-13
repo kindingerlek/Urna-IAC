@@ -20,6 +20,7 @@
       
       <!-- Cabeçalho da página -->  
       <?php include "page_header_sml.php" ?>
+      <?php include "c://wamp/www/Urna-IAC/model/identify_office/identify_office.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="brd page-content">
@@ -33,9 +34,9 @@
             <div class="row" style="height: 250px;">              
               <div class="brd col-xs-8">
                   <h3> SEU VOTO VAI PARA:</h3> 
-                  <h2 id="urn-candidateOffice"> Cargo do maluco </h2> 
+                  <h2 id="urn-candidateOffice"><?php identifyOffice(); ?></h2> 
                   <h3> Numero: </h3>
-                  <h2 id="urn-number"class="text-center"> 00000 </h2>
+                  <h2 id="urn-number"class="text-center"></h2>
               </div>
               <div class=" brd col-xs-4 full-height" id="urn-candidatePhoto">
               </div>              
@@ -43,11 +44,11 @@
             
             <div class="row">
               <div class="brd col-xs-12">
-                Nome do maluco: <p id="urn-candidateName"> JOSÉ ARMANDO PINTO MELO</p>
+                Nome do maluco: <p id="urn-candidateName"></p>
               </div>
               
               <div class="brd col-xs-12">
-                Partido: <p id="urn-candidateParty">PARTIDO TRABALHISTA COMUNISTA SOCIAL LIBERTARIO</p>
+                Partido: <p id="urn-candidateParty"></p>
               </div>
               
               <div class="brd col-xs-12" id="urn-screen-footer">

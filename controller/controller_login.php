@@ -41,7 +41,7 @@ switch($return){
 
 			$row = mysqli_fetch_assoc($openElection);
 
-			$_SESSION["votebem"]['tipo'] = $row["tipo"];
+			$_SESSION["votebem"]['type'] = $row["tipo"];
 	
 			if($row["tipo"] == "MUNICIPAL"){
 				$_SESSION["votebem"][$row["tipo"]] = [true, true];

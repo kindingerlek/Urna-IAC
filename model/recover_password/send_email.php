@@ -1,7 +1,7 @@
 <?php
  
 /* Extender a classe do phpmailer para envio do email*/
-require_once("c://wamp/www/Urna-IAC/PHPMailer_5.2.4/class.phpmailer.php");
+require_once("c://wamp/www/Urna-IAC/resources/PHPMailer_5.2.4/class.phpmailer.php");
  
 /* Definir Usuário e Senha do Gmail de onde partirá os emails*/
 define('GUSER', 'totheworldgroup@gmail.com'); 
