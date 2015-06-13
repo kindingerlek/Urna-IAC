@@ -11,7 +11,7 @@
       
       <!-- Corpo -->
       <div class="modal-body">
-        <div>
+        <div clas= "row">
           <div class="form-group col-xs-12" >
             <label>status da Eleição:</label>
             <input type="text" id="status-status" class="form-control" readonly> </input>
@@ -46,25 +46,28 @@
           </div>
         
           <div id="status-scheduled" style="display:none">
-            <button type="button" class="btn btn-default"> Gerenciar Candidatos</button>
+            <button type="button" class="btn btn-primary btn-block"> Gerenciar Candidatos</button>
           </div>
         
-          <div id="status-stated" style="display:none">
+          <div id="status-started" style="display:none">
             Não há ações para uma eleição iniciada.
           </div>
         
           <div id="status-finished" style="display:none">
-            <button type="button" class="btn btn-default"> Ver Relatórios</button>
+            <button type="button" class="btn btn-primary btn-block"> Ver Relatórios</button>
           </div>
+          
+        </div>
           
       </div>
                 
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Confirmar</button>
+        <button type="submit" id="status-removeButton" class="btn btn-danger">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Excluir
+        </button>
       </div>
     </div>
   </div>
 </div>
-    </div>
