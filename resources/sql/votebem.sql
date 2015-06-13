@@ -178,6 +178,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `senha` varchar(50) DEFAULT NULL,
   `dtNasc` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`cpf`),
+  UNIQUE (`tituloEleitor`),
   KEY `fkUsuariosEnderecos` (`numero`,`cep`, `complemento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

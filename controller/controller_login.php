@@ -30,8 +30,6 @@ switch($return){
 	case 1:
 		//header('Location: ../view/urna_view.php');
 		$openElection = electionIsOpen();
-
-		
 		
 		if(!$openElection){
 			echo "alert('Não existe eleição no dia de hoje!');";
@@ -44,12 +42,12 @@ switch($return){
 			$_SESSION["votebem"]['type'] = $row["tipo"];
 	
 			if($row["tipo"] == "MUNICIPAL"){
-				$_SESSION["votebem"][$row["tipo"]] = [true, true];
+				$_SESSION["votebem"][$row["tipo"]] = ['VEREADOR', 'PREFEITO'];
 			}else{
-				$_SESSION["votebem"][$row["tipo"]] = [true, true, true, true, true];
+				$_SESSION["votebem"][$row["tipo"]] = ['DEPUTADO ESTADUAL', 'DEPUTADO FEDERAL', 'SENADOR', 'GOVERNADOR', 'PRESIDENTE'];
 			}
 
-			echo ("window.location.href = '../view/voter_urn.php';");
+			echo ("window.location.href = '../controller_urn/controller_urn.php';");
 		}
 
 		break;
