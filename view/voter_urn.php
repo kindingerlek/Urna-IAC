@@ -34,7 +34,9 @@
             <div class="row" style="height: 250px;">              
               <div class="brd col-xs-8">
                   <h3> SEU VOTO VAI PARA:</h3> 
+
                   <h2 id="urn-candidateOffice"><?php identifyOffice(); ?></h2> 
+
                   <h3> Numero: </h3>
                   <h2 id="urn-number"class="text-center"></h2>
               </div>

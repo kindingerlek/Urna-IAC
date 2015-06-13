@@ -23,11 +23,11 @@
     $year = $date[2];
     
     $startTime = explode(":", $election['horaInicio']);
-    $startHour = $startTime[0];
+    $startHour = $startTime[0]+5;
     $startMin = $startTime[1];
 
     $endTime = explode(":", $election['horaFim']);
-    $endHour = $endTime[0];
+    $endHour = $endTime[0]+5;
     $endMin = $endTime[1];
 
 

@@ -56,7 +56,7 @@ $(function(){
                   url:'../controller/controller_admin_manage_election.php',
                   success: function(result)
                   {
-					  
+
                   }
 		});
 		

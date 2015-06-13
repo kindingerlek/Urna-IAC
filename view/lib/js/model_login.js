@@ -255,7 +255,7 @@ function checkFieldPassword(field){
 
       if(password == ''){
             return 2;
-      } else if(!(password.match(/^[a-zA-Z0-9]+$/i))) {
+      } else if(!(password.match(/^[a-zA-Z0-9 ]+$/i))) {
             return 0;
       } else {
             return 1;

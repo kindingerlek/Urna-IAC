@@ -106,8 +106,8 @@
           <thead>
             <tr>
               <td class="col-xs-1">Cod</td>
-              <td class="col-xs-3">Tipo:</td>
-              <td class="col-xs-2">Status:</td>
+              <td class="col-xs-4">Tipo:</td>
+              <td class="col-xs-3">Status:</td>
               <td class="col-xs-2">Data:</td>
               <td class="col-xs-1">Início:</td>
               <td class="col-xs-1">Fim:</td>
@@ -158,7 +158,6 @@
       $("#table-body").on("click","tr",
       function()
       {
-        alert('oi');
         $("#popup-status").modal('show');
         
         var inputs = 
@@ -179,7 +178,23 @@
           $(inputs[i]).val(values[i]);
         }
         
+        showStatusDiv(values[2]);
+        
       });
+      
+      function showStatusDiv(getStatus)
+      {        
+        var status = ['AGENDADA', 'INICIADA', 'FINALIZADA'];
+        var divs= ['#status-scheduled', '#status-started','#status-finished'];
+        
+        for(var i=0; i < divs.length; i++)
+        {
+          if(getStatus != status[i]) 
+            $(divs[i]).hide();
+          else
+            $(divs[i]).show();
+        }
+      }
       
       
       
