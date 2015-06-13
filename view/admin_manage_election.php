@@ -88,7 +88,6 @@
 
             <div class="col-lg-6">
               <input type="text" id="search-input" class="form-control" placeholder="Procurar por..." name="search-input">
-
             </div>
                       
             <div class="col-xs-3">
@@ -128,18 +127,9 @@
                     include "register_newElection_federal.php"; ?>
         </form>
         
-        <div style="display:none">
-          <button type="button" class="btn btn-default" aria-label="Editar">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-          </button>
-          
-          <button type="button" class="btn btn-default" aria-label="Excluir">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
-          
-          <button type="button" class="btn btn-default" aria-label="Candidatos"> Candidatos
-          </button>
-        </div>
+        <form action="#" id="form-remove">
+          <?php include "status_election.php" ?>
+        </form>
         
       </div>
       
@@ -163,6 +153,33 @@
             $("#type-nextButton").attr('data-target',"#popup-newElection-federal");
         }        
       );
+      
+      
+      $("#table-body").on("click","tr",
+      function()
+      {
+        alert('oi');
+        $("#popup-status").modal('show');
+        
+        var inputs = 
+        [
+          '#status-idElection',
+          '#status-type',
+          '#status-status',
+          '#status-period',
+          '#status-startTime',
+          '#status-endTime'
+        ];
+        
+        var values = [];
+                  
+        for(var i=0; i < inputs.length; i++)
+        {
+          values.push( $("td:eq(" + (i) + ")", this).text() );
+          $(inputs[i]).val(values[i]);
+        }
+        
+      });
       
       
       
