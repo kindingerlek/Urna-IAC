@@ -66,7 +66,7 @@ $(function(){
         	    	dataType: 'script',
             	    data: { 'candidate' : num },
             	    type: 'POST',
-            	    url:'url que está localizado o controller que vai mostrar candidato na tela',
+            	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
             	    success: function(result)
             	    {
 						  
@@ -85,7 +85,7 @@ $(function(){
         	    	dataType: 'script',
             	    data: { 'party' : num },
             	    type: 'POST',
-            	    url:'url que está localizado o controller que vai mostrar partido na tela',
+            	    url:'../controller/controller_urn/controller_urn_show_party.php',
             	    success: function(result)
             	    {
 						  
@@ -102,7 +102,7 @@ $(function(){
         	    	dataType: 'script',
             	    data: { 'candidate' : num },
             	    type: 'POST',
-            	    url:'url que está localizado o controller que vai mostrar candidato na tela',
+            	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
             	    success: function(result)
             	    {
 						  
@@ -121,7 +121,7 @@ $(function(){
         	    	dataType: 'script',
             	    data: { 'party' : num },
             	    type: 'POST',
-            	    url:'url que está localizado o controller que vai mostrar partido na tela',
+            	    url:'../controller/controller_urn/controller_urn_show_party.php',
             	    success: function(result)
             	    {
 						  
@@ -138,7 +138,7 @@ $(function(){
         	    	dataType: 'script',
             	    data: { 'candidate' : num },
             	    type: 'POST',
-            	    url:'url que está localizado o controller que vai mostrar candidato na tela',
+            	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
             	    success: function(result)
             	    {
 						  
@@ -157,7 +157,7 @@ $(function(){
         	    	dataType: 'script',
             	    data: { 'party' : num },
             	    type: 'POST',
-            	    url:'url que está localizado o controller que vai mostrar partido na tela',
+            	   	url:'../controller/controller_urn/controller_urn_show_party.php',
             	    success: function(result)
             	    {
 						  
@@ -174,7 +174,7 @@ $(function(){
         	    	dataType: 'script',
             	    data: { 'candidate' : num },
             	    type: 'POST',
-            	    url:'url que está localizado o controller que vai mostrar candidato na tela',
+            	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
             	    success: function(result)
             	    {
 						  

@@ -83,7 +83,6 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
 
 	$newUser["register-birthday"] = formatDate($newUser["register-birthday"]);
-	echo $newUser["register-birthday"];
 	$error = validateNewUser($newUser);
 	
 	if($error === 1) // Se não houver erros verifica se existe no BD
