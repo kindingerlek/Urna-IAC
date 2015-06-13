@@ -33,7 +33,7 @@
             <div class="row" style="height: 250px;">              
               <div class="brd col-xs-8">
                   <h3> SEU VOTO VAI PARA:</h3> 
-                  <h2 id="urn-candidateOffice"> Cargo do maluco </h2> 
+                  <h2 id="urn-candidateOffice">senador</h2> 
                   <h3> Numero: </h3>
                   <h2 id="urn-number"class="text-center"> 00000 </h2>
               </div>
