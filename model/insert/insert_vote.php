@@ -31,14 +31,14 @@ function insertVote($vote,$conn)
 	// Query insert em votos
 	$sql="INSERT INTO `votos`(`idEleicao`, `idCandidato`, `tipo`, `idPartido`)
 	VALUES ('$idElection','$idCandidate','$office','$idParty')";
-	echo $sql;
+	
 	mysqli_query($conn,$sql);
 	
-	if($idCandidate>3)
+	if($idCandidate!="3" && $idCandidate!="1" && $idCandidate!="2" )
 	{// query update candidato
 		$sql="UPDATE `candidatos` SET `votos` =(`votos`+ 1) WHERE `idCandidato`='$idCandidate' AND `tipo` = '$office' AND ´idEleicao´ = '$idElection';";
-
 		mysqli_query($conn,$sql);
+
 	}
 
 }

@@ -52,7 +52,8 @@ $(function(){
 
 $(function(){
 	
-
+	   var num = $.trim($("#urn-number").text());
+	   var office = $.trim($("#urn-candidateOffice").text());
 	$("#key-confirm").click(function(){
 	   var num = $.trim($("#urn-number").text());
 	   var office = $.trim($("#urn-candidateOffice").text());
@@ -83,7 +84,7 @@ $(function(){
 				
 				$.ajax({
         	    	dataType: 'script',
-            	    data: { 'candidate' : num },
+            	     data: { 'idCandidate' : num ,'office' : office },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
             	    success: function(result)
@@ -119,7 +120,7 @@ $(function(){
 		
 				$.ajax({
         	    	dataType: 'script',
-            	    data: { 'candidate' : num },
+            	    data: { 'idCandidate' : num ,'office' : office },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
             	    success: function(result)
@@ -155,7 +156,7 @@ $(function(){
 		
 				$.ajax({
         	    	dataType: 'script',
-            	    data: { 'candidate' : num },
+            	     data: { 'idCandidate' : num ,'office' : office },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
             	    success: function(result)
@@ -191,7 +192,7 @@ $(function(){
 		
 				$.ajax({
         	    	dataType: 'script',
-            	    data: { 'candidate' : num },
+            	    data: { 'idCandidate' : num ,'office' : office },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
             	    success: function(result)

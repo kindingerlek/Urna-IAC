@@ -27,9 +27,12 @@ while(!$electionOffices[$i] && $i<count($electionOffices)) {
 }
 
 if($i == count($electionOffices)){
-		echo ("window.location.href = '../view/thankyou.php';");
+		header('Location: ../../view/thankyou.php');
+	
 }else{
-	echo ("window.location.href = '../view/voter_urn.php';");
+	header('Location: ../../view/voter_urn.php');
+	//header('Location: http://www.example.com/');
+
 }
 
 

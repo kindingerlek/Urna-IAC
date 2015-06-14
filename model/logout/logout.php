@@ -23,7 +23,7 @@
 function logout()
 {
 	// Se Session existe
-	session_start();
+	
 	if(isset($_SESSION))  
 	{
 		session_unset(); // Destroi Session

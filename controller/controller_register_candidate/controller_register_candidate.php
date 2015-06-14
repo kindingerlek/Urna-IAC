@@ -66,8 +66,9 @@ if(!isset($_SESSION))
     { 
         session_start(); 
     } 
-$idElection = $_SESSION["votebem"]["election"];
-$dateElection = $_SESSION["votebem"]["electionDate"];
+
+$idElection = "1";  //$_SESSION["votebem"]["election"];
+$dateElection = "14/06/2015";//$_SESSION["votebem"]["electionDate"];
 //$_POST["idElection"];
 
 
@@ -89,12 +90,12 @@ $conn = openDB();
 
 if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
-			$candidate['idCandidate'] = formatNumber($newCandidate["register-num"]); 				   		//Formata cpf e salva em $cpf
+			$candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
 			$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
 			$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
 			$candidate['office'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
 			$candidate['idElection'] = $idElection; 
-
+			echo $candidate['idCandidate'];
 			$idCandidate = $candidate['idCandidate'];
 			$office = $candidate['office'];
 			$uploaddir = '../resources/candidate_photo/';// definindo pasta de dowload de fotos
@@ -119,7 +120,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 					
 						insertCandidate($candidate, $conn); 					    // Insere Candidate no B
 						echo("alert('Cadastro realizado com sucesso');");
-						//echo(" location.reload();");
+						echo(" location.reload();");
 						//header(	'location:../../view/admin_manage_candidate.php');
 
 					}else{

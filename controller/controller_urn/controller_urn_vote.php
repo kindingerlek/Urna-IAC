@@ -66,11 +66,6 @@ insertVote($vote,$conn);
 
 mysqli_close($conn);             // fecha banco de dados
 
-if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
-
 $electionType = $_SESSION["votebem"]["type"];
 $electionOffices = $_SESSION["votebem"][$electionType];
 
@@ -79,10 +74,11 @@ $i=0;
 for ($i=0; $i<count($electionOffices); $i++) { 
 	if($electionOffices[$i]){
 		$electionOffices[$i]=false;
+		echo("alert('false');");
 		break;
 	}
 }
-
-//header("location: controller_urn.php");
+$_SESSION["votebem"][$electionType] = $electionOffices;
+echo("window.location.href = '../controller/controller_urn/controller_urn.php';");
 
 ?>

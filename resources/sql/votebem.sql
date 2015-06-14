@@ -267,8 +267,6 @@ ALTER TABLE `vagas`
 -- Limitadores para a tabela `votos`
 --
 ALTER TABLE `votos`
-  ADD CONSTRAINT `fkVotosCandidatos` FOREIGN KEY (`idCandidato`) REFERENCES `candidatos` (`idCandidato`),
-  ADD CONSTRAINT `fkVotosPartidos` FOREIGN KEY (`idPartido`) REFERENCES `partidos` (`idPartido`),
   ADD CONSTRAINT `fkVotosTipos` FOREIGN KEY (`tipo`) REFERENCES `tipos` (`tipo`),
   ADD CONSTRAINT `fkVotosEleicoes` FOREIGN KEY (`idEleicao`) REFERENCES `eleicoes` (`idEleicao`);
 

@@ -29,10 +29,13 @@ require_once($root.'model/open_db/open_db.php');
 require_once($root.'model/verify/verify_party.php');
 require_once($root.'model/verify/verify_candidate.php');
 
-
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $conn = openDB();
 
-$idCandidate["idCandidate"]= $_POST['candidate'];
+$idCandidate["idCandidate"]= $_POST['idCandidate'];
 $idCandidate["idParty"]= substr($idCandidate["idCandidate"],0,2);
 $idCandidate["office"]= $_POST['office'];
 $idCandidate["idElection"]= $_SESSION["votebem"]["election"];

@@ -133,7 +133,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				insertUser($user, $conn); 					    // Insere User no BD
 
 			    echo("alert('Cadastro realizado com Sucesso!');");
-				echo("window.location.href = '../index.php';");
+				echo("location.reload();");
 
 			}else{
 				
