@@ -127,8 +127,8 @@
                     include "register_newElection_federal.php"; ?>
         </form>
         
-        <form action="#" id="form-remove">
-          <?php include "status_election.php" ?>
+        <form action="#" id="form-status">        
+          <?php include "status_election.php" ?>        
         </form>
         
       </div>
@@ -196,6 +196,23 @@
         }
       }
       
+      $("#status-manageCandidates").click(
+      function()
+      {
+        alert("Aqui vem o ajax do gerenciamento das eleições.");
+      })
+      
+      $("#status-remove").click(
+      function()
+      {
+        alert("Aqui vem o ajax para remover as eleições.");
+      })
+        
+      $("#status-remove").click(
+      function()
+      {
+        alert("Aqui vem o ajax para gerar o relatório.");
+      })
       
       
     </script>

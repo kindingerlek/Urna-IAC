@@ -18,3 +18,4 @@
   </div>
 </div>
 
+<?php include "../controller/controller_admin_logged.php" ?>

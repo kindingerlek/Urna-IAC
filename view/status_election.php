@@ -12,6 +12,7 @@
       <!-- Corpo -->
       <div class="modal-body">
         <div clas= "row">
+          
           <div class="form-group col-xs-12" >
             <label>status da Eleição:</label>
             <input type="text" id="status-status" class="form-control" readonly> </input>
@@ -23,17 +24,17 @@
           </div>               
         
           <div class="form-group col-xs-6">
-            <label>Data</label>
+            <label>Data:</label>
             <input type="text" id="status-period" class="form-control" readonly> </input>
           </div>
         
           <div class="form-group col-xs-6">
-            <label>Hora de Inicio</label>
+            <label>Hora de Inicio:</label>
             <input type="text" id="status-startTime" class="form-control" readonly> </input>
           </div>
         
           <div class="form-group col-xs-6">
-            <label>Hora de Término</label>
+            <label>Hora de Término:</label>
             <input type="text" id="status-endTime" class="form-control" readonly> </input>
           </div>
         
@@ -45,8 +46,16 @@
             </select>
           </div>
         
-          <div id="status-scheduled" style="display:none">
-            <button type="button" class="btn btn-primary btn-block"> Gerenciar Candidatos</button>
+          <div id="status-scheduled" class="form-group" style="display:none">
+            <div class="col-xs-3">
+              <button type="button" id="status-remove" class="btn btn-danger btn-block">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Excluir
+              </button>
+            </div>
+            
+            <div class=" col-xs-9">
+              <button type="button" id="status-manageCandidates" class="btn btn-primary btn-block"> Gerenciar Candidatos</button>
+            </div>
           </div>
         
           <div id="status-started" style="display:none">
@@ -54,19 +63,16 @@
           </div>
         
           <div id="status-finished" style="display:none">
-            <button type="button" class="btn btn-primary btn-block"> Ver Relatórios</button>
+            <button type="button" id="status-report" class="btn btn-primary btn-block"> Ver Relatórios</button>
           </div>
           
-        </div>
-          
+          &nbsp
+        </div>      
       </div>
                 
       <!-- Rodapé -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="submit" id="status-removeButton" class="btn btn-danger">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Excluir
-        </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>        
       </div>
     </div>
   </div>
