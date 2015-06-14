@@ -36,13 +36,16 @@ switch($return){
 			echo "alert('Não existe eleição no dia de hoje!');";
 		}else{
 			
-			session_start();
+			if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 
 			$row = mysqli_fetch_assoc($openElection);
 
 			$_SESSION["votebem"]['type'] = $row["tipo"];
 			$_SESSION["votebem"]['election'] = $row["idEleicao"];
-			$_SESSION["votebem"]['electionDate'] = $row["data"];
+			$_SESSION["votebem"]['electionDate'] = $row["idEleicao"];
 	
 			if($row["tipo"] == "MUNICIPAL"){
 				$_SESSION["votebem"][$row["tipo"]] = ['VEREADOR', 'PREFEITO'];

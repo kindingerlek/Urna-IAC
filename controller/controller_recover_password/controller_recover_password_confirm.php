@@ -23,7 +23,10 @@ require_once($root.'model/open_db/open_db.php');
 
 //Eval
 require_once($root.'model/eval/eval_field.php');
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $conn = openDB();
 
 $code = $_POST["recover-code"];

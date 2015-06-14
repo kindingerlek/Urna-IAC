@@ -28,7 +28,10 @@ require_once($root.'model/update/update_password.php');
 
 
 //Recebe dados via post
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $conn = openDB();
 
 $cpf = $_SESSION['votebem']['cpf'];

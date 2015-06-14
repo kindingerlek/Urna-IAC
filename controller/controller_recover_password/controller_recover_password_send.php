@@ -74,7 +74,10 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				$row = mysqli_fetch_assoc($result);
 				$email = $row['email'];
 				$code = generateCode();
-				session_start();
+				if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 				$_SESSION["votebem"]["code"] = $code;
 				$_SESSION["votebem"]["cpf"] = $cpf;
 

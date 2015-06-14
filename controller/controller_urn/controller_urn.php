@@ -12,7 +12,10 @@
 * 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
 *
 */
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 
 $electionType = $_SESSION["votebem"]["type"];
 $electionOffices = $_SESSION["votebem"][$electionType];

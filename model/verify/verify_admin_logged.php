@@ -26,11 +26,13 @@
 
 function verifyAdminLogged()
 {
-	session_start();
+	if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 	
 	if(isset($_SESSION["votebem"]["loggedUser"]))
 	{
-		
 		if($_SESSION["votebem"]["loggedUser"]["isAdmin"] == 1 )
 		{
 			return 1;

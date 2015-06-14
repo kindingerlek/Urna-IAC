@@ -59,6 +59,7 @@ $(function(){
 	   $.ajax(
             {     
                   dataType: 'script',
+                  type: 'POST',
                   data: { 'idCandidate' : num ,'office' : office },
                   url: '../controller/controller_urn/controller_urn_vote.php',
                   success: function(result)

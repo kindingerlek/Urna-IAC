@@ -1,6 +1,11 @@
 <?php
 
-function identifyOffice(){session_start();
+function identifyOffice(){
+
+	if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 
 $electionType = $_SESSION["votebem"]["type"];
 $electionOffices = $_SESSION["votebem"][$electionType];

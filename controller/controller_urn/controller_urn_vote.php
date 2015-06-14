@@ -47,21 +47,29 @@ require_once($root.'model/insert/insert_vote.php');
 // 1 - voto nulo
 // 2 - branco
 // 3 - legenda
-
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $conn = openDB();   // Abre banco de dados 
 
 $vote["idCandidate"] = $_POST["idCandidate"];	// Pega o numero do candidato
 $vote["idParty"] = substr($vote["idCandidate"],0,2);        	// Pega o numero do partido
 $vote["idElection"] = $_SESSION["votebem"]["election"];	 	// Pega o numero da eleição
-$vote["office"] ="PREFEITO"; $_POST["office"];	// Pega o tipo do candidato
+$vote["office"] = $_POST["office"];	// Pega o tipo do candidato
+
 
 $vote = validateVote($vote,$conn);     // Valida o voto verificando se ele foi branco ou nulo ou legenda
+echo ('alert('.$vote["idCandidate"].');');
 
 insertVote($vote,$conn);
 
 mysqli_close($conn);             // fecha banco de dados
 
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 
 $electionType = $_SESSION["votebem"]["type"];
 $electionOffices = $_SESSION["votebem"][$electionType];
@@ -75,6 +83,6 @@ for ($i=0; $i<count($electionOffices); $i++) {
 	}
 }
 
-header("location: controller_urn.php");
+//header("location: controller_urn.php");
 
 ?>

@@ -25,7 +25,10 @@
 */
 function openSession($user, $isAdmin){
 
-	session_start();
+	if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 	
 	$_SESSION["votebem"]["loggedUser"]= $user;
 	$_SESSION["votebem"]["loggedUser"]["isAdmin"] = $isAdmin;

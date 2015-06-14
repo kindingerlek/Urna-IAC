@@ -62,7 +62,10 @@ require_once($root.'model/insert/insert_Candidate.php');
 //Recebe dados via post
 $newCandidate = $_POST;
 
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $idElection = $_SESSION["votebem"]["election"];
 $dateElection = $_SESSION["votebem"]["electionDate"];
 //$_POST["idElection"];
