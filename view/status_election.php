@@ -1,6 +1,6 @@
 <!-- Novo Partido -->
 <div class="modal fade" id="popup-status" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog  modal-md">
+  <div class="modal-dialog  modal-xs">
     <div class="modal-content">
       
       <!-- Titulo -->
@@ -12,38 +12,46 @@
       <!-- Corpo -->
       <div class="modal-body">
         <div clas= "row">
+        
+          <div clas= "row">  
+            <div class="form-group col-xs-12" >
+              <label>status da Eleição:</label>
+              <input type="text" id="status-status" class="form-control" readonly> </input>
+            </div>
+          </div>
           
-          <div class="form-group col-xs-12" >
-            <label>status da Eleição:</label>
-            <input type="text" id="status-status" class="form-control" readonly> </input>
+          <div clas= "row">
+            <div class="form-group col-xs-6" >
+              <label>Código da Eleição:</label>
+              <input type="text" id="status-idElection" class="form-control" readonly> </input>
+            </div>           
+          
+            <div class="form-group col-xs-6">
+              <label>Data:</label>
+              <input type="text" id="status-period" class="form-control" readonly> </input>
+            </div>
+         </div>
+         
+         <div clas= "row"> 
+            <div class="form-group col-xs-6">
+              <label>Hora de Inicio:</label>
+              <input type="text" id="status-startTime" class="form-control" readonly> </input>
+            </div>
+          
+            <div class="form-group col-xs-6">
+              <label>Hora de Término:</label>
+              <input type="text" id="status-endTime" class="form-control" readonly> </input>
+            </div>
           </div>
-        
-          <div class="form-group col-xs-6" >
-            <label>Código da Eleição:</label>
-            <input type="text" id="status-idElection" class="form-control" readonly> </input>
-          </div>               
-        
-          <div class="form-group col-xs-6">
-            <label>Data:</label>
-            <input type="text" id="status-period" class="form-control" readonly> </input>
-          </div>
-        
-          <div class="form-group col-xs-6">
-            <label>Hora de Inicio:</label>
-            <input type="text" id="status-startTime" class="form-control" readonly> </input>
-          </div>
-        
-          <div class="form-group col-xs-6">
-            <label>Hora de Término:</label>
-            <input type="text" id="status-endTime" class="form-control" readonly> </input>
-          </div>
-        
-          <div class="form-group col-xs-12">
-            <label>TIPO:</label>
-            <select id="status-type" class="form-control" disabled>
-              <option value="MUNICIPAL">MUNICIPAL</option>
-              <option value="FEDERAL">FEDERAL</option>
-            </select>
+          
+          <div clas= "row">
+            <div class="form-group col-xs-12">
+              <label>TIPO:</label>
+              <select id="status-type" class="form-control" disabled>
+                <option value="MUNICIPAL">MUNICIPAL</option>
+                <option value="FEDERAL">FEDERAL</option>
+              </select>
+            </div>
           </div>
         
           <div id="status-scheduled" class="form-group" style="display:none">
@@ -53,16 +61,23 @@
               </button>
             </div>
             
-            <div class=" col-xs-9">
-              <button type="button" id="status-manageCandidates" class="btn btn-primary btn-block"> Gerenciar Candidatos</button>
+            <div class="col-xs-3">
+              <button type="button" id="status-update" class="btn btn-success btn-block">
+                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Atualizar
+              </button>
+            </div>
+            
+            <div class=" col-xs-6">
+              <button type="button" id="status-manageCandidates" class="btn btn-primary btn-block">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>Gerenciar Candidatos</button>
             </div>
           </div>
-        
-          <div id="status-started" style="display:none">
+          
+          <div id="status-started" style="display:none" class="col-xs-12">
             Não há ações para uma eleição iniciada.
           </div>
         
-          <div id="status-finished" style="display:none">
+          <div id="status-finished" style="display:none" class="col-xs-12">
             <button type="button" id="status-report" class="btn btn-primary btn-block"> Ver Relatórios</button>
           </div>
           

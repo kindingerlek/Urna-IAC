@@ -21,13 +21,27 @@
               <div class="form-group">
                 <label>Cargo:</label>
                 <select class="input-large form-control" id="search-combobox" name="register-office">
-                  <option value="prefeito">Prefeito</option>                  
-                  <option value="vereador">Vereador</option>
-                  <option value="deputado estadual">Deputado Estadual</option>
-                  <option value="deputado federal">Deputado Federal</option>
-                  <option value="presidente">Presidente</option>
-                  <option value="senador">Senador</option>
-                  <option value="governador">Governador</option>
+                  <?php
+                    require_once "../model/open_db/open_db.php";
+                    require_once "../model/select/select.php";
+                    
+                   
+                    
+                    $conn = openDB();
+                    
+                    $query = "SELECT * FROM tipos";
+                    $result = mysqli_query($conn,$query);
+                    
+                    
+                    while($ri = mysqli_fetch_assoc($result))
+                    {
+                      echo "<option value=" .$ri['tipo'] . ">" . $ri['tipo'] . "</option>";
+                    }
+                    
+                     
+                    mysqli_close($conn); 
+                    ?>
+                  
                 </select>
               </div>
               

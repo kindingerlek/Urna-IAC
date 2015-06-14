@@ -140,21 +140,27 @@
     </div>     
   </body>
   <script type="text/javascript">
-    var pageTitle = $(document).find("title").text();
-      
+  
+    //Altera o Título da página
+    var pageTitle = $(document).find("title").text();      
       $("#page-title").text(pageTitle);   
       
+      
+      /*
+      Altera o data-target conforme a opção escolhida.
+      Dessa forma, o fluxo das popUps é alterado.
+      */      
       $("#register-type").change(
         function()
         {          
-          if($("#register-type").val() == "municipal")
+          if($("#register-type").val() == "municipal") 
             $("#type-nextButton").attr('data-target',"#popup-newElection-municipal");
           else
             $("#type-nextButton").attr('data-target',"#popup-newElection-federal");
         }        
       );
       
-      
+     //Recupera as informações da linha clicada e as transfere para as inputs.
       $("#table-body").on("click","tr",
       function()
       {
@@ -179,14 +185,19 @@
         }
         
         showStatusDiv(values[2]);
+        setInputs(values[2]);
         
       });
       
+      
+      // Alterna entre as divs do html conforme o status da eleição;
       function showStatusDiv(getStatus)
       {        
         var status = ['AGENDADA', 'INICIADA', 'FINALIZADA'];
         var divs= ['#status-scheduled', '#status-started','#status-finished'];
         
+        //Varre o vetor habilitando a div caso seja quivalente ao paramentro,
+        //ou ocultando-a caso seja diferente.
         for(var i=0; i < divs.length; i++)
         {
           if(getStatus != status[i]) 
@@ -196,23 +207,53 @@
         }
       }
       
+      // Habilita a edição ou não das inputs conforme o estado da eleição;
+      function setInputs(getStatus)
+      {
+        inputs = ['#status-period','#status-startTime','#status-endTime'];
+        if(getStatus == 'AGENDADA')
+          EnableInputs(inputs);
+        else
+          ReadOnlyInputs(inputs);
+      }   
+      
+      function EnableInputs(inputs)
+      {
+        for(var i=0; i < inputs.length; i++)
+          $(inputs[i]).prop('readonly', false);
+      }
+      
+      function ReadOnlyInputs(inputs)
+      {
+        for(var i=0; i < inputs.length; i++)
+          $(inputs[i]).prop('readonly', true);
+      }
+      
+      
+      
       $("#status-manageCandidates").click(
       function()
       {
-        alert("Aqui vem o ajax do gerenciamento das eleições.");
-      })
+        alert("Aqui vem o ajax do gerenciamento da eleição.");
+      });
+      
+      $("#status-update").click(
+      function()
+      {
+        alert("Aqui vem o ajax para atualizar a eleição.");
+      });
       
       $("#status-remove").click(
       function()
       {
-        alert("Aqui vem o ajax para remover as eleições.");
-      })
+        alert("Aqui vem o ajax para remover a eleição.");
+      });
         
-      $("#status-remove").click(
+      $("#status-report").click(
       function()
       {
         alert("Aqui vem o ajax para gerar o relatório.");
-      })
+      });
       
       
     </script>
