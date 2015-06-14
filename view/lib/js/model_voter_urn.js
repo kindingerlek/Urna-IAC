@@ -45,13 +45,13 @@ function clearUrn() {
 *
 */
 function verifyOffice(office) {
-	if (office == "presidente" || office == "prefeito" || office == "governador") {
+	if (office == "PRESIDENTE" || office == "PREFEITO" || office == "GOVERNADOR") {
 		return 2;
-	} else if(office == "vereador" || office == "deputado estadual") {
+	} else if(office == "VEREADOR" || office == "DEPUTADO ESTADUAL") {
 		return 5;
-	} else if(office == "deputado federal") {
+	} else if(office == "DEPUTADO FEDERAL") {
 		return 4;
-	} else if(office == "senador") {
+	} else if(office == "SENADOR") {
 		return 3;
 	}
 }

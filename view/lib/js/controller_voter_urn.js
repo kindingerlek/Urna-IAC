@@ -56,7 +56,7 @@ $(function(){
 	
 	$("#urn-number").on("DOMSubtreeModified",function(){
 
-		if (office == "presidente" || office == "prefeito" || office == "governador") {
+		if (office == "PRESIDENTE" || office == "PREFEITO" || office == "GOVERNADOR") {
 			
 			//Quando dois numeros forem digitados, envia um ajax para a inserção do candidato na tela
 			if($.trim($("#urn-number").text()).length == 2){
@@ -75,7 +75,7 @@ $(function(){
 		
 			}
 			
-		} else if(office == "vereador" || office == "deputado estadual") {
+		} else if(office == "VEREADOR" || office == "DEPUTADO ESTADUAL") {
 			
 			//Quando dois numeros forem digitados, envia um ajax para a inserção do partido na tela
 			if($.trim($("#urn-number").text()).length == 2){
@@ -111,7 +111,7 @@ $(function(){
 		
 			}
 			
-		} else if(office == "deputado federal") {
+		} else if(office == "DEPUTADO FEDERAL") {
 			
 			//Quando dois numeros forem digitados, envia um ajax para a inserção do partido na tela
 			if($.trim($("#urn-number").text()).length == 2){
@@ -147,7 +147,7 @@ $(function(){
 		
 			}
 
-		} else if(office == "senador") {
+		} else if(office == "SENADOR") {
 			
 			//Quando dois numeros forem digitados, envia um ajax para a inserção do partido na tela
 			if($.trim($("#urn-number").text()).length == 2){
