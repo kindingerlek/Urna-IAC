@@ -52,6 +52,30 @@ $(function(){
 
 $(function(){
 	
+
+
+
+
+
+
+
+	$("#idConfirm").click(function(){
+	   $.ajax(
+            {     
+                  dataType: 'script',
+                  data: $("#form-login").serialize(),
+                  //data: { 'login-user': $("#login-user").val(), 'login-password': $("#login-password").val() },
+                  type: 'POST',
+                  url: '../controller/controller_login.php',
+                  success: function(result)
+                        {
+                              
+                        }
+      
+            });
+	});
+            
+            return false;
 	var office = $.trim($("#urn-candidateOffice").text());
 	
 	$("#urn-number").on("DOMSubtreeModified",function(){

@@ -26,9 +26,7 @@ function logout()
 	session_start();
 	if(isset($_SESSION))  
 	{
-	
-	    session_destroy(); // Destroi Session
-	
+		session_unset(); // Destroi Session
 	}
 
 	
