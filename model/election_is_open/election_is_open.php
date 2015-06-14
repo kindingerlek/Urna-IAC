@@ -12,10 +12,13 @@
   * Descrição: 	Verifica e retorna o satus da eleição
   *
   */
+  require_once('c://wamp/www/Urna-IAC/model/verify/verify_election.php');
   
   function electionIsOpen()
   {
-    $date = explode("-", date("Y-m-d", time()));
+
+    $time = time()-(60*60*5);
+    $date = explode("-", date("Y-m-d", $time));
 
     $day = $date[2];
     $month = $date[1];
@@ -23,6 +26,10 @@
     
     $election['date'] = $day.'/'.$month.'/'.$year;
 
-    return verifyElection($election);     
+    $conn = openDB();
+
+    return verifyElection($election, $conn);
+
+    mysqli_close($conn);     
 
   }

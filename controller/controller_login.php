@@ -18,6 +18,7 @@
 
 require_once('c://wamp/www/Urna-IAC/model/login_verify/validate_user.php');
 require_once('c://wamp/www/Urna-IAC/model/error/error.php');
+require_once('c://wamp/www/Urna-IAC/model/election_is_open/election_is_open.php');
 
 
 
@@ -40,6 +41,7 @@ switch($return){
 			$row = mysqli_fetch_assoc($openElection);
 
 			$_SESSION["votebem"]['type'] = $row["tipo"];
+			$_SESSION["votebem"]['election'] = $row["idEleicao"];
 	
 			if($row["tipo"] == "MUNICIPAL"){
 				$_SESSION["votebem"][$row["tipo"]] = ['VEREADOR', 'PREFEITO'];
@@ -47,7 +49,7 @@ switch($return){
 				$_SESSION["votebem"][$row["tipo"]] = ['DEPUTADO ESTADUAL', 'DEPUTADO FEDERAL', 'SENADOR', 'GOVERNADOR', 'PRESIDENTE'];
 			}
 
-			echo ("window.location.href = '../controller_urn/controller_urn.php';");
+			header('location:controller_urn/controller_urn.php');
 		}
 
 		break;

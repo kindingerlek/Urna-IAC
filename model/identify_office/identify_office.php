@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+function identifyOffice(){session_start();
 
 $electionType = $_SESSION["votebem"]["type"];
 $electionOffices = $_SESSION["votebem"][$electionType];
@@ -10,6 +10,6 @@ for ($i=0; $i<count($electionOffices); $i++) {
 		echo $electionOffices[$i];
 		break;
 	}
-}
+}}
 
 ?>
