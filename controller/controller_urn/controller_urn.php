@@ -27,7 +27,7 @@ while(!$electionOffices[$i] && $i<count($electionOffices)) {
 }
 
 if($i == count($electionOffices)){
-		header('Location: ../../view/thankyou.php');
+	header('Location: ../../view/thankyou.php');
 	
 }else{
 	header('Location: ../../view/voter_urn.php');

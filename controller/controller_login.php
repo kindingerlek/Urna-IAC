@@ -36,10 +36,10 @@ switch($return){
 			echo "alert('Não existe eleição no dia de hoje!');";
 		}else{
 			
-			if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+		if(!isset($_SESSION)) 
+		 { 
+	      session_start(); 
+		 } 
 
 			$row = mysqli_fetch_assoc($openElection);
 
@@ -53,7 +53,7 @@ switch($return){
 				$_SESSION["votebem"][$row["tipo"]] = ['DEPUTADO ESTADUAL', 'DEPUTADO FEDERAL', 'SENADOR', 'GOVERNADOR', 'PRESIDENTE'];
 			}
 
-			header('location:controller_urn/controller_urn.php');
+			echo ("window.location.href ='../controller/controller_urn/controller_urn.php';");
 		}
 
 		break;
