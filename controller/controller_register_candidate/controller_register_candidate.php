@@ -62,11 +62,11 @@ require_once($root.'model/insert/insert_Candidate.php');
 //Recebe dados via post
 $newCandidate = $_POST;
 
-
-$idElection = 1;
+session_start();
+$idElection = $_SESSION["votebem"]["election"];
+$dateElection = $_SESSION["votebem"]["electionDate"];
 //$_POST["idElection"];
-$dateElection = "10/07/2015"; 
-//$_POST["dataElection"];
+
 
 $election["date"] = $dateElection;
 $election["idElection"] = $idElection;

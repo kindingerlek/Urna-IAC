@@ -50,10 +50,10 @@ require_once($root.'model/insert/insert_vote.php');
 
 $conn = openDB();   // Abre banco de dados 
 
-$vote["idCandidate"] = $_POST["NAME NUMERO DO VOTO"];	// Pega o numero do candidato
-$vote["idParty"] = $_POST["NAME ID PARTIDO"];        	// Pega o numero do partido
-$vote["idElection"] = $_POST["NAME ID ELEICAO"];	 	// Pega o numero da eleição
-$vote["office"] ="PREFEITO"; $_POST["NAME ID TIPO"];	// Pega o tipo do candidato
+$vote["idCandidate"] = $_POST["idCandidate"];	// Pega o numero do candidato
+$vote["idParty"] = substr($vote["idCandidate"],0,2);        	// Pega o numero do partido
+$vote["idElection"] = $_SESSION["votebem"]["election"];	 	// Pega o numero da eleição
+$vote["office"] ="PREFEITO"; $_POST["office"];	// Pega o tipo do candidato
 
 $vote = validateVote($vote,$conn);     // Valida o voto verificando se ele foi branco ou nulo ou legenda
 

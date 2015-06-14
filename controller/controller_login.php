@@ -42,6 +42,7 @@ switch($return){
 
 			$_SESSION["votebem"]['type'] = $row["tipo"];
 			$_SESSION["votebem"]['election'] = $row["idEleicao"];
+			$_SESSION["votebem"]['electionDate'] = $row["data"];
 	
 			if($row["tipo"] == "MUNICIPAL"){
 				$_SESSION["votebem"][$row["tipo"]] = ['VEREADOR', 'PREFEITO'];

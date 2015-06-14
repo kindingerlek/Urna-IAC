@@ -30,7 +30,7 @@ function verifyVoterLogged()
 	
 	if(isset($_SESSION["votebem"]["loggedUser"]))
 	{
-		if($_SESSION["votebem"]["loggedUser"]["cpf"] != "" && $_SESSION["votebem"]["loggedUser"]["isAdmin"] === 0)
+		if($_SESSION["votebem"]["loggedUser"]["cpf"] != "" && $_SESSION["votebem"]["loggedUser"]["isAdmin"] == 0)
 		{
 			return 1;
 		}	

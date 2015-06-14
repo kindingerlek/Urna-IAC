@@ -20,7 +20,7 @@ require_once($root.'model/verify/verify_voter_logged.php');
 
 
 
-if(!verifyVoterLogged() === 1)
+if(!verifyVoterLogged() == 1)
 {
 	
 	header("refresh:0;url=../index.php");

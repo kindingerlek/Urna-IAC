@@ -24,9 +24,9 @@
 
 function verifyElection($election,$conn)
 {
-	$date = $election["date"];// Atribuindo CPF a variavel
+	$id = $election["idElection"];// Atribuindo CPF a variavel
 
-	$sql = "SELECT * FROM eleicoes WHERE data = '$date' "; // Monta a query
+	$sql = "SELECT * FROM eleicoes WHERE ideleicao = '$id' "; // Monta a query
 	$result = mysqli_query($conn, $sql);          //Executa a query
 
 	//Se houver registro encerra

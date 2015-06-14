@@ -30,7 +30,8 @@ function verifyAdminLogged()
 	
 	if(isset($_SESSION["votebem"]["loggedUser"]))
 	{
-		if($_SESSION["votebem"]["loggedUser"]["isAdmin"] === 1 )
+		
+		if($_SESSION["votebem"]["loggedUser"]["isAdmin"] == 1 )
 		{
 			return 1;
 		}	

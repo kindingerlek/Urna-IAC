@@ -53,29 +53,23 @@ $(function(){
 $(function(){
 	
 
-
-
-
-
-
-
 	$("#idConfirm").click(function(){
+	   var num = $.trim($("#urn-number").text());
+	   var office = $.trim($("#urn-candidateOffice").text());
 	   $.ajax(
             {     
                   dataType: 'script',
-                  data: $("#form-login").serialize(),
-                  //data: { 'login-user': $("#login-user").val(), 'login-password': $("#login-password").val() },
-                  type: 'POST',
-                  url: '../controller/controller_login.php',
+                  data: { ,'idCandidate' : num ,'office' : office },
+                  url: '../controller/controller_urn/controller_urn_vote.php',
                   success: function(result)
                         {
                               
                         }
-      
             });
+		 return false;
 	});
             
-            return false;
+           
 	var office = $.trim($("#urn-candidateOffice").text());
 	
 	$("#urn-number").on("DOMSubtreeModified",function(){

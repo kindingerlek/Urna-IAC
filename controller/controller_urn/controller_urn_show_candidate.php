@@ -34,11 +34,10 @@ $conn = openDB();
 
 $idCandidate["idCandidate"]= $_POST['candidate'];
 $idCandidate["idParty"]= substr($idCandidate["idCandidate"],0,2);
-$idCandidate["office"]= "vereador";
-$idCandidate["idElection"]= "2";
+$idCandidate["office"]= $_POST['office'];
+$idCandidate["idElection"]= $_SESSION["votebem"]["election"];
 
-//$_POST["party"];
-//echo $idParty["idParty"];
+
 
 // verifica se existe partido
 if(verifyCandidate($idCandidate,$conn))
