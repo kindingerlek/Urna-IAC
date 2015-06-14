@@ -53,13 +53,13 @@ $(function(){
 $(function(){
 	
 
-	$("#idConfirm").click(function(){
+	$("#key-confirm").click(function(){
 	   var num = $.trim($("#urn-number").text());
 	   var office = $.trim($("#urn-candidateOffice").text());
 	   $.ajax(
             {     
                   dataType: 'script',
-                  data: { ,'idCandidate' : num ,'office' : office },
+                  data: { 'idCandidate' : num ,'office' : office },
                   url: '../controller/controller_urn/controller_urn_vote.php',
                   success: function(result)
                         {
