@@ -84,7 +84,7 @@
               <div class="form-group">
                 <label>Numero:</label>
 
-                <input type="number" id="register-number" name="register-number" class="form-control" placeholder="">
+                <input type="text" id="register-number" name="register-number" class="form-control" placeholder="">
 
               </div>
               

@@ -32,10 +32,11 @@ $(function(){
 	$("#register-number").focus(function(){
 		var content = $("#register-party").val();
 		var office = $("#register-office").val();
-		alert(office);
+		var length = verifyOffice(office);
 		
 		fillInput(content, $(this));
-		alert(verifyOffice(office));
+		
+		$("#register-number").attr('maxlength', length);
 	});
 	
 });
