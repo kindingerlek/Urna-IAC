@@ -1,4 +1,4 @@
--- --------------------------------------------------------
+﻿-- --------------------------------------------------------
 -- Extraindo dados da tabela `cep`
 
 INSERT INTO `cep` (`cep`, `logradouro`, `bairro`, `cidade`, `estado`) VALUES
@@ -101,3 +101,4 @@ INSERT INTO `usuarios` (`cpf`, `numero`, `email`, `cep`, `complemento`, `nome`, 
 ('78621654628', '123'   ,              'email@dominio.com', '29108250', 'casa', 'GABRIEL MARCOS VINICIUS CALEBE ROCHA'  , '647278441686', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('91527184099', '123'   ,              'email@dominio.com', '94935480', 'casa', 'BENICIO THALES ALVES'                  , '206218740256', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('97260361514', '123'   ,              'email@dominio.com', '26540184', 'casa', 'NATHAN CAUA CARDOSO'                   , '504031371066', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993');
+
