@@ -102,7 +102,7 @@ $(function(){
 			dataType: 'script',
 			data: { 'idCandidate' : idCandidate },
 			type: 'POST',
-			url:'../controller/controller_register_election/controller_register_election.php',
+			url:'../controller/controller_delete/controller_delete_candidate.php'
 		});
 		
 		return false;

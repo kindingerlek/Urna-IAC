@@ -15,7 +15,6 @@
 
 $root = 'c:/wamp/www/Urna-IAC/';
 
-$root = 'c:/wamp/www/Urna-IAC/';
 
 //Open Db
 require_once($root.'model/open_db/open_db.php');
@@ -31,7 +30,7 @@ $column = 'idPartido';
 
 $conn = openDB();
 
-deleteData($table, $column, $idParty $conn);
+deleteData($table, $column, $idParty,$conn);
 
 echo ("alert('Partido excluído.');");
 
