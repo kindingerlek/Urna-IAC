@@ -135,11 +135,16 @@ $(function(){
 	
 	$("#status-manageCandidates").click(function(){
 		var idElection = $("#status-idElection").val();
+
 		$.ajax({
                   dataType: 'script',
                   data: { 'idElection' : idElection },
                   type: 'POST',
                   url:'../controller/controller_register_election/controller_register_election.php',
+				  success: function(result)
+                  {
+					  window.location.assign(admin_magage_candidate.php);
+                  }
 		});
 		
 		return false;
