@@ -28,9 +28,9 @@ function insertTicket($user, $election, $conn)
 	$cpf=$user['cpf'];
 
 	$sql="INSERT INTO `ticket` (`idEleicao`, `cpf`) 
-	VALUES ('$election', $cpf')";
-
+	VALUES ('$election', '$cpf')";
 	mysqli_query($conn,$sql);
 
 }
+
 ?>

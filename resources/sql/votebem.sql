@@ -142,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `partidos` (
 CREATE TABLE IF NOT EXISTS `ticket` (
   `idEleicao` bigint(20) unsigned DEFAULT NULL,
   `cpf` varchar(11) NOT NULL DEFAULT '',
+  `data` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`cpf`,`idEleicao`),
   KEY `fkTicketUsuarios` (`cpf`),
   KEY `fkTicketEleicao` (`idEleicao`)

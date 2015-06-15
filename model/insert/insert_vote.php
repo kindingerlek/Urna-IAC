@@ -34,9 +34,9 @@ function insertVote($vote,$conn)
 	
 	mysqli_query($conn,$sql);
 	
-	if($idCandidate!="3" && $idCandidate!="1" && $idCandidate!="2" )
+	if($idCandidate!= "3" && $idCandidate!= "1" && $idCandidate!= "2" )
 	{// query update candidato
-		$sql="UPDATE `candidatos` SET `votos` =(`votos`+ 1) WHERE `idCandidato`='$idCandidate' AND `tipo` = '$office' AND ´idEleicao´ = '$idElection';";
+		$sql="UPDATE `candidatos` SET `votos` =(`votos`+ 1) WHERE `idCandidato`='$idCandidate' AND `tipo` = '$office' AND `idEleicao` = '$idElection';";
 		mysqli_query($conn,$sql);
 
 	}

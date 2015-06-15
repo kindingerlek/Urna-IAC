@@ -38,10 +38,11 @@ if($i == count($electionOffices)){
 	
 	$conn=openDB();
 
-	$user=$_SESSION['votebem']['userLogged'];
+	$user=$_SESSION['votebem']['loggedUser'];
+	
 	$election=$_SESSION['votebem']['election'];
 
-	insertTicket($user, $election, $conn)
+	insertTicket($user, $election, $conn);
 
 	mysqli_close($conn);
 
