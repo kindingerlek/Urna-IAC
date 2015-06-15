@@ -74,7 +74,7 @@ $(function(){
 	});
 	
 	$("#status-removeButton").click(function(){
-		var idParty = $("#status-removeButton").val();
+		var idParty = $("#status-number").val();
 		
 		$.ajax({
 			dataType: 'script',
