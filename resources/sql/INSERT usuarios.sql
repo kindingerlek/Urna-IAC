@@ -1,4 +1,4 @@
-﻿-- --------------------------------------------------------
+-- --------------------------------------------------------
 -- Extraindo dados da tabela `cep`
 
 INSERT INTO `cep` (`cep`, `logradouro`, `bairro`, `cidade`, `estado`) VALUES
@@ -64,8 +64,7 @@ INSERT INTO `enderecos` (`numero`, `complemento`, `cep`) VALUES
 ('123', 'casa', '88351170'),
 ('123', 'casa', '89265070'),
 ('123', 'casa', '94935480'),
-('1234', 'casa', '26015090');
-
+('123', 'casa', '26015090');
 
 
 -- --------------------------------------------------------
@@ -74,13 +73,13 @@ INSERT INTO `enderecos` (`numero`, `complemento`, `cep`) VALUES
 INSERT INTO `usuarios` (`cpf`, `numero`, `email`, `cep`, `complemento`, `nome`, `tituloEleitor`, `idAdmin`, `zona`, `secao`, `senha`, `dtNasc`) VALUES
 ('05829791960', '332'   ,            'cagrispan@gmail.com', '81870000',  'ap401', 'CARLOS AUGUSTO LIMA GRISPAN' , '093255330604', '#20140097', '145', '0709', '81dc9bdb52d04dc20036dbd8313ed055', '10/10/1987'),
 ('09487904905', '993'   ,       'alisson.krul@hotmail.com', '83701485',   'Casa', 'ALISSON FRANCISCO KRUL'      , '106469310620', '#20140226', '123', '0123', '18fb622e79c298bcdc038b04860ac3b5', '08/07/1996'),
-('09964341946', '2079'  ,       'kindingerlek02@gmail.com', '83411050', 'Casa02', 'LUCAS ERNESTO KINDINGER'     , '106833500620', '#20140098', '186', '0091', '57985ac735bc81dc466da93f48589888', '14/03/1995'),
+('09964341946', '2079'  ,       'kindingerlek02@gmail.com', '83411050', 'Casa 02', 'LUCAS ERNESTO KINDINGER'     , '106833500620', '#20140098', '186', '0091', '57985ac735bc81dc466da93f48589888', '14/03/1995'),
 
 ('07231623360', '123'   ,              'email@dominio.com', '60425010', 'casa', 'CESAR LEVI BARBOSA'                    , '552321600353', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
-('09129550157', '123'   ,              'email@dominio.com', '52190347', 'casa', 'BEATRIZ ESTER CAROLINE DA SILVA'       , '177016181430', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '25/08/1996'),
+('09129550157', '123'   ,              'email@dominio.com', '52190347', 'casa', 'BEATRIZ ESTER CAROLINE DA SILVA'       , '083222531376', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '25/08/1996'),
 ('16535099105', '123'   ,              'email@dominio.com', '08391480', 'casa', 'HELOISA CAROLINE RAQUEL SOUZA'         , '157464521104', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('17767608409', '123'   ,              'email@dominio.com', '06833141', 'casa', 'FERNANDA ISABELLE OLIVEIRA'            , '405420731406', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
-('19022477878', '123'   ,              'email@hotmail.com', '69027350', 'casa', 'PIETRA MILENA ARAUJO'                  , '351623440221', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '12/08/1996'),
+('19022477878', '123'   ,              'email@dominio.com', '69027350', 'casa', 'PIETRA MILENA ARAUJO'                  , '351623440221', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '12/08/1996'),
 ('19896031819', '123'   ,              'email@dominio.com', '26015090', 'casa', 'KAIQUE LORENZO RIBEIRO'                , '142486881643', NULL, '180', '0080', 'e807f1fcf82d132f9bb018ca6738a19f', '21/11/1993'),
 ('21191994007', '123'   ,              'email@dominio.com', '02846030', 'casa', 'GABRIELLY GABRIELA STELLA CAVALCANT'   , '515560431406', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '12/04/1993'),
 ('25914833450', '123'   ,              'email@dominio.com', '70741620', 'casa', 'FERNANDO IGOR RODRIGUES'               , '472273200558', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
@@ -97,8 +96,7 @@ INSERT INTO `usuarios` (`cpf`, `numero`, `email`, `cep`, `complemento`, `nome`, 
 ('68318933842', '123'   ,              'email@dominio.com', '47801268', 'casa', 'NATALIA EVELYN LAIS DOS SANTOS'        , '072744801244', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('69910834537', '123'   ,              'email@dominio.com', '12606280', 'casa', 'RAQUEL STELLA ANA NASCIMENTO'          , '075683750507', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('72067641930', '123'   ,              'email@dominio.com', '02478150', 'casa', 'PAULO ERICK MATHEUS NASCIMENTO'        , '823581431180', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
-('72404397630', '123'   ,              'email@dominio.com', '17601040', 'casa', 'RAFAELA MARCELA CATARINA CARDOSO'      , '072744801244', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
+('72404397630', '123'   ,              'email@dominio.com', '17601040', 'casa', 'RAFAELA MARCELA CATARINA CARDOSO'      , '346445530515', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('78621654628', '123'   ,              'email@dominio.com', '29108250', 'casa', 'GABRIEL MARCOS VINICIUS CALEBE ROCHA'  , '647278441686', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('91527184099', '123'   ,              'email@dominio.com', '94935480', 'casa', 'BENICIO THALES ALVES'                  , '206218740256', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('97260361514', '123'   ,              'email@dominio.com', '26540184', 'casa', 'NATHAN CAUA CARDOSO'                   , '504031371066', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993');
-
