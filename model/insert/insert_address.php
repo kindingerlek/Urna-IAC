@@ -32,7 +32,7 @@ function insertAddress($address,$conn)
 	$sql = "INSERT INTO `enderecos`(`numero`, `complemento`, `cep`) VALUES ('$addressNum','$complement','$codeZip');";
 	
 	$return = mysqli_query($conn,$sql);
-	echo $return;
+	
 }
 
 ?>
