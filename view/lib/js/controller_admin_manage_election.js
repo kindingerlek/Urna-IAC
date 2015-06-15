@@ -113,7 +113,7 @@ $(function(){
                   dataType: 'script',
                   data: { 'idElection' : idElection },
                   type: 'POST',
-                  url:'../controller/controller_register_election/controller_register_election.php',
+                  url:'../controller/controller_delete/controller_delete_election.php',
 		});
 		
 		return false;
