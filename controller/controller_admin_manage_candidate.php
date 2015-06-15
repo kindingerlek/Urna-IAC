@@ -27,27 +27,24 @@ require_once($root.'model/election_status/election_status.php');
 //Recebe dados via post
 $column = $_POST["search-combobox"];
 $param = "%".$_POST["search-input"]."%";
-$table = 'eleicoes';
+$table = 'candidatos';
 
 
 $conn = openDB();
 
 $result = select($table, $column, $param, $conn);
 
+
 echo ("$('#table-body').html('');");
 
 while($row = mysqli_fetch_assoc($result)){
-
-		$status = electionStatus($row);
-
           
         $line = "<tr>".
                   "<td>".$row['idEleicao']."</td>".
+                  "<td>".$row['nomeFantasia']."</td>".
+                  '<td>'.$row['idCandidato']."</td>".
+                  "<td>".$row['idPartido']."</td>".
                   "<td>".$row['tipo']."</td>".
-                  '<td data="'.$status.'">'.$status."</td>".
-                  "<td>".$row['data']."</td>".
-                  "<td>".$row['horaInicio']."</td>".
-                  "<td>".$row['horaFim']."</td>".
                 "</tr>";
 
         //echo $line;

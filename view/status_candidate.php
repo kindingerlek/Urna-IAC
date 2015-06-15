@@ -92,7 +92,7 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="submit" id="status-removeButton" class="btn btn-danger">
+        <button type="submit" id="status-removeButton" class="btn btn-danger" name="status-removeButton">
           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Excluir
         </button>
       </div>

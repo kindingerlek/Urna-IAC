@@ -12,6 +12,14 @@
 * 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
 *
 */
+$root = 'c:/wamp/www/Urna-IAC/';
+
+// Open DB
+require_once($root.'model/open_db/open_db.php');
+
+//Verify
+require_once($root.'model/insert/insert_ticket.php');
+
 if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -27,6 +35,16 @@ while(!$electionOffices[$i] && $i<count($electionOffices)) {
 }
 
 if($i == count($electionOffices)){
+	
+	$conn=openDB();
+
+	$user=$_SESSION['votebem']['userLogged'];
+	$election=$_SESSION['votebem']['election'];
+
+	insertTicket($user, $election, $conn)
+
+	mysqli_close($conn);
+
 	header('Location: ../../view/thankyou.php');
 	
 }else{
