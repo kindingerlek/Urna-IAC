@@ -31,7 +31,7 @@ $column = 'idPartido';
 
 $conn = openDB();
 
-deleteData($table, $column, $idParty $conn);
+deleteData('partidos', 'idPartido', $idParty, $conn);
 
 echo ("alert('Partido excluído.');");
 

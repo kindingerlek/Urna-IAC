@@ -115,9 +115,9 @@
         
         var inputs = 
         [
-          '#status-name',
-          '#status-cpf',
+          '#status-name',          
           '#status-votingCard',
+          '#status-cpf',
           '#status-zone',
           '#status-session',
           ];

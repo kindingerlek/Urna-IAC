@@ -48,13 +48,14 @@ $(function(){
 	});
 	
 	$("#status-removeButton").click(function(){
-		var idCandidate = $("#status-removeButton").val();
+		
+		var idUser = $("#status-cpf").val();
 		
 		$.ajax({
 			dataType: 'script',
-			data: { 'idCandidate' : idCandidate },
+			data: { 'idUser' : idUser },
 			type: 'POST',
-			url:'../controller/controller_register_election/controller_register_election.php',
+			url:'../controller/controller_delete/controller_delete_user.php',
 		});
 		
 		return false;
