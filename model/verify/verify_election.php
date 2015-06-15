@@ -24,15 +24,19 @@
 
 function verifyElection($election,$conn)
 {
-	$date = $election["date"];// Atribuindo CPF a variavel
+	if(isset($election["idElection"])){
+		$idElection = $election["idElection"];// Atribuindo CPF a variavel
+		$sql = "SELECT * FROM eleicoes WHERE idEleicao = '$idElection' ";
+	}else{
+		$date = $election["date"];// Atribuindo CPF a variavel
+		$sql = "SELECT * FROM eleicoes WHERE data = '$date' ";
+	}
 
-	$sql = "SELECT * FROM eleicoes WHERE data = '$date' "; // Monta a query
 	$result = mysqli_query($conn, $sql);          //Executa a query
 
 	//Se houver registro encerra
 	if(mysqli_num_rows($result)>=1)
-		{
-			
+		{		
 			return $result; // Erro de Usuario já cadastrado 
 		}
 
