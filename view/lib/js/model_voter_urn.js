@@ -39,7 +39,7 @@ function clearUrn() {
 * Autor: Bruno
 * Data de Criação: 13/06/2015
 *
-* Descrição: Quando um número é clicado, ele preenche 
+* Descrição: Verifica o cargo do candidado, e retorna o tamanho máx de seu número 
 *
 * Funções invocadas: Nenhuma
 *

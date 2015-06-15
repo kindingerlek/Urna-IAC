@@ -25,11 +25,14 @@ $(function(){
 	});
 	
 
-	$("#register-num").blur(function(){
+	$("#register-number").blur(function(){
 		createMaskCandidateNum($(this));
 	});
 	
-	
+	$("#register-number").focus(function(){
+		var content = $("#register-party").val();
+		fillInput(content, $(this));
+	});
 	
 });
 
@@ -85,6 +88,20 @@ $(function(){
 	        processData: false,
 	    });
 	   return false;
+	});
+	
+	$("#status-removeButton").click(function(){
+		var idCandidate = $("#status-removeButton").val();
+		
+		$.ajax({
+                  dataType: 'script',
+                  data: { 'idCandidate' : idCandidate },
+                  type: 'POST',
+                  url:'../controller/controller_register_election/controller_register_election.php',
+		});
+		
+		return false;
+		
 	});
 	
 });
