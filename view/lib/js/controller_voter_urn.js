@@ -52,8 +52,8 @@ $(function(){
 
 $(function(){
 	
-	   var num = $.trim($("#urn-number").text());
-	   var office = $.trim($("#urn-candidateOffice").text());
+   var num = $.trim($("#urn-number").text());
+   var office = $.trim($("#urn-candidateOffice").text());
 	$("#key-confirm").click(function(){
 	   var num = $.trim($("#urn-number").text());
 	   var office = $.trim($("#urn-candidateOffice").text());
@@ -78,6 +78,19 @@ $(function(){
 
 		if (office == "PRESIDENTE" || office == "PREFEITO" || office == "GOVERNADOR") {
 			
+			//Quando dois numeros forem digitados, envia um ajax para a inserção do partido na tela
+			if($.trim($("#urn-number").text()).length == 2){
+				var num = $.trim($("#urn-number").text());
+		
+				$.ajax({
+        	    	dataType: 'script',
+            	    data: { 'party' : num },
+            	    type: 'POST',
+            	    url:'../controller/controller_urn/controller_urn_show_party.php',
+        	    });
+		
+			}
+
 			//Quando dois numeros forem digitados, envia um ajax para a inserção do candidato na tela
 			if($.trim($("#urn-number").text()).length == 2){
 				var num = $.trim($("#urn-number").text());
@@ -87,10 +100,6 @@ $(function(){
             	     data: { 'idCandidate' : num ,'office' : office },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
-            	    success: function(result)
-            	    {
-						  
-            	    }
         	    });
 		
 			}
@@ -106,10 +115,6 @@ $(function(){
             	    data: { 'party' : num },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_party.php',
-            	    success: function(result)
-            	    {
-						  
-            	    }
         	    });
 		
 			}
@@ -123,10 +128,6 @@ $(function(){
             	    data: { 'idCandidate' : num ,'office' : office },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
-            	    success: function(result)
-            	    {
-						  
-            	    }
         	    });
 		
 			}
@@ -142,10 +143,6 @@ $(function(){
             	    data: { 'party' : num },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_party.php',
-            	    success: function(result)
-            	    {
-						  
-            	    }
         	    });
 		
 			}
@@ -159,10 +156,6 @@ $(function(){
             	     data: { 'idCandidate' : num ,'office' : office },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
-            	    success: function(result)
-            	    {
-						  
-            	    }
         	    });
 		
 			}
@@ -178,10 +171,6 @@ $(function(){
             	    data: { 'party' : num },
             	    type: 'POST',
             	   	url:'../controller/controller_urn/controller_urn_show_party.php',
-            	    success: function(result)
-            	    {
-						  
-            	    }
         	    });
 		
 			}
@@ -195,10 +184,6 @@ $(function(){
             	    data: { 'idCandidate' : num ,'office' : office },
             	    type: 'POST',
             	    url:'../controller/controller_urn/controller_urn_show_candidate.php',
-            	    success: function(result)
-            	    {
-						  
-            	    }
         	    });
 		
 			}

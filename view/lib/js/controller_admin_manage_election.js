@@ -101,10 +101,45 @@ $(function(){
                   data: $("#form-newElection").serialize(),
                   type: 'POST',
                   url:'../controller/controller_register_election/controller_register_election.php',
-                  success: function(result)
-                  {
-
-                  }
+		});
+		
+		return false;
+		
+	});
+	
+	$("#status-remove").click(function(){
+		var idElection = $("#status-idElection").val();
+		$.ajax({
+                  dataType: 'script',
+                  data: { 'idElection' : idElection },
+                  type: 'POST',
+                  url:'../controller/controller_register_election/controller_register_election.php',
+		});
+		
+		return false;
+		
+	});
+	
+	$("#status-update").click(function(){
+		var idElection = $("#status-idElection").val();
+		$.ajax({
+                  dataType: 'script',
+                  data: { 'idElection' : idElection },
+                  type: 'POST',
+                  url:'../controller/controller_register_election/controller_register_election.php',
+		});
+		
+		return false;
+		
+	});
+	
+	$("#status-manageCandidates").click(function(){
+		var idElection = $("#status-idElection").val();
+		$.ajax({
+                  dataType: 'script',
+                  data: { 'idElection' : idElection },
+                  type: 'POST',
+                  url:'../controller/controller_register_election/controller_register_election.php',
 		});
 		
 		return false;
