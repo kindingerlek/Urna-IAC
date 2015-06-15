@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `candidatos` (
   `idEleicao` bigint(20) unsigned NOT NULL,
   `tipo` varchar(30) DEFAULT NULL,
   `idPartido` varchar(2) DEFAULT NULL,
-  `votos` int(11) DEFAULT NULL,
+  `votos` int(11) DEFAULT '0',
   `nomeFantasia` varchar(200) DEFAULT NULL,
   `foto` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idCandidato`,`idEleicao`, `tipo`),
