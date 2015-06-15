@@ -31,7 +31,11 @@ $(function(){
 	
 	$("#register-number").focus(function(){
 		var content = $("#register-party").val();
+		var office = $("#register-office").val();
+		alert(office);
+		
 		fillInput(content, $(this));
+		alert(verifyOffice(office));
 	});
 	
 });
@@ -94,10 +98,10 @@ $(function(){
 		var idCandidate = $("#status-removeButton").val();
 		
 		$.ajax({
-                  dataType: 'script',
-                  data: { 'idCandidate' : idCandidate },
-                  type: 'POST',
-                  url:'../controller/controller_register_election/controller_register_election.php',
+			dataType: 'script',
+			data: { 'idCandidate' : idCandidate },
+			type: 'POST',
+			url:'../controller/controller_register_election/controller_register_election.php',
 		});
 		
 		return false;

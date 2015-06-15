@@ -20,7 +20,7 @@
               <!-- Input Cargo -->
               <div class="form-group">
                 <label>Cargo:</label>
-                <select class="input-large form-control" id="search-combobox" name="register-office">
+                <select class="input-large form-control" id="register-office" name="register-office">
                   <?php
                     require_once "../model/open_db/open_db.php";
                     require_once "../model/select/select.php";
