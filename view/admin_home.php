@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title>Home</title>
     
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=enable_js.php">
+    </noscript>
+    
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
     
@@ -21,9 +25,9 @@
             
       <!-- Conteúdo da página -->
       <div class="page-content">
-        <a class="btn btn-default btn-lg btn-block" href="admin_manage_voter.php" role="button" > Gerenciar Eleitores</a>
-        <a class="btn btn-default btn-lg btn-block" href="admin_manage_party.php" role="button" > Gerenciar Partidos</a>
-        <a class="btn btn-default btn-lg btn-block" href="admin_manage_election.php" role="button" > Gerenciar Eleições</a>  
+        <a class="btn btn-primary btn-lg btn-block" href="admin_manage_voter.php" role="button" > Gerenciar Eleitores</a>
+        <a class="btn btn-primary btn-lg btn-block" href="admin_manage_party.php" role="button" > Gerenciar Partidos</a>
+        <a class="btn btn-primary btn-lg btn-block" href="admin_manage_election.php" role="button" > Gerenciar Eleições</a>  
       </div>
     
     

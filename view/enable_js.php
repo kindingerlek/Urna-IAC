@@ -13,17 +13,17 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->
-      <?php include "page_header_big.php" ?>
+      <?php include "page_header_sml.php" ?>
       
       <!-- Conteúdo da página -->
       <div class="page-content">
         
         <div class="row">
-          <div class="col-md-6">
-            <img src="../resources/images/gandalf.jpg" id="gandalf" class="center-block" alt="Ative seu Java-Script">
+          <div class="col-xs-6">
+            <img src="../resources/images/gandalf.jpg" id="gandalf" class="center-block" alt="Ative seu Java-Script" style="width:100%">
           </div>
           
-          <div class="col-md-6">
+          <div class="col-xs-6">
             <div class="row">
               <h1>YOU SHALL NOT PASS WITHOUT JAVASCRIPT</h1>
             </div>
@@ -32,6 +32,11 @@
               <p>
                 Para o correto funcionamento desse sistema, por favor habilite o javascript do seu navegador.
               </p>
+              
+              <p>
+                 Ajude e colabore com os desenvolvedores que se quase se mataram para tornar esse sistema viável. Você sabia que eles passaram manhãs, tardes e noites a fio para que esse sistema fosse feito? Então por que você, caro usuário, vai querer usar um sistema sem o javascript?
+              </p>
+              
             </div>
           </div>
         </div>
