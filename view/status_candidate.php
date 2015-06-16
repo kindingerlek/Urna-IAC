@@ -17,6 +17,12 @@
            <!-- Coluna 1 -->
            <div class="col-md-6">
              
+             <!-- Input Cod -->
+              <div class="form-group">
+                <label>ID da Eleição:</label>
+                <input type="text" id="status-idElection" name="status-idElection" class="form-control" readonly>
+              </div>
+             
               <!-- Input Cargo -->
               <div class="form-group">
                 <label>Cargo:</label>
