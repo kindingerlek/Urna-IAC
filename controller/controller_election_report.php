@@ -87,7 +87,7 @@ while($candidate = mysqli_fetch_assoc($candidates)){					//Iterando em cada inst
 //Foreach para cada office
 foreach ($totalVotes as $office => $key) {
 	echo $office;
-	# code...
+	
 }
 	//sql office
 	//query
