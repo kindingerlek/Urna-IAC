@@ -1,9 +1,12 @@
+
+
 <?php
 require_once('../model/open_db/open_db.php');
 require_once('../model/select/select.php');
+require_once('../model/error/error.php');
 
 
-$idEleicao = 1;  //$_POST['idElection'];		//Recebendo dados via Post
+$idEleicao = 5;  //$_POST['idElection'];		//Recebendo dados via Post
 
 $conn = openDB(); 	//Criando conexão com o Banco de Dados
 
@@ -15,29 +18,55 @@ $votes = select('votos', 'idEleicao', $idEleicao, $conn); 			//Buscando tabela d
 /*
 *
 */
+
 while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da tabela de votos
 	
 											
 	$candidate = $vote['idCandidato'];					//Recuperando o número votado
 	$office = $vote['tipo'];							//Recuperando tipo do candidato votado
-	$party = $vote['partido'];							//Recuperando o partido votado
-
-	$totalVotes[$office]++;								//Total de votos registrados por cargo que deve ser exatamente igual a quantidade de ticket, ou seja, o total de eleitores que votaram
+	$party = $vote['idPartido'];							//Recuperando o partido votado
 	
-	if($candidate == -1){
+	if(isset($totalVotes[$office])){
+		$totalVotes[$office]++;								//Total de votos registrados por cargo que deve ser exatamente igual a quantidade de ticket, ou seja, o total de eleitores que votaram
+	}else
+	{
+		$totalVotes[$office]=1;	
+	}
+	
+	if($candidate == -1)
+	{
 		$nullVotes[$office]++; 							//Total de votos nulos por cargo 
 	}else if ($candidate == -2){
 		$emptyVotes[$office]++;							//Total de votos em branco por cargo
-	}else{
+	}else
+	{
+		if(isset($validVotes[$office]))
+		{
+			$validVotes[$office]++;		//Total de votos válidos por cargo
+		}						
+		else{
+			$validVotes[$office]=1;	
+		}
+		
 
-		$validVotes[$office]++;							//Total de votos válidos por cargo
-								
-		$votedCandidates[$candidate]++;					//Total de votos de cada candidato
-					
-		$votedParties[$party[$office]]++;				//Incrementando o numero de votos que cada partido 
-														//recebe por tipo de candidato
-	}
+		if(isset($votedCandidates[$candidate]))
+		{
+			$votedCandidates[$candidate]++;					//Total de votos de cada candidato
+		}else
+		{
+			$votedCandidates[$candidate]=1;	
+		}						
 	
+
+		if(isset($votedParties[$party][$office])){
+
+			$votedParties[$party][$office]++;				//Incrementando o numero de votos que cada partido 
+		}else
+		{
+			$votedParties[$party][$office] =1;	
+		}			
+														//recebe por tipo de candidatO
+	}
 }
 
 
@@ -47,46 +76,22 @@ while($candidate = mysqli_fetch_assoc($candidates)){					//Iterando em cada inst
 	
 	$number = $candidate['idCandidato'];								//Identificando o candidato
 	
-	if($candidate['votos'] != $votedCandidate[$number]){				//Verificando se o número de votos computados ao candidato
+	if($candidate['votos'] != $votedCandidates[$number]){				//Verificando se o número de votos computados ao candidato
 																		//confere com o número de aparições do mesmo na tabela votos
-		return error(-29);
+		//return error(-29);
 		//aqui o sistema explode! E o FBI decreta o "VoteBem" como sujeito a corrupção;											
 	}
 	
 }
 
 //Foreach para cada office
-foreach ($totaVotes as $office) {
+foreach ($totalVotes as $office => $key) {
 	echo $office;
 	# code...
 }
 	//sql office
 	//query
 	//insere linha a linha em $table
-	
-
-
-
-
-?>
-<html>
-<head>
-	<title>Relatorio</title>
-</head>
-<body>
-	<table>
-		<thead><td>Nome</td><td>Numero</td><td>Partido</td><td>Votos</td><td>Cargo</td><td>Status</td></thead>
-		<tbody>
-			<?php echo $table; ?>
-		</tbody>
-	</table>
-</body>
-</html>
-
-
-
-
-<?php
 
 // foreach($positions as $key=>$value)
 
@@ -125,23 +130,5 @@ foreach ($totaVotes as $office) {
 
 
 //candidatos eleitos por partido
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
