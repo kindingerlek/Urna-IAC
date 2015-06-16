@@ -55,6 +55,7 @@ $(function(){
 });
 
 
+
 $(function(){
 	
 	$("#form-register-party").submit(function () {
@@ -72,4 +73,19 @@ $(function(){
 	   return false;
 	});
 	
+	$("#status-removeButton").click(function(){
+		var idParty = $("#status-number").val();
+		
+		$.ajax({
+			dataType: 'script',
+			data: { 'idParty' : idParty },
+			type: 'POST',
+			url:'../controller/controller_delete/controller_delete_party.php'
+		});
+		
+		return false;
+		
+	});
+
+
 });

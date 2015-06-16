@@ -113,7 +113,7 @@ $(function(){
                   dataType: 'script',
                   data: { 'idElection' : idElection },
                   type: 'POST',
-                  url:'../controller/controller_delete/controller_delete_election.php',
+                  url:'../controller/controller_delete/controller_delete_election.php'
 		});
 		
 		return false;
@@ -126,7 +126,7 @@ $(function(){
                   dataType: 'script',
                   data: { 'idElection' : idElection },
                   type: 'POST',
-                  url:'../controller/controller_register_election/controller_register_election.php',
+                  url:'../controller/controller_register_election/controller_register_election.php'
 		});
 		
 		return false;
@@ -140,10 +140,11 @@ $(function(){
                   dataType: 'script',
                   data: { 'idElection' : idElection },
                   type: 'POST',
-                  url:'../controller/controller_register_election/controller_register_election.php',
+                  url:'../controller/controller_save_election_session.php',
 				  success: function(result)
                   {
-					  window.location.assign(admin_magage_candidate.php);
+                  	  //alert('Ola tudo bem');
+					  window.location.href = 'admin_manage_candidate.php';
                   }
 		});
 		
