@@ -67,12 +67,14 @@ if(!isset($_SESSION))
         session_start(); 
     } 
 
-$idElection = "1";  //$_SESSION["votebem"]["election"];
-$dateElection = "14/06/2015";//$_SESSION["votebem"]["electionDate"];
+$idElection = $_SESSION["votebem"]["idElection"];
+
+
+//$dateElection = $_SESSION["votebem"]["electionDate"];
 //$_POST["idElection"];
 
 
-$election["date"] = $dateElection;
+//$election["date"] = $dateElection;
 $election["idElection"] = $idElection;
 
 foreach ($newCandidate as $field => $data) {
@@ -90,20 +92,20 @@ $conn = openDB();
 
 if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 {
-			$candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
-			$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
-			$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
-			$candidate['office'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
-			$candidate['idElection'] = $idElection; 
-			echo $candidate['idCandidate'];
-			$idCandidate = $candidate['idCandidate'];
-			$office = $candidate['office'];
-			$uploaddir = '../resources/candidate_photo/';// definindo pasta de dowload de fotos
-			$nameFile = explode('.', $_FILES['register-photoInput']['name']);
-			$ext = end($nameFile);
-			$uploadFile = $uploaddir . basename($idElection."_".$office."_".$idCandidate.".".$ext);
+	$candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
+	$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
+	$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
+	$candidate['office'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
+	$candidate['idElection'] = $idElection; 
+	$idCandidate = $candidate['idCandidate'];
+	$office = $candidate['office'];
 
-			$candidate['photo'] =	$uploadFile; 
+	$uploaddir = '../resources/candidate_photo/';// definindo pasta de dowload de fotos
+	$nameFile = explode('.', $_FILES['register-photoInput']['name']);
+	$ext = end($nameFile);
+	$uploadFile = $uploaddir . basename($idElection."_".$office."_".$idCandidate.".".$ext);
+
+	$candidate['photo'] =	$uploadFile; 
 			
 
 	$error = validatenewCandidate($candidate);
@@ -120,7 +122,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 					
 						insertCandidate($candidate, $conn); 					    // Insere Candidate no B
 						echo("alert('Cadastro realizado com sucesso');");
-						echo(" location.reload();");
+						echo("location.reload();");
 						//header(	'location:../../view/admin_manage_candidate.php');
 
 					}else{

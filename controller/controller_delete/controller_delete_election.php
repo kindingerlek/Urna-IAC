@@ -18,7 +18,6 @@ $root = 'c:/wamp/www/Urna-IAC/';
 require_once($root.'model/open_db/open_db.php');
 
 require_once($root.'model/delete/delete_data.php');
-require_once($root.'model/delete/delete.php');
 
 //Recebe dados via post
 
