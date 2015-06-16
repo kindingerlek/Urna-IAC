@@ -19,6 +19,7 @@
 require_once('c://wamp/www/Urna-IAC/model/login_verify/validate_user.php');
 require_once('c://wamp/www/Urna-IAC/model/error/error.php');
 require_once('c://wamp/www/Urna-IAC/model/election_is_open/election_is_open.php');
+require_once('c://wamp/www/Urna-IAC/model/verify/verify_voter_had_voted.php');
 
 
 
@@ -34,26 +35,37 @@ switch($return){
 		
 		if(!$openElection){
 			echo "alert('Não existe eleição no dia de hoje!');";
-		}else{
+		}    
+    else
+    {
+      $row = mysqli_fetch_assoc($openElection);
+      
+      if(verifyVoterHadVoted( $id ,$row["idEleicao"]))
+      {
+        echo "alert('Você já votou nessa eleição.');";
+        return false;      
+      }
 			
-		if(!isset($_SESSION)) 
-		 { 
+  		if(!isset($_SESSION)) 
+  		{ 
 	      session_start(); 
-		 } 
-
-			$row = mysqli_fetch_assoc($openElection);
-
-			$_SESSION["votebem"]['type'] = $row["tipo"];
-			$_SESSION["votebem"]['election'] = $row["idEleicao"];
-			$_SESSION["votebem"]['electionDate'] = $row["data"];
-	
-			if($row["tipo"] == "MUNICIPAL"){
-				$_SESSION["votebem"][$row["tipo"]] = ['VEREADOR', 'PREFEITO'];
-			}else{
-				$_SESSION["votebem"][$row["tipo"]] = ['DEPUTADO ESTADUAL', 'DEPUTADO FEDERAL', 'SENADOR', 'GOVERNADOR', 'PRESIDENTE'];
-			}
-
-			echo ("window.location.href ='../controller/controller_urn/controller_urn.php';");
+  		} 
+      
+  
+  		$_SESSION["votebem"]['type'] = $row["tipo"];
+  		$_SESSION["votebem"]['election'] = $row["idEleicao"];
+  		$_SESSION["votebem"]['electionDate'] = $row["data"];
+  	
+  		if($row["tipo"] == "MUNICIPAL")
+      {
+  			$_SESSION["votebem"][$row["tipo"]] = ['VEREADOR', 'PREFEITO'];
+  		}
+      else
+      {
+  			$_SESSION["votebem"][$row["tipo"]] = ['DEPUTADO ESTADUAL', 'DEPUTADO FEDERAL', 'SENADOR', 'GOVERNADOR', 'PRESIDENTE'];
+  		}
+  
+  		echo ("window.location.href ='../controller/controller_urn/controller_urn.php';");
 		}
 
 		break;
