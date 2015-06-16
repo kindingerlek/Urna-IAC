@@ -22,7 +22,7 @@ require_once($root.'model/delete/delete_candidate.php');
 
 //Recebe dados via post
 $candidate = $_POST["idCandidate"];
-$election = $_POST["idEleicao"];
+$election = $_POST["idElection"];
 
 $conn = openDB();
 

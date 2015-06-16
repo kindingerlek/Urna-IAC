@@ -49,11 +49,7 @@ $(function(){
                   dataType: 'script',
                   data: $("#form-search").serialize(),
                   type: 'POST',
-                  url:'../controller/controller_admin_manage_candidate.php',
-                  success: function(result)
-                  {
-					  
-                  }
+                  url:'../controller/controller_admin_manage_candidate.php'
 		});
 		
 		return false;	
@@ -96,11 +92,12 @@ $(function(){
 	});
 	
 	$("#status-removeButton").click(function(){
-		var idCandidate = $("#status-removeButton").val();
-		
+		var idCandidate = $("#status-number").val();
+		var idCandidate = $("#status-number").val();
+    
 		$.ajax({
 			dataType: 'script',
-			data: { 'idCandidate' : idCandidate },
+			data: { 'idCandidate' : idCandidate, 'idElection': election  },
 			type: 'POST',
 			url:'../controller/controller_delete/controller_delete_candidate.php'
 		});

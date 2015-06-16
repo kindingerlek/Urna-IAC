@@ -44,7 +44,7 @@
         <form class="" id="form-search">
           <div class="row">
             <div class="form-group col-xs-3">
-              <select class="input-large form-control" id="search-combobox">
+              <select class="input-large form-control" id="search-combobox" name="search-combobox">
                 <option value="nomeFantasia">Nome</option>                  
                 <option value="idCandidato">Número</option>
                 <option value="idPartido">Partido</option>
@@ -54,11 +54,11 @@
                   
             
             <div class="col-xs-6">
-              <input type="text" id="search-input" class="form-control" placeholder="Procurar por...">
+              <input type="text" id="search-input" name="search-input" class="form-control" placeholder="Procurar por...">
             </div>
                       
             <div class="col-xs-3">
-              <button type="submit" id="search-submit" class="btn btn-primary btn-block">
+              <button type="submit" id="search-submit" name="search-submit" class="btn btn-primary btn-block">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
               </button>
               
