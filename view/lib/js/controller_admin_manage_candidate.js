@@ -93,11 +93,11 @@ $(function(){
 	
 	$("#status-removeButton").click(function(){
 		var idCandidate = $("#status-number").val();
-		var idCandidate = $("#status-number").val();
+		var idElection = $("#status-idElection").val();
     
 		$.ajax({
 			dataType: 'script',
-			data: { 'idCandidate' : idCandidate, 'idElection': election  },
+			data: { 'idCandidate' : idCandidate, 'idElection': idElection  },
 			type: 'POST',
 			url:'../controller/controller_delete/controller_delete_candidate.php'
 		});

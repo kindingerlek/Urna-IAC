@@ -110,14 +110,14 @@
       {
         $("#popup-status").modal('show');
         
-        var inputs = ['#status-name','#status-number','#status-party','#status-office'];
+        var inputs = ['#status-idElection','#status-name','#status-number','#status-party','#status-office'];
         var values = [];
         var image = '#status-logoImage'
         var imagePath = '../resources/party_logo/';
                   
         for(var i=0; i < inputs.length; i++)
         {
-          values.push( $("td:eq(" + (i+1) + ")", this).text() );
+          values.push( $("td:eq(" + (i) + ")", this).text() );
           $(inputs[i]).val(values[i]);
         }
         
