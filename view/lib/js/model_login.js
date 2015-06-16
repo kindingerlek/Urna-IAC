@@ -1,5 +1,5 @@
 /**
-* Título: verifyFields
+* Título: verifyFieldsLogin
 * 
 * Autor: Bruno
 *
@@ -7,7 +7,7 @@
 * Última modificação:
 * Modificado por:
 * 
-* Descrição: (Verifica se os campos estão nulos)
+* Descrição: (Verifica se os campos da página de login estão nulos)
 *
 **/
  
@@ -15,22 +15,54 @@
 //Esta tag é um ícone de exclamação -> "!"
 var exclamationIcon = "<span class=\"glyphicon glyphicon-exclamation-sign\"aria-hidden=\"true\"></span><span class=\"sr-only\">Error:</span>"; 
 
-function verifyFields(){      
+function verifyFieldsLogin(){      
             
             var user = $("#login-user").val();
             var password = $("#login-password").val();
-            
+                       
             if(user == "" || user == "___.___.___-__"){
-                  $("#login-error").html(exclamationIcon);
-                  $("#login-error").append(" Não deixe o campo em branco.");
-                  $("#login-error").show();
-                  return 0;
+                  return 2;
             } else if(password == ""){
-                  $("#login-error").html(exclamationIcon);  
-                  $("#login-error").append(" Não deixe o campo em branco.");
-                  $("#login-error").show();
-                  return 0;
-          }    
+                  return 2;
+          }
+};
+
+/**
+* Título: verifyFieldsRegister
+* 
+* Autor: Bruno
+*
+* Data de Criação: 06/06/2015 
+* Última modificação:
+* Modificado por:
+* 
+* Descrição: (Verifica se os campos da página de registro estão nulos)
+*
+**/
+function verifyFieldsRegister(){      
+      
+      var array = 
+      [
+            $("#register-votingCard").val(),
+            $("#register-zone").val(),
+            $("#register-session").val(),
+            $("#register-cpf").val(),
+           // $("#register-birthday").val(),
+            $("#register-zipCode").val(),
+            $("#register-address").val(),
+            $("#register-addressNum").val(),
+            $("#register-neighborhood").val(),
+            $("#register-city").val(),
+            $("#register-state").val(),
+            $("#register-password").val(),
+            $("#register-cfmPassword").val()
+      ];
+      
+      for(var i=0; i < array.length; i++){
+            if(array[i] == ""){
+                  return 2;
+            }
+      }
 };
 
 /**
@@ -122,13 +154,7 @@ function evalCPF(CPF){
       
 	//Verifica se a string possui 11 caracteres
 	if (CPF.length != 11){
-            $("#login-error").html(exclamationIcon);
-            $("#login-error").append(" CPF inválido");
-            $("#login-error").show();
-            $("#register-error").html(exclamationIcon);
-            $("#register-error").append(" CPF inválido");
-            $("#register-error").show();
-		return false;
+		return 0;
             
 	//Verifica se alguma sequencia invalida foi digitada	
 	} else if (	CPF == '00000000000' || 
@@ -141,13 +167,7 @@ function evalCPF(CPF){
 				CPF == '77777777777' || 
 				CPF == '88888888888' || 
 				CPF == '99999999999') {
-            $("#login-error").html(exclamationIcon);
-            $("#login-error").append(" CPF invalido");
-            $("#login-error").show();
-            $("#register-error").html(exclamationIcon);
-            $("#register-error").append(" CPF inválido");
-            $("#register-error").show();
-            return false;
+            return 0;
         
      //Verifica se o CPF é válido
      } else {
@@ -158,50 +178,119 @@ function evalCPF(CPF){
 	        }
 	        add = ((10 * add) % 11) % 10;
 	        if (CPF[digit] != add) {
-                  $("#login-error").html(exclamationIcon);
-                  $("#login-error").append(" CPF invalido");
-                  $("#login-error").show();
-                  $("#register-error").html(exclamationIcon);
-                  $("#register-error").append(" CPF inválido");
-                  $("#register-error").show();
-                  return false;
+
+                  return 0;
 	        }
 	    }
-          $("#register-error").hide();
-          $("#login-error").hide();
-	    return true;
+	    return 1;
     }
 };
 
 /*
-* Título: Checar nome
+* Título: checkField
 *
 * Autor: Bruno
-* Data de Criação: 04/06/2015
+* Data de Criação: 06/06/2015
 *
-* Descrição: Restringe o nome a letras
+* Descrição: Checa se o campo do tipo nome está preenchidos corretamente
 *
 * Funções invocadas: Nenhuma
 *
 */
 
-function checkName(){
+function checkField(field){
       
-      $("#register-name").blur(function(){
-            
-            user = $("#register-name").val();
-           
-            
-            if(!(user.match(/^[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕ ,.'-]+$/i))){
-                  
-                  $("#register-error").html(exclamationIcon);
-                  $("#register-error").append(" Nome só pode conter letras");
-                  $("#register-error").show();
-            }
-      });
-      
-}
+      var name = field.val();
 
+      if(name == ''){
+            return 2;
+      } else if(!(name.match(/^[a-zA-ZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕç ,.'-]+$/i))) {
+            return 0;
+      } else {
+            return 1;
+      }
+};
+
+/*
+* Título: checkFieldNum
+*
+* Autor: Bruno
+* Data de Criação: 06/06/2015
+*
+* Descrição: Checa se um campo de número está preenchidos corretamente
+*
+* Funções invocadas: Nenhuma
+*
+*/
+
+function checkFieldNum(field){
+      
+      var num = field.val();
+      
+      if(num == '' ){
+            return 2;
+      } else if(!(num.match(/^[0-9]+$/i)) || num < 1) {
+            return 0;
+      } else {
+            return 1;
+      }
+};
+
+
+/*
+* Título: checkFieldPassword
+*
+* Autor: Bruno
+* Data de Criação: 10/06/2015
+*
+* Descrição: Checa se o campo do tipo password está preenchidos corretamente
+*
+* Funções invocadas: Nenhuma
+*
+*/
+
+function checkFieldPassword(field){
+      
+      var password = field.val();
+
+      if(password == ''){
+            return 2;
+      } else if(!(password.match(/^[a-zA-Z0-9 ]+$/i))) {
+            return 0;
+      } else {
+            return 1;
+      }
+};
+/*
+* Título: changeFieldState
+*
+* Autor: Bruno
+* Data de Criação: 06/06/2015
+*
+* Descrição: Muda o estado do campo
+*
+* Entrada: Um campo à ser modificado, estado a ser analisado
+*
+* Funções invocadas: Nenhuma
+*
+*/
+function changeFieldState(field, state){
+      var array = ['has-error','has-success','has-warning'];
+      var icons = ['glyphicon-remove','glyphicon-ok','glyphicon-warning-sign'];
+      
+      field = field.parent();
+            
+      for(var i=0; i<array.length; i++){
+            if(i != state) {
+                  field.children("span").removeClass(icons[i]);
+                  field.removeClass(array[i]);
+            } else {
+                  field.children("span").addClass(icons[i]);
+                  field.addClass(array[i]);
+            }
+      }
+      
+};
 
 /*
 * Título: Criar máscaras
@@ -220,12 +309,40 @@ function createMasks(){
        $("#register-cpf").mask("999.999.999-99");
       });
       
-jQuery(function($){
-       $("#register-zone").mask("9999", {placeholder: ""});
+      
+      $("#register-zone").blur(function(){
+            var registerZone = $("#register-zone").val();
+            
+            registerZone="000"+registerZone.replace(/[^0-9]/g,'');
+            
+            //Preenchendo a string com 0s à esquerda para completar 3 digitos 
+            registerZone = registerZone.slice(-3,-1)+(registerZone).slice(-1);
+
+            $("#register-zone").val(registerZone);
       });
       
-jQuery(function($){
-       $("#register-session").mask("9999", {placeholder: ""});
+      $("#register-session").blur(function(){
+            var registerSession = $("#register-session").val();
+            
+            registerSession="0000"+registerSession.replace(/[^0-9]/g,'');
+            
+            //Preenchendo a string com 0s à esquerda para completar 4 digitos 
+            registerSession = registerSession.slice(-4,-1)+(registerSession).slice(-1);
+
+            $("#register-session").val(registerSession);
+      });
+      
+      $("#register-votingCard").blur(function(){
+      
+            var votingCard = $("#register-votingCard").val();
+            
+            votingCard=votingCard.replace(/[^0-9]/g,'');
+            
+            //Preenchendo a string com 0s à esquerda para completar 12 digitos 
+            votingCard = ("000000000000"+votingCard).slice(-12,-1)+("0"+votingCard).slice(-1);
+            
+            $("#register-votingCard").val(votingCard);
+
       });
       
 jQuery(function($){
@@ -233,12 +350,9 @@ jQuery(function($){
       });
       
 jQuery(function($){
-       $("#register-codeZip").mask("99999-999");
+       $("#register-zipCode").mask("99999-999");
       });
-   
-jQuery(function($){
-       $("#register-birthday").mask("99/99/9999");
-      });     
+      
 };
 
 
@@ -260,24 +374,22 @@ jQuery(function($){
 * Funções invocadas: Nenhuma
 *
 */
-function getAdress() {
+function getAddress() {
       
       var webService = "http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep=";
-      var codeZip = $("#register-codeZip").val();
+      var zipCode = $("#register-zipCode").val();
       
-      if($.trim(codeZip) != ""){
-            $.getScript(webService + codeZip, function(){
+      if($.trim(zipCode) != ""){
+            $.getScript(webService + zipCode, function(){
                   if (resultadoCEP["resultado"]) {
-                        $("#register-adress").val(unescape(resultadoCEP["tipo_logradouro"]) + " " + unescape(resultadoCEP["logradouro"]));
-                        $("#register-neighborhood").val(unescape(resultadoCEP["bairro"]));
-                        $("#register-city").val(unescape(resultadoCEP["cidade"]));
-                        $("#register-state").val(unescape(resultadoCEP["uf"]));
-                        $("#register-error").hide();
+                        $("#register-address").val(unescape(resultadoCEP["tipo_logradouro"]) + " " + unescape(resultadoCEP["logradouro"])).blur();
+                        $("#register-neighborhood").val(unescape(resultadoCEP["bairro"])).blur();
+                        $("#register-city").val(unescape(resultadoCEP["cidade"])).blur();
+                        $("#register-state").val(unescape(resultadoCEP["uf"])).blur();
+                        return 1;
                   }
                   if (resultadoCEP["resultado"] == 0) {
-                        $("#register-error").html(exclamationIcon);
-                        $("#register-error").append(" CEP invalido");
-                        $("#register-error").show();
+                        return 0;
                   } 
             });
       }
@@ -318,10 +430,7 @@ function evalVotingCard(votingCard) {
       state = parseInt(state, 10);
       
       if (votingCard.length != 12 || state < 1 || state > 28) {
-            $("#register-error").html(exclamationIcon);
-            $("#register-error").append(" Título invalido");
-            $("#register-error").show();
-            return false;
+            return 0;
       
       } else {
       
@@ -345,10 +454,7 @@ function evalVotingCard(votingCard) {
             }
             
             if (votingCard[10] != add) {
-                  $("#register-error").html(exclamationIcon);
-                  $("#register-error").append(" Título invalido");
-                  $("#register-error").show();
-                  return false;
+                  return 0;
             }
             
             add *= 2;
@@ -370,13 +476,35 @@ function evalVotingCard(votingCard) {
             }
             
             if (votingCard[11] != add) {
-                  $("#register-error").html(exclamationIcon);
-                  $("#register-error").append(" Título invalido");
-                  $("#register-error").show();
-                  return false;
+                  return 0;
             }
             
             $("#register-error").hide();
-            return true;
+            return 1;
+      }
+};
+
+
+/*
+* Título: Compara senha
+*
+* Autor: Bruno
+* Data de Criação: 06/06/2015
+*
+* Descrição: Compara os campos senha e confirmar senha
+*
+* Funções invocadas: Nenhuma
+*
+*/
+
+function passwordCheck(){
+      
+      var password = $("#register-password").val();
+      var cfmPassword = $("#register-cfmPassword").val();
+      
+      if(password != cfmPassword) {
+            return 0;
+      } else {
+            return 1;
       }
 };

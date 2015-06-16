@@ -17,7 +17,7 @@
             <div class="col-md-12">
               <div class="col-md-12 form-group">
                   <label>Data:</label>
-                  <input type="text" id="register-period" name="register-period" class="form-control">
+                  <input type="date" id="register-period" name="register-period" class="form-control">
               </div>
               <div class="col-md-12 form-group">
                   <label>Início:</label>
@@ -25,7 +25,7 @@
               </div>
               <div class="col-md-12 form-group">
                   <label>Término:</label>
-                  <input type="text" id="register-endTime" name="register-EndTime" class="form-control" maxleght="2">
+                  <input type="text" id="register-endTime" name="register-endTime" class="form-control" maxleght="2">
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
       <!-- Rodapé -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#popup-newElection-type">Avançar</button>
+        <button type="button" id="register_newElection_period_submit" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#popup-newElection-type">Avançar</button>
       </div>
     </div>
   </div>

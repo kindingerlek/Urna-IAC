@@ -17,15 +17,15 @@
             <div class="col-md-12">
               <div class="col-md-12 form-group">
                   <label>Presidente:</label>
-                  <input type="text" id="register-president" name="register-president" class="form-control" value="1" disabled>
+                  <input type="text" id="register-president" name="register-president" class="form-control" value="1" readonly>
               </div>
               <div class="col-md-12 form-group">
                   <label>Governador:</label>
-                  <input type="text" id="register-governor" name="register-governor" class="form-control" value="1" disabled>
+                  <input type="text" id="register-governor" name="register-governor" class="form-control" value="1" readonly>
               </div>
               <div class="col-md-12 form-group">
                   <label>Deputados Federais:</label>
-                  <input type="text" id="register-FederalDeputy" name="register-FederalDeputy" class="form-control">
+                  <input type="text" id="register-federalDeputy" name="register-federalDeputy" class="form-control">
               </div>
               <div class="col-md-12 form-group">
                   <label>Deputados Estaduais:</label>
@@ -35,6 +35,10 @@
                   <label>Senador:</label>
                   <input type="text" id="register-senator" name="register-senator" class="form-control">
               </div>
+              
+              <div class="election-error col-md-12 alert alert-error" style="display:none">
+                  
+              </div>
             </div>
           </div>
       </div>
@@ -43,7 +47,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Fechar</button>
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" data-toggle="modal" data-target="#popup-newElection-type">Voltar</button>
-        <button type="submit" class="btn btn-primary" >Agendar Eleição</button>
+        <button type="submit" id="submit-newElection" class="btn btn-primary" >Agendar Eleição</button>
       </div>
     </div>
   </div>

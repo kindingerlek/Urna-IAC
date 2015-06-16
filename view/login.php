@@ -2,7 +2,11 @@
 <html lang="pt-br">
     <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Login</title>
+    
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=enable_js.php">
+    </noscript>
     
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
@@ -68,9 +72,10 @@
 >>>>>>> origin/master
           
           <!-- Input LOGIN -->
-          <div class="form-group" id="errorLogin">
+          <div class="form-group has-feedback" id="errorLogin">
             <label>CPF:</label>
             <input type="text" class="form-control" id="login-user" name="login-user" placeholder="Digite aqui seu CPF">
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
           </div>
           
           <!-- Input Senha -->
@@ -89,16 +94,25 @@
             <a href="#" data-toggle="modal" data-target="#popup-newUser">Primeiro Acesso?</a>
           </p>
           
-          <!-- Submit -->
+           <!-- Submit -->
           <button type="submit" id="login-submit" class="btn btn-primary btn-block">
             <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  LOGIN
           </button>
         </form>
           
       </div>
-
-      <?php include "recover_password.php" ?>         
-      <?php include "register_new_user.php" ?>
+      
+      <form id="form-recover" method="POST" action="#">
+        <?php include "recover_password.php" ?>
+      </form>
+      
+      <form id="form-pwReset" method="POST" action="#">
+        <?php include "recover_newPassword.php" ?>
+      </form>
+            
+      <form id="form-register" method="POST" action="#">
+        <?php include "register_new_user.php" ?>
+      </form>
 
     <!-- Rodapé da página -->
     <?php include "page_footer.php" ?>

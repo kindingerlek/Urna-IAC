@@ -20,22 +20,17 @@
 * Funções invocadas: @@@@@FUTURA FUNÇÃO DE IBD@@@@@  
 *
 */
-function error($codigo){
+function error($codigo, $conn){
 
-	//Criando conexão com o DB
-	$conn = openDB();
 
 	$sql="SELECT * FROM erros WHERE cod = '$codigo'";
 
 	$result = mysqli_query($conn, $sql);
 
 	$row = mysqli_fetch_assoc($result);
-
-	mysqli_close($conn);
 		
 	//Retornando erro
 	return $row["descricao"];
-	echo $row["descricao"];
 	
 };
 ?>

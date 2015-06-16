@@ -1,5 +1,5 @@
 <!-- Novo Partido -->
-<div class="modal fade" id="popup-newPartity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="popup-newParty" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-lg">
     <div class="modal-content">
       
@@ -11,37 +11,39 @@
       
       <!-- Corpo -->
       <div class="modal-body">
-        <form class="">
+        <form class="" >
           <div class="row">
-            <div class="col-md-6">
-              <div class="col-md-12 form-group">
+            <div class="col-xs-6">
+              <div class="col-xs-12 form-group">
                   <label>Nome:</label>
                   <input type="text" id="register-name" name="register-name" class="form-control">
               </div>
-              <div class="col-md-6 form-group">
+              <div class="col-xs-6 form-group">
                   <label>Sigla:</label>
                   <input type="text" id="register-acronym" name="register-acronym" class="form-control">
               </div>
-              <div class="col-md-6 form-group">
+              <div class="col-xs-6 form-group">
                   <label>Número:</label>
                   <input type="text" id="register-number" name="register-number" class="form-control" maxleght="2">
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="col-md-12 form-group center-block">
+            <div class="col-xs-6">
+              <div class="col-xs-12 form-group center-block">
                 <img src="../resources/images/noimage.png" class="center-block" id="register-logoImage" height="100"/>
                       <br>
                 <div id="disp_tmp_path"></div>
               </div>
               
-               <div class="col-md-12 form-group">
+               <div class="col-xs-12 form-group">
                  <input type="file" id="register-logoInput" name="register-logoInput" accept=".png,.PNG,.jpg,.JPG,.jpeg,.JPEG">
                </div>
                 
             </div>
+            
+            <div id="register-error"  class="col-xs-12 alert alert-danger" role="alert" style="display: none">
+              
+            </div>
           </div>
-          
-          
         </form>
       </div>
                 
