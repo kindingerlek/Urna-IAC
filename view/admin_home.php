@@ -26,11 +26,15 @@
         <a class="btn btn-default btn-lg btn-block" href="admin_manage_election.php" role="button" > Gerenciar Eleições</a>  
       </div>
     
-      <!-- Rodapé da página -->
-      <?php include "page_footer.php" ?>
-      
+    
     <!-- Fim do corpo da página -->
     </div>
+    
+  
+    <!-- Rodapé da página -->
+    <?php include "page_footer.php" ?>
+      
+    
     
     <script>
       var pageTitle = $(document).find("title").text();

@@ -132,12 +132,14 @@
         </form>
         
       </div>
-      
-      <!-- Rodapé da página -->
-      <?php include "page_footer.php" ?>
-      
+     
     <!-- Fim do corpo da página -->
-    </div>     
+    </div> 
+      
+    <!-- Rodapé da página -->
+    <?php include "page_footer.php" ?>
+      
+        
   </body>
   <script type="text/javascript">
   

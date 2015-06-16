@@ -95,12 +95,12 @@
     <form method="POST" action="#" name="form-removeVoter">
       <?php include "status_voter.php" ?>
     </form>
+        
+    <!-- Fim do corpo da Página -->
+    </div>
     
     <!-- Rodapé da página -->
     <?php include "page_footer.php" ?>  
-    
-    <!-- Fim do corpo da Página -->
-    </div>
   </body>
   <script type="text/javascript">
     var pageTitle = $(document).find("title").text();

@@ -36,12 +36,12 @@
           </div>
         </div>
       </div>
-        
-      <!-- Rodapé da página -->
-      <?php include "page_footer.php" ?>
     
     <!-- Fim da página -->
     </div>
+    
+    <!-- Rodapé da página -->
+    <?php include "page_footer.php" ?>
     
   </body>
 </html>

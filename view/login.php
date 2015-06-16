@@ -100,12 +100,11 @@
       <form id="form-register" method="POST" action="#">
         <?php include "register_new_user.php" ?>
       </form>
-
-    <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>
-    
     <!-- Fim da página -->
     </div>
+    
+    <!-- Rodapé da página -->
+    <?php include "page_footer.php" ?>
   </body>
   
   <script type="text/javascript">
