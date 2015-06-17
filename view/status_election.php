@@ -77,14 +77,14 @@
             Não há ações para uma eleição iniciada.
           </div>
         
-          <div id="status-finished" style="display:none" class="col-xs-12">
-            <div class="col-xs-6">
-              <a href="../controller/controller_election_report.php" target="_blank" id="status-report" class="btn btn-primary btn-block"> Resultado</a>
-            </div>
-            
-            <div class="col-xs-6">
-              <a href="../controller/controller_ticket_report.php" target="_blank" id="status-report" class="btn btn-primary btn-block"> Tickets Emitidos</a>
-            </div>
+          <div id="status-finished" style="display:none" class="col-xs-12">          
+              <div class="col-xs-6">
+                <button type="submit" id="status-reportResult" class="btn btn-primary btn-block"> Resultado</button>
+              </div>
+              
+              <div class="col-xs-6">
+                <button type="submit" id="status-reportTickets" class="btn btn-primary btn-block"> Tickets Emitidos</button>
+              </div>
           </div>
           
           &nbsp

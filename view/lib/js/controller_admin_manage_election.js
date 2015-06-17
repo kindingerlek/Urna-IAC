@@ -151,5 +151,37 @@ $(function(){
 		return false;
 		
 	});
+  
+  $("#status-reportResult").click(function(){
+		  var idElection = $("#status-idElection").val();
+
+		  $.ajax({
+                dataType: 'script',
+                data: { 'idElection' : idElection },
+                type: 'POST',
+                url:'../controller/controller_save_election_session.php',
+				  success: function(result)
+                  {
+					  window.location.href = '../controller/controller_election_report.php';
+                  }
+	   	});
+		  return false;
+	});
+  
+  $("#status-reportTickets").click(function(){
+		  var idElection = $("#status-idElection").val();
+
+		  $.ajax({
+                dataType: 'script',
+                data: { 'idElection' : idElection },
+                type: 'POST',
+                url:'../controller/controller_save_election_session.php',
+				  success: function(result)
+                  {
+					  window.location.href = '../controller/controller_ticket_report.php';
+                  }
+	   	});
+		  return false;
+	});
 	
 });
