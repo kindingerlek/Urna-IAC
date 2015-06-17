@@ -30,7 +30,7 @@ class PDF extends FPDF
         $this->Cell(110,8,'SIMULADOR VOTE BEM',1,0,'C');
         
         // Line break
-        $this->Ln(10);
+        $this->Ln(20);
     }
     
     // Page footer
@@ -65,14 +65,6 @@ $votes = select('votos', 'idEleicao', $idElection, $conn); 			//Buscando tabela 
 *
 */
 
-$positions = mysqli_fetch_assoc($positions);
-foreach($positions as $office=>$value){
-	$totalVotes[$office]=0;
-	$nullVotes[$office]=0;
-	$emptyVotes[$office]=0;
-	$validVotes[$office]=0;
-}
-
 while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da tabela de votos
 	
 											
@@ -80,9 +72,12 @@ while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da t
 	$office = $vote['tipo'];							//Recuperando tipo do candidato votado
 	$party = $vote['idPartido'];							//Recuperando o partido votado
 	
-	
-	$totalVotes[$office]++;								//Total de votos registrados por cargo que deve ser exatamente igual a quantidade de ticket, ou seja, o total de eleitores que votaram
-	
+	if(isset($totalVotes[$office])){
+		$totalVotes[$office]++;								//Total de votos registrados por cargo que deve ser exatamente igual a quantidade de ticket, ou seja, o total de eleitores que votaram
+	}else
+	{
+		$totalVotes[$office]=1;	
+	}
 	
 	if($candidate == -1)
 	{
@@ -91,9 +86,15 @@ while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da t
 		$emptyVotes[$office]++;							//Total de votos em branco por cargo
 	}else
 	{
+		if(isset($validVotes[$office]))
+		{
+			$validVotes[$office]++;		//Total de votos válidos por cargo
+		}						
+		else{
+			$validVotes[$office]=1;	
+		}
 		
-		$validVotes[$office]++;		//Total de votos válidos por cargo		
-		
+
 		if(isset($votedCandidates[$candidate]))
 		{
 			$votedCandidates[$candidate]++;					//Total de votos de cada candidato
@@ -110,6 +111,7 @@ while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da t
 		{
 			$votedParties[$party][$office] =1;	
 		}			
+														//recebe por tipo de candidatO
 	}
 }
 
@@ -151,44 +153,29 @@ while($candidate = mysqli_fetch_assoc($candidatos))
 {
 
 	if($lastCandidate != $candidate['tipo'])
-	{
-		$lastCandidate = $candidate['tipo'];
+		$pdf->SetFont('Arial','B',10); 
+		$pdf->Cell(40,7,'CARGO',1,0);
+		$pdf->Cell(30,7,'VOTOS NULOS',1,0);
+		$pdf->Cell(60,7,'VOTOS BRANCOS',1,0);  
+		$pdf->Cell(30,7,utf8_encode('VOTOS VÁLIDOS'),1,0);
+		$pdf->Cell(30,7,'TOTAL DE VOTOS',1,1);
+		$pdf->Cell(40,7,$candidate['tipo'],1,0);
+		$pdf->Cell(30,7,$nullVotes[$candidate['tipo'],1,0);
+		$pdf->Cell(60,7,$emptyVotes[$candidate['tipo'],1,0);  
+		$pdf->Cell(30,7,$validVotes[$candidate['tipo'],1,0);
+		$pdf->Cell(30,7,$totalVotes[$candidate['tipo']],1,1);
 
-			$pdf->Ln(14);
-
-			
-
-				$pdf->SetFont('Arial','B',14);
-
-				$pdf->SetFillColor(230, 230, 230);
-				$pdf->Cell(190,10,$candidate['tipo'],1,1, 'C', 1);
-				$pdf->SetFillColor(255, 255, 255);
-				
-				$pdf->SetFont('Arial','B',10);
-				$pdf->Cell(40,7,'VOTOS NULOS',1,0, 'C');
-				$pdf->Cell(50,7,'VOTOS BRANCOS',1,0, 'C');  
-				$pdf->Cell(50,7,utf8_decode('VOTOS VÁLIDOS'),1,0, 'C');
-				$pdf->Cell(50,7,'TOTAL DE VOTOS',1,1, 'C');
-				
-				$pdf->SetFont('Arial','',8);
-				$pdf->Cell(40,7,$nullVotes[$candidate['tipo']],1,0,'C');
-				$pdf->Cell(50,7,$emptyVotes[$candidate['tipo']],1,0,'C');  
-				$pdf->Cell(50,7,$validVotes[$candidate['tipo']],1,0,'C');
-				$pdf->Cell(50,7,$totalVotes[$candidate['tipo']],1,1,'C');
 		
-		$pdf->Ln(3);
-				
-				$pdf->SetFont('Arial','B',10); 
-				$pdf->Cell(20,7,'NUMERO',1,0, 'C');
-		 		$pdf->Cell(100,7,'NOME FANTASIA',1,0, 'C');  
-				$pdf->Cell(30,7,'PARTIDO',1,0, 'C');
-		 		$pdf->Cell(20,7,'VOTOS',1,0, 'C'); 
-		 		$pdf->Cell(20,7,'STATUS',1,1, 'C');
-
-	}
+		
+		$pdf->SetFont('Arial','B',10); 
+ 		$pdf->Cell(40,7,'CARGO',1,0);
+		$pdf->Cell(20,7,'NUMERO',1,0);
+ 		$pdf->Cell(60,7,'NOME FANTASIA',1,0);  
+		$pdf->Cell(30,7,'PARTIDO',1,0);
+ 		$pdf->Cell(20,7,'VOTOS',1,0); 
+ 		$pdf->Cell(20,7,'STATUS',1,1);
 
 	$vagas[$candidate['tipo']]--;
-
 	if($vagas[$candidate['tipo']]>=0)
 	{
 		$status = "ELEITO";
@@ -202,11 +189,11 @@ while($candidate = mysqli_fetch_assoc($candidatos))
 	$candidate['status'] = $status;
 
 	$pdf->SetFont('Arial','',8); 
-
-	$pdf->Cell(20,7,utf8_decode($candidate['idCandidato']),1,0,'C',1);
-	$pdf->Cell(100,7,utf8_decode($candidate['nomeFantasia']),1,0,'L',1);  
+	$pdf->Cell(40,7,utf8_decode($candidate['tipo']),1,0,'L',1);
+	$pdf->Cell(20,7,utf8_decode($candidate['idCandidato']),1,0,'L',1);
+	$pdf->Cell(60,7,utf8_decode($candidate['nomeFantasia']),1,0,'L',1);  
 	$pdf->Cell(30,7,utf8_decode($candidate['idPartido']),1,0,'C',1);
-	$pdf->Cell(20,7,utf8_decode($candidate['votos']),1,0,'C',1); 
+	$pdf->Cell(20,7,utf8_decode($candidate['votos']),1,0,'R',1); 
 	$pdf->Cell(20,7,$candidate['status'],1,1,'C',1); 
 
 }
