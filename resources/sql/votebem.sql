@@ -199,13 +199,13 @@ INSERT INTO `usuarios` (`cpf`, `numero`, `email`, `cep`, `complemento`, `nome`, 
 
 CREATE TABLE IF NOT EXISTS `vagas` (
   `idEleicao` bigint(20) unsigned DEFAULT NULL,
-  `presidente` varchar(5) NOT NULL DEFAULT '0',
-  `governador` varchar(5) NOT NULL DEFAULT '0',
-  `prefeito` varchar(5) NOT NULL DEFAULT '0',
-  `senador` varchar(5) NOT NULL DEFAULT '0',
-  `deputadoFederal` varchar(5) NOT NULL DEFAULT '0',
-  `deputadoEstadual` varchar(5) NOT NULL DEFAULT '0',
-  `vereador` varchar(5) NOT NULL DEFAULT '0',
+  `PREFEITO` varchar(5) NOT NULL DEFAULT '0',
+  `GOVERNADOR` varchar(5) NOT NULL DEFAULT '0',
+  `PRESIDENTE` varchar(5) NOT NULL DEFAULT '0',
+  `SENADOR` varchar(5) NOT NULL DEFAULT '0',
+  `DEPUTADO ESTADUAL` varchar(5) NOT NULL DEFAULT '0',
+  `DEPUTADO FEDERAL` varchar(5) NOT NULL DEFAULT '0',
+  `VEREADOR` varchar(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idEleicao`),
   KEY `fkVagasEleicoes` (`idEleicao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
