@@ -146,11 +146,10 @@
        </div>
       <!-- Fim do corpo da página -->
       </div>
+      </div>  
       
       <!-- Rodapé da página -->
       <?php include "page_footer.php" ?>
-      </div>  
-    
     <script>
       var pageTitle = $(document).find("title").text();
       

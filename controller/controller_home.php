@@ -23,7 +23,7 @@ require_once($root.'model/verify/verify_admin_logged.php');
      header("refresh:0;url=../view/admin_home.php");
   
   else if(verifyVoterLogged() == 1)
-	   header("refresh:0;url=../view/voter_urn.php");
+	   header("refresh:0;url=../view/login.php");
      
   else
     header("refresh:0;url=../index.php");
