@@ -122,11 +122,18 @@ $(function(){
 	
 	$("#status-update").click(function(){
 		var idElection = $("#status-idElection").val();
+		var period = $("#status-period").val();
+		var startTime = $("#status-startTime").val();
+		var endTime = $("#status-endTime").val();
+		
 		$.ajax({
                   dataType: 'script',
-                  data: { 'idElection' : idElection },
+                  data: { 'idElection' : idElection,
+                  'period' : period,
+                  'startTime' : startTime,
+                  'endTime' : endTime },
                   type: 'POST',
-                  url:'../controller/controller_register_election/controller_register_election.php'
+                  url:'../controller/controller_update_election.php'
 		});
 		
 		return false;

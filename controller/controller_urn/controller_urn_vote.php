@@ -60,7 +60,7 @@ $vote["office"] = $_POST["office"];	// Pega o tipo do candidato
 
 
 $vote = validateVote($vote,$conn);     // Valida o voto verificando se ele foi branco ou nulo ou legenda
-echo ('alert('.$vote["idCandidate"].');');
+
 
 insertVote($vote,$conn);
 
@@ -74,7 +74,7 @@ $i=0;
 for ($i=0; $i<count($electionOffices); $i++) { 
 	if($electionOffices[$i]){
 		$electionOffices[$i]=false;
-		echo("alert('false');");
+	
 		break;
 	}
 }

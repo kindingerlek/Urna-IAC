@@ -52,7 +52,7 @@ $pdf->AddPage();
 
 
 
-$idElection = 5;  //$_SESSION['votebem']['election'];		//Recebendo dados via Post
+$idElection = 1;  //$_SESSION['votebem']['election'];		//Recebendo dados via Post
 
 $conn = openDB(); 	//Criando conexão com o Banco de Dados
 
@@ -134,42 +134,42 @@ $votes = select('votos', 'idEleicao', $idElection, $conn); 			//Buscando tabela 
 
 
 
-$sql = "SELECT usuarios.*,eleicoes.* from ticket inner join usuarios on `usuarios.cpf` = `ticket.cpf` inner join eleicoes on `eleicoes.idEleicao` = `ticket.idEleicao`;";
-$ticket = mysqli_query($conn, $sql);
-
+$sql = "SELECT usuarios.*,eleicoes.*, ticket.data from ticket inner join usuarios on usuarios.cpf = ticket.cpf inner join eleicoes on eleicoes.idEleicao = '$idElection';";
+$tickets = mysqli_query($conn, $sql);
 
 //Header Table
  
 
-// $pdf->SetFont('Arial','',8); 
+ 
 // $pdf->Cell(40,7,'oi',1,0); 
 
 //print_r($vagas);
 $pdf->SetFont('Arial','',12);
     
-    $pdf->Cell(0,7,utf8_decode('CODIGO DA ELEIÇÃO');
-    $pdf->Cell(0,7,utf8_decode('DATA DA ELEIÇÃO'); 
+    $pdf->Cell(0,7,utf8_decode('CODIGO DA ELEIÇÃO: '.$idElection));
+
+
     
-    $pdf->Ln(30);    
+    $pdf->Ln(15);    
       
-    $pdf->Cell(20,7,'NUMERO',1,0, 'C');
+    $pdf->SetFont('Arial','B',8);
+    $pdf->Cell(25,7,utf8_decode('INSCRIÇÃO'),1,0,'C');
+    $pdf->Cell(70,7,'NOME DO ELEITOR',1,0,'C');    
+    $pdf->Cell(20,7,'NASC',1,0,'C');
+    $pdf->Cell(20,7,'ZONA',1,0,'C');
+    $pdf->Cell(20,7, utf8_decode('SESSÃO'),1,0,'C');
+    $pdf->Cell(35,7,'COMPARECIMENTO',1,1,'C'); 
 
-    $pdf->Cell(30,10,utf8_decode('INSCRIÇÃO',1,0,'C');
-    $pdf->Cell(100,10,'NOME DO ELEITOR',1,0,'C');    
-    $pdf->Cell(30,10,'NASCIMENTO',1,0,'C');
-    $pdf->Cell(30,10,'ZONA',1,0,'C');
-    $pdf->Cell(30,10, utf8_decode('SESSÃO',1,0,'C');
-    $pdf->Cell(30,10,'COMPARECIMENTO',1,1,'C'); 
-
-while($user = mysqli_fetch_assoc($user))
+while($ticket = mysqli_fetch_assoc($tickets))
 {
 
-	$pdf->Cell(30,10,utf8_decode($ticket['tituloEleitor'],1,0,'C');
-    $pdf->Cell(100,10,$ticket['nome'],1,0,'C');    
-    $pdf->Cell(30,10,$ticket['dtNasc'],1,0,'C');
-    $pdf->Cell(30,10,$ticket['zona'],1,0,'C');
-    $pdf->Cell(30,10, utf8_decode($ticket['sessao'],1,0,'C');
-    $pdf->Cell(30,10,$ticket['data'],1,1,'C'); 
+    $pdf->SetFont('Arial','',8);
+	$pdf->Cell(25,7,utf8_decode($ticket['tituloEleitor']),1,0,'C');
+    $pdf->Cell(70,7,$ticket['nome'],1,0,'L');    
+    $pdf->Cell(20,7,$ticket['dtNasc'],1,0,'C');
+    $pdf->Cell(20,7,$ticket['zona'],1,0,'C');
+    $pdf->Cell(20,7, utf8_decode($ticket['secao']),1,0,'C');
+    $pdf->Cell(35,7,$ticket['data'],1,1,'C'); 
 	
 
 }

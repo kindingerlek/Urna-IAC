@@ -22,16 +22,20 @@
 *   
 */
 
-function updateParty($party,$conn)
+function updateElection($election,$conn)
 {
-	$idParty = $party['idParty'];	  
-	$name = $party['name'];
-	$acronym = $party['acronym'];
-	
+	$startTime = $election['register-startTime'];	  
+	$endTime = $election['register-endTime'];
+	$date = $election['register-period'];
+	$idElection = $election['register-idElection'];
 
-	$sql="UPDATE `partidos` SET  `nome`='$name', `sigla`='$acronym'  
-	WHERE `idPartido`='$idParty';";
+	$sql="UPDATE `eleicoes` SET 
+	`horaInicio`='$startTime',
+	`data`='$date',
+	`horaFim`='$endTime'
+	 WHERE `idEleicao`= $idElection;";
+	 
+	 
 	mysqli_query($conn,$sql);
-
 }
 ?>
