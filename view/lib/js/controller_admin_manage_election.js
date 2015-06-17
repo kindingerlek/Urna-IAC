@@ -169,7 +169,7 @@ $(function(){
                 url:'../controller/controller_save_election_session.php',
 				  success: function(result)
                   {
-					  window.location.href = '../controller/controller_election_report.php';
+					  window.open('../controller/controller_election_report.php','_blank');
                   }
 	   	});
 		  return false;
@@ -185,7 +185,7 @@ $(function(){
                 url:'../controller/controller_save_election_session.php',
 				  success: function(result)
                   {
-					  window.location.href = '../controller/controller_ticket_report.php';
+					 window.open('../controller/controller_ticket_report.php','_blank');
                   }
 	   	});
 		  return false;
