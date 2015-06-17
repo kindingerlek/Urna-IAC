@@ -78,7 +78,13 @@
           </div>
         
           <div id="status-finished" style="display:none" class="col-xs-12">
-            <button type="button" id="status-report" class="btn btn-primary btn-block"> Ver Relatórios</button>
+            <div class="col-xs-6">
+              <a href="../controller/controller_election_report.php" target="_blank" id="status-report" class="btn btn-primary btn-block"> Resultado</a>
+            </div>
+            
+            <div class="col-xs-6">
+              <a href="../controller/controller_ticket_report.php" target="_blank" id="status-report" class="btn btn-primary btn-block"> Tickets Emitidos</a>
+            </div>
           </div>
           
           &nbsp

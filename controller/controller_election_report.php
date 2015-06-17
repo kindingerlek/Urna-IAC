@@ -52,7 +52,7 @@ $pdf->AddPage();
 
 
 
-$idElection = 5;  //$_POST['idElection'];		//Recebendo dados via Post
+$idElection = 1;  //$_POST['idElection'];		//Recebendo dados via Post
 
 $conn = openDB(); 	//Criando conexão com o Banco de Dados
 
