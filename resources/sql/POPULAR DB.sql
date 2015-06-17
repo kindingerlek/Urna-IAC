@@ -121,8 +121,8 @@ INSERT INTO `tipos` (`tipo`) VALUES
 INSERT INTO `partidos` 
 (`idPartido`, `nome`, `sigla`, `logo`) VALUES
 (       '26', 'PARTIDO HOLLYDIANO'          , 'PH'  , '../resources/party_logo/26.jpg'),
-(       '43', 'PARTIDO DA TURMA DO CRASH'   , 'PTC' , '../resources/party_logo/43.jpg'),
-(       '21', 'PARTIDO DA TURMA DO MARIO'   , 'PTM' , '../resources/party_logo/21.jpg'),
+(       '21', 'PARTIDO DA TURMA DO CRASH'   , 'PTC' , '../resources/party_logo/43.jpg'),
+(       '43', 'PARTIDO DA TURMA DO MARIO'   , 'PTM' , '../resources/party_logo/21.jpg'),
 (       '88', 'PARTIDO DA MARVEL'           , 'PRB' , '../resources/party_logo/88.jpg');
 
 
