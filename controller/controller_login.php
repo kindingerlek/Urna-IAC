@@ -51,7 +51,7 @@ switch($return){
 	      session_start(); 
   		} 
       
-  
+      $_SESSION["votebem"]['cpf'] = $id;
   		$_SESSION["votebem"]['type'] = $row["tipo"];
   		$_SESSION["votebem"]['election'] = $row["idEleicao"];
   		$_SESSION["votebem"]['electionDate'] = $row["data"];

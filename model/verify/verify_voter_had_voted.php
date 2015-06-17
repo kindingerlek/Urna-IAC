@@ -30,7 +30,7 @@
     $conn = openDB();
     $return = false;                              //variável que armazenará o retorno;
     
-    $cpf = preg_replace('/[^0-9]/', '', $cpf);;   //Elemina qualquer coisa que seja diferente de numeros
+    $cpf = preg_replace('/[^0-9]/', '', $cpf);   //Elemina qualquer coisa que seja diferente de numeros
     
     $sql = "SELECT * FROM `ticket` WHERE `cpf` = '$cpf' AND `idEleicao` = '$idElection'";    
     
