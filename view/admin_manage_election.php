@@ -234,33 +234,6 @@
         for(var i=0; i < inputs.length; i++)
           $(inputs[i]).prop('readonly', true);
       }
-      
-      
-      
-      $("#status-manageCandidates").click(
-      function()
-      {
-        alert("Aqui vem o ajax do gerenciamento da eleição.");
-      });
-      
-      $("#status-update").click(
-      function()
-      {
-        alert("Aqui vem o ajax para atualizar a eleição.");
-      });
-      
-      $("#status-remove").click(
-      function()
-      {
-        alert("Aqui vem o ajax para remover a eleição.");
-      });
-        
-      $("#status-report").click(
-      function()
-      {
-        alert("Aqui vem o ajax para gerar o relatório.");
-      });
-      
-      
+            
     </script>
 </html>    
