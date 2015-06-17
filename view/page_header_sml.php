@@ -1,6 +1,6 @@
 <!-- Cabeçalho da página -->  
 <div class="page-header-sml">
-  <a href="login.php">
+  <a href="../controller/controller_home.php">
   <div style="float:left; width:40%; height:100%;">
     <img src="../resources/images/votebem_logo_sml.png" id="header-logo"/>
     <h1>Vote Bem</h1>
