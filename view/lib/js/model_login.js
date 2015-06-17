@@ -236,6 +236,31 @@ function checkFieldNum(field){
       }
 };
 
+/*
+* Título: checkFieldZipCode
+*
+* Autor: Bruno
+* Data de Criação: 06/06/2015
+*
+* Descrição: Checa se um campo de CEP está preenchidos corretamente
+*
+* Funções invocadas: Nenhuma
+*
+*/
+
+function checkFieldZipCode(field){
+      
+      var num = field.val();
+      
+      if(num == '' ){
+            return 2;
+      } else if(!(num.match(/^[0-9 -]+$/i)) || num < 1) {
+            return 0;
+      } else {
+            return 1;
+      }
+};
+
 
 /*
 * Título: checkFieldPassword
@@ -261,6 +286,32 @@ function checkFieldPassword(field){
             return 1;
       }
 };
+
+/*
+* Título: checkFieldAdress
+*
+* Autor: Bruno
+* Data de Criação: 10/06/2015
+*
+* Descrição: Checa se o campo do tipo endereço está preenchidos corretamente
+*
+* Funções invocadas: Nenhuma
+*
+*/
+
+function checkFieldAdress(field){
+      
+      var password = field.val();
+
+      if(password == ''){
+            return 2;
+      } else if(!(password.match(/^[a-zA-Z0-9 /\ .]+$/i))) {
+            return 0;
+      } else {
+            return 1;
+      }
+};
+
 /*
 * Título: changeFieldState
 *
@@ -293,7 +344,7 @@ function changeFieldState(field, state){
 };
 
 /*
-* Título: Criar máscaras
+* Título:createMasks
 *
 * Autor: Bruno
 * Data de Criação: 04/06/2015
@@ -358,7 +409,7 @@ jQuery(function($){
 
 
 /*
-* Título: Preenchimento de endereço automático
+* Título: getAdress
 *
 * Autor: http://www.oficinadanet.com.br/
 *
@@ -397,7 +448,7 @@ function getAddress() {
 
 
 /*
-* Título: Validador de Títuo de Eleitor
+* Título: evalVotingCard
 *
 * Autor: Carlos
 * Data de Criação: 04/06/2015
@@ -486,7 +537,7 @@ function evalVotingCard(votingCard) {
 
 
 /*
-* Título: Compara senha
+* Título: passwordCheck
 *
 * Autor: Bruno
 * Data de Criação: 06/06/2015
