@@ -79,10 +79,10 @@ while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da t
 		$totalVotes[$office]=1;	
 	}
 	
-	if($candidate == -1)
+	if($candidate == 1 || $candidate == 3)
 	{
 		$nullVotes[$office]++; 							//Total de votos nulos por cargo 
-	}else if ($candidate == -2){
+	}else if ($candidate == 2){
 		$emptyVotes[$office]++;							//Total de votos em branco por cargo
 	}else
 	{
