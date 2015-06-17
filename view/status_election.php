@@ -87,7 +87,7 @@
               </div>
           </div>
           
-          <div id="status-error" style="display:none" class="col-xs-12">
+          <div id="status-error" style="display:none" class="col-xs-12 alert alert-danger">
           </div>
           
           &nbsp
