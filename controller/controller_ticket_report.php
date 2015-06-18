@@ -1,7 +1,7 @@
 
 
 <?php
-$title = 'RELATÓRIO DE ELEIÇÃO';
+$title = 'RELATÓRIO DE ELEITORES';
 
 require_once('../model/pdf_template/PDF.php'); 
 require_once('../model/open_db/open_db.php');
