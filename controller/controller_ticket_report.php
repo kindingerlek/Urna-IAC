@@ -51,8 +51,8 @@ $pdf->AliasNbPages();
 $pdf->AddPage();
 
 
-
-$idElection = 1;  //$_SESSION['votebem']['election'];		//Recebendo dados via Post
+session_start();
+$idElection = $_SESSION['votebem']['idElection'];		//Recebendo dados via Post
 
 $conn = openDB(); 	//Criando conexão com o Banco de Dados
 
@@ -61,119 +61,53 @@ $election = select('eleicoes', 'idEleicao', $idElection, $conn);		//Buscando dad
 $positions = select('vagas', 'idEleicao', $idElection, $conn);  		//Buscando número de vagas
 $votes = select('votos', 'idEleicao', $idElection, $conn); 			//Buscando tabela de votos
 
-/*
-*
-*/
 
-// while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da tabela de votos
-	
-											
-// 	$candidate = $vote['idCandidato'];					//Recuperando o número votado
-// 	$office = $vote['tipo'];							//Recuperando tipo do candidato votado
-// 	$party = $vote['idPartido'];							//Recuperando o partido votado
-	
-// 	if(isset($totalVotes[$office])){
-// 		$totalVotes[$office]++;								//Total de votos registrados por cargo que deve ser exatamente igual a quantidade de ticket, ou seja, o total de eleitores que votaram
-// 	}else
-// 	{
-// 		$totalVotes[$office]=1;	
-// 	}
-	
-// 	if($candidate == 1 || $candidate == 3)
-// 	{
-// 		$nullVotes[$office]++; 							//Total de votos nulos por cargo 
-// 	}else if ($candidate == 2){
-// 		$emptyVotes[$office]++;							//Total de votos em branco por cargo
-// 	}else
-// 	{
-// 		if(isset($validVotes[$office]))
-// 		{
-// 			$validVotes[$office]++;		//Total de votos válidos por cargo
-// 		}						
-// 		else{
-// 			$validVotes[$office]=1;	
-// 		}
-		
-
-// 		if(isset($votedCandidates[$candidate]))
-// 		{
-// 			$votedCandidates[$candidate]++;					//Total de votos de cada candidato
-// 		}else
-// 		{
-// 			$votedCandidates[$candidate]=1;	
-// 		}						
-	
-
-// 		if(isset($votedParties[$party][$office])){
-
-// 			$votedParties[$party][$office]++;				//Incrementando o numero de votos que cada partido 
-// 		}else
-// 		{
-// 			$votedParties[$party][$office] =1;	
-// 		}			
-// 														//recebe por tipo de candidatO
-// 	}
-// }
-
-
-// $candidates = select('candidatos', 'idEleicao', $idElection, $conn);    	//Buscando todos os candidatos de uma eleição
-
-// while($candidate = mysqli_fetch_assoc($candidates)){					//Iterando em cada instância da tabela de candidatos
-	
-// 	$number = $candidate['idCandidato'];								//Identificando o candidato
-	
-// 	if(isset($votedCandidates[$number]))
-// 		if($candidate['votos'] != $votedCandidates[$number]){				//Verificando se o número de votos computados ao candidato
-// 																			//confere com o número de aparições do mesmo na tabela votos
-			
-// 			//aqui o sistema explode! E o FBI decreta o "VoteBem" como sujeito a corrupção;											
-// 		}
-
-// }
-
-
-
-
-$sql = "SELECT usuarios.*,eleicoes.*, ticket.data from ticket inner join usuarios on usuarios.cpf = ticket.cpf inner join eleicoes on eleicoes.idEleicao = '$idElection';";
-$tickets = mysqli_query($conn, $sql);
-
-//Header Table
- 
-
- 
-// $pdf->Cell(40,7,'oi',1,0); 
-
-//print_r($vagas);
-$pdf->SetFont('Arial','',12);
-    
-    $pdf->Cell(0,7,utf8_decode('CODIGO DA ELEIÇÃO: '.$idElection));
-
-
-    
-    $pdf->Ln(15);    
-      
-    $pdf->SetFont('Arial','B',8);
-    $pdf->Cell(25,7,utf8_decode('INSCRIÇÃO'),1,0,'C');
-    $pdf->Cell(70,7,'NOME DO ELEITOR',1,0,'C');    
-    $pdf->Cell(20,7,'NASC',1,0,'C');
-    $pdf->Cell(20,7,'ZONA',1,0,'C');
-    $pdf->Cell(20,7, utf8_decode('SESSÃO'),1,0,'C');
-    $pdf->Cell(35,7,'COMPARECIMENTO',1,1,'C'); 
-
-while($ticket = mysqli_fetch_assoc($tickets))
+$sql = "SELECT usuarios.*,eleicoes.*, ticket.data from ticket inner join usuarios on usuarios.cpf = ticket.cpf inner join eleicoes on eleicoes.idEleicao = '$idElection' WHERE ticket.idEleicao = eleicoes.idEleicao;";
+if(mysqli_query($conn, $sql))
 {
+    $tickets = mysqli_query($conn, $sql);
 
-    $pdf->SetFont('Arial','',8);
-	$pdf->Cell(25,7,utf8_decode($ticket['tituloEleitor']),1,0,'C');
-    $pdf->Cell(70,7,$ticket['nome'],1,0,'L');    
-    $pdf->Cell(20,7,$ticket['dtNasc'],1,0,'C');
-    $pdf->Cell(20,7,$ticket['zona'],1,0,'C');
-    $pdf->Cell(20,7, utf8_decode($ticket['secao']),1,0,'C');
-    $pdf->Cell(35,7,$ticket['data'],1,1,'C'); 
-	
+    //Header Table
+     
 
+     
+    // $pdf->Cell(40,7,'oi',1,0); 
+
+    //print_r($vagas);
+    $pdf->SetFont('Arial','',12);
+        
+        $pdf->Cell(0,7,utf8_decode('CODIGO DA ELEIÇÃO: '.$idElection));
+
+
+        
+        $pdf->Ln(15);    
+          
+        $pdf->SetFont('Arial','B',8);
+        $pdf->Cell(25,7,utf8_decode('INSCRIÇÃO'),1,0,'C');
+        $pdf->Cell(70,7,'NOME DO ELEITOR',1,0,'C');    
+        $pdf->Cell(20,7,'NASC',1,0,'C');
+        $pdf->Cell(20,7,'ZONA',1,0,'C');
+        $pdf->Cell(20,7, utf8_decode('SESSÃO'),1,0,'C');
+        $pdf->Cell(35,7,'COMPARECIMENTO',1,1,'C'); 
+
+    while($ticket = mysqli_fetch_assoc($tickets))
+    {
+
+        $pdf->SetFont('Arial','',8);
+    	$pdf->Cell(25,7,utf8_decode($ticket['tituloEleitor']),1,0,'C');
+        $pdf->Cell(70,7,$ticket['nome'],1,0,'L');    
+        $pdf->Cell(20,7,$ticket['dtNasc'],1,0,'C');
+        $pdf->Cell(20,7,$ticket['zona'],1,0,'C');
+        $pdf->Cell(20,7, utf8_decode($ticket['secao']),1,0,'C');
+        $pdf->Cell(35,7,$ticket['data'],1,1,'C'); 
+    	
+
+    }
+    $pdf->Output();
+}else
+{
+    echo("alert('Nenhum dado nesta eleição!')");
 }
-$pdf->Output();
 	//sql office
 	//query
 	//insere linha a linha em $table

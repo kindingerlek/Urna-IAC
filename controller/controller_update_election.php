@@ -19,6 +19,10 @@ $root = 'c:/wamp/www/Urna-IAC/';
 require_once($root.'model/open_db/open_db.php');
 
 //Open Db
+require_once($root.'model/error/error.php');
+
+
+//Open Db
 require_once($root.'model/update/update_election.php');
 
 //Open Db
@@ -51,6 +55,8 @@ if(is_array($error))
 {
 	updateElection($election,$conn);
 	echo("alert('Registro Atualizado!');");
+	echo("location.reload();");
+	
 }
 
 mysqli_close($conn);
