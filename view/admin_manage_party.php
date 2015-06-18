@@ -39,7 +39,7 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content brd">
@@ -88,11 +88,11 @@
         </table>
         
         <form method = "POST" action ="#" enctype="multipart/form-data" id="form-register-party">
-          <?php include "register_party.php" ?>
+          <?php include "includes/modal/register/register_party.php" ?>
         </form>
         
         <form method="POST" action="#" name="form-removeParty">
-          <?php include "status_party.php" ?>
+          <?php include "includes/modal/status/status_party.php" ?>
         </form>
         
       </div>
@@ -101,7 +101,7 @@
     </div>
     
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>
+    <?php include "includes/footer/page_footer.php" ?>
          
   </body>
   <script type="text/javascript">

@@ -16,26 +16,24 @@
             <div class="col-xs-6">
               <div class="col-xs-12 form-group">
                   <label>Nome:</label>
-                  <input type="text" id="register-name" name="register-name" class="form-control">
+                  <input type="text" id="register-name" name="register-name" class="form-control" required>
               </div>
               <div class="col-xs-6 form-group">
                   <label>Sigla:</label>
-                  <input type="text" id="register-acronym" name="register-acronym" class="form-control">
+                  <input type="text" id="register-acronym" name="register-acronym" class="form-control" required>
               </div>
               <div class="col-xs-6 form-group">
                   <label>Número:</label>
-                  <input type="text" id="register-number" name="register-number" class="form-control" maxleght="2">
+                  <input type="text" id="register-number" name="register-number" class="form-control" maxleght="2" required>
               </div>
             </div>
             <div class="col-xs-6">
               <div class="col-xs-12 form-group center-block">
                 <img src="../resources/images/noimage.png" class="center-block" id="register-logoImage" height="100"/>
-                      <br>
-                <div id="disp_tmp_path"></div>
               </div>
               
                <div class="col-xs-12 form-group">
-                 <input type="file" id="register-logoInput" name="register-logoInput" accept=".png,.PNG,.jpg,.JPG,.jpeg,.JPEG">
+                 <input type="file" id="register-logoInput" name="register-logoInput" accept=".jpg,.JPG" required>
                </div>
                 
             </div>

@@ -48,15 +48,13 @@
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Nome:</label>
-                <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Nome do candidado">
+                <input type="text" id="register-name" name="register-name" class="form-control" placeholder="Nome do candidado"  required>
               </div>
               
               <!-- Input Nome -->
               <div class="form-group">
                 <label>Partido:</label>
-                <select id="register-party" name="register-party" class="input-large form-control">
-                  <option value="0"> Selecione um partido</option>
-                  
+                <select id="register-party" name="register-party" class="input-large form-control">                  
                   <?php
                     require_once "../model/open_db/open_db.php";
                     require_once "../model/select/select.php";
@@ -84,7 +82,7 @@
               <div class="form-group">
                 <label>Numero:</label>
 
-                <input type="text" id="register-number" name="register-number" class="form-control" placeholder="">
+                <input type="text" id="register-number" name="register-number" class="form-control" placeholder="" required>
 
               </div>
               
@@ -98,7 +96,7 @@
              </div>
               
              <div class="col-md-12 form-group">
-               <input type="file" id="register-photoInput" name="register-photoInput" accept=".png,.PNG,.jpg,.JPG,.jpeg,.JPEG">
+               <input type="file" id="register-photoInput" name="register-photoInput" accept=",.jpg,.JPG">
              </div>
             
            </div>

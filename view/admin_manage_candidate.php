@@ -39,7 +39,7 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "include/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -90,11 +90,11 @@
         </table>
      
      <form method ="POST" action ="#" enctype="multipart/form-data" id="form-register-candidate">
-       <?php include "register_candidate.php" ?>
+       <?php include "includes/modal/register/register_candidate.php" ?>
      </form>
      
      <form method="POST" action="#" name="form-removeCandidade">
-      <?php include "status_candidate.php"?>
+      <?php include "includes/modal/status/status_candidate.php"?>
      </form>
      
      </div>
@@ -106,7 +106,7 @@
     
     
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?> 
+    <?php include "includes/footer/page_footer.php" ?> 
     
   </body>
   <script type="text/javascript">

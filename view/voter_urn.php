@@ -23,7 +23,7 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
       <?php include "c://wamp/www/Urna-IAC/model/identify_office/identify_office.php" ?>
             
       <!-- Conteúdo da página -->
@@ -149,7 +149,7 @@
       </div>  
       
       <!-- Rodapé da página -->
-      <?php include "page_footer.php" ?>
+      <?php include "includes/footer/page_footer.php" ?>
     <script>
       var pageTitle = $(document).find("title").text();
       

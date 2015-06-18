@@ -52,7 +52,7 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->
-      <?php include "page_header_big.php" ?>
+      <?php include "includes/header/page_header_big.php" ?>
       
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -90,21 +90,21 @@
       </div>
       
       <form id="form-recover" method="POST" action="#">
-        <?php include "recover_password.php" ?>
+        <?php include "includes/modal/recover/recover_password.php" ?>
       </form>
       
       <form id="form-pwReset" method="POST" action="#">
-        <?php include "recover_newPassword.php" ?>
+        <?php include "includes/modal/recover/recover_newPassword.php" ?>
       </form>
             
       <form id="form-register" method="POST" action="#">
-        <?php include "register_new_user.php" ?>
+        <?php include "includes/modal/register/register_new_user.php" ?>
       </form>
     <!-- Fim da página -->
     </div>
     
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>
+    <?php include "includes/footer/page_footer.php" ?>
   </body>
   
   <script type="text/javascript">

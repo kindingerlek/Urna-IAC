@@ -28,19 +28,19 @@
           
             <div class="form-group col-xs-6">
               <label>Data:</label>
-              <input type="text" id="status-period" class="form-control" readonly> </input>
+              <input type="text" id="status-period" class="form-control" readonly required> </input>
             </div>
          </div>
          
          <div clas= "row"> 
             <div class="form-group col-xs-6">
               <label>Hora de Inicio:</label>
-              <input type="text" id="status-startTime" class="form-control" readonly> </input>
+              <input type="text" id="status-startTime" class="form-control" readonly required> </input>
             </div>
           
             <div class="form-group col-xs-6">
               <label>Hora de Término:</label>
-              <input type="text" id="status-endTime" class="form-control" readonly> </input>
+              <input type="text" id="status-endTime" class="form-control" readonly required> </input>
             </div>
           </div>
           

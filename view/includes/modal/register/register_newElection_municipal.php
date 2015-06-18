@@ -1,7 +1,7 @@
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
-<!-- PopUp Vagas Federais -->
-<div class="modal fade" id="popup-newElection-federal" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- PopUp Vagas Municipais -->
+<div class="modal fade" id="popup-newElection-municipal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog  modal-sm">
     <div class="modal-content">
       
@@ -16,24 +16,12 @@
           <div class="row">
             <div class="col-md-12">
               <div class="col-md-12 form-group">
-                  <label>Presidente:</label>
-                  <input type="text" id="register-president" name="register-president" class="form-control" value="1" readonly>
+                  <label>Prefeito:</label>
+                  <input type="text" id="register-mayor" name="register-mayor" class="form-control" value="1" readonly>
               </div>
               <div class="col-md-12 form-group">
-                  <label>Governador:</label>
-                  <input type="text" id="register-governor" name="register-governor" class="form-control" value="1" readonly>
-              </div>
-              <div class="col-md-12 form-group">
-                  <label>Deputados Federais:</label>
-                  <input type="text" id="register-federalDeputy" name="register-federalDeputy" class="form-control">
-              </div>
-              <div class="col-md-12 form-group">
-                  <label>Deputados Estaduais:</label>
-                  <input type="text" id="register-stateDeputy" name="register-stateDeputy" class="form-control">
-              </div>
-              <div class="col-md-12 form-group">
-                  <label>Senador:</label>
-                  <input type="text" id="register-senator" name="register-senator" class="form-control">
+                  <label>Vereadores:</label>
+                  <input type="text" id="register-vereador" name="register-vereador" class="form-control" required>
               </div>
               
               <div class="election-error col-md-12 alert alert-error" style="display:none">

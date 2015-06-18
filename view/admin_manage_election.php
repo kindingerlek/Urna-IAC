@@ -70,7 +70,7 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -125,14 +125,14 @@
         
         <!-- Form com todas as pop-ups -->
         <form action="#" id="form-newElection" name="form-newElection">
-              <?php include "register_newElection_period.php"; 
-                    include "register_newElection_type.php" ;
-                    include "register_newElection_municipal.php" ;
-                    include "register_newElection_federal.php"; ?>
+              <?php include "includes/modal/register/register_newElection_period.php"; 
+                    include "includes/modal/register/register_newElection_type.php" ;
+                    include "includes/modal/register/register_newElection_municipal.php" ;
+                    include "includes/modal/register/register_newElection_federal.php"; ?>
         </form>
         
         <form action="#" id="form-status">        
-          <?php include "status_election.php" ?>        
+          <?php include "includes/modal/status/status_election.php" ?>        
         </form>
         
       </div>
@@ -141,7 +141,7 @@
     </div> 
       
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>
+    <?php include "includes/footer/page_footer.php" ?>
       
         
   </body>
