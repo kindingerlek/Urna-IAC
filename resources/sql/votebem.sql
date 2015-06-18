@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `candidatos` (
   `idEleicao` bigint(20) unsigned NOT NULL,
   `tipo` varchar(30) DEFAULT NULL,
   `idPartido` varchar(2) DEFAULT NULL,
-  `votos` int(11) DEFAULT '0',
+  `votos` int(11) NOT NULL DEFAULT '0',
   `nomeFantasia` varchar(200) DEFAULT NULL,
   `foto` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idCandidato`,`idEleicao`, `tipo`),
@@ -103,21 +103,7 @@ CREATE TABLE IF NOT EXISTS `erros` (
 -- Extraindo dados da tabela `erros`
 --
 
-INSERT INTO `erros` (`cod`, `descricao`) VALUES
-(-14, ' Campo(s) em branco'),
-(-13, ' Usuario já cadastrado'),
-(-12, ' Campo de número de Endereço inválido.'),
-(-11, ' CEP inválido'),
-(-10, ' Seção invalida'),
-(-9, ' Usuários com menos de 16 não podem votar'),
-(-8, ' Data invalida'),
-(-7, ' Senhas não conferem'),
-(-6, ' Nome inválido.'),
-(-5, ' Título Incorreto'),
-(-4, ' Senha incorreta'),
-(-3, ' Falha na busca'),
-(-2, ' Usuário não existe'),
-(-1, ' CPF inválido');
+
 
 -- --------------------------------------------------------
 
@@ -199,13 +185,13 @@ INSERT INTO `usuarios` (`cpf`, `numero`, `email`, `cep`, `complemento`, `nome`, 
 
 CREATE TABLE IF NOT EXISTS `vagas` (
   `idEleicao` bigint(20) unsigned DEFAULT NULL,
-  `presidente` varchar(5) NOT NULL DEFAULT '0',
-  `governador` varchar(5) NOT NULL DEFAULT '0',
-  `prefeito` varchar(5) NOT NULL DEFAULT '0',
-  `senador` varchar(5) NOT NULL DEFAULT '0',
-  `deputadoFederal` varchar(5) NOT NULL DEFAULT '0',
-  `deputadoEstadual` varchar(5) NOT NULL DEFAULT '0',
-  `vereador` varchar(5) NOT NULL DEFAULT '0',
+  `PREFEITO` varchar(5) NOT NULL DEFAULT '0',
+  `GOVERNADOR` varchar(5) NOT NULL DEFAULT '0',
+  `PRESIDENTE` varchar(5) NOT NULL DEFAULT '0',
+  `SENADOR` varchar(5) NOT NULL DEFAULT '0',
+  `DEPUTADO ESTADUAL` varchar(5) NOT NULL DEFAULT '0',
+  `DEPUTADO FEDERAL` varchar(5) NOT NULL DEFAULT '0',
+  `VEREADOR` varchar(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idEleicao`),
   KEY `fkVagasEleicoes` (`idEleicao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -271,6 +257,52 @@ ALTER TABLE `votos`
   ADD CONSTRAINT `fkVotosTipos` FOREIGN KEY (`tipo`) REFERENCES `tipos` (`tipo`),
   ADD CONSTRAINT `fkVotosEleicoes` FOREIGN KEY (`idEleicao`) REFERENCES `eleicoes` (`idEleicao`);
 
+/* INSERTS PADRÕES ///////////////////////
+
+ERROS    */
+
+INSERT INTO `erros`(`cod`, `descricao`) VALUES 
+(-1, ' CPF inválido'),
+(-2, ' Usuário não existe'),
+(-3, ' Falha na busca'),
+(-4, ' Senha incorreta'),
+(-5, ' Título Incorreto'),
+(-6, ' Nome inválido.'),
+(-7, ' Senhas não conferem'), 
+(-8, ' Data invalida'),
+(-9, ' Usuários com menos de 16 não podem votar'),
+(-10, ' Seção invalida'),
+(-11, ' CEP inválido'),
+(-12, ' Campo de número de Endereço inválido.'),
+(-13, ' Usuario já cadastrado'),
+(-14, ' Campo(s) em branco'),
+(-15, ' Sessão invalida'),
+(-16, ' Partido já cadastrado'),
+(-17, ' Número de partido inválido'),
+(-18, ' Nome de partido'), 
+(-19, ' Hora inválida'),
+(-20, ' Hora de término inválida'),
+(-21, ' Número de vereadores inválido'),
+(-22, ' Número de deputados estaduais inválido'),
+(-23, ' Número de deputados federais inválido'),
+(-24, ' Número de candidato inválido'),
+(-25, ' Nome de Candidato'),
+(-26, ' Eleição não existe'),
+(-27, ' Eleição já cadastrada no mesmo dia');
+
+INSERT INTO `tipos` (`tipo`) VALUES 
+('PREFEITO'),
+('VEREADOR'),
+('PRESIDENTE'),
+('GOVERNADOR'),
+('SENADOR'),
+('DEPUTADO FEDERAL'),
+('DEPUTADO ESTADUAL');
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+

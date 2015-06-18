@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title>Gerenciar Eleitores</title>
     
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=enable_js.php">
+    </noscript>
+    
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
     <script src="lib/js/model_login.js"></script>  
@@ -95,12 +99,12 @@
     <form method="POST" action="#" name="form-removeVoter">
       <?php include "status_voter.php" ?>
     </form>
+        
+    <!-- Fim do corpo da Página -->
+    </div>
     
     <!-- Rodapé da página -->
     <?php include "page_footer.php" ?>  
-    
-    <!-- Fim do corpo da Página -->
-    </div>
   </body>
   <script type="text/javascript">
     var pageTitle = $(document).find("title").text();

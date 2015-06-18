@@ -103,38 +103,39 @@ function validateNewElection($newElection)
 	//--------------------------------------------------------------------
 
 	//-------------------------------password-----------------------------
-	$type = $newElection['register-type'];//Atribui a $password
-	$mayor = $newElection['register-mayor'];
-	$governor = $newElection['register-governor'];
-	$president = $newElection['register-president'];
-	//--------------------------------------------------------------------	
+	if(isset($newElection['register-type']))
+	{
+		$type = $newElection['register-type'];//Atribui a $password
+		$mayor = $newElection['register-mayor'];
+		$governor = $newElection['register-governor'];
+		$president = $newElection['register-president'];
+		//--------------------------------------------------------------------	
+		//----------------------------seção-----------------------------------
+		 //Atribui a $session
+		   										 //a sessão de $newElection
+		//--------------------------------------------------------------------
+		//---------------------------codeZip----------------------------------
+		$vereador = $newElection['register-vereador']; //Atribui a $codeZip
+		   										 //o CEP de $newElection
+		if(!validateNumber($vereador))
+			$erros[] = -21; //Retorna erro de codeZip invalida
+		//--------------------------------------------------------------------
+		
+		//--------------------------adressNum---------------------------------
+		$stateDeputy = $newElection['register-stateDeputy']; //Atribui a $codeZip
+		   										 //o CEP de $newElection
+		if(!validateNumber($stateDeputy))
+			$erros[] = -22; //Retorna erro de codeZip invalida
+		//--------------------------------------------------------------------
 
-	//----------------------------seção-----------------------------------
-	 //Atribui a $session
-	   										 //a sessão de $newElection
-	//--------------------------------------------------------------------
+		//--------------------------name---------------------------------
+		$federalDeputy = $newElection['register-federalDeputy']; //Atribui a $codeZip
+		   										 //o CEP de $newElection
+		if(!validateNumber($federalDeputy))
+			$erros[] = -23; //Retorna erro de codeZip invalida 				//Retorna erro de nome invalido
+		//--------------------------------------------------------------------
+	}
 
-	//---------------------------codeZip----------------------------------
-	$vereador = $newElection['register-vereador']; //Atribui a $codeZip
-	   										 //o CEP de $newElection
-	if(!validateNumber($vereador))
-		$erros[] = -21; //Retorna erro de codeZip invalida
-	//--------------------------------------------------------------------
-	
-	//--------------------------adressNum---------------------------------
-	$stateDeputy = $newElection['register-stateDeputy']; //Atribui a $codeZip
-	   										 //o CEP de $newElection
-	if(!validateNumber($stateDeputy))
-		$erros[] = -22; //Retorna erro de codeZip invalida
-	//--------------------------------------------------------------------
-
-	//--------------------------name---------------------------------
-	$federalDeputy = $newElection['register-federalDeputy']; //Atribui a $codeZip
-	   										 //o CEP de $newElection
-	if(!validateNumber($federalDeputy))
-		$erros[] = -23; //Retorna erro de codeZip invalida 				//Retorna erro de nome invalido
-	//--------------------------------------------------------------------
-	
 	$result = isset($erros) ? $erros : 1; // Retorna ou 1 ou um array de erros
 	
 	return $result;

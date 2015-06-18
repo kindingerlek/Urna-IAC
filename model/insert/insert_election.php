@@ -48,14 +48,16 @@ $senator=$election['senator'];
 	mysqli_query($conn,$sql);
 
 
-	foreach ($election as $key => $value) {
-		$idEleicao = "SELECT `idEleicao` FROM eleicoes WHERE data = '$date';";
-		$sql ="INSERT INTO `vagas`(`idTipo`, `idEleicao`, `qtdeVagas`) 
-		VALUES ('$key','$idEleicao','$value')";
-
+	
+		$sql = "SELECT `idEleicao` FROM eleicoes WHERE data = '$date';";
+		$result = mysqli_fetch_assoc(mysqli_query($conn,$sql));
+		$idEleicao = $result["idEleicao"];
+		$sql ="INSERT INTO `vagas` (`idEleicao`, `PREFEITO`, `GOVERNADOR`, `PRESIDENTE`, `SENADOR`, `DEPUTADO ESTADUAL`, `DEPUTADO FEDERAL`, `VEREADOR`)
+		VALUES ('$idEleicao','$mayor', '$governor', '$president', '$senator', '$stateDeputy', '$federalDeputy', '$vereador');";
+		//echo $sql;
 		mysqli_query($conn,$sql);
 
-	}
+	
 
 	
 

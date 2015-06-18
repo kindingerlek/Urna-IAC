@@ -26,6 +26,7 @@ $idElection = $_POST["idElection"];
 
 $conn = openDB();
 
+deleteData('vagas', 'idEleicao', $idElection, $conn);
 deleteData('candidatos', 'idEleicao', $idElection, $conn);
 deleteData('eleicoes', 'idEleicao', $idElection, $conn);
 

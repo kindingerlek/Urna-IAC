@@ -77,8 +77,17 @@
             Não há ações para uma eleição iniciada.
           </div>
         
-          <div id="status-finished" style="display:none" class="col-xs-12">
-            <button type="button" id="status-report" class="btn btn-primary btn-block"> Ver Relatórios</button>
+          <div id="status-finished" style="display:none" class="col-xs-12">          
+              <div class="col-xs-6">
+                <button type="submit" id="status-reportResult" class="btn btn-primary btn-block"> Resultado</button>
+              </div>
+              
+              <div class="col-xs-6">
+                <button type="submit" id="status-reportTickets" class="btn btn-primary btn-block"> Tickets Emitidos</button>
+              </div>
+          </div>
+          
+          <div id="status-error" style="display:none" class="col-xs-12 alert alert-danger">
           </div>
           
           &nbsp

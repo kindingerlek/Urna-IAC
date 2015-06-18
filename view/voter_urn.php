@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title>Urna</title>
     
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=enable_js.php">
+    </noscript>
+    
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
     <script src="lib/js/controller_voter_urn.js"></script>
@@ -139,12 +143,13 @@
             </div>
                         
           </div>  
-              
-                
        </div>
       <!-- Fim do corpo da página -->
-    </div>
-    
+      </div>
+      </div>  
+      
+      <!-- Rodapé da página -->
+      <?php include "page_footer.php" ?>
     <script>
       var pageTitle = $(document).find("title").text();
       

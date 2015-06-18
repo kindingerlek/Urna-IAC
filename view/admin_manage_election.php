@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title>Gerenciar Eleições</title>
     
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=enable_js.php">
+    </noscript>
+    
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
     <script src="lib/js/model_login.js"></script>  
@@ -132,12 +136,14 @@
         </form>
         
       </div>
-      
-      <!-- Rodapé da página -->
-      <?php include "page_footer.php" ?>
-      
+     
     <!-- Fim do corpo da página -->
-    </div>     
+    </div> 
+      
+    <!-- Rodapé da página -->
+    <?php include "page_footer.php" ?>
+      
+        
   </body>
   <script type="text/javascript">
   
@@ -228,33 +234,6 @@
         for(var i=0; i < inputs.length; i++)
           $(inputs[i]).prop('readonly', true);
       }
-      
-      
-      
-      $("#status-manageCandidates").click(
-      function()
-      {
-        alert("Aqui vem o ajax do gerenciamento da eleição.");
-      });
-      
-      $("#status-update").click(
-      function()
-      {
-        alert("Aqui vem o ajax para atualizar a eleição.");
-      });
-      
-      $("#status-remove").click(
-      function()
-      {
-        alert("Aqui vem o ajax para remover a eleição.");
-      });
-        
-      $("#status-report").click(
-      function()
-      {
-        alert("Aqui vem o ajax para gerar o relatório.");
-      });
-      
-      
+            
     </script>
 </html>    
