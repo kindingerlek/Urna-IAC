@@ -1,4 +1,4 @@
--- --------------------------------------------------------
+﻿-- --------------------------------------------------------
 -- Extraindo dados da tabela `cep`
 
 INSERT INTO `cep` (`cep`, `logradouro`, `bairro`, `cidade`, `estado`) VALUES
@@ -219,4 +219,4 @@ INSERT INTO `candidatos`
 (	   '88016',			  1,         'VEREADOR',		'88',		0,'THOR'                    ,'../resources/candidate_photo/1_VEREADOR_88016.jpg'),
 (	   '88017',			  1,         'VEREADOR',		'88',		0,'HOMEM DE FERRO'          ,'../resources/candidate_photo/1_VEREADOR_88017.jpg'),
 (	   '88018',			  1,         'VEREADOR',		'88',		0,'VIUVA NEGRA'             ,'../resources/candidate_photo/1_VEREADOR_88018.jpg'),
-(	   '88019',			  1,         'VEREADOR',		'88',		0,'WOLWERINE'               ,'../resources/candidate_photo/1_VEREADOR_88019.jpg');
+(	   '88019',			  1,         'VEREADOR',		'88',		0,'WOLVERINE'               ,'../resources/candidate_photo/1_VEREADOR_88019.jpg');
