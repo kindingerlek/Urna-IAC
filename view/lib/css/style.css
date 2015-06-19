@@ -178,6 +178,7 @@ body {
   background-position: center top;
   background-size: 100% auto;
   height: 100%;
+  border: #d8d8d8 solid 2px;
 }
 
 .urn-key

@@ -123,6 +123,15 @@ INSERT INTO `eleicoes`
 ('00:00','17/06/2014','23:59','FEDERAL'),
 ('00:00','17/06/2016','23:59','MUNICIPAL');
 
+-- --------------------------------------------------------
+-- Extraindo dados da tabela `candidatos`
+
+INSERT INTO `vagas`
+(`idEleicao`,   `PREFEITO`, `GOVERNADOR`, `PRESIDENTE`, `SENADOR`, `DEPUTADO ESTADUAL`, `DEPUTADO FEDERAL`, `VEREADOR`) VALUES 
+(          1,        '1',            '1',          '1',       '1',                 '3',                '3',       '3'),
+(          2,        '1',            '1',          '1',       '1',                 '3',                '3',       '3'),
+(          3,        '1',            '1',          '1',       '1',                 '3',                '3',       '3');
+
 
 -- --------------------------------------------------------
 -- Extraindo dados da tabela `candidatos`
@@ -141,7 +150,7 @@ INSERT INTO `candidatos`
 (	   '260',			  1,   'SENADOR',		'26',		0,'TOM HANKS'               ,'../resources/candidate_photo/1_SENADOR_260.jpg'),
 (	   '26001',			  1,   'DEPUTADO ESTADUAL',		'26',		0,'JOHNNY DEPP'             ,'../resources/candidate_photo/1_DEPUTADO%20ESTADUAL_26001.jpg'),
 (	   '26002',			  1,   'DEPUTADO ESTADUAL',		'26',		0,'ROBIN WILLIAMS'          ,'../resources/candidate_photo/1_DEPUTADO%20ESTADUAL_26002.jpg'),
-(	   '26003',			  1,   'DEPUTADO ESTADUAL',		'26',		0,'LEONANRDO DICAPRIO'      ,'../resources/candidate_photo/1_DEPUTADO%20ESTADUAL_26003.jpg'),
+(	   '26003',			  1,   'DEPUTADO ESTADUAL',		'26',		0,'LEONARDO DICAPRIO'      ,'../resources/candidate_photo/1_DEPUTADO%20ESTADUAL_26003.jpg'),
 (	   '26004',			  1,   'DEPUTADO ESTADUAL',		'26',		0,'BRUCE WILLIS'            ,'../resources/candidate_photo/1_DEPUTADO%20ESTADUAL_26004.jpg'),
 (	   '26005',			  1,   'DEPUTADO ESTADUAL',		'26',		0,'ROBERT DE NIRO'          ,'../resources/candidate_photo/1_DEPUTADO%20ESTADUAL_26005.jpg'),
 (	   '2606',			  1,   'DEPUTADO FEDERAL',		'26',		0,'MORGAN FREEMAN'          ,'../resources/candidate_photo/1_DEPUTADO%20FEDERAL_2606.jpg'),
