@@ -50,7 +50,7 @@
             
             <div class="row">
               <div class="brd col-xs-12">
-                Nome do maluco: <p id="urn-candidateName"></p>
+                Nome: <p id="urn-candidateName"></p>
               </div>
               
               <div class="brd col-xs-12">

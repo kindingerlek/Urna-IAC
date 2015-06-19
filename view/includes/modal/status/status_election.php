@@ -15,7 +15,7 @@
         
           <div clas= "row">  
             <div class="form-group col-xs-12" >
-              <label>status da Eleição:</label>
+              <label>Status da Eleição:</label>
               <input type="text" id="status-status" class="form-control" readonly> </input>
             </div>
           </div>
@@ -46,7 +46,7 @@
           
           <div clas= "row">
             <div class="form-group col-xs-12">
-              <label>TIPO:</label>
+              <label>Tipo de Eleição:</label>
               <select id="status-type" class="form-control" disabled>
                 <option value="MUNICIPAL">MUNICIPAL</option>
                 <option value="FEDERAL">FEDERAL</option>

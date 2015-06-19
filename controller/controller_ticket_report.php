@@ -43,10 +43,10 @@ if(mysqli_num_rows($tickets)>0)
         $pdf->Ln(15);    
         $pdf->SetFont('Arial','B',8);
         $pdf->Cell(25,7,utf8_decode('INSCRIÇÃO'),1,0,'C');
-        $pdf->Cell(70,7,'NOME DO ELEITOR',1,0,'C');    
+        $pdf->Cell(82,7,'NOME DO ELEITOR',1,0,'C');    
         $pdf->Cell(20,7,'NASC',1,0,'C');
-        $pdf->Cell(20,7,'ZONA',1,0,'C');
-        $pdf->Cell(20,7, utf8_decode('SESSÃO'),1,0,'C');
+        $pdf->Cell(12,7,'ZONA',1,0,'C');
+        $pdf->Cell(16,7, utf8_decode('SEÇÃO'),1,0,'C');
         $pdf->Cell(35,7,'COMPARECIMENTO',1,1,'C'); 
 
     while($ticket = mysqli_fetch_assoc($tickets))
@@ -54,10 +54,10 @@ if(mysqli_num_rows($tickets)>0)
 
         $pdf->SetFont('Arial','',8);
     	$pdf->Cell(25,7,utf8_decode($ticket['tituloEleitor']),1,0,'C');
-        $pdf->Cell(70,7,$ticket['nome'],1,0,'L');    
+        $pdf->Cell(82,7,$ticket['nome'],1,0,'L');    
         $pdf->Cell(20,7,$ticket['dtNasc'],1,0,'C');
-        $pdf->Cell(20,7,$ticket['zona'],1,0,'C');
-        $pdf->Cell(20,7, utf8_decode($ticket['secao']),1,0,'C');
+        $pdf->Cell(12,7,$ticket['zona'],1,0,'C');
+        $pdf->Cell(16,7, utf8_decode($ticket['secao']),1,0,'C');
         $pdf->Cell(35,7,$ticket['data'],1,1,'C'); 
     	
 
