@@ -19,20 +19,22 @@ $root = 'c:/wamp/www/Urna-IAC/';
 require_once($root.'model/open_db/open_db.php');
 
 //select
-require_once($root.'model/select/select.php');
+require_once($root.'model/select/select_candidate.php');
 
 //election status
 require_once($root.'model/election_status/election_status.php');
 
 //Recebe dados via post
+session_start();
+
 $column = $_POST["search-combobox"];
+$idElection = $_SESSION['votebem']['idElection'];
 $param = "%".$_POST["search-input"]."%";
 $table = 'candidatos';
 
-
 $conn = openDB();
 
-$result = select($table, $column, $param, $conn);
+$result = selectCandidate($table, $column, $param, $idElection, $conn);
 
 
 echo ("$('#table-body').html('');");

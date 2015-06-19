@@ -35,7 +35,8 @@
                     
                     while($ri = mysqli_fetch_assoc($result))
                     {
-                      echo "<option value=" .$ri['tipo'] . ">" . $ri['tipo'] . "</option>";
+                      $strTipo = preg_replace('/[ ]/', '_', $ri['tipo']);
+                      echo "<option value=" .$strTipo. ">" . $ri['tipo'] . "</option>";
                     }
                     
                      

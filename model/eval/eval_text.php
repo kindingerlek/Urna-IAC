@@ -22,7 +22,15 @@
 */
 function evalText($text){
 
-	$searchInvalidChar = preg_match('/[^ A-Za-z\']/', $text);
+	if(preg_match('/_/', $text)){
+		//echo(preg_replace('/_/', ' ', $text));
+		$text = preg_replace('/_/', ' ', $text);
+		//echo($text);
+	}
+
+	$searchInvalidChar = preg_match('/[^ A-Za-z]/', $text);
+	
+	//echo($searchInvalidChar);
 
 	if($searchInvalidChar){
 		//string inválida

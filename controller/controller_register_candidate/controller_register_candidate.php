@@ -95,7 +95,17 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 	$candidate['idCandidate'] = formatNumber($newCandidate["register-number"]); 				   		//Formata cpf e salva em $cpf
 	$candidate['name'] = formatText($newCandidate["register-name"]);                 		//Formata nome e salva em $name
 	$candidate['idParty'] = formatNumber($newCandidate["register-party"]); 
-	$candidate['office'] = formatText($newCandidate["register-office"]);  		            //Formata titulo e salva em $votingCard
+
+
+	$candidate['office'] = $newCandidate["register-office"];
+
+	if(preg_match('/_/', $candidate['office'])){
+		//echo(preg_replace('/_/', ' ', $text));
+		$candidate['office'] = preg_replace('/_/', ' ', $candidate['office']);
+		//echo($text);
+	}
+
+	 		            //Formata titulo e salva em $votingCard
 	$candidate['idElection'] = $idElection; 
 	$idCandidate = $candidate['idCandidate'];
 	$office = $candidate['office'];

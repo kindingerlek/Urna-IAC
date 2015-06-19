@@ -86,7 +86,6 @@ function validateNewCandidate($newCandidate)
 	//-------------------------------acronym-----------------------------
 	$office = $newCandidate["office"];//Atribui a $office
 							 			      //a office de $newCandidate
-	
 	if(!validateText($office))
 		$erros[] = -17;                 //Retornaerro "PArtido inválido"
 	//------------------------------------ --------------------------------

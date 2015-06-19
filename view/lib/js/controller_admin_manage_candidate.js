@@ -67,7 +67,7 @@ $(function(){
 		}
 		
 		//Se o numero do candidato sem preenchimento, para o .submit
-		if($("#register-num").val() == ""){
+		if($("#register-number").val() == ""){
 			return false;
 		}
 
