@@ -1,4 +1,4 @@
--- --------------------------------------------------------
+﻿-- --------------------------------------------------------
 -- Extraindo dados da tabela `cep`
 
 INSERT INTO `cep` (`cep`, `logradouro`, `bairro`, `cidade`, `estado`) VALUES
@@ -75,6 +75,7 @@ INSERT INTO `usuarios` (`cpf`, `numero`, `email`, `cep`, `complemento`, `nome`, 
 ('05829791960', '332'   ,            'cagrispan@gmail.com', '81870000',  'ap401', 'CARLOS AUGUSTO LIMA GRISPAN' , '093255330604', '#20140097', '145', '0709', '81dc9bdb52d04dc20036dbd8313ed055', '10/10/1987'),
 ('09487904905', '993'   ,       'alisson.krul@hotmail.com', '83701485',   'Casa', 'ALISSON FRANCISCO KRUL'      , '106469310620', '#20140226', '123', '0123', '18fb622e79c298bcdc038b04860ac3b5', '08/07/1996'),
 ('09964341946', '2079'  ,       'kindingerlek02@gmail.com', '83411050', 'Casa 02', 'LUCAS ERNESTO KINDINGER'     , '106833500620', '#20140098', '186', '0091', '57985ac735bc81dc466da93f48589888', '14/03/1995'),
+('07485894900', '251'  ,       'brunofaczz@hotmail.com', '83025580', 'Casa 01', 'BRUNO HENRIQUE PEREIRA BRAGA'     , '107097460604', '#20141887', '008', '0195', '17db60932875aa8f23510f6a00f7f929', '10/09/1996'),
 
 ('07231623360', '123'   ,              'email@dominio.com', '60425010', 'casa', 'CESAR LEVI BARBOSA'                    , '552321600353', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '07/05/1993'),
 ('09129550157', '123'   ,              'email@dominio.com', '52190347', 'casa', 'BEATRIZ ESTER CAROLINE DA SILVA'       , '083222531376', NULL, '123', '0123', '25d55ad283aa400af464c76d713c07ad', '25/08/1996'),
