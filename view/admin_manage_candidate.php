@@ -1,3 +1,10 @@
+<?php
+  if(!isset($_SESSION)) 
+	{ 
+    session_start(); 
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -39,7 +46,7 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->  
-      <?php include "include/header/page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -120,8 +127,8 @@
         
         var inputs = ['#status-idElection','#status-name','#status-number','#status-party','#status-office'];
         var values = [];
-        var image = '#status-logoImage'
-        var imagePath = '../resources/party_logo/';
+        var image = '#status-photoImage'
+        var imagePath = '../resources/candidate_photo/';
                   
         for(var i=0; i < inputs.length; i++)
         {
