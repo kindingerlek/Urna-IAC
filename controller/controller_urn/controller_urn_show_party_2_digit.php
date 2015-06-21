@@ -1,19 +1,14 @@
 <?php
 /*
-* Título:controller_urn_show_party
+* Título: Controlador de Urna
 *
-* Autor: Alisson e Carlos 
+* Autor: Alisson e Carlos
 * Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Pesquisa e retorda os dados de um partido 
+* Descrição:  Mostra as informações do partido na urna, com exceção da foto.
+*
 *
 */
-
-
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Sub controller

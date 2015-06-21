@@ -1,17 +1,13 @@
 <?php
 /*
-* Título: Adm logado
+* Título: Controlador de Login de Admin
 *
-* Autor: Alisson 
+* Autor: Alisson e Carlos
 * Data de Criação: 09/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Redireciona se admin não logado na page de admin
+* Descrição: Verifica se admin está logado.
 *
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Verify

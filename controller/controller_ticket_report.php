@@ -1,6 +1,13 @@
-
-
 <?php
+/*
+* Título: Controlador de Relatório de Ticket
+*
+* Autor: Alisson e Carlos
+* Data de Criação: 09/06/2015
+*
+* Descrição: Gera o relatório em pdf da tabela de tickets eleição informada.
+*
+*/
 $title = 'RELATÓRIO DE ELEITORES';
 
 require_once('../model/pdf_template/PDF.php'); 

@@ -8,11 +8,10 @@
 * Modificado por:
 * Data de Modificação:
 * 
-* Descrição: valida voto atribuindo os valores corretos para o campo idCandidato
+* Descrição: Valida voto atribuindo os valores corretos para o campo idCandidato
 *
 */
-
- // verify party
+$root = 'c:/wamp/www/Urna-IAC/';
 //Verify
 require_once($root.'model/verify/verify_party.php');
 //Verify

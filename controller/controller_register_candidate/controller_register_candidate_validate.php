@@ -1,25 +1,12 @@
 <?php
 /*
-* Título: New Candidate
+* Título: Controlador de Validação de Cadastro de Candidato
 *
-* Autor: Alisson
-* Data de Criação: 04/06/2015
+* Autor: Alisson e Carlos
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Valida os campos recebidos, retorna um Arayhash com tds os erros encontrados se encontrar 
-* algum ou 1 se o usuario foi cadastrado
+* Descrição:  Verifica se os campos de candidato são válidos. Caso contrário retorna erro correspondente. 
 *
-* Entrada: Arrayhash newCandidate
-*
-* Saída: Valor númerico 0 se ID inválido, 1 Id válido de eleitor e 2 Id válido de administrador
-*
-* Valor de retorno:Arrayhash com tds os erros ou  1 se cadastro efetuado com sucesso;
-*
-* Funções invocadas: evalText(), evalNumber(), evalDate(), getCurrentDate(), evalAge(), evalEmail()
-* 
-*   
 */
 $root = 'c:/wamp/www/Urna-IAC/';
 

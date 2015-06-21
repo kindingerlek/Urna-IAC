@@ -7,8 +7,6 @@
 *
 * Descrição:  Recebe os dados da eleição a ser deletada e chama a função responsável pela deleção. 
 *
-* Dependências: 'model/open_db/open_db.php', 'model/delete/delete_data.php' 
-*
 */
 $root = 'c:/wamp/www/Urna-IAC/';
 

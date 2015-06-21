@@ -5,9 +5,7 @@
 * Autor: Alisson e Carlos
 * Data de Criação: 10/06/2015
 *
-* Descrição:  Cadastra a nova senha no banco de dados. 
-*
-* Dependências: 'model/open_db/open_db.php', 'model/delete/delete_data.php', 'model/update/update_password.php' 
+* Descrição:  Cadastra a nova senha no banco de dados, caso as senhas digitadas sejam iguais. 
 *
 */
 $root = 'c:/wamp/www/Urna-IAC/';

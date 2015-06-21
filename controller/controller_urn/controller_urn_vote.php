@@ -1,17 +1,13 @@
 <?php
 /*
-* Título:controller_urn_new_vote
+* Título: Controlador de Voto
 *
 * Autor: Alisson 
 * Data de Criação: 09/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Redireciona se admin não logado na page de admin
+* Descrição: Recebe os dados de voto via post e, caso não haja erros, inserre no banco de dados.
 *
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 

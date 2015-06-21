@@ -1,18 +1,14 @@
 <?php
 /*
-* Título: Controle de Login
+* Título: Controlador de Cadastro de Usuário
 *
 * Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* Descrição:  Recebe os dados de Usuário via Post e, caso não tenha erros, insere no banco de dados. Caso contrário, retorna o erro coreespondente.
+*
 *
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Sub Controllers

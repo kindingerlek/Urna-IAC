@@ -1,18 +1,13 @@
 <?php
 /*
-* Título: Controle de Login
+* Título: Controlador de Busca de Eleitores
 *
 * Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
+* Data de Criação: 09/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição:  Recebe um usuario e uma senha via POST. 
-*         Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* Descrição: Mostra os Eleitores conforme padrão de busca.
 *
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Open Db

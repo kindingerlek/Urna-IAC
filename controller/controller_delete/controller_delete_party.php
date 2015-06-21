@@ -5,9 +5,7 @@
 * Autor: Alisson e Carlos
 * Data de Criação: 18/06/2015
 *
-* Descrição:  Recebe os dados do partido a ser deletado e chama a função responsável pela deleção. 
-*
-* Dependências: 'model/open_db/open_db.php', 'model/delete/delete_data.php' 
+* Descrição:  Recebe os dados do partido a ser deletado e chama a função responsável pela deleção.  
 *
 */
 $root = 'c:/wamp/www/Urna-IAC/';

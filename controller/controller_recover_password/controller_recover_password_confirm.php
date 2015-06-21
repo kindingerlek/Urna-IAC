@@ -7,7 +7,6 @@
 *
 * Descrição:  Compara se o código enviado é igual ao salvo na $_SESSION. 
 *
-* Dependências: 'model/open_db/open_db.php', 'model/error/error.php', 'model/eval/eval_field.php'
 *
 */
 $root = 'c:/wamp/www/Urna-IAC/';

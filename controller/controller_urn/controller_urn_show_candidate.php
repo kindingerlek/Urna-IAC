@@ -1,19 +1,14 @@
 <?php
 /*
-* Título:controller_urn_show_candidate
+* Título: Controlador de Urna
 *
-* Autor: Alisson 
-* Data de Criação: 11/06/2015
+* Autor: Alisson e Carlos
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Pesquisa e retorda os dados de um candidato
+* Descrição:  Mostra as informações do candidato na urna.
+*
 *
 */
-
-
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Sub controller

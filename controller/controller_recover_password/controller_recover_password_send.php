@@ -5,11 +5,9 @@
 * Autor: Alisson e Carlos
 * Data de Criação: 10/06/2015
 *
-* Descrição:  Envia código de recuperação de senha por email. 
+* Descrição:  Envia código de recuperação de senha por email caso o cpf digitado seja encontrado na base de dados.
+*			  Caso contrário retorna erro. 
 *
-* Dependências: 'model/open_db/open_db.php', 'model/error/error.php', 'model/eval/eval_field.php'
-*				'model/validate/validate_cpf.php', 'model/format/format_number.php', 'model/verify/verify_user.php'
-*				'model/generate/generate_code.php', 'model/generate/generate_message.php', 'model/recover_password/send_email.php'
 */
 $root = 'c:/wamp/www/Urna-IAC/';
 

@@ -1,7 +1,13 @@
-
-
 <?php
-  
+/*
+* Título: Controlador de Relatório de Eleição
+*
+* Autor: Alisson e Carlos
+* Data de Criação: 09/06/2015
+*
+* Descrição: Gera o relatório em pdf da eleição informada.
+*
+*/
 $title = 'RELATÓRIO DA ELEIÇÃO';
 
 require_once('../model/pdf_template/PDF.php');  
