@@ -33,12 +33,16 @@
               </button>
             </div>
             
-            <div class="col-md-12 alert alert-success" id="#recover-success" style="display:none">
+            <div class="col-md-12 form-group">
+              <div class="alert alert-success" id="recover-success" style="display:none">
+            
+              </div>
+              
+              <div class="alert alert-danger" id="recover-passwordError" style="display:none">
+                
+              </div>
             </div>
             
-            <div class="col-md-12 alert alert-danger" id="#recover-error" style="display:none">
-              
-            </div>
             
           </div>
       </div>

@@ -20,6 +20,12 @@
             <label>Confirmar Nova Senha:</label>
             <input type="password" id="recover-cfmPassword" name="recover-cfmPassword" type="text" class="form-control" placeholder="Confirm sua senha">
           </div>
+
+          <div class="col-md-12 form-group">              
+              <div class="alert alert-danger" id="recover-error" style="display:none">
+                
+              </div>
+            </div>
         </div>
       </div>
       <!-- Rodapé -->
