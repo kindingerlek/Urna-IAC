@@ -21,7 +21,7 @@
               </div>
               <div class="col-md-12 form-group">
                   <label>Vereadores:</label>
-                  <input type="text" id="register-vereador" name="register-vereador" class="form-control" required>
+                  <input type="text" id="register-vereador" name="register-vereador" class="form-control" >
               </div>
               
               <div class="election-error col-md-12 alert alert-error" style="display:none">

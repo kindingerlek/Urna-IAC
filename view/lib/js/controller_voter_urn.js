@@ -54,6 +54,27 @@ $(function(){
 	
    var num = $.trim($("#urn-number").text());
    var office = $.trim($("#urn-candidateOffice").text());
+   
+   $("#key-empty").click(function(){
+	   clearUrn();
+	   var num = $.trim($("#urn-number").text());
+	   var office = $.trim($("#urn-candidateOffice").text());
+	   alert("oi");
+	    $.ajax(
+            {     
+                  dataType: 'script',
+                  type: 'POST',
+                  data: { 'idCandidate' : num ,'office' : office },
+                  url: '../controller/controller_urn/controller_urn_vote.php',
+                  success: function(result)
+                        {
+                              
+                        }
+            });
+		 return false;
+	   
+   });
+   
 	$("#key-confirm").click(function(){
 	   var num = $.trim($("#urn-number").text());
 	   var office = $.trim($("#urn-candidateOffice").text());
@@ -86,7 +107,7 @@ $(function(){
         	    	dataType: 'script',
             	    data: { 'party' : num },
             	    type: 'POST',
-            	    url:'../controller/controller_urn/controller_urn_show_party.php',
+            	    url:'../controller/controller_urn/controller_urn_show_party_2_digit.php',
         	    });
 		
 			}

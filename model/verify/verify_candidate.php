@@ -26,10 +26,12 @@ function verifyCandidate($candidate,$conn)
 {
 	$id = $candidate["idCandidate"];// Atribuindo CPF a variavel
 	$idElection = $candidate["idElection"];
+	$office = $candidate["office"];
 
-	$sql = "SELECT * FROM candidatos WHERE idCandidato = '$id' and idEleicao= '$idElection'"; // Monta a query
+	$sql = "SELECT * FROM candidatos WHERE idCandidato = '$id' and idEleicao= '$idElection' and tipo='$office'"; // Monta a query
+	//echo $sql;
 	$result = mysqli_query($conn, $sql);          //Executa a query
-
+	
 	//Se houver registro encerra
 	if(mysqli_num_rows($result)>=1)
 		{

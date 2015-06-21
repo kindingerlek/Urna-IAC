@@ -25,15 +25,15 @@
               </div>
               <div class="col-md-12 form-group">
                   <label>Deputados Federais:</label>
-                  <input type="text" id="register-federalDeputy" name="register-federalDeputy" class="form-control" required>
+                  <input type="text" id="register-federalDeputy" name="register-federalDeputy" class="form-control" >
               </div>
               <div class="col-md-12 form-group">
                   <label>Deputados Estaduais:</label>
-                  <input type="text" id="register-stateDeputy" name="register-stateDeputy" class="form-control" required>
+                  <input type="text" id="register-stateDeputy" name="register-stateDeputy" class="form-control" >
               </div>
               <div class="col-md-12 form-group">
                   <label>Senador:</label>
-                  <input type="text" id="register-senator" name="register-senator" class="form-control" required>
+                  <input type="text" id="register-senator" name="register-senator" class="form-control" >
               </div>
               
               <div class="election-error col-md-12 alert alert-error" style="display:none">
