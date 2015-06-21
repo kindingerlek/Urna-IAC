@@ -47,7 +47,7 @@ $cpf = $_POST['recover-cpf'];
 
 if(!evalField($cpf)) //Verifica se esta vazio
 	{
-		$error[] = -14;
+		$error[] = -14;//Campos em Branco
 	}
 
 $conn = openDB();
@@ -58,7 +58,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 	$isValid = validateCPF($cpf, $conn);
 	if(!$isValid)
 	{
-		$error[] = -1;
+		$error[] = -1;//CPF Inválido
 	}
 
 	if(!isset($error)) // Se não houver erros verifica se existe no BD
@@ -81,14 +81,12 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				$_SESSION["votebem"]["code"] = $code;
 				$_SESSION["votebem"]["cpf"] = $cpf;
 
-				$msg = generateMessage($code,$row);
-
-				
+				$msg = generateMessage($code,$row);				
 
 				smtpmailer($email,"totheworldgroup@gmail.com","VoteBem","Redefinir senha Vote Bem",$msg);
 				
 				echo "$('#recover-success').show();";  
-				echo "$('#recover-success').html('Email enviado!!');";
+				echo "$('#recover-success').html('Email enviado!');";
 
 			}else{
 				$error[] = -2;                //Retorna erro de usuario já cadastrado
