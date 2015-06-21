@@ -9,6 +9,7 @@
     </noscript>
     
     <script src="lib/js/jquery-1.11.0.js"></script>
+    <script src="lib/js/sound_lib_min.js"></script>
     <script src="lib/js/bootstrap.js"></script>
     <script src="lib/js/controller_voter_urn.js"></script>
     <script src="lib/js/model_voter_urn.js"></script>
@@ -22,11 +23,8 @@
     <!-- Página -->      
     <div class="page">
       
-      <!-- Verificar User logado -->
-      <?php include "../controller/controller_voter_logged.php" ?>
-
       <!-- Cabeçalho da página -->  
-      <?php include "includes/header/page_header_sml.php" ?>
+      <?php include "page_header_sml.php" ?>
       <?php include "c://wamp/www/Urna-IAC/model/identify_office/identify_office.php" ?>
             
       <!-- Conteúdo da página -->
@@ -53,7 +51,7 @@
             
             <div class="row">
               <div class="brd col-xs-12">
-                Nome: <p id="urn-candidateName"></p>
+                Nome do maluco: <p id="urn-candidateName"></p>
               </div>
               
               <div class="brd col-xs-12">
@@ -152,11 +150,32 @@
       </div>  
       
       <!-- Rodapé da página -->
-      <?php include "includes/footer/page_footer.php" ?>
+      <?php include "page_footer.php" ?>
     <script>
       var pageTitle = $(document).find("title").text();
-      
+      ion.sound({
+        sounds: 
+        [
+          {
+              name: "confirm"
+              volume: 1,
+              preload: true
+          },
+          {
+              name: "end",
+              volume: 1,
+              preload: true
+          }
+        ],
+      volume: 1,
+      path: "../resources/audio",
+      preload: true
+    });
+
       $("#page-title").text(pageTitle);
+      $("#key-confirm").click(function(
+        ion.sound.play("confirm");
+      ));
     </script>
   </body>
 </html>  
