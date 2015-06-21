@@ -142,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 
 CREATE TABLE IF NOT EXISTS `tipos` (
   `tipo` varchar(30) DEFAULT NULL,
+  `tipoEleicao` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`tipo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -290,14 +291,14 @@ INSERT INTO `erros`(`cod`, `descricao`) VALUES
 (-26, ' Eleição não existe'),
 (-27, ' Eleição já cadastrada no mesmo dia');
 
-INSERT INTO `tipos` (`tipo`) VALUES 
-('PREFEITO'),
-('VEREADOR'),
-('PRESIDENTE'),
-('GOVERNADOR'),
-('SENADOR'),
-('DEPUTADO FEDERAL'),
-('DEPUTADO ESTADUAL');
+INSERT INTO `tipos` (`tipoEleicao`,`tipo`) VALUES 
+(`MUNICIPAL`, 'PREFEITO'),
+(`MUNICIPAL`, 'VEREADOR'),
+(`FEDERAL`, 'PRESIDENTE'),
+(`FEDERAL`, 'GOVERNADOR'),
+(`FEDERAL`, 'SENADOR'),
+(`FEDERAL`, 'DEPUTADO FEDERAL'),
+(`FEDERAL`, 'DEPUTADO ESTADUAL');
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
