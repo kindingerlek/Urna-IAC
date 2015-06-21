@@ -1,5 +1,19 @@
 <?php
 
+
+  /*
+  * Título: Gera Ticket
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição:  Definição da classe de ticket
+  *
+  */
+
 require('../model/open_db/open_db.php');
 class Ticket
 {

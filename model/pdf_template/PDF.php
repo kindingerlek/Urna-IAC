@@ -1,5 +1,19 @@
 <?php
  
+
+  /*
+  * Título: gerar pdf 
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição:  Gera um pdf para mostrar o relatório
+  *
+  */
+
  require('../resources/fpdf/fpdf.php');
 
 class PDF extends FPDF

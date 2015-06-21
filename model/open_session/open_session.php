@@ -1,7 +1,7 @@
 <?php
 
 /*
-* Título:
+* Título: Abre SESSION
 *
 
 * Autor:Alisson
@@ -13,14 +13,7 @@
 * Descrição:		Recebe o tipo de usuário que logou, 1 - eleitor, 2 - admin
 					Abre SESSION
 					Salva o tipo de usuario logado na SESSION
-*
-* Entrada: $typeUser
-*
-* Saída: SESSION iniciada como o tipo de usuario logado 1 se eleitor,  2 se admin 
-*
-* Valor de retorno:  
-*
-* Funções invocadas: Nenhuma  
+*  
 *
 */
 function openSession($user, $isAdmin){

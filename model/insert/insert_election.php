@@ -1,26 +1,18 @@
 <?php
+ 
+  /*
+  * Título: Insere Eleição
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Insere um Eleição no BD
+  *
+  */
 
-/*
-* Título: verifyAddress)
-*
-* Autor: Alisson
-* Data de Criação: 06/06/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Verifica se usuario existe no BD
-*
-* Entrada: Um campo de texto que deve ser um número
-*
-* Saída: 
-*
-* Valor de retorno:1 se valor válido e -0 se invalido
-*
-* Funções invocadas: nada
-* 
-*   
-*/
 $root = 'c:/wamp/www/Urna-IAC/';
 
 require_once($root.'model/format/format_text.php');

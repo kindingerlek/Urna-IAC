@@ -1,25 +1,18 @@
 <?php
 
-/*
-* Título: Validador de CPF
-*
-* Autor: Carlos
-* Data de Criação: 27/05/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Verifica se um CPF é válido
-*
-* Entrada: Um CPF, uma sequencia de 11 números, ex:99999999999
-*
-* Saída: Valor númerico, 1 caso CPF válido, 0 caso CPF inválido
-*
-* Valor de retorno: 1 ou 0
-*
-* Funções invocadas: Nenhuma
-*
-*/
+  /*
+  * Título: Valida CPF
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Verifica se CPF é válido
+  *
+  */
+  
 function evalCPF($CPF){
 
 	//Verifica se a string possui 11 caracteres

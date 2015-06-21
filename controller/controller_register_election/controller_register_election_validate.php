@@ -77,17 +77,17 @@ function validateNewElection($newElection)
 	$startTime = $newElection['register-startTime']; //Atribui a $cpf o campo do cpf
 	
 	if(!evalTime($startTime)) 
-		$erros[] = -19;               //Retorna Erro "Cpf inválido"
+		$erros[] = -19;               //Retorna Erro "Hora inválida"
     //--------------------------------------------------------------------
 
 	//--------------------------------Titulo------------------------------
 	$endTime = $newElection['register-endTime'];   //Atribui a $votingCard
 	   											   //o titulo de $newElection
 	if(!evalTime($endTime)) 
-		$erros[] = -19;
+		$erros[] = -19;              // Retona erro de hora inválida
 
 	if($endTime <= $startTime) 
-		$erros[] = -20;                    //Retorna Erro "Título inválido"
+		$erros[] = -20;                    //Retorna Erro "HOra de término inválida"
 	//--------------------------------------------------------------------
 
 	//-------------------------------password-----------------------------

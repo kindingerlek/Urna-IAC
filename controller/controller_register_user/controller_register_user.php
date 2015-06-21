@@ -66,7 +66,7 @@ require_once($root.'model/insert/insert_zip_code.php');
 foreach ($newUser as $field => $data) {
 	if(!evalField($data))
 		{
-			$error[] = -14;
+			$error[] = -14; // campos em branco
 			break;
 			
 		}
@@ -134,7 +134,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 			}else{
 				
 				$error = null;
-				$error[0] = -13;                //Retorna erro de usuario já cadastrado
+				$error[0] = -13;    //Retorna erro de usuario já cadastrado
 			}
 			
 			

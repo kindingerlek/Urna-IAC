@@ -1,7 +1,7 @@
 <?php 
   
   /*
-  * Título: Elction Status
+  * Título: Eleição aberta?
   *
   * Autor: Alisson e carlos
   * Data de Criação: 11/06/2015
@@ -9,7 +9,7 @@
   * Modificado por:
   * Data de Modificação:
   * 
-  * Descrição: 	Verifica e retorna o satus da eleição
+  * Descrição: 	Verifica e se a eleição esta com o status de Aberta
   *
   */
   require_once('c://wamp/www/Urna-IAC/model/verify/verify_election.php');

@@ -1,26 +1,17 @@
 <?php
 include_once("eval_date.php");
-
-/*
-* Título: Validador de Idade de Eleitor
-*
-* Autor: Carlos
-* Data de Criação: 04/06/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Verifica se a idade do eleitor é maior ou igual a 16
-*
-* Entrada: Uma data. ex: "10/10/1987" 
-*
-* Saída: Valor númerico, 1 caso maior, 0 caso menor.
-*
-* Valor de retorno: 1 ou 0
-*
-* Funções invocadas: eval_date
-*
-*/
+  /*
+  * Título: Valida idade
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição:  Verifica se a idade passada é maior que 16 anos
+  *
+  */
 function evalAge($date){
 
     if(evalDate($date)){

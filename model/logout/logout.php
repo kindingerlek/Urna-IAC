@@ -1,25 +1,19 @@
 <?php
 
-/*
-* Título: Logout
-*
-* Autor: Alisson
-* Data de Criação: 29/05/2015
-*
-* Modificado por:
-* Data de Modificação:
-*
-* Descrição: Verifica se SESSION está de aberta e a fecha se for o caso e redireciona para login
-*
-* Entrada: 
-*
-* Saída: Redireciona para a página de login
-*
-* Valor de retorno:  
-*
-* Funções invocadas:   
-*
-*/
+
+ /*
+ * Título: Realiza logout
+ *
+ * Autor: Alisson e carlos
+ * Data de Criação: 11/06/2015
+ *
+ * Modificado por:
+ * Data de Modificação:
+ * 
+ * Descrição: Realiza logout, limpando asession e retornando para a tela de login
+ *
+ */
+
 function logout()
 {
 	// Se Session existe

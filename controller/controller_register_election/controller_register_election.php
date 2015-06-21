@@ -84,7 +84,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 			}else{
 			
-				$error[0] = -27;                //Retorna erro de usuario já cadastrado
+				$error[0] = -27;                //Retorna erro de eleiçao no mesmo dia
 			}
 			
 			

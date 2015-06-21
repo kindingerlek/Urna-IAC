@@ -1,6 +1,7 @@
 <?php
+
 /*
-* Título: cpfVerify
+* Título: Valida Senha
 *
 * Autor: Alisson
 * Data de Criação: 04/06/2015
@@ -8,18 +9,11 @@
 * Modificado por:
 * Data de Modificação:
 * 
-* Descrição: Recebe um cpf verifica se é válido e envia 1 se for e -1 se estiver invalido
+* Descrição: Verifia se a senha é compativel com sua confirmação
 *
-* Entrada: CPF
-*
-* Saída: Valor númerico 1 se CPF válido e -1 se invalido
-*
-* Valor de retorno: 1 e -1 ;
-*
-* Funções invocadas:  evalNumber() e formatNumber();
-* 
 *   
 */
+
 function validatePassword($password, $cfmPassword)
 {	
 

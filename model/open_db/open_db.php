@@ -1,7 +1,7 @@
 <?php
 
 /*
-* Título:
+* Título: Abre Banco de Dados
 *
 
 * Autor:Carlos
@@ -11,13 +11,6 @@
 * Data de Modificação:29/05/2015
 * 
 * Descrição:		Cria conexão com o banco de dados
-* Entrada: 
-*
-* Saída: objeto do tipo conexão com o banco de dados 
-*
-* Valor de retorno:  
-*
-* Funções invocadas: Nenhuma  
 *
 */
 function openDB(){

@@ -71,9 +71,9 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				$email = $row['email'];
 				$code = generateCode();
 				if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+			    { 
+			        session_start(); 
+			    } 
 				$_SESSION["votebem"]["code"] = $code;
 				$_SESSION["votebem"]["cpf"] = $cpf;
 

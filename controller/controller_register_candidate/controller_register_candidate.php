@@ -77,7 +77,7 @@ foreach ($newCandidate as $field => $data) {
 	if(!evalField($data))
 		{
 			//header('location:../../view/admin_manage_candidate.php');
-			$error[] = -14;
+			$error[] = -14;   // Campos em Branco
 			
 			break;
 		}
@@ -124,23 +124,18 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				{ 
 					if(!verifyCandidate($candidate, $conn))     				 	// Entra se Candidate existe no BD, 1 se sim e 0 se não
 					{
-						// upload do arquivo
-					
 						insertCandidate($candidate, $conn); 					    // Insere Candidate no B
 						echo("alert('Cadastro realizado com sucesso');");
 						echo("location.reload();");
-						//header(	'location:../../view/admin_manage_candidate.php');
 
 					}else{
 					
-						$error[0] = -27;                //Retorna erro de usuario já cadastrado
-						//header('location:../../view/admin_manage_candidate.php');
+						$error[0] = -28; //Candidato com o mesmo número já cadastrado               //Retorna erro de Candidato já cadastrado
 					}
 				
 				}else
 				{
-						$error[0] = -26;                //Retorna erro de usuario já cadastrado
-						//header('location:../../view/admin_manage_candidate.php'); 
+						$error[0] = -26;   //Retorna erro de Eleição não existe
 				}
 
 		}
@@ -152,11 +147,9 @@ move_uploaded_file($_FILES['register-photoInput']['tmp_name'], "../".$uploadFile
 if(is_array($error))
 {
 	echo "$('#register-error').html('');";
-	//header('location:../../view/admin_manage_Candidate.php');
 	for ($i=0; $i<count($error); $i++) {
 
 		$description = error($error[$i],$conn);
-		//echo $error[$i];
 		echo "$('#register-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
 		echo "$('#register-error').show();";  	
 		echo "$('#register-error').append('".$description."<br/>');";

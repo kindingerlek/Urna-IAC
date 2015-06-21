@@ -1,23 +1,18 @@
 <?php
+ 
+  /*
+  * Título: Formata Campos numéricos
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Formata campos numéricos retirando caracteres de máscara ( . / -)
+  *
+  */
 
-/*
-* Título: Formatador de Campos Numéricos
-*
-* Autor: Carlos
-* Data de Criação: 04/06/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Formata uma string numérica
-*
-* Entrada: Um texto. ex: 9.9.9-9/9
-*
-* Saída: Texto formatado. Ex.: 999999999999999
-*
-* Funções invocadas: Nenhuma
-*
-*/
 function formatNumber($number){
 
 	//Retira os espaços no começo e final da string

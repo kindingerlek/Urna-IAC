@@ -1,25 +1,16 @@
 <?php
-/*
-* Título: textVerify()
-*
-* Autor: Alisson
-* Data de Criação: 05/06/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Formata e verifica um campo do tipo texto
-*
-* Entrada: Um campo de texto que deve ser verificado
-*
-* Saída: 
-*
-* Valor de retorno:1 se valor válido e -0 se invalido
-*
-* Funções invocadas: evalText() e formatText();
-* 
-*   
-*/
+  /*
+  * Título: Valida campo
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Verifica se o campo está preenchido
+  *
+  */
 
 function evalField($data)
 {

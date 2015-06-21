@@ -74,7 +74,7 @@ function validateNewCandidate($newCandidate)
 	$office = $newCandidate["office"];//Atribui a $office
 							 			      //a office de $newCandidate
 	if(!validateText($office))
-		$erros[] = -17;                 //Retornaerro "PArtido inválido"
+		$erros[] = -29;                 //Retorna erro "Cargo inválido"
 	//------------------------------------ --------------------------------
 	
 	$result = isset($erros) ? $erros : 1; // Retorna ou 1 ou um array de erros

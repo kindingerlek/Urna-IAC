@@ -1,5 +1,20 @@
 <?php
  
+  
+  /*
+  * Título: Envia email
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição:  Realiza as configurações necessárias para estabelecer a conexão com o PHP MAILER
+  *
+  */
+
+
 /* Extender a classe do phpmailer para envio do email*/
 require_once("c://wamp/www/Urna-IAC/resources/PHPMailer_5.2.4/class.phpmailer.php");
  

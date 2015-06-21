@@ -3,7 +3,7 @@ $root = 'c:/wamp/www/Urna-IAC/';
 require_once($root."model/eval/eval_number.php");
 require_once($root."model/format/format_number.php");
 /*
-* Título: numberVerify()
+* Título: Verifica Numero 
 *
 * Autor: Alisson
 * Data de Criação: 05/06/2015
@@ -12,15 +12,6 @@ require_once($root."model/format/format_number.php");
 * Data de Modificação:
 * 
 * Descrição: Formata e verifica um campo do tipo number
-*
-* Entrada: Um campo de texto que deve ser um número
-*
-* Saída: 
-*
-* Valor de retorno:1 se valor válido e -0 se invalido
-*
-* Funções invocadas: evalNumber() e formatNumber();
-* 
 *   
 */
 function validateNumber($number)

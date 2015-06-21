@@ -1,7 +1,7 @@
 <?php
   
 /*
-* Título: verifyVoterHadVoter()
+* Título: vVerifica Eleitor já votou
 *
 * Autor: Lucas
 * Data de Criação: 16/06/2015
@@ -10,15 +10,6 @@
 * Data de Modificação:
 * 
 * Descrição: Verifica se exite o registro de votação no sistema
-*
-* Entrada: Um campo de texto que deve ser um número
-*
-* Saída: 
-*
-* Valor de retorno:1 se valor válido e -0 se invalido
-*
-* Funções invocadas: nada
-* 
 *   
 */
 

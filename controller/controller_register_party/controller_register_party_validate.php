@@ -66,7 +66,7 @@ function validateNewParty($newParty)
 							 			      //a acronym de $newParty
 	
 	if(!validateText($acronym))
-		$erros[] = -19;                 //Retorna erro "Sigla inválida"
+		$erros[] = -30;                 //Retorna erro "Sigla inválida"
 	//--------------------------------------------------------------------
 	
 	$result = isset($erros) ? $erros : 1; // Retorna ou 1 ou um array de erros

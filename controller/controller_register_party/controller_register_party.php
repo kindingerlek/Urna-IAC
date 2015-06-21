@@ -58,7 +58,7 @@ $newParty = $_POST;
 foreach ($newParty as $field => $data) {
 	if(!evalField($data))
 		{
-			$error[] = -14;
+			$error[] = -14; // Retona erro de campos em branco
 			break;
 			
 		}
@@ -99,7 +99,8 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				echo(" location.reload();");
 			}else{
 			
-				$error[0] = -16;   
+				$error[0] = -16;  //Partido já Cadastro
+				   
 				             //Retorna erro de usuario já cadastrado
 				//header('location:../../view/admin_manage_party.php');
 			}
