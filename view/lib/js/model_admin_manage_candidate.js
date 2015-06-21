@@ -73,9 +73,9 @@ function fillInput(content,field){
 function verifyOffice(office) {
 	if (office == "PRESIDENTE" || office == "PREFEITO" || office == "GOVERNADOR") {
 		return 2;
-	} else if(office == "VEREADOR" || office == "DEPUTADO ESTADUAL") {
+	} else if(office == "VEREADOR" || office == "DEPUTADO_ESTADUAL") {
 		return 5;
-	} else if(office == "DEPUTADO FEDERAL") {
+	} else if(office == "DEPUTADO_FEDERAL") {
 		return 4;
 	} else if(office == "SENADOR") {
 		return 3;
