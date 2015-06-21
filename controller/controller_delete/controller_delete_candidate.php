@@ -1,6 +1,6 @@
 <?php
 /*
-* Título: Controle de Deleção de Candidato
+* Título: Controlador de Deleção de Candidato
 *
 * Autor: Alisson e Carlos
 * Data de Criação: 15/06/2015

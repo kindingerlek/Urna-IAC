@@ -1,18 +1,16 @@
 <?php
 /*
-* Título: Controle de Login
+* Título: Controlador de Envio de Código de Recuperação de Senha.
 *
 * Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* Descrição:  Envia código de recuperação de senha por email. 
 *
+* Dependências: 'model/open_db/open_db.php', 'model/error/error.php', 'model/eval/eval_field.php'
+*				'model/validate/validate_cpf.php', 'model/format/format_number.php', 'model/verify/verify_user.php'
+*				'model/generate/generate_code.php', 'model/generate/generate_message.php', 'model/recover_password/send_email.php'
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Erro
@@ -89,7 +87,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				echo "$('#recover-success').html('Email enviado!');";
 
 			}else{
-				$error[] = -2;                //Retorna erro de usuario já cadastrado
+				$error[] = -2; //Retorna erro de usuario já cadastrado
 			}
 			
 

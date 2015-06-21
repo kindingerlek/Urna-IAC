@@ -1,6 +1,6 @@
 <?php
 /*
-* Título: Controle de Deleção de Partidos
+* Título: Controlador de Deleção de Partidos
 *
 * Autor: Alisson e Carlos
 * Data de Criação: 18/06/2015

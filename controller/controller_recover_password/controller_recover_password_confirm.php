@@ -1,13 +1,13 @@
 <?php
 /*
-* Título: Controle de Recuperação de Senha
+* Título: Controlador de Confirmação de Código de Recuperação de Senha
 *
 * Autor: Alisson e Carlos
 * Data de Criação: 10/06/2015
 *
-* Descrição:  Recebe os dados do usuário a ser deletado e chama a função responsável pela deleção. 
+* Descrição:  Compara se o código enviado é igual ao salvo na $_SESSION. 
 *
-* Dependências: 'model/open_db/open_db.php', 'model/delete/delete_data.php' 
+* Dependências: 'model/open_db/open_db.php', 'model/error/error.php', 'model/eval/eval_field.php'
 *
 */
 $root = 'c:/wamp/www/Urna-IAC/';

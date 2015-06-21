@@ -1,6 +1,6 @@
 <?php
 /*
-* Título: Controle de Deleção de Eleição
+* Título: Controlador de Deleção de Eleição
 *
 * Autor: Alisson e Carlos
 * Data de Criação: 18/06/2015

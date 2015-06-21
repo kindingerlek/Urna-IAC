@@ -1,6 +1,6 @@
 <?php
 /*
-* Título: Controle de Deleção de Usuário
+* Título: Controlador de Deleção de Usuário
 *
 * Autor: Alisson e Carlos
 * Data de Criação: 19/06/2015
