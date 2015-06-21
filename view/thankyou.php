@@ -10,6 +10,7 @@
     
     <script src="lib/js/jquery-1.11.0.js"></script>
     <script src="lib/js/bootstrap.js"></script>
+    <script src="lib/js/sound_lib_min.js"></script>
     <script src="lib/js/controller_voter_urn.js"></script>
     <script src="lib/js/model_voter_urn.js"></script>
     
@@ -54,8 +55,23 @@
     
     <script>
       var pageTitle = $(document).find("title").text();
-      
+      ion.sound({
+        sounds: 
+        [
+          {
+              name: "end",
+              volume: 1,
+              preload: false,
+          }
+        ],
+      volume: 1,
+      path: "../resources/audio/Urn/",
+      preload: false
+      });
       $("#page-title").text(pageTitle);
+      jQuery(function($){
+        ion.sound.play("end");
+      });
     </script>
   </body>
 </html>  

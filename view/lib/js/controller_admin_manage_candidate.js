@@ -91,7 +91,7 @@ $(function(){
 	   return false;
 	});
 	
-	$("#status-removeButton").click(function(){
+	$("#status-removeButton").click(function(){ //Envia ajax que remove o candidato
 		var idCandidate = $("#status-number").val();
 		var idElection = $("#status-idElection").val();
     

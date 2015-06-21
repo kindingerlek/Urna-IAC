@@ -153,29 +153,11 @@
       <?php include "includes/footer/page_footer.php" ?>
     <script>
       var pageTitle = $(document).find("title").text();
-      ion.sound({
-        sounds: 
-        [
-          {
-              name: "confirm"
-              volume: 1,
-              preload: true
-          },
-          {
-              name: "end",
-              volume: 1,
-              preload: true
-          }
-        ],
-      volume: 1,
-      path: "../resources/audio",
-      preload: true
-    });
 
       $("#page-title").text(pageTitle);
-      $("#key-confirm").click(function(
+      $("#key-confirm").click(function(){
         ion.sound.play("confirm");
-      ));
+      });
     </script>
   </body>
 </html>  

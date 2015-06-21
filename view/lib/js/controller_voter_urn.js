@@ -59,37 +59,73 @@ $(function(){
 	   clearUrn();
 	   var num = $.trim($("#urn-number").text());
 	   var office = $.trim($("#urn-candidateOffice").text());
-	   alert("oi");
-	    $.ajax(
-            {     
-                  dataType: 'script',
-                  type: 'POST',
-                  data: { 'idCandidate' : num ,'office' : office },
-                  url: '../controller/controller_urn/controller_urn_vote.php',
-                  success: function(result)
-                        {
-                              
-                        }
-            });
-		 return false;
+
+	    ion.sound({
+			sounds: 
+			[
+				{
+				name: "confirm",
+				volume: 1,
+				preload: false,
+				ended_callback: function(){
+										 $.ajax({     
+								                  dataType: 'script',
+								                  type: 'POST',
+								                  data: { 'idCandidate' : num ,'office' : office },
+								                  url: '../controller/controller_urn/controller_urn_vote.php',
+								                  success: function(result)
+								                        {
+								                        }
+								            });
+										// return false;
+									  }
+				}
+			],
+			volume: 1,
+			path: "../resources/audio/Urn/",
+			preload: true
+		});
+		
+		jQuery(function($){
+			ion.sound.play("confirm");
+		});
 	   
    });
    
 	$("#key-confirm").click(function(){
 	   var num = $.trim($("#urn-number").text());
 	   var office = $.trim($("#urn-candidateOffice").text());
-	   $.ajax(
-            {     
-                  dataType: 'script',
-                  type: 'POST',
-                  data: { 'idCandidate' : num ,'office' : office },
-                  url: '../controller/controller_urn/controller_urn_vote.php',
-                  success: function(result)
-                        {
-                              
-                        }
-            });
-		 return false;
+		
+		ion.sound({
+			sounds: 
+			[
+				{
+				name: "confirm",
+				volume: 1,
+				preload: false,
+				ended_callback: function(){
+										 $.ajax({     
+								                  dataType: 'script',
+								                  type: 'POST',
+								                  data: { 'idCandidate' : num ,'office' : office },
+								                  url: '../controller/controller_urn/controller_urn_vote.php',
+								                  success: function(result)
+								                        {
+								                        }
+								            });
+										// return false;
+									  }
+				}
+			],
+			volume: 1,
+			path: "../resources/audio/Urn/",
+			preload: true
+		});
+		
+		jQuery(function($){
+			ion.sound.play("confirm");
+		});
+		
 	});
             
            
@@ -210,5 +246,5 @@ $(function(){
 			}
 		}
 	});
-
+	
 });
