@@ -22,6 +22,9 @@
     <!-- Página -->      
     <div class="page">
       
+      <!-- Verificar User logado -->
+      <?php include "../controller/controller_voter_logged.php" ?>
+
       <!-- Cabeçalho da página -->  
       <?php include "includes/header/page_header_sml.php" ?>
       <?php include "c://wamp/www/Urna-IAC/model/identify_office/identify_office.php" ?>

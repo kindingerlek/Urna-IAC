@@ -22,6 +22,6 @@ require_once($root.'model/verify/verify_admin_logged.php');
 if(!verifyAdminLogged() == 1)
 {
 
-	//header("refresh:0;url=../index.php");
+	header("refresh:0;url=../index.php");
 }
 ?>

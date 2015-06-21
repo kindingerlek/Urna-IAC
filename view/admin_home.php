@@ -17,6 +17,9 @@
     </head>
   <body>
     
+    <!-- Verificar User logado -->
+    <?php include "../controller/controller_admin_logged.php" ?>
+
     <!-- Página -->      
     <div class="page">
       

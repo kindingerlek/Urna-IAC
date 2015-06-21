@@ -45,6 +45,9 @@
     <!-- Página -->      
     <div class="page">
       
+      <!-- Verificar User logado -->
+      <?php include "../controller/controller_admin_logged.php" ?>
+
       <!-- Cabeçalho da página -->  
       <?php include "includes/header/page_header_sml.php" ?>
             
