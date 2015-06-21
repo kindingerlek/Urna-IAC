@@ -37,10 +37,12 @@ $conn = openDB();
 $result = selectCandidate($table, $column, $param, $idElection, $conn);
 
 
-echo ("$('#table-body').html('');");
+echo ("var candidatePath=[]; $('#table-body').html('');");
 
 while($row = mysqli_fetch_assoc($result)){
-          
+       $cod = number_format($row['idCandidato']);
+        $candidatePath= $row['foto'];
+        
         $line = "<tr>".
                   "<td>".$row['idEleicao']."</td>".
                   "<td>".$row['nomeFantasia']."</td>".
@@ -51,9 +53,9 @@ while($row = mysqli_fetch_assoc($result)){
 
         //echo $line;
         echo ("$('#table-body').append('$line');");
-       
+        echo("candidatePath[$cod] = '$candidatePath';");
+        
     }
-
 mysqli_close($conn);
 
 ?>

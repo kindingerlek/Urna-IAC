@@ -130,7 +130,7 @@
         
         var inputs = ['#status-idElection','#status-name','#status-number','#status-party','#status-office'];
         var values = [];
-        var image = '#status-photoImage'
+        var image = '#status-photoImage';
         var imagePath = '../resources/candidate_photo/';
                   
         for(var i=0; i < inputs.length; i++)
@@ -139,15 +139,19 @@
           $(inputs[i]).val(values[i]);
         }
         
-        imagePath = imagePath + values[2] + ".jpg";
-        if($.UrlExists(imagePath)){
-          $(image).attr('src', imagePath);
-        }
-        else
-        {
-          $(image).attr('src', '../resources/images/noimage.png');
-        }
-        
+        imagePath = candidatePath[values[2]];
+       
+
+        $.ajax({
+          url: imagePath, //or your url
+          success: function(data){
+            $(image).attr('src', imagePath);
+          },
+          error: function(data){
+            $(image).attr('src', '../resources/images/noimage.png');
+          },
+        });
+
       });
     
    </script>

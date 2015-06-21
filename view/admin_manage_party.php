@@ -108,12 +108,6 @@
          
   </body>
   <script type="text/javascript">
-    $.UrlExists = function(url) {
-    	var http = new XMLHttpRequest();
-        http.open('HEAD', url, false);
-        http.send();
-        return http.status!=404;
-    }
   
     var pageTitle = $(document).find("title").text();
     $("#page-title").text(pageTitle);
@@ -135,13 +129,16 @@
         }
         
         imagePath = imagePath + values[2] + ".jpg";
-        if($.UrlExists(imagePath)){
-          $(image).attr('src', imagePath);
-        }
-        else
-        {
-          $(image).attr('src', '../resources/images/noimage.png');
-        }
+        
+        $.ajax({
+          url: imagePath, //or your url
+          success: function(data){
+            $(image).attr('src', imagePath);
+          },
+          error: function(data){
+            $(image).attr('src', '../resources/images/noimage.png');
+          },
+        });
         
       });
       
