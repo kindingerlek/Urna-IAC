@@ -14,11 +14,15 @@
     <script src="lib/js/controller_admin_manage_election.js"></script>
     <script src="lib/js/model_admin_manage_election.js"></script>
     <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
+    <script src="lib/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="lib/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet">
-    <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
+    <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="lib/css/bootstrap-datepicker.css" rel="stylesheet" type="text/css" >
+    <link href="lib/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">  
     
     </head>
   <body>
@@ -237,6 +241,13 @@
         for(var i=0; i < inputs.length; i++)
           $(inputs[i]).prop('readonly', true);
       }
-            
+      
+      $('#register-period').datepicker({
+        format: "dd/mm/yyyy",
+        language: "pt-BR",
+        autoclose: true,
+        todayHighlight: true
+      });
+
     </script>
 </html>    

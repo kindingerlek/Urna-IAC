@@ -55,7 +55,7 @@
               <!-- Input Data de Nascimento -->
               <div class="col-md-6 form-group has-feedback">
                 <label class="control-label">Data de Nascimento:</label>
-                <input type="date" id="register-birthday"  name="register-birthday" name="register" class="form-control" required>
+                <input type="text" id="register-birthday"  name="register-birthday" name="register" class="form-control" required>
                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
               </div>
             </div>

@@ -13,10 +13,12 @@
     <script src="lib/js/model_login.js"></script>  
     <script src="lib/js/controller_login.js"></script>
     <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
+    <script src="lib/js/bootstrap-datepicker.js" type="text/javascript"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
-    <link href="lib/css/style.css" rel="stylesheet">    
+    <link href="lib/css/style.css" rel="stylesheet">
+    <link href="lib/css/bootstrap-datepicker.css" rel="stylesheet" type="text/css" >  
     </head>
   <body>
     <!--
@@ -108,7 +110,14 @@
   </body>
   
   <script type="text/javascript">
-   
+
+    $('#register-birthday').datepicker({
+        format: "dd/mm/yyyy",
+        language: "pt-BR",
+        autoclose: true,
+        todayHighlight: true
+    });
+
 </script>
   
 </html>

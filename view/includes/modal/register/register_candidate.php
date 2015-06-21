@@ -28,8 +28,9 @@
                    
                     
                     $conn = openDB();
-                    
-                    $query = "SELECT * FROM tipos";
+                    $idElection = $_SESSION['votebem']['idElection'];
+
+                    $query = "SELECT * FROM tipos WHERE tipoEleicao = (SELECT tipo FROM eleicoes WHERE idEleicao = $idElection )";
                     $result = mysqli_query($conn,$query);
                     
                     

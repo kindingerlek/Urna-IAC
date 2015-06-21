@@ -46,10 +46,10 @@ require_once($root.'model/insert/insert_zip_code.php');
 
  			
  			// $newUser['register-name'] = "Carlos" ;     
- 			// $newUser['register-votingCard'] = "092255330604"; 
+ 			// $newUser['register-votingCard'] = "543275360116"; 
  			// $newUser['register-zone'] = "1234";       
  			// $newUser['register-session'] = "1234";    
- 			// $newUser['register-cpf'] = "05829791960";    
+ 			// $newUser['register-cpf'] = "47658520241";    
  			// $newUser['register-birthday'] = "12/12/1996";   
     //         $newUser['register-zipCode'] = "83701485";    
     //         $newUser['register-address'] = "qualquer coisa";     
@@ -65,7 +65,7 @@ require_once($root.'model/insert/insert_zip_code.php');
 
 
 //Recebe dados via post
-$newUser = $_POST;
+//$newUser = $_POST;
 
 foreach ($newUser as $field => $data) {
 	if(!evalField($data))
