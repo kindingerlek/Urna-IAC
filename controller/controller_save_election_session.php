@@ -1,14 +1,11 @@
 <?php
 /*
-* Título: salve election id in sesssion
+* Título: Controlador de IdEleição
 *
 * Autor: Alisson 
 * Data de Criação: 15/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Salava na session o id da eleição clicada ADMIN
+* Descrição: Salva na session o id da eleição clicada ADMIN
 *
 */
 

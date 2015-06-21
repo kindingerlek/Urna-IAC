@@ -1,15 +1,12 @@
 <?php
 /*
-* Título: Update eleição
+* Título:COntrolador de Update de Eleição
 *
 * Autor: Alisson e Carlos e Lucas
 * Data de Criação: 17/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
 * Descrição: Update no DB de eleicao. 
-*         Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+*            Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
 *
 */
 
