@@ -110,7 +110,7 @@
               <!-- Input Estado -->
               <div class="col-md-2 form-group has-feedback">
                 <label class="control-label">Estado:</label>
-                <input type="text" id="register-state"  name="register-state" class="form-control" maxlenght="2 required>
+                <input type="text" id="register-state"  name="register-state" class="form-control" maxlenght="2" required>
                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
               </div>
             </div>
