@@ -242,12 +242,15 @@
           $(inputs[i]).prop('readonly', true);
       }
       
-      $('#register-period').datepicker({
-        format: "dd/mm/yyyy",
-        language: "pt-BR",
-        autoclose: true,
-        todayHighlight: true
+      $('#register-period, #status-period').each(function()
+      {
+        $(this).datepicker
+        ({
+          format: "dd/mm/yyyy",
+          language: "pt-BR",
+          autoclose: true,
+          todayHighlight: true
+        });
       });
-
     </script>
 </html>    
