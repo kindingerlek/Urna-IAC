@@ -272,8 +272,8 @@ INSERT INTO `erros`(`cod`, `descricao`) VALUES
 ,(-7, ' Senhas não conferem')
 ,(-8, ' Data invalida')
 ,(-9, ' Usuários com menos de 16 não podem votar')
-,(-10, ' Seção invalida')
-,(-11, ' CEP inválido'), 
+,(-10, ' Seção inválida')
+,(-11, ' CEP inválido') 
 ,(-12, ' Campo de número de Endereço inválido.')
 ,(-13, ' Usuario já cadastrado')
 ,(-14, ' Campo(s) em branco')
