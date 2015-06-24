@@ -258,41 +258,38 @@ ALTER TABLE `votos`
   ADD CONSTRAINT `fkVotosTipos` FOREIGN KEY (`tipo`) REFERENCES `tipos` (`tipo`),
   ADD CONSTRAINT `fkVotosEleicoes` FOREIGN KEY (`idEleicao`) REFERENCES `eleicoes` (`idEleicao`);
 
-/* INSERTS PADRÕES ///////////////////////
-
-ERROS    */
 
 INSERT INTO `erros`(`cod`, `descricao`) VALUES 
-(-1, ' CPF inválido')
-,(-2, ' Usuário não existe')
-,(-3, ' Falha na busca')
-,(-4, ' Senha incorreta')
-,(-5, ' Título Incorreto')
-,(-6, ' Nome inválido.')
-,(-7, ' Senhas não conferem')
-,(-8, ' Data invalida')
-,(-9, ' Usuários com menos de 16 não podem votar')
-,(-10, ' Seção invalida')
-,(-11, ' CEP inválido'), 
-,(-12, ' Campo de número de Endereço inválido.')
-,(-13, ' Usuario já cadastrado')
-,(-14, ' Campo(s) em branco')
-,(-15, ' Sessão invalida')
-,(-16, ' Partido já cadastrado')
-,(-17, ' Número de partido inválido')
-,(-18, ' Nome de partido')
-,(-19, ' Hora inválida')
-,(-20, ' Hora de término inválida')
-,(-21, ' Número de vereadores inválido')
-,(-22, ' Número de deputados estaduais inválido')
-,(-23, ' Número de deputados federais inválido')
-,(-24, ' Número de candidato inválido')
-,(-25, ' Nome de Candidato inválido')
-,(-26, ' Eleição não existe')
-,(-27, ' Eleição já cadastrada no mesmo dia')
-,(-28, ' Candidato com o mesmo número já cadastrado')
-,(-29, ' Cargo inválido')
-,(-30, ' Sigla de partido inválida');
+(-1, ' CPF inválido'), 
+(-2, ' Usuário não existe'),
+(-3, ' Falha na busca'),
+(-4, ' Senha incorreta'),
+(-5, ' Título Incorreto'),
+(-6, ' Nome inválido.'),
+(-7, ' Senhas não conferem'),
+(-8, ' Data invalida'),
+(-9, ' Usuários com menos de 16 não podem votar'),
+(-10, ' Seção invalida'),
+(-11, ' CEP inválido'),
+(-12, ' Campo de número de Endereço inválido.'),
+(-13, ' Usuario já cadastrado'),
+(-14, ' Campo(s) em branco'),
+(-15, ' Sessão invalida'),
+(-16, ' Partido já cadastrado'),
+(-17, ' Número de partido inválido'),
+(-18, ' Nome de partido'),
+(-19, ' Hora inválida'),
+(-20, ' Hora de término inválida'),
+(-21, ' Número de vereadores inválido'),
+(-22, ' Número de deputados estaduais inválido'),
+(-23, ' Número de deputados federais inválido'),
+(-24, ' Número de candidato inválido'),
+(-25, ' Nome de Candidato inválido'),
+(-26, ' Eleição não existe'),
+(-27, ' Eleição já cadastrada no mesmo dia'),
+(-28, ' Candidato com o mesmo número já cadastrado'),
+(-29, ' Cargo inválido'),
+(-30, ' Sigla de partido inválida');
 
 INSERT INTO `tipos` (`tipoEleicao`,`tipo`) VALUES 
 ('MUNICIPAL', 'PREFEITO'),
