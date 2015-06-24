@@ -1,18 +1,14 @@
 <?php
 /*
-* Título: Controle de Login
+* Título: Controlador de Envio de Código de Recuperação de Senha.
 *
 * Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* Descrição:  Envia código de recuperação de senha por email caso o cpf digitado seja encontrado na base de dados.
+*			  Caso contrário retorna erro. 
 *
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Erro
@@ -47,7 +43,7 @@ $cpf = $_POST['recover-cpf'];
 
 if(!evalField($cpf)) //Verifica se esta vazio
 	{
-		$error[] = -14;
+		$error[] = -14;//Campos em Branco
 	}
 
 $conn = openDB();
@@ -58,7 +54,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 	$isValid = validateCPF($cpf, $conn);
 	if(!$isValid)
 	{
-		$error[] = -1;
+		$error[] = -1;//CPF Inválido
 	}
 
 	if(!isset($error)) // Se não houver erros verifica se existe no BD
@@ -75,23 +71,21 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				$email = $row['email'];
 				$code = generateCode();
 				if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+			    { 
+			        session_start(); 
+			    } 
 				$_SESSION["votebem"]["code"] = $code;
 				$_SESSION["votebem"]["cpf"] = $cpf;
 
-				$msg = generateMessage($code,$row);
-
-				
+				$msg = generateMessage($code,$row);				
 
 				smtpmailer($email,"totheworldgroup@gmail.com","VoteBem","Redefinir senha Vote Bem",$msg);
 				
 				echo "$('#recover-success').show();";  
-				echo "$('#recover-success').html('Email enviado!!');";
+				echo "$('#recover-success').html('Email enviado!');";
 
 			}else{
-				$error[] = -2;                //Retorna erro de usuario já cadastrado
+				$error[] = -2; //Retorna erro de usuario já cadastrado
 			}
 			
 

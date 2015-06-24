@@ -1,49 +1,19 @@
-
-
 <?php
+/*
+* Título: Controlador de Relatório de Ticket
+*
+* Autor: Alisson e Carlos
+* Data de Criação: 09/06/2015
+*
+* Descrição: Gera o relatório em pdf da tabela de tickets eleição informada.
+*
+*/
+$title = 'RELATÓRIO DE ELEITORES';
+
+require_once('../model/pdf_template/PDF.php'); 
 require_once('../model/open_db/open_db.php');
 require_once('../model/select/select.php');
 require_once('../model/error/error.php');
-require_once('../resources/fpdf/fpdf.php');
-
-class PDF extends FPDF
-{
-    // Page header
-    function Header()
-    {
-        // Logo
-        $this->Image('../resources/images/ufpr_logo.png',10,6,30);
-        // Arial bold 15
-        $this->SetFont('Arial','B',15);
-        // Move to the right
-        $this->Cell(50);
-        // Title
-        $this->Cell(110,10, utf8_decode('RELATÓRIO DE ELEITORES'),1,0,'C');
-        // Line break
-        $this->Ln(10);
-        
-        // Arial 14
-        $this->SetFont('Arial','',15);
-        // Move to the right
-        $this->Cell(50);
-        // Title
-        $this->Cell(110,8,'SIMULADOR VOTE BEM',1,0,'C');
-        
-        // Line break
-        $this->Ln(20);
-    }
-    
-    // Page footer
-    function Footer()
-    {
-        // Position at 1.5 cm from bottom
-        $this->SetY(-15);
-        // Arial italic 8
-        $this->SetFont('Arial','I',8);
-        // Page number
-        $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-    }
-}
 
 // Instanciation of inherited class
 $pdf = new PDF();
@@ -62,7 +32,7 @@ $positions = select('vagas', 'idEleicao', $idElection, $conn);  		//Buscando nú
 $votes = select('votos', 'idEleicao', $idElection, $conn); 			//Buscando tabela de votos
 
 
-$sql = "SELECT usuarios.*,eleicoes.*, ticket.data from ticket inner join usuarios on usuarios.cpf = ticket.cpf inner join eleicoes on eleicoes.idEleicao = '$idElection' WHERE ticket.idEleicao = eleicoes.idEleicao;";
+$sql = "SELECT usuarios.*,eleicoes.*, ticket.data from ticket inner join usuarios on usuarios.cpf = ticket.cpf inner join eleicoes on eleicoes.idEleicao = '$idElection' WHERE ticket.idEleicao = eleicoes.idEleicao ORDER BY ticket.data;";
 $tickets = mysqli_query($conn, $sql);
 if(mysqli_num_rows($tickets)>0)
 {
@@ -80,10 +50,10 @@ if(mysqli_num_rows($tickets)>0)
         $pdf->Ln(15);    
         $pdf->SetFont('Arial','B',8);
         $pdf->Cell(25,7,utf8_decode('INSCRIÇÃO'),1,0,'C');
-        $pdf->Cell(70,7,'NOME DO ELEITOR',1,0,'C');    
+        $pdf->Cell(82,7,'NOME DO ELEITOR',1,0,'C');    
         $pdf->Cell(20,7,'NASC',1,0,'C');
-        $pdf->Cell(20,7,'ZONA',1,0,'C');
-        $pdf->Cell(20,7, utf8_decode('SESSÃO'),1,0,'C');
+        $pdf->Cell(12,7,'ZONA',1,0,'C');
+        $pdf->Cell(16,7, utf8_decode('SEÇÃO'),1,0,'C');
         $pdf->Cell(35,7,'COMPARECIMENTO',1,1,'C'); 
 
     while($ticket = mysqli_fetch_assoc($tickets))
@@ -91,10 +61,10 @@ if(mysqli_num_rows($tickets)>0)
 
         $pdf->SetFont('Arial','',8);
     	$pdf->Cell(25,7,utf8_decode($ticket['tituloEleitor']),1,0,'C');
-        $pdf->Cell(70,7,$ticket['nome'],1,0,'L');    
+        $pdf->Cell(82,7,$ticket['nome'],1,0,'L');    
         $pdf->Cell(20,7,$ticket['dtNasc'],1,0,'C');
-        $pdf->Cell(20,7,$ticket['zona'],1,0,'C');
-        $pdf->Cell(20,7, utf8_decode($ticket['secao']),1,0,'C');
+        $pdf->Cell(12,7,$ticket['zona'],1,0,'C');
+        $pdf->Cell(16,7, utf8_decode($ticket['secao']),1,0,'C');
         $pdf->Cell(35,7,$ticket['data'],1,1,'C'); 
     	
 

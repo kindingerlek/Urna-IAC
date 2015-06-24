@@ -6,29 +6,21 @@ require_once('verify_id.php');
 
 
 
-/*
-* Título:
-*
-* Autor: Alisson
-*
-* Data de Criação:28/05/2015
-*
-* Última modificação:29/05/2015
-* Modificado por:Alisson
-* 
-* Descrição: 	Verifica se dados são válidos
-*				Caso sejam inválidos chama a função erro
-*				Chama a função verifyId();
-*				Chama a função openSession();
-*				retorna erro correspondete ou 1 para usuario logado, ou 2 para admin logado
-*
-* Entrada:  $_POST["Id"], $_POST["senha"]
-*
-* Saída: Erro ou 1 caso sucesso;
-*
-* Valor de retorno: 
-*
-*/
+ 
+  /*
+  * Título: Valida login de Usuario
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Verifica o id e senha do usuario ao logar
+  *
+  */
+
+
 function validateUser($id, $senha){
 
 if(strlen($id)==0)

@@ -38,8 +38,11 @@
     <!-- Página -->      
     <div class="page">
       
+      <!-- Verificar User logado -->
+      <?php include "../controller/controller_admin_logged.php" ?>
+
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content brd">
@@ -88,11 +91,11 @@
         </table>
         
         <form method = "POST" action ="#" enctype="multipart/form-data" id="form-register-party">
-          <?php include "register_party.php" ?>
+          <?php include "includes/modal/register/register_party.php" ?>
         </form>
         
         <form method="POST" action="#" name="form-removeParty">
-          <?php include "status_party.php" ?>
+          <?php include "includes/modal/status/status_party.php" ?>
         </form>
         
       </div>
@@ -101,16 +104,10 @@
     </div>
     
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>
+    <?php include "includes/footer/page_footer.php" ?>
          
   </body>
   <script type="text/javascript">
-    $.UrlExists = function(url) {
-    	var http = new XMLHttpRequest();
-        http.open('HEAD', url, false);
-        http.send();
-        return http.status!=404;
-    }
   
     var pageTitle = $(document).find("title").text();
     $("#page-title").text(pageTitle);
@@ -132,13 +129,16 @@
         }
         
         imagePath = imagePath + values[2] + ".jpg";
-        if($.UrlExists(imagePath)){
-          $(image).attr('src', imagePath);
-        }
-        else
-        {
-          $(image).attr('src', '../resources/images/noimage.png');
-        }
+        
+        $.ajax({
+          url: imagePath, //or your url
+          success: function(data){
+            $(image).attr('src', imagePath);
+          },
+          error: function(data){
+            $(image).attr('src', '../resources/images/noimage.png');
+          },
+        });
         
       });
       

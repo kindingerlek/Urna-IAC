@@ -1,3 +1,10 @@
+<?php
+  if(!isset($_SESSION)) 
+	{ 
+    session_start(); 
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -38,8 +45,11 @@
     <!-- Página -->      
     <div class="page">
       
+      <!-- Verificar User logado -->
+      <?php include "../controller/controller_admin_logged.php" ?>
+
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -90,11 +100,11 @@
         </table>
      
      <form method ="POST" action ="#" enctype="multipart/form-data" id="form-register-candidate">
-       <?php include "register_candidate.php" ?>
+       <?php include "includes/modal/register/register_candidate.php" ?>
      </form>
      
      <form method="POST" action="#" name="form-removeCandidade">
-      <?php include "status_candidate.php"?>
+      <?php include "includes/modal/status/status_candidate.php"?>
      </form>
      
      </div>
@@ -106,7 +116,7 @@
     
     
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?> 
+    <?php include "includes/footer/page_footer.php" ?> 
     
   </body>
   <script type="text/javascript">
@@ -120,8 +130,8 @@
         
         var inputs = ['#status-idElection','#status-name','#status-number','#status-party','#status-office'];
         var values = [];
-        var image = '#status-logoImage'
-        var imagePath = '../resources/party_logo/';
+        var image = '#status-photoImage';
+        var imagePath = '../resources/candidate_photo/';
                   
         for(var i=0; i < inputs.length; i++)
         {
@@ -129,15 +139,19 @@
           $(inputs[i]).val(values[i]);
         }
         
-        imagePath = imagePath + values[2] + ".jpg";
-        if($.UrlExists(imagePath)){
-          $(image).attr('src', imagePath);
-        }
-        else
-        {
-          $(image).attr('src', '../resources/images/noimage.png');
-        }
-        
+        imagePath = candidatePath[values[2]];
+       
+
+        $.ajax({
+          url: imagePath, //or your url
+          success: function(data){
+            $(image).attr('src', imagePath);
+          },
+          error: function(data){
+            $(image).attr('src', '../resources/images/noimage.png');
+          },
+        });
+
       });
     
    </script>

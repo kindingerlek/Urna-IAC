@@ -1,7 +1,7 @@
 <?php
 
 /*
-* Título: verifyUser()
+* Título: Selecionar
 *
 * Autor: Alisson
 * Data de Criação: 06/06/2015
@@ -9,18 +9,11 @@
 * Modificado por:
 * Data de Modificação:
 * 
-* Descrição: Verifica se usuario existe no BD
+* Descrição: Seleciona um Registro do BD;
 *
-* Entrada: Um campo de texto que deve ser um número
-*
-* Saída: 
-*
-* Valor de retorno:1 se valor válido e -0 se invalido
-*
-* Funções invocadas: nada
-* 
 *   
 */
+
 function select($table, $column, $param, $conn)
 {
 	if($param == ''){
@@ -29,8 +22,7 @@ function select($table, $column, $param, $conn)
 	else{
 		$sql = "SELECT * FROM `$table` WHERE `$column` LIKE '$param';"; // Monta a query
 	}
-	
-	
+
 	$result = mysqli_query($conn, $sql);          //Executa a query
 
 	//Se houver registro encerra
@@ -42,6 +34,5 @@ function select($table, $column, $param, $conn)
 
 	return 0;
 }
-
 
 ?>

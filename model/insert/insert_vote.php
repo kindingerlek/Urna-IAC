@@ -1,26 +1,18 @@
 <?php
 
-/*
-* Título: insert Vote
-*
-* Autor: Alisson
-* Data de Criação: 11/06/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Insere um voto no BD
-*
-* Entrada: Uma connection e um array hash de Voto
-*
-* Saída: Nada, premissa de que os dados já estão válidos
-*
-* Valor de retorno: 1 se valor válido e -0 se invalido
-*
-* Funções invocadas: nada
-* 
-*   
-*/
+ 
+  /*
+  * Título: Insere voto
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Insere um voto no BD
+  *
+  */
 
 function insertVote($vote,$conn)
 {

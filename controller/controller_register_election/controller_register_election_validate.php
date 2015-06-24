@@ -1,25 +1,13 @@
 <?php
 /*
-* Título: New User
+* Título: Controlador de Validação de Cadastro de Eleição
 *
-* Autor: Alisson
-* Data de Criação: 04/06/2015
+* Autor: Alisson e Carlos
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Valida os campos recebidos, retorna um Arayhash com tds os erros encontrados se encontrar 
-* algum ou 1 se o usuario foi cadastrado
+* Descrição:  Verifica se os campos de Eleição são válidos. Caso contrário retorna erro correspondente.
 *
-* Entrada: Arrayhash newElection
 *
-* Saída: Valor númerico 0 se ID inválido, 1 Id válido de eleitor e 2 Id válido de administrador
-*
-* Valor de retorno:Arrayhash com tds os erros ou  1 se cadastro efetuado com sucesso;
-*
-* Funções invocadas: evalText(), evalNumber(), evalDate(), getCurrentDate(), evalAge(), evalEmail()
-* 
-*   
 */
 $root = 'c:/wamp/www/Urna-IAC/';
 
@@ -89,17 +77,17 @@ function validateNewElection($newElection)
 	$startTime = $newElection['register-startTime']; //Atribui a $cpf o campo do cpf
 	
 	if(!evalTime($startTime)) 
-		$erros[] = -19;               //Retorna Erro "Cpf inválido"
+		$erros[] = -19;               //Retorna Erro "Hora inválida"
     //--------------------------------------------------------------------
 
 	//--------------------------------Titulo------------------------------
 	$endTime = $newElection['register-endTime'];   //Atribui a $votingCard
 	   											   //o titulo de $newElection
 	if(!evalTime($endTime)) 
-		$erros[] = -19;
+		$erros[] = -19;              // Retona erro de hora inválida
 
 	if($endTime <= $startTime) 
-		$erros[] = -20;                    //Retorna Erro "Título inválido"
+		$erros[] = -20;                    //Retorna Erro "HOra de término inválida"
 	//--------------------------------------------------------------------
 
 	//-------------------------------password-----------------------------

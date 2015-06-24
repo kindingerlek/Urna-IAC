@@ -3,26 +3,19 @@
 require_once("c:wamp/www/Urna-IAC/model/open_db/open_db.php");
 require_once('c:wamp/www/Urna-IAC/model/open_session/open_session.php');
 
-/*
-* Título:
-*
-* Autor:Alisson
-* Data de Criação:28/05/2015
-*
-* Modificado por: Alisson
-* Data de Modificação:29/05/2015
-* 
-* Descrição: Recebe Id, verifica se é eleitor ou admin, se o registro existe no BD e se a senha está correta 
-*
-* Entrada: $_POST["id"], $_POST["senha"] 
-*
-* Saída: Valor númerico 0 se ID inválido, 1 Id válido de eleitor e 2 Id válido de administrador
-*
-* Valor de retorno: 0, 1 ou 2 
-*
-* Funções invocadas: verifyPw(), error(), openBd(), openSession()
-*
-*/
+ 
+  /*
+  * Título: Verifica Id de Usuario ou admin
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Verifica o id e se é Admin ou Votador
+  *
+  */
 
 function verifyId($id,$pw)
 {

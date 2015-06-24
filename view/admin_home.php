@@ -17,11 +17,14 @@
     </head>
   <body>
     
+    <!-- Verificar User logado -->
+    <?php include "../controller/controller_admin_logged.php" ?>
+
     <!-- Página -->      
     <div class="page">
       
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -36,7 +39,7 @@
     
   
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>
+    <?php include "includes/footer/page_footer.php" ?>
       
     
     

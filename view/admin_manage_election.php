@@ -14,11 +14,15 @@
     <script src="lib/js/controller_admin_manage_election.js"></script>
     <script src="lib/js/model_admin_manage_election.js"></script>
     <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
+    <script src="lib/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="lib/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
     <link href="lib/css/style.css" rel="stylesheet">
-    <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css"> 
+    <link href="lib/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="lib/css/bootstrap-datepicker.css" rel="stylesheet" type="text/css" >
+    <link href="lib/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">  
     
     </head>
   <body>
@@ -68,9 +72,12 @@
     
     <!-- Página -->      
     <div class="page">
-      
+
+      <!-- Verificar User logado -->
+      <?php include "../controller/controller_admin_logged.php" ?>
+  
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -125,14 +132,14 @@
         
         <!-- Form com todas as pop-ups -->
         <form action="#" id="form-newElection" name="form-newElection">
-              <?php include "register_newElection_period.php"; 
-                    include "register_newElection_type.php" ;
-                    include "register_newElection_municipal.php" ;
-                    include "register_newElection_federal.php"; ?>
+              <?php include "includes/modal/register/register_newElection_period.php"; 
+                    include "includes/modal/register/register_newElection_type.php" ;
+                    include "includes/modal/register/register_newElection_municipal.php" ;
+                    include "includes/modal/register/register_newElection_federal.php"; ?>
         </form>
         
         <form action="#" id="form-status">        
-          <?php include "status_election.php" ?>        
+          <?php include "includes/modal/status/status_election.php" ?>        
         </form>
         
       </div>
@@ -141,7 +148,7 @@
     </div> 
       
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>
+    <?php include "includes/footer/page_footer.php" ?>
       
         
   </body>
@@ -234,6 +241,16 @@
         for(var i=0; i < inputs.length; i++)
           $(inputs[i]).prop('readonly', true);
       }
-            
+      
+      $('#register-period, #status-period').each(function()
+      {
+        $(this).datepicker
+        ({
+          format: "dd/mm/yyyy",
+          language: "pt-BR",
+          autoclose: true,
+          todayHighlight: true
+        });
+      });
     </script>
 </html>    

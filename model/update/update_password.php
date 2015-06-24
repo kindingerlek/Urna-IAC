@@ -1,17 +1,17 @@
 <?php
-/*
-* Título: Controle de Login
-*
-* Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
-*
-*/
+
+  /*
+  * Título: Atualiza senha
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Altera os dados de uma senha no DB
+  *
+  */
 
 $root = 'c:/wamp/www/Urna-IAC/';
 

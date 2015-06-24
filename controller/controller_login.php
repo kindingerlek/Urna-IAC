@@ -1,21 +1,18 @@
 <?php
 
 /*
-* Título: Controle de Login
+* Título: Controlador de Login
 *
 * Autor: Alisson e Carlos
 * Data de Criação: 29/05/2015
 *
-* Modificado por:
-* Data de Modificação:
 * 
 * Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* 				    Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
 *
 */
 
 // Dependências
-
 require_once('c://wamp/www/Urna-IAC/model/login_verify/validate_user.php');
 require_once('c://wamp/www/Urna-IAC/model/error/error.php');
 require_once('c://wamp/www/Urna-IAC/model/election_is_open/election_is_open.php');

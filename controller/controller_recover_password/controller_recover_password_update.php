@@ -1,18 +1,13 @@
 <?php
 /*
-* Título: Controle de Login
+* Título: Controlador de Update de Senha
 *
 * Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* Descrição:  Cadastra a nova senha no banco de dados, caso as senhas digitadas sejam iguais. 
 *
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Erro
@@ -23,8 +18,6 @@ require_once($root.'model/open_db/open_db.php');
 
 //Update
 require_once($root.'model/update/update_password.php');
-
-
 
 
 //Recebe dados via post
@@ -47,7 +40,7 @@ if($password == $passwordCfm)
 
 }else
 {
-	$error = -7;
+	$error = -7; // Senhas não conferem
 	$description = error($error,$conn);	// Mostra erro
 	echo "$('#recover-error').append('<span class=".'"glyphicon glyphicon-exclamation-sign"'."aria-hidden=".'"true"'."></span>');";
 	echo "$('#recover-error').show();";  

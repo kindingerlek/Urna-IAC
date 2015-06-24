@@ -37,8 +37,11 @@
     <!-- Página -->      
     <div class="page">
       
+      <!-- Verificar User logado -->
+      <?php include "../controller/controller_admin_logged.php" ?>
+
       <!-- Cabeçalho da página -->  
-      <?php include "page_header_sml.php" ?>
+      <?php include "includes/header/page_header_sml.php" ?>
             
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -97,14 +100,14 @@
     </div>
     
     <form method="POST" action="#" name="form-removeVoter">
-      <?php include "status_voter.php" ?>
+      <?php include "includes/modal/status/status_voter.php" ?>
     </form>
         
     <!-- Fim do corpo da Página -->
     </div>
     
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>  
+    <?php include "includes/footer/page_footer.php" ?>  
   </body>
   <script type="text/javascript">
     var pageTitle = $(document).find("title").text();

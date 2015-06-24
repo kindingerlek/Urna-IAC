@@ -67,7 +67,7 @@ $(function(){
 		}
 		
 		//Se o numero do candidato sem preenchimento, para o .submit
-		if($("#register-num").val() == ""){
+		if($("#register-number").val() == ""){
 			return false;
 		}
 
@@ -91,7 +91,7 @@ $(function(){
 	   return false;
 	});
 	
-	$("#status-removeButton").click(function(){
+	$("#status-removeButton").click(function(){ //Envia ajax que remove o candidato
 		var idCandidate = $("#status-number").val();
 		var idElection = $("#status-idElection").val();
     

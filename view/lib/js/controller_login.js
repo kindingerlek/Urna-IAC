@@ -8,13 +8,14 @@ $(function(){
       });
       
       $("#register-address").blur(function(){  //Função que checa se o endereço foi preenchido corretamente
-           changeFieldState($(this), checkField($(this)));
+           changeFieldState($(this), checkFieldAdress($(this)));
       });
       
       createMasks(); //Função que cria todas as máscaras
       
       $("#register-zipCode").blur(function(){  //Função para preenchimento do endereço a partir do CEP
             changeFieldState($(this), getAddress());
+            changeFieldState($(this), checkFieldZipCode($(this)));
       });
       
       $("#register-votingCard").blur(function(){  //Função para validar título de eleitor
@@ -57,6 +58,12 @@ $(function(){
       
       $("#register-cfmPassword").blur(function(){ //Função que verifica a igualdade dos dois campos de senha
            changeFieldState($(this), passwordCheck($(this)));
+           changeFieldState($("#register-password"), passwordCheck($(this)));
+      });
+      
+      $("#register-password").blur(function(){ //Função que verifica a igualdade dos dois campos de senha
+           changeFieldState($(this), passwordCheck($(this)));
+           changeFieldState($("#register-cfmPassword"), passwordCheck($(this)));
       });
       
        $("#recover-cpf").blur(function(){  //Função para validar o CPF na tela de recuperação de senha

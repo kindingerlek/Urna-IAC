@@ -1,25 +1,17 @@
 <?php
 /*
-* Título: verifyUser()
-*
-* Autor: Alisson
-* Data de Criação: 06/06/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Verifica se usuario existe no BD
-*
-* Entrada: Um campo de texto que deve ser um número
-*
-* Saída: 
-*
-* Valor de retorno:1 se valor válido e -0 se invalido
-*
-* Funções invocadas: nada
-* 
-*   
-*/
+  * Título: Deleta registro
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Deleta um registro do bD
+  *
+  */
+
 function deleteData($table, $column, $primary, $conn)
 {
 

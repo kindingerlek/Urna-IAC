@@ -1,15 +1,12 @@
 <?php
 /*
-* Título: Controle de Login
+* Título: Controlador de Urna
 *
 * Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* Descrição:  Verifica qual o tipo de eleição e mostra os candidatos na ordem. Ao final envia o eleitor para a tela de agradecimento.
+*
 *
 */
 $root = 'c:/wamp/www/Urna-IAC/';

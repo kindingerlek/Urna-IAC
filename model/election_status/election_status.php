@@ -1,7 +1,7 @@
 <?php 
   
   /*
-  * Título: Elction Status
+  * Título: Estado de eleição
   *
   * Autor: Alisson e carlos
   * Data de Criação: 11/06/2015

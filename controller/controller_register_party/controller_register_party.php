@@ -1,18 +1,14 @@
 <?php
 /*
-* Título: Controle de Login
+* Título: Controlador de Cadastro de Partido
 *
 * Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* Descrição:  Recebe os dados de Partido via Post e, caso não tenha erros, insere no banco de dados. Caso contrário, retorna o erro coreespondente.
+*
 *
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Sub Controllers
@@ -62,7 +58,7 @@ $newParty = $_POST;
 foreach ($newParty as $field => $data) {
 	if(!evalField($data))
 		{
-			$error[] = -14;
+			$error[] = -14; // Retona erro de campos em branco
 			break;
 			
 		}
@@ -103,7 +99,8 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 				echo(" location.reload();");
 			}else{
 			
-				$error[0] = -16;   
+				$error[0] = -16;  //Partido já Cadastro
+				   
 				             //Retorna erro de usuario já cadastrado
 				//header('location:../../view/admin_manage_party.php');
 			}

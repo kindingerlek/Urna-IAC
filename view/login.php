@@ -13,10 +13,12 @@
     <script src="lib/js/model_login.js"></script>  
     <script src="lib/js/controller_login.js"></script>
     <script src="lib/js/jquery.maskedinput.js" type="text/javascript"></script>
+    <script src="lib/js/bootstrap-datepicker.js" type="text/javascript"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="lib/css/bootstrap.css" rel="stylesheet">
-    <link href="lib/css/style.css" rel="stylesheet">    
+    <link href="lib/css/style.css" rel="stylesheet">
+    <link href="lib/css/bootstrap-datepicker.css" rel="stylesheet" type="text/css" >  
     </head>
   <body>
     <!--
@@ -64,7 +66,7 @@
     <div class="page">
       
       <!-- Cabeçalho da página -->
-      <?php include "page_header_big.php" ?>
+      <?php include "includes/header/page_header_big.php" ?>
       
       <!-- Conteúdo da página -->
       <div class="page-content">
@@ -103,25 +105,32 @@
       </div>
       
       <form id="form-recover" method="POST" action="#">
-        <?php include "recover_password.php" ?>
+        <?php include "includes/modal/recover/recover_password.php" ?>
       </form>
       
       <form id="form-pwReset" method="POST" action="#">
-        <?php include "recover_newPassword.php" ?>
+        <?php include "includes/modal/recover/recover_newPassword.php" ?>
       </form>
             
       <form id="form-register" method="POST" action="#">
-        <?php include "register_new_user.php" ?>
+        <?php include "includes/modal/register/register_new_user.php" ?>
       </form>
     <!-- Fim da página -->
     </div>
     
     <!-- Rodapé da página -->
-    <?php include "page_footer.php" ?>
+    <?php include "includes/footer/page_footer.php" ?>
   </body>
   
   <script type="text/javascript">
-   
+
+    $('#register-birthday').datepicker({
+        format: "dd/mm/yyyy",
+        language: "pt-BR",
+        autoclose: true,
+        todayHighlight: true
+    });
+
 </script>
   
 </html>

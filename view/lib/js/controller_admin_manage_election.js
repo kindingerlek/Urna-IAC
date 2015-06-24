@@ -35,6 +35,18 @@ $(function(){
 		
 	});
 	
+	$("#status-startTime").focus(function(){
+
+		createMaskElectionTime($(this));
+		
+	});
+	
+	$("#status-endTime").focus(function(){
+
+		createMaskElectionTime($(this));
+		
+	});
+	
 	$("#register-endTime").focus(function(){
 		
 		createMaskElectionTime($(this));

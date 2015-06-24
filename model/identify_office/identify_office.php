@@ -1,4 +1,17 @@
 <?php
+ 
+  /*
+  * Título: Identifica Cargo
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Identifica o cargo do a ser votando utilizando os dados salvos em session
+  *
+  */
 
 function identifyOffice(){
 

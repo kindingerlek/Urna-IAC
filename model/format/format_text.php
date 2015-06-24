@@ -1,23 +1,19 @@
 <?php
 
-/*
-* Título: Formatador de Campos de Texto
-*
-* Autor: Carlos
-* Data de Criação: 04/06/2015
-*
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: Formata uma string de texto
-*
-* Entrada: Um texto. ex:   Carlos Augusto  
-*
-* Saída: Texto formatado. Ex.: CARLOS AUGUSTO
-*
-* Funções invocadas: Nenhuma
-*
-*/
+ 
+  /*
+  * Título: Formata Campos Títul texto
+  *
+  * Autor: Alisson e carlos
+  * Data de Criação: 11/06/2015
+  *
+  * Modificado por:
+  * Data de Modificação:
+  * 
+  * Descrição: 	Formata campos de texto retirando os espaços nos extremos e colocando em UpperCase
+  *
+  */
+
 function formatText($text){
 
 	//Retira os espaços no começo e final da string

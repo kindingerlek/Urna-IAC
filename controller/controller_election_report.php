@@ -1,49 +1,19 @@
-
-
 <?php
+/*
+* Título: Controlador de Relatório de Eleição
+*
+* Autor: Alisson e Carlos
+* Data de Criação: 09/06/2015
+*
+* Descrição: Gera o relatório em pdf da eleição informada.
+*
+*/
+$title = 'RELATÓRIO DA ELEIÇÃO';
+
+require_once('../model/pdf_template/PDF.php');  
 require_once('../model/open_db/open_db.php');
 require_once('../model/select/select.php');
 require_once('../model/error/error.php');
-require_once('../resources/fpdf/fpdf.php');
-
-class PDF extends FPDF
-{
-    // Page header
-    function Header()
-    {
-        // Logo
-        $this->Image('../resources/images/ufpr_logo.png',10,6,30);
-        // Arial bold 15
-        $this->SetFont('Arial','B',15);
-        // Move to the right
-        $this->Cell(50);
-        // Title
-        $this->Cell(110,10, utf8_decode('RELATÓRIO DE ELEIÇÃO'),1,0,'C');
-        // Line break
-        $this->Ln(10);
-        
-        // Arial 14
-        $this->SetFont('Arial','',15);
-        // Move to the right
-        $this->Cell(50);
-        // Title
-        $this->Cell(110,8,'SIMULADOR VOTE BEM',1,0,'C');
-        
-        // Line break
-        $this->Ln(10);
-    }
-    
-    // Page footer
-    function Footer()
-    {
-        // Position at 1.5 cm from bottom
-        $this->SetY(-15);
-        // Arial italic 8
-        $this->SetFont('Arial','I',8);
-        // Page number
-        $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-    }
-}
 
 // Instanciation of inherited class
 $pdf = new PDF();
@@ -70,10 +40,13 @@ if($votes)
 { 
 	$positions = mysqli_fetch_assoc($positions);
 	foreach($positions as $office=>$value){
-		$totalVotes[$office]=0;
-		$nullVotes[$office]=0;
-		$emptyVotes[$office]=0;
-		$validVotes[$office]=0;
+		if($value != 0)
+		{
+			$totalVotes[$office]=0;
+			$nullVotes[$office]=0;
+			$emptyVotes[$office]=0;
+			$validVotes[$office]=0;
+		}
 	}
 
 	while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da tabela de votos

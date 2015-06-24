@@ -1,18 +1,14 @@
 <?php
 /*
-* Título: Controle de Login
+* Título: Controlador de Cadastro de Eleição
 *
 * Autor: Alisson e Carlos
-* Data de Criação: 29/05/2015
+* Data de Criação: 10/06/2015
 *
-* Modificado por:
-* Data de Modificação:
-* 
-* Descrição: 	Recebe um usuario e uma senha via POST. 
-* 				Verifica se um login é válido e direciona para a a tela correspondente, se não, retorna erro 
+* Descrição:  Recebe os dados de Eleição via Post e, caso não tenha erros, insere no banco de dados. Caso contrário, retorna o erro coreespondente.
+*
 *
 */
-
 $root = 'c:/wamp/www/Urna-IAC/';
 
 //Sub Controllers
@@ -88,7 +84,7 @@ if(!isset($error)) // SE NÃO HOUVER CAMPOS EM BRANCO CONTINUA
 
 			}else{
 			
-				$error[0] = -27;                //Retorna erro de usuario já cadastrado
+				$error[0] = -27;                //Retorna erro de eleiçao no mesmo dia
 			}
 			
 			
