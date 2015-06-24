@@ -40,10 +40,13 @@ if($votes)
 { 
 	$positions = mysqli_fetch_assoc($positions);
 	foreach($positions as $office=>$value){
-		$totalVotes[$office]=0;
-		$nullVotes[$office]=0;
-		$emptyVotes[$office]=0;
-		$validVotes[$office]=0;
+		if($value != 0)
+		{
+			$totalVotes[$office]=0;
+			$nullVotes[$office]=0;
+			$emptyVotes[$office]=0;
+			$validVotes[$office]=0;
+		}
 	}
 
 	while($vote = mysqli_fetch_assoc($votes)){				//Iterando em cada instância da tabela de votos

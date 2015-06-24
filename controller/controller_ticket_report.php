@@ -32,7 +32,7 @@ $positions = select('vagas', 'idEleicao', $idElection, $conn);  		//Buscando nú
 $votes = select('votos', 'idEleicao', $idElection, $conn); 			//Buscando tabela de votos
 
 
-$sql = "SELECT usuarios.*,eleicoes.*, ticket.data from ticket inner join usuarios on usuarios.cpf = ticket.cpf inner join eleicoes on eleicoes.idEleicao = '$idElection' WHERE ticket.idEleicao = eleicoes.idEleicao;";
+$sql = "SELECT usuarios.*,eleicoes.*, ticket.data from ticket inner join usuarios on usuarios.cpf = ticket.cpf inner join eleicoes on eleicoes.idEleicao = '$idElection' WHERE ticket.idEleicao = eleicoes.idEleicao ORDER BY ticket.data;";
 $tickets = mysqli_query($conn, $sql);
 if(mysqli_num_rows($tickets)>0)
 {
